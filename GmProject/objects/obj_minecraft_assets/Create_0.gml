@@ -1,1 +1,0 @@
-minecraft_assets_event_create()

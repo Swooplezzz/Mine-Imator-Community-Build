@@ -1,1 +1,0 @@
-particle_event_destroy()

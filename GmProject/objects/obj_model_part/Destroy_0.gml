@@ -1,1 +1,0 @@
-model_part_event_destroy()
