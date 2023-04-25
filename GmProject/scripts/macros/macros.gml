@@ -4,7 +4,7 @@
 function macros()
 {
 	// Debug
-	#macro dev_mode						true
+	#macro dev_mode						false
 	#macro dev_mode_skip_blocks			dev_mode && false
 	#macro dev_mode_debug_schematics	dev_mode && true
 	#macro dev_mode_debug_names			dev_mode && true
@@ -21,7 +21,7 @@ function macros()
 	// Versions
 	#macro mineimator_version			"2.0.0"
 	#macro mineimator_version_sub		"Community Build 1.0.0"
-	#macro mineimator_version_extra		"Indev"
+	#macro mineimator_version_extra		"Alpha 2"
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
 	#macro mineimator_version_date		"2023.04.25"
 	#macro minecraft_version			"1.19.4"
