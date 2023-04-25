@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Follow Position",
-    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Follow Targets/Follow Position.yy",
+    "name": "Follow position",
+    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Follow targets/Follow position.yy",
   },
 }

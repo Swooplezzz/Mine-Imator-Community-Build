@@ -4,13 +4,7 @@
 
 function model_shape_generate_block(bend)
 {
-	
-	
-	
 	// Block dimensions
-	
-	
-	
 	var x1, x2, y1, y2, z1, z2, size, scalef;
 	x1 = from[X];	y1 = from[Y];	z1 = from[Z]
 	x2 = to[X];		y2 = to[Y];		z2 = to[Z]
@@ -108,7 +102,7 @@ function model_shape_generate_block(bend)
 	
 	// Start position and bounds
 	var sharpbend, bendsize, detail, bendstart, bendend, bendsegsize, invangle;
-	sharpbend = (app.project_bend_style = "blocky") && ((bend_axis[X] && !bend_axis[Y] && !bend_axis[Z]) || (!bend_axis[X] && bend_axis[Y] && !bend_axis[Z])) && bend_size = null
+	sharpbend = app.project_bend_style = "blocky" && bend_size = null && ((bend_axis[X] && !bend_axis[Y] && !bend_axis[Z]) || (!bend_axis[X] && bend_axis[Y] && !bend_axis[Z]) || (!bend_axis[X] && !bend_axis[Y] && bend_axis[Z]))
 	bendsize = (bend_size = null ? (app.project_bend_style = "realistic" ? 4 : 1) : bend_size)
 	detail = (sharpbend ? 2 : real(max(bendsize, 2)))
 	

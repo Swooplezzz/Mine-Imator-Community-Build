@@ -162,15 +162,15 @@ function history_restore_tl(save, tl = null)
 		for (var s = 0; s < save.usage_kf_ik_target_amount; s++)
 			with (save_id_find(save.usage_kf_ik_target_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_ik_target_index[s]].value[e_value.IK_TARGET] = tl
-				
+		
 		for (var s = 0; s < save.usage_kf_flw_rot_target_amount; s++)
 			with (save_id_find(save.usage_kf_flw_rot_target_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_flw_rot_target_index[s]].value[e_value.ROT_TARGET] = tl
-				
+		
 		for (var s = 0; s < save.usage_kf_flw_pos_target_amount; s++)
 			with (save_id_find(save.usage_kf_flw_pos_target_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_flw_pos_target_index[s]].value[e_value.POS_TARGET] = tl
-				
+		
 		for (var s = 0; s < save.usage_kf_flw_scale_target_amount; s++)
 			with (save_id_find(save.usage_kf_flw_scale_target_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_flw_scale_target_index[s]].value[e_value.SCALE_TARGET] = tl

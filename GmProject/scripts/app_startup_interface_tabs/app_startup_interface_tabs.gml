@@ -474,8 +474,9 @@ function app_startup_interface_tabs()
 		with (constraints)
 		{
 			// Path
-			tbx_path_offset = new_textbox_decimals()
+			tbx_path_offset = new_textbox_ndecimals()
 			
+			// Follow position offset
 			tbx_follow_pos_offset_x = new_textbox_decimals()
 			tbx_follow_pos_offset_y = new_textbox_decimals()
 			tbx_follow_pos_offset_z = new_textbox_decimals()
@@ -661,6 +662,8 @@ function app_startup_interface_tabs()
 		{
 			tbx_volume = new_textbox_integer()
 			tbx_volume.suffix = "%"
+			tbx_pitch = new_textbox_integer()
+			tbx_pitch.suffix = "%"
 			tbx_start = new_textbox_decimals()
 			tbx_end = new_textbox_ndecimals()
 		}

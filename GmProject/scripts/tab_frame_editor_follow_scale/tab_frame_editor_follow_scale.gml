@@ -3,7 +3,7 @@
 function tab_frame_editor_follow_scale(){
 	
 	tab_control_switch()
-	draw_button_collapse("followscale", collapse_map[?"followscale"], null, true, "frameeditorfollowscale", "frameeditorfollowscale")
+	draw_button_collapse("followscale", collapse_map[?"followscale"], null, true, "frameeditorfollowscale", "frameeditorfollowscaletip")
 	tab_next()
 	
 	if (collapse_map[?"followscale"])

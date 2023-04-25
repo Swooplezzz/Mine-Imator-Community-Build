@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Follow Targets",
-    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Follow Targets.yy",
+    "name": "Follow rotation",
+    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Follow targets/Follow rotation.yy",
   },
 }

@@ -214,6 +214,7 @@ namespace CppProject
 	IntType audio_play_sound(IntType, IntType, BoolType);
 	void audio_resume_sound(IntType);
 	void audio_sound_gain(IntType, RealType, RealType);
+	void audio_sound_pitch(IntType, RealType);
 	RealType audio_sound_get_track_position(IntType);
 	void audio_sound_set_track_position(IntType, RealType);
 	void audio_stop_all();

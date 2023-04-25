@@ -68,7 +68,6 @@ function history_restore_part_usage_tl(hobj)
 			tl.keyframe_list[|kfindex].value[e_value.SCALE_TARGET] = save_id_find(usage_kf_flw_scale_target_tl_part_save_id[i])
 		}
 		
-		
 		for (var i = 0; i < usage_kf_ik_target_angle_amount; i++)
 		{
 			tl = save_id_find(usage_kf_ik_target_angle_tl_save_id[i])

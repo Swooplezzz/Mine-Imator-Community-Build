@@ -44,6 +44,7 @@ function block_get_timeline(block, stateid)
 			}
 			
 			text_position = block.tl_text_position
+			text_scale = block.tl_text_scale
 		}
 		
 		// Get banner patterns
@@ -65,7 +66,7 @@ function block_get_timeline(block, stateid)
 		if (mc_builder.block_skull_map[?pos] != undefined)
 		{
 			var userid = mc_builder.block_skull_map[?pos];
-			texture =  mc_builder.block_skull_res_map[?userid]
+			texture = mc_builder.block_skull_res_map[?userid]
 		}
 		else
 			texture = null

@@ -63,7 +63,6 @@ function action_tl_remove()
 	
 	project_ik_part_array = null
 	
-	
 	tl_update_list()
 	tl_update_length()
 	tl_update_matrix()

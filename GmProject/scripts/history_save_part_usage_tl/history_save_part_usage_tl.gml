@@ -68,6 +68,7 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
+		
 		if (value[e_value.POS_TARGET] = tl)
 		{
 			hobj.usage_kf_flw_pos_target_tl_save_id[hobj.usage_kf_flw_pos_target_amount] = save_id_get(timeline)
@@ -77,6 +78,7 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
+		
 		if (value[e_value.SCALE_TARGET] = tl)
 		{
 			hobj.usage_kf_flw_scale_target_tl_save_id[hobj.usage_kf_flw_scale_target_amount] = save_id_get(timeline)

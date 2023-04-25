@@ -43,7 +43,7 @@ function app_startup()
 	
 	if (!minecraft_assets_startup())
 		return false
-
+	
 	startup_error = false
 	
 	return true

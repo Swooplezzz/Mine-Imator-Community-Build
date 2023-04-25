@@ -63,7 +63,7 @@ function skins_directory_get()
 /// Returns an URL to an article showing how to update graphics drivers.
 function drivers_url_get()
 {
-	return "https://www.thewindowsclub.com/how-to-update-graphics-drivers-windows"
+	return link_article_drivers
 }
 
 /// Returns whether an array of filenames are accepted to be dropped on the window.
@@ -83,8 +83,6 @@ function window_drop(files)
 {
 	asset_load(files[0])
 }
-
-
 
 /// CppSeparate IntType window_get_current()
 /// Returns the current window being rendered to as an e_window value.

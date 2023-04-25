@@ -1,6 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function tl_update_flw(parts){
+function tl_update_flw(parts)
+{
 	if (array_length(parts) = 0)
 		return 0
 	
@@ -8,8 +9,6 @@ function tl_update_flw(parts){
 	repeat (2)
 	{
 		var update = false
-		
-
 		
 		for (var i = 0; i < array_length(parts); i++)
 		{
@@ -32,9 +31,7 @@ function do_flw(tl)
 {
 	if (tl = null)
 		return 0
-		
 
-			
-		tl.update_matrix = true
-		return 0
+	tl.update_matrix = true
+	return 0
 }

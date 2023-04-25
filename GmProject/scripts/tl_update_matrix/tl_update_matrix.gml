@@ -26,7 +26,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 		
 		with (curtl)
 		{
-
 			if (usepaths && (type = e_tl_type.PATH || type = e_tl_type.PATH_POINT))
 			{
 				update_matrix = false
@@ -88,7 +87,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 						matrix_parent = matrix_multiply(matrix_parent, path.matrix)
 				}
 			}
-
 			
 			// Add body part position and rotation
 			if (type = e_tl_type.BODYPART && model_part != null)
@@ -100,7 +98,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 			}
 			
 			// Create main matrix
-			
 			pos = point3D(value[e_value.POS_X], value[e_value.POS_Y], value[e_value.POS_Z])
 			rot = vec3(value[e_value.ROT_X], value[e_value.ROT_Y], value[e_value.ROT_Z])
 			sca = vec3(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])
@@ -108,9 +105,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 			matrix_local = matrix_create(pos, rot, sca)
 			matrix = matrix_multiply(matrix_local, matrix_parent)
 			
-
-			
-
 			hasik = (array_length(part_joints_matrix) > 0 && value[e_value.IK_TARGET] != null)
 			
 			// Remove old rotation and re-add own
@@ -151,7 +145,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 				// Remove rotation
 				if (!inherit_rotation)
 					matrix_remove_rotation(parmat)
-
+				
 				matrixnoscale = matrix_multiply(matrix_create(pos, rot, vec3(1)), parmat);
 				
 				if (hasik)
@@ -176,7 +170,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 				matrix[MAT_Z] = value[e_value.POS_Z]
 			}
 			
-				if(value[e_value.ROT_TARGET] != null){
+			if (value[e_value.ROT_TARGET] != null)
+			{
 				update_matrix = true
 				debug(value[e_value.ROT_TARGET].display_name)
 				matrix_remove_rotation(matrix)
@@ -223,11 +218,11 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 			value_inherit[e_value.SCA_Y] = 1
 			value_inherit[e_value.SCA_Z] = 1
 			tl = id
-
+			
 			while (1)
 			{
 				par = tl.parent
-				if (par = app )
+				if (par = app)
 					break
 			
 				value_inherit[e_value.SCA_X] *= par.value[e_value.SCA_X]
@@ -238,8 +233,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 					break
 				tl = par
 			}
-			
-
 			
 			// Inherit
 			lasttex = value_inherit[e_value.TEXTURE_OBJ]
@@ -446,6 +439,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 		
 		tl_update_ik(app.project_ik_part_array)
 	}
+	
 	if (updateflw)
 	{
 		if (app.project_flw_obj_array = null)
@@ -458,6 +452,5 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 		
 		tl_update_flw(app.project_flw_obj_array)
 	}
-	
 	
 }

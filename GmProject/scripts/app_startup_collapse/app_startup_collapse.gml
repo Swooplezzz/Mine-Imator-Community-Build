@@ -38,16 +38,14 @@ function app_startup_collapse()
 	collapse_register("fog")
 	collapse_register("wind")
 	
-	collapse_register("follow_path")	
-
-
-
+	collapse_register("follow_path")
+	
 	collapse_register("rotatepoint")
 	collapse_register("ik")
 	
-	collapse_register("followrot")	
-	collapse_register("followscale")
+	collapse_register("followrot")
 	collapse_register("followpos")
+	collapse_register("followscale")
 	
 	collapse_register("path_shape")
 	collapse_register("path_shape_tube")

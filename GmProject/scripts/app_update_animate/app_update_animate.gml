@@ -50,10 +50,8 @@ function app_update_animate()
 		// Get timelines that use paths
 		if (value[e_value.PATH_OBJ] != null)
 			array_add(app.project_use_path_tl_array, id)
-			
-
 		
-		// Get timelines that use IK (Uses "End offset", bend on "Lower", and only on "X" axis)
+		// Get timelines that can use IK
 		if (tl_supports_ik())
 			array_add(app.project_ik_part_array, id)
 			
@@ -110,8 +108,7 @@ function app_update_animate()
 	}
 	
 	if (updatevalues)
-		tl_update_matrix()		
-
+		tl_update_matrix()
 	
 	// Update paths
 	for (var i = 0; i < array_length(project_path_tl_array); i++)
@@ -129,7 +126,7 @@ function app_update_animate()
 	// Update timelines with path transform
 	for (var i = 0; i < array_length(project_use_path_tl_array); i++)
 		project_use_path_tl_array[i].update_matrix = true
-		
+	
 	for (var i = 0; i < array_length(project_flw_obj_array); i++)
 		project_flw_obj_array[i].update_matrix = true
 	
@@ -139,7 +136,8 @@ function app_update_animate()
 			tl_update_matrix(true)
 	}
 	
-	if (array_length(project_flw_obj_array) > 0){
+	if (array_length(project_flw_obj_array) > 0)
+	{
 		with (app)
 			tl_update_matrix(false, false, true)
 	}

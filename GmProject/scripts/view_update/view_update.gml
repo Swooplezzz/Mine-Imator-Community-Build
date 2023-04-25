@@ -157,6 +157,4 @@ function view_update(view, cam)
 	// Clear busy
 	if (window_busy = "viewpathpointclick")
 		window_busy = ""
-		
-		
 }

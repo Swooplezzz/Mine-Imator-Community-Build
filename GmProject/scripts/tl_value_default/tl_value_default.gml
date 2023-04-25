@@ -145,12 +145,20 @@ function tl_value_default(valueid)
 		case e_value.ROT_TARGET:
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
-
 		case e_value.FLW_POS_OFFSET_X:
 		case e_value.FLW_POS_OFFSET_Y:
 		case e_value.FLW_POS_OFFSET_Z:
 		case e_value.FLW_SCALE_MULT:
-		case e_value.IK_TARGET_ANGLE:
+		case e_value.IK_TARGET_ANGLE: return null
+		case e_value.FLW_POS_X:
+		case e_value.FLW_POS_Y:
+		case e_value.FLW_POS_Z:
+		case e_value.FLW_ROT_X:
+		case e_value.FLW_ROT_Y:
+		case e_value.FLW_ROT_Z:
+		case e_value.FLW_SCALE_X:
+		case e_value.FLW_SCALE_Y:
+		case e_value.FLW_SCALE_Z: return true
 		case e_value.ATTRACTOR:
 		case e_value.TEXTURE_OBJ:
 		case e_value.TEXTURE_MATERIAL_OBJ:
@@ -159,6 +167,7 @@ function tl_value_default(valueid)
 		case e_value.TEXT_FONT: return null
 		case e_value.IK_BLEND: return 1
 		case e_value.SOUND_VOLUME: return 1
+		case e_value.SOUND_PITCH: return 1
 		case e_value.VISIBLE: return true
 		case e_value.TEXT: 
 		case e_value.ITEM_NAME: return ""
@@ -170,16 +179,6 @@ function tl_value_default(valueid)
 		case e_value.EASE_OUT_X: return 0
 		case e_value.EASE_IN_X:
 		case e_value.EASE_OUT_Y: return 1
-		case e_value.FLW_POS_X: return true
-		case e_value.FLW_ROT_X: return true
-		case e_value.FLW_SCALE_X: return true
-				case e_value.FLW_POS_Y: return true
-		case e_value.FLW_ROT_Y: return true
-		case e_value.FLW_SCALE_Y: return true
-				case e_value.FLW_POS_Z: return true
-		case e_value.FLW_ROT_Z: return true
-		case e_value.FLW_SCALE_Z: return true
-
 	}
 	
 	return 0

@@ -3,7 +3,7 @@
 function tab_frame_editor_follow_pos(){
 	
 	tab_control_switch()
-	draw_button_collapse("followpos", collapse_map[?"followpos"], null, true, "frameeditorfollowpos", "frameeditorfollowpos")
+	draw_button_collapse("followpos", collapse_map[?"followpos"], null, true, "frameeditorfollowpos", "frameeditorfollowpostip")
 	tab_next()
 	
 	if (collapse_map[?"followpos"])
