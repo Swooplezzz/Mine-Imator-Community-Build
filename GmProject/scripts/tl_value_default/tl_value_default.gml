@@ -36,6 +36,8 @@ function tl_value_default(valueid)
 		case e_value.LIGHT_SPOT_RADIUS: return 50
 		case e_value.LIGHT_SPOT_SHARPNESS: return 0.5
 		case e_value.CAM_FOV: return 45
+		case e_value.CAM_CLIP_NEAR: return 1
+		case e_value.CAM_CLIP_FAR: return 30000
 		case e_value.CAM_EXPOSURE: return 1
 		case e_value.CAM_GAMMA: return 2.2
 		case e_value.CAM_BLADE_AMOUNT: return 0

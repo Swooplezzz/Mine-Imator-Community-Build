@@ -224,8 +224,35 @@ function model_shape_generate_block(bend)
 	var segpos = 0;
 	while (true)
 	{
+		// Start face
+		if (segpos = 0)
+		{
+			vbuffer_add_triangle(p1, p2, p3, texstart1, texstart2, texstart3, null, null, null, invert)
+			vbuffer_add_triangle(p3, p4, p1, texstart3, texstart4, texstart1, null, null, null, invert)
+		}
+		
+		var segsize;
+		
+		// Find segment size
+		if (!isbent || segpos >= bendend) // No/Above bend
+			segsize = size[segaxis] - segpos
+		else if (segpos < bendstart) // Below bend
+			segsize = min(size[segaxis] - segpos, bendstart)
+		else // Within bend
+		{
+			segsize = bendsegsize
+			
+			if (segpos = 0) // Start inside bend, apply partial size
+				segsize -= (from[segaxis] - bendstart) % bendsegsize
+			
+			segsize = min(size[segaxis] - segpos, segsize)
+		}
+		
+		// Advance
+		segpos += max(segsize, 0.005)
+		
 		// End face
-		if (segpos >= size[segaxis] - 0.0001)
+		if (segpos > size[segaxis])
 		{
 			switch (segaxis)
 			{
@@ -248,35 +275,9 @@ function model_shape_generate_block(bend)
 			break
 		}
 		
-		// Start face
-		if (segpos = 0)
-		{
-			vbuffer_add_triangle(p1, p2, p3, texstart1, texstart2, texstart3, null, null, null, invert)
-			vbuffer_add_triangle(p3, p4, p1, texstart3, texstart4, texstart1, null, null, null, invert)
-		}
-		
-		var segsize;
 		var np1, np2, np3, np4;
 		var nn1, nn2, nn3, nn4;
 		var ntexp1, ntexp2, ntexp3;
-		
-		// Find segment size
-		if (!isbent || segpos >= bendend) // No/Above bend
-			segsize = size[segaxis] - segpos
-		else if (segpos < bendstart) // Below bend
-			segsize = min(size[segaxis] - segpos, bendstart)
-		else // Within bend
-		{
-			segsize = bendsegsize
-			
-			if (segpos = 0) // Start inside bend, apply partial size
-				segsize -= (from[segaxis] - bendstart) % bendsegsize
-			
-			segsize = min(size[segaxis] - segpos, segsize)
-		}
-		
-		// Advance
-		segpos += max(segsize, 0.005)
 		
 		// Find next points/normals
 		switch (segaxis)

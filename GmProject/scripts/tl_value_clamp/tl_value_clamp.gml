@@ -69,6 +69,8 @@ function tl_value_clamp(vid, val)
 		case e_value.BEND_ANGLE_Y:
 		case e_value.BEND_ANGLE_Z: return clamp(val, -180, 180)
 		case e_value.CAM_FOV: return clamp(val, 1, 170)
+		case e_value.CAM_CLIP_NEAR: return clamp(val, 1, app.project_render_distance)
+		case e_value.CAM_CLIP_FAR: return clamp(val, 1, app.project_render_distance)
 		case e_value.CAM_BLADE_AMOUNT: return clamp(val, 0, 32)
 		case e_value.CAM_BLADE_ANGLE: return clamp(val, 0, 360)
 		case e_value.CAM_ROTATE_DISTANCE: return max(1, val)

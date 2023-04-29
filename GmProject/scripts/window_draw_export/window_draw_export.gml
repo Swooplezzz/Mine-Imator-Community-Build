@@ -68,7 +68,7 @@ function window_draw_export()
 		timeleftstr += text_get(((timeleftmins = 1) ? "exporttimeleftminute" : "exporttimeleftminutes"), string(timeleftmins)) + " " + text_get("exporttimeleftand") + " "
 	timeleftstr += text_get(((timeleftsecs = 1) ? "exporttimeleftsecond" : "exporttimeleftseconds"), string(timeleftsecs))
 	
-	draw_label(text_get("exporttimeleft", timeleftstr), framex + framew / 2, framey + frameh + 33, fa_center, fa_bottom, c_text_secondary, a_text_secondary, font_label_big)
+	draw_label(text_get("exporttimeleft", timeleftstr), framex + framew / 2, framey + frameh + 33, fa_center, fa_bottom, c_text_secondary, a_text_secondary, font_heading_big)
 	
 	// Bar
 	var loadtext, loadw, sw, sh;

@@ -549,6 +549,8 @@ function app_startup_interface_tabs()
 			look_at_rotate = true
 			tbx_fov = new_textbox_decimals()
 			tbx_fov.suffix = "°"
+			tbx_clip_near = new_textbox_integer()
+			tbx_clip_far = new_textbox_integer()
 			tbx_exposure = new_textbox_decimals()
 			tbx_gamma = new_textbox_decimals()
 			tbx_blade_amount = new_textbox_integer()

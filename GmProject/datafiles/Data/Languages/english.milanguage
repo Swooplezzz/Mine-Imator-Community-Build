@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, Swooplezz, & mbanders",
 		"forversion": "2.0.0 Community Build 1.0.0",
-		"lastchange": "2023.04.25"
+		"lastchange": "2023.04.28"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -251,12 +251,12 @@
 	},
 	"startup/": {
 		"trial": "TRIAL",
-		"full": "FULL",
 		"version": "v %1",
 		"newproject": "New project",
 		"browse": "Browse...",
 		"recentprojects": "Recent projects",
 		"loadingassets": "Preparing %1 assets... %2%",
+		"splashauthor": "Art by %1",
 		"sortby": "Sort by"
 	},
 	"welcome/": {
@@ -265,6 +265,7 @@
 		"continue": "Continue"
 	},
 	"about/": {
+		"caption": "About",
 		"version": "Version %1",
 		"releasedate": ", released %1",
 		"minecraftpre": "Based on the game ",
@@ -701,6 +702,7 @@
 		"cancel": "Cancel"
 	},
 	"loading/": {
+		"caption": "Loading...",
 		"resources": "Importing resources...",
 		"percent": "(%1% Done)"
 	},
@@ -735,6 +737,7 @@
 		},
 		"camera/": {
 			"work": "Work camera",
+			"main": "Main camera",
 			"active": "Active camera (%1)",
 			"selected": "Selected camera (%1)"
 		},
@@ -2796,6 +2799,7 @@
 	},
 	"timeline/": {
 		"empty": "Nothing here yet! Click the workbench to get started.",
+		"search": "Search...",
 		"none": "None",
 		"instanceof": "Instance of %1",
 		"partof": "%1 of %2",
@@ -3194,9 +3198,9 @@
 			"file": "File",
 			"volume": "Volume",
 			"pitch": "Speed / Pitch",
-			"start": "Start time",
-			"end": "End time",
-			"seconds": "seconds"
+			"time": "Time",
+			"start": "Start",
+			"end": "End"
 		},
 		"text": "TEXT",
 		"text/": {

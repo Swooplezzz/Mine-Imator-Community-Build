@@ -57,14 +57,20 @@ function tl_update_values()
 			tl_update_values_ease(e_value.PATH_OFFSET)
 		}
 	}
-	//if(value[e_value.SCALE_TARGET] != null && value[e_value.SCALE_TARGET].value_type[e_value_type.TRANSFORM_SCA]){
-	//	update_matrix = true;
-	//	tl_update_matrix()
-	//}
-	//if(value[e_value.POS_TARGET] != null && value[e_value.POS_TARGET].value_type[e_value_type.TRANSFORM_POS]){
-	//	update_matrix = true;
-	//	tl_update_matrix()
-	//}
+	
+	/*
+	if (value[e_value.SCALE_TARGET] != null && value[e_value.SCALE_TARGET].value_type[e_value_type.TRANSFORM_SCA])
+	{
+		update_matrix = true;
+		tl_update_matrix()
+	}
+	if (value[e_value.POS_TARGET] != null && value[e_value.POS_TARGET].value_type[e_value_type.TRANSFORM_POS])
+	{
+		update_matrix = true;
+		tl_update_matrix()
+	}
+	*/
+	
 	tl_update_values_ease(e_value.ROT_TARGET)
 	tl_update_values_ease(e_value.POS_TARGET)
 	tl_update_values_ease(e_value.SCALE_TARGET)
@@ -184,6 +190,9 @@ function tl_update_values()
 	if (value_type[e_value_type.CAMERA])
 	{
 		tl_update_values_ease(e_value.CAM_FOV)
+		
+		tl_update_values_ease(e_value.CAM_CLIP_NEAR)
+		tl_update_values_ease(e_value.CAM_CLIP_FAR)
 		
 		tl_update_values_ease(e_value.CAM_LIGHT_MANAGEMENT)
 		tl_update_values_ease(e_value.CAM_TONEMAPPER)

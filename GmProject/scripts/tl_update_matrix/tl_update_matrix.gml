@@ -177,27 +177,28 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 				matrix_remove_rotation(matrix)
 				matrix = matrix_multiply(matrix_create(point3D(0, 0, 0), vec3((value[e_value.FLW_ROT_X] == 1? value[e_value.ROT_TARGET].value[e_value.ROT_X] : value[e_value.ROT_X]), (value[e_value.FLW_ROT_Y] == 1 ? value[e_value.ROT_TARGET].value[e_value.ROT_Y] : value[e_value.ROT_Y]),(value[e_value.FLW_ROT_Z] == 1 ? value[e_value.ROT_TARGET].value[e_value.ROT_Z] : value[e_value.ROT_Z])), vec3(1)), matrix)
 			}
-
-			if(value[e_value.POS_TARGET] != null){
+			
+			if (value[e_value.POS_TARGET] != null)
+			{
 				update_matrix = true
-
+				
 			    matrix_remove_rotation(matrix_parent)
 				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].value[e_value.POS_X]
 				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].value[e_value.POS_Y]
 				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].value[e_value.POS_Z]
 			}
 			
-			if(value[e_value.SCALE_TARGET] != null){
+			if (value[e_value.SCALE_TARGET] != null)
+			{
 				update_matrix = true
-
+				
 				matrix_remove_scale(matrix_parent)
-
+				
 				value[e_value.SCA_X] = value[e_value.SCALE_TARGET].value[e_value.SCA_X]
 				value[e_value.SCA_Y] = value[e_value.SCALE_TARGET].value[e_value.SCA_Y]
 				value[e_value.SCA_Z] = value[e_value.SCALE_TARGET].value[e_value.SCA_Z]
 			}
-	
-
+			
 			// Create rotation point
 			if (type = e_tl_type.CAMERA && value[e_value.CAM_ROTATE])
 			{

@@ -55,6 +55,17 @@ function tab_frame_editor_camera()
 	// Advanced mode only
 	if (setting_advanced_mode)
 	{
+		/*
+		// Clip
+		textfield_group_add("frameeditorcameraclipnear", tl_edit.value[e_value.CAM_CLIP_NEAR], tl_edit.value_default[e_value.CAM_CLIP_NEAR], action_tl_frame_cam_clip_near, axis_edit, tab.camera.tbx_clip_near, null, 1, 1, tl_edit.value[e_value.CAM_CLIP_FAR])
+		
+		textfield_group_add("frameeditorcameraclipfar", tl_edit.value[e_value.CAM_CLIP_FAR], tl_edit.value_default[e_value.CAM_CLIP_FAR], action_tl_frame_cam_clip_far, axis_edit, tab.camera.tbx_clip_far, null, 1, tl_edit.value[e_value.CAM_CLIP_NEAR], app.project_render_distance)
+		
+		tab_control_textfield(true)
+		draw_textfield_group("frameeditorcameraclip", dx, dy, dw, 1, 1, app.project_render_distance, 1, true)
+		tab_next()
+		*/
+		
 		// Aperture
 		tab_control_switch()
 		draw_button_collapse("aperture", collapse_map[?"aperture"], null, true, "frameeditorcameraaperture", "frameeditorcameraaperturetip")

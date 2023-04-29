@@ -61,7 +61,10 @@ function window_draw_load_assets()
 	
 	// Splash credits
 	if (load_assets_credits != "")
-		draw_label(load_assets_credits, xoff + 95, yoff + 289 + 31, fa_middle, fa_top, c_text_tertiary, a_text_tertiary, font_credits)
+		draw_label(text_get("startupsplashauthor", load_assets_credits), xoff + 95, yoff + 289 + 31, fa_middle, fa_top, c_text_tertiary, a_text_tertiary, font_caption)
+	
+	if (dev_mode)
+		draw_label("DEV MODE ENABLED", xoff + 95, yoff + 4, fa_middle, fa_top, c_accent, 1, font_heading_big)
 	
 	draw_box(xoff, yoff + 450 - 8, 740, 8, false, c_level_top, .8)
 	draw_box(xoff, yoff + 450 - 8, 740 * load_assets_progress, 8, false, c_accent, 1)

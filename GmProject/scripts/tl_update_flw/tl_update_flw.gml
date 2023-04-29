@@ -1,5 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/// tl_update_flw(parts)
+/// @arg parts
+
 function tl_update_flw(parts)
 {
 	if (array_length(parts) = 0)
