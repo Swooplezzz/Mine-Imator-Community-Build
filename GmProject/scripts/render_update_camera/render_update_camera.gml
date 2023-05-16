@@ -21,7 +21,7 @@ function render_update_camera()
 		
 		cam_fov = 45
 		
-		// Uncomment if you wanna try fixing camera clipping
+		// Uncomment these if you wanna try fixing camera clipping -mb
 		//cam_near = 1
 		//cam_far = app.project_render_distance
 	}
@@ -59,12 +59,12 @@ function render_update_camera()
 		cam_up[Z] = mat[10]
 		cam_fov = max(1, render_camera.value[e_value.CAM_FOV])
 		
-		// Uncomment if you wanna try fixing camera clipping
+		// Uncomment these if you wanna try fixing camera clipping -mb
 		//cam_near = render_camera.value[e_value.CAM_CLIP_NEAR]
 		//cam_far = min(app.project_render_distance, render_camera.value[e_value.CAM_CLIP_FAR])
 	}
-	// Remove these if you wanna try fixing camera clipping
-	cam_near = clip_near
+	// Remove these if you wanna try fixing camera clipping -mb
+	cam_near = 1
 	cam_far = app.project_render_distance
 	
 	// Render modes can vary in zfar, keep original zfar

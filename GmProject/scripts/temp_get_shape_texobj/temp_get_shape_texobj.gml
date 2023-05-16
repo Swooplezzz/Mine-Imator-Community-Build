@@ -8,8 +8,12 @@ function temp_get_shape_texobj(val)
 	if (val = 0) // None
 		return null
 	
-	if (val = null) // Default
-		return shape_tex
+	if (val = null) { // Default
+		if (!is_undefined(shape_tex))
+			return shape_tex
+		else
+			return null
+	}
 	
 	if (val.type = e_tl_type.CAMERA) // Object
 	{

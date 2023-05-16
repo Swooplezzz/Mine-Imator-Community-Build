@@ -122,7 +122,7 @@ function render_startup()
 	render_surface_sample_dec = null
 	render_surface_sample_alpha = null 
 	
-	depth_near = clip_near
+	depth_near = 1
 	depth_far = 5000
 	render_post_index = 0
 	

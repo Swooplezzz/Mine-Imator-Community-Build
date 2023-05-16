@@ -179,7 +179,9 @@ function block_load_state_file(fname, block, state)
 							}
 						}
 						
-						// AND, all of multiple sets of conditions must match (WIP)
+						/*
+						// currently copy of OR code, must figure out where to go from here -mb
+						// AND, all of multiple sets of conditions must match
 						else if (ds_list_valid(andlist))
 						{
 							for (var oc = 0; oc < ds_list_size(andlist); oc++)
@@ -209,6 +211,7 @@ function block_load_state_file(fname, block, state)
 										other.state_id_map[?i] = array_add(other.state_id_map[?i], id)
 							}
 						}
+						*/
 						
 						// Single condition
 						else

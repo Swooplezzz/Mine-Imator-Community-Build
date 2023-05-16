@@ -74,6 +74,12 @@ function tab_frame_editor_texture_material()
 			
 				break
 			}
+			
+			case e_tl_type.TEXT:
+			{
+				sliders = true // Text doesn't use textures, always use surface sliders
+				break
+			}
 		
 			default: // Shapes
 			{

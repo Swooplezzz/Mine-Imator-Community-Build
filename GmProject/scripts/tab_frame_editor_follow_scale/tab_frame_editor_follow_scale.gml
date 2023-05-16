@@ -25,11 +25,11 @@ function tab_frame_editor_follow_scale()
 		dy+= 32;
 		
 		tab_control_switch()
-		draw_switch("frameeditorfollowscalex",  dx + 12, dy,  tl_edit.value[e_value.FLW_SCALE_X], action_tl_frame_follow_scale_x)
+		draw_switch("frameeditorfollowscalex", dx + 12, dy, tl_edit.value[e_value.FLW_SCALE_X], action_tl_frame_follow_scale_x)
 		dy+= 24;
 		
 		tab_control_switch()
-		draw_switch("frameeditorfollowscaley",  dx + 12, dy, tl_edit.value[e_value.FLW_SCALE_Y], action_tl_frame_follow_scale_y)
+		draw_switch("frameeditorfollowscaley", dx + 12, dy, tl_edit.value[e_value.FLW_SCALE_Y], action_tl_frame_follow_scale_y)
 		dy+= 24;
 
 		tab_control_switch()

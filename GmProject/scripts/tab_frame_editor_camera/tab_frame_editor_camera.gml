@@ -55,7 +55,7 @@ function tab_frame_editor_camera()
 	// Advanced mode only
 	if (setting_advanced_mode)
 	{
-		/*
+		/* Uncomment these if you wanna try fixing camera clipping -mb
 		// Clip
 		textfield_group_add("frameeditorcameraclipnear", tl_edit.value[e_value.CAM_CLIP_NEAR], tl_edit.value_default[e_value.CAM_CLIP_NEAR], action_tl_frame_cam_clip_near, axis_edit, tab.camera.tbx_clip_near, null, 1, 1, tl_edit.value[e_value.CAM_CLIP_FAR])
 		

@@ -1,5 +1,5 @@
 {
-	"version": "1.19.4",
+	"version": "1.20-pre2",
 	"patch": 0,
 	"format": 8,
 	"characters": [
@@ -42,7 +42,7 @@
 				"variant": [
 					{ "value": "skeleton", "file": "skeleton.mimodel" },
 					{ "value": "wither_skeleton", "file": "wither_skeleton.mimodel" },
-					{ "value": "stray_skeleton", "file": "stray_skeleton.mimodel" }
+					{ "value": "stray", "file": "stray.mimodel" }
 				]
 			},
 			"default_state": "variant=skeleton"
@@ -167,7 +167,7 @@
 			"file": "cat.mimodel",
 			"states": {
 				"variant": [
-					{ "value": "ocelot", "texture": "entity/cat/ocelot" },
+					{ "value": "ocelot", "file": "ocelot.mimodel" },
 					{ "value": "all_black", "texture": "entity/cat/all_black" },
 					{ "value": "black", "texture": "entity/cat/black" },
 					{ "value": "british_shorthair", "texture": "entity/cat/british_shorthair" },
@@ -455,7 +455,7 @@
 			"file": "snow_golem.mimodel",
 			"states": {
 				"pumpkin": [
-					{ "value": "false", "shape_hide": [ "pumpkin" ] },
+					{ "value": "false", "hide": [ "pumpkin" ] },
 					{ "value": "true" }
 				]
 			},
@@ -523,10 +523,11 @@
 		},
 		{
 			"name": "turtle",
+			"file": "turtle.mimodel",
 			"states": {
 				"has_egg": [
-					{ "value": "false", "file": "turtle.mimodel" },
-					{ "value": "true", "file": "turtle_has_egg.mimodel" }
+					{ "value": "false", "shape_hide": [ "egg" ] },
+					{ "value": "true" }
 				]
 			},
 			"default_state": "has_egg=false"
@@ -744,6 +745,21 @@
 			"file": "warden.mimodel"
 		},
 		{
+			"name": "camel",
+			"file": "camel.mimodel",
+			"states": {
+				"saddle": [
+					{ "value": "false", "shape_hide": [ "saddle" ] },
+					{ "value": "true" }
+				]
+			},
+			"default_state": "saddle=false"
+		},
+		{
+			"name": "sniffer",
+			"file": "sniffer.mimodel"
+		},
+		{
 			"name": "wither",
 			"file": "wither.mimodel",
 			"states": {
@@ -806,11 +822,37 @@
 					{ "value": "acacia", "texture": "entity/signs/acacia" },
 					{ "value": "dark_oak", "texture": "entity/signs/dark_oak" },
 					{ "value": "mangrove", "texture": "entity/signs/mangrove" },
+					{ "value": "cherry", "texture": "entity/signs/cherry" },
+					{ "value": "bamboo", "texture": "entity/signs/bamboo" },
 					{ "value": "crimson", "texture": "entity/signs/crimson" },
 					{ "value": "warped", "texture": "entity/signs/warped" }
 				]
 			},
 			"default_state": "variant=standing,wood=oak"
+		},
+		{
+			"name": "hanging_sign",
+			"states": {
+				"variant": [
+					{ "value": "hanging", "file": "hanging_sign.mimodel", "shape_hide": [ "attached" ] },
+					{ "value": "attached", "file": "hanging_sign.mimodel", "shape_hide": [ "hanging" ] },
+					{ "value": "wall", "file": "wall_hanging_sign.mimodel" }
+				],
+				"wood": [
+					{ "value": "oak", "texture": "entity/signs/hanging/oak" },
+					{ "value": "spruce", "texture": "entity/signs/hanging/spruce" },
+					{ "value": "birch", "texture": "entity/signs/hanging/birch" },
+					{ "value": "jungle", "texture": "entity/signs/hanging/jungle" },
+					{ "value": "acacia", "texture": "entity/signs/hanging/acacia" },
+					{ "value": "dark_oak", "texture": "entity/signs/hanging/dark_oak" },
+					{ "value": "mangrove", "texture": "entity/signs/hanging/mangrove" },
+					{ "value": "cherry", "texture": "entity/signs/hanging/cherry" },
+					{ "value": "bamboo", "texture": "entity/signs/hanging/bamboo" },
+					{ "value": "crimson", "texture": "entity/signs/hanging/crimson" },
+					{ "value": "warped", "texture": "entity/signs/hanging/warped" }
+				]
+			},
+			"default_state": "variant=hanging,wood=oak"
 		},
 		{
 			"name": "fence_gate",
@@ -824,6 +866,8 @@
 					{ "value": "acacia", "texture": "block/acacia_planks", "shape_hide": [ "custom" ] },
 					{ "value": "dark_oak", "texture": "block/dark_oak_planks", "shape_hide": [ "custom" ] },
 					{ "value": "mangrove", "texture": "block/mangrove_planks", "shape_hide": [ "custom" ] },
+					{ "value": "cherry", "texture": "block/cherry_planks", "shape_hide": [ "custom" ] },
+					{ "value": "bamboo", "texture": "block/bamboo_fence_gate", "shape_hide": [ "normal" ] },
 					{ "value": "crimson", "texture": "block/crimson_planks", "shape_hide": [ "custom" ] },
 					{ "value": "warped", "texture": "block/warped_planks", "shape_hide": [ "custom" ] }
 				]
@@ -937,7 +981,9 @@
 					{ "value": "jungle", "shape_texture": { "boat": "entity/boat/jungle", "boat_chest": "entity/chest_boat/jungle", "chest": "entity/chest_boat/jungle" } },
 					{ "value": "acacia", "shape_texture": { "boat": "entity/boat/acacia", "boat_chest": "entity/chest_boat/acacia", "chest": "entity/chest_boat/acacia" } },
 					{ "value": "dark_oak", "shape_texture": { "boat": "entity/boat/dark_oak", "boat_chest": "entity/chest_boat/dark_oak", "chest": "entity/chest_boat/dark_oak" } },
-					{ "value": "mangrove", "shape_texture": { "boat": "entity/boat/mangrove", "boat_chest": "entity/chest_boat/mangrove", "chest": "entity/chest_boat/mangrove" } }
+					{ "value": "mangrove", "shape_texture": { "boat": "entity/boat/mangrove", "boat_chest": "entity/chest_boat/mangrove", "chest": "entity/chest_boat/mangrove" } },
+					{ "value": "cherry", "shape_texture": { "boat": "entity/boat/cherry", "boat_chest": "entity/chest_boat/cherry", "chest": "entity/chest_boat/cherry" } },
+					{ "value": "bamboo", "file": "raft.mimodel", "shape_texture": { "raft": "entity/boat/bamboo", "raft_chest": "entity/chest_boat/bamboo", "chest": "entity/chest_boat/bamboo" } }
 				],
 				"chest": [
 					{ "value": "false", "shape_hide": [ "boat_chest", "raft_chest", "chest" ], "hide": [ "chest", "top", "lock" ] },
@@ -1037,8 +1083,8 @@
 			"default_state": "color=normal"
 		},
 		{
-			"name": "shulker_spark",
-			"file": "shulker_spark.mimodel"
+			"name": "shulker_bullet",
+			"file": "shulker_bullet.mimodel"
 		},
 		{
 			"name": "trident",
@@ -1072,10 +1118,110 @@
 					{ "value": "human", "texture": "entity/player/slim/steve" },
 					{ "value": "zombie", "texture": "entity/zombie/zombie" },
 					{ "value": "creeper", "texture": "entity/creeper/creeper" },
+					{ "value": "piglin", "file": "piglin_head.mimodel" },
 					{ "value": "dragon", "file": "dragon_head.mimodel" }
 				]
 			},
 			"default_state": "character=human"
+		},
+		{
+			"name": "decorated_pot",
+			"file": "decorated_pot.mimodel",
+			"states": {
+				"sherd_front": [
+					{ "value": "none" },
+					{ "value": "angler", "shape_texture": { "front": "entity/decorated_pot/angler_pottery_pattern" } },
+					{ "value": "archer", "shape_texture": { "front": "entity/decorated_pot/archer_pottery_pattern" } },
+					{ "value": "arms_up", "shape_texture": { "front": "entity/decorated_pot/arms_up_pottery_pattern" } },
+					{ "value": "blade", "shape_texture": { "front": "entity/decorated_pot/blade_pottery_pattern" } },
+					{ "value": "brewer", "shape_texture": { "front": "entity/decorated_pot/brewer_pottery_pattern" } },
+					{ "value": "burn", "shape_texture": { "front": "entity/decorated_pot/burn_pottery_pattern" } },
+					{ "value": "danger", "shape_texture": { "front": "entity/decorated_pot/danger_pottery_pattern" } },
+					{ "value": "explorer", "shape_texture": { "front": "entity/decorated_pot/explorer_pottery_pattern" } },
+					{ "value": "friend", "shape_texture": { "front": "entity/decorated_pot/friend_pottery_pattern" } },
+					{ "value": "heart", "shape_texture": { "front": "entity/decorated_pot/heart_pottery_pattern" } },
+					{ "value": "heartbreak", "shape_texture": { "front": "entity/decorated_pot/heartbreak_pottery_pattern" } },
+					{ "value": "howl", "shape_texture": { "front": "entity/decorated_pot/howl_pottery_pattern" } },
+					{ "value": "miner", "shape_texture": { "front": "entity/decorated_pot/miner_pottery_pattern" } },
+					{ "value": "mourner", "shape_texture": { "front": "entity/decorated_pot/mourner_pottery_pattern" } },
+					{ "value": "plenty", "shape_texture": { "front": "entity/decorated_pot/plenty_pottery_pattern" } },
+					{ "value": "prize", "shape_texture": { "front": "entity/decorated_pot/prize_pottery_pattern" } },
+					{ "value": "sheaf", "shape_texture": { "front": "entity/decorated_pot/sheaf_pottery_pattern" } },
+					{ "value": "shelter", "shape_texture": { "front": "entity/decorated_pot/shelter_pottery_pattern" } },
+					{ "value": "skull", "shape_texture": { "front": "entity/decorated_pot/skull_pottery_pattern" } },
+					{ "value": "snort", "shape_texture": { "front": "entity/decorated_pot/snort_pottery_pattern" } }
+				],
+				"sherd_left": [
+					{ "value": "none" },
+					{ "value": "angler", "shape_texture": { "left": "entity/decorated_pot/angler_pottery_pattern" } },
+					{ "value": "archer", "shape_texture": { "left": "entity/decorated_pot/archer_pottery_pattern" } },
+					{ "value": "arms_up", "shape_texture": { "left": "entity/decorated_pot/arms_up_pottery_pattern" } },
+					{ "value": "blade", "shape_texture": { "left": "entity/decorated_pot/blade_pottery_pattern" } },
+					{ "value": "brewer", "shape_texture": { "left": "entity/decorated_pot/brewer_pottery_pattern" } },
+					{ "value": "burn", "shape_texture": { "left": "entity/decorated_pot/burn_pottery_pattern" } },
+					{ "value": "danger", "shape_texture": { "left": "entity/decorated_pot/danger_pottery_pattern" } },
+					{ "value": "explorer", "shape_texture": { "left": "entity/decorated_pot/explorer_pottery_pattern" } },
+					{ "value": "friend", "shape_texture": { "left": "entity/decorated_pot/friend_pottery_pattern" } },
+					{ "value": "heart", "shape_texture": { "left": "entity/decorated_pot/heart_pottery_pattern" } },
+					{ "value": "heartbreak", "shape_texture": { "left": "entity/decorated_pot/heartbreak_pottery_pattern" } },
+					{ "value": "howl", "shape_texture": { "left": "entity/decorated_pot/howl_pottery_pattern" } },
+					{ "value": "miner", "shape_texture": { "left": "entity/decorated_pot/miner_pottery_pattern" } },
+					{ "value": "mourner", "shape_texture": { "left": "entity/decorated_pot/mourner_pottery_pattern" } },
+					{ "value": "plenty", "shape_texture": { "left": "entity/decorated_pot/plenty_pottery_pattern" } },
+					{ "value": "prize", "shape_texture": { "left": "entity/decorated_pot/prize_pottery_pattern" } },
+					{ "value": "sheaf", "shape_texture": { "left": "entity/decorated_pot/sheaf_pottery_pattern" } },
+					{ "value": "shelter", "shape_texture": { "left": "entity/decorated_pot/shelter_pottery_pattern" } },
+					{ "value": "skull", "shape_texture": { "left": "entity/decorated_pot/skull_pottery_pattern" } },
+					{ "value": "snort", "shape_texture": { "left": "entity/decorated_pot/snort_pottery_pattern" } }
+				],
+				"sherd_back": [
+					{ "value": "none" },
+					{ "value": "angler", "shape_texture": { "back": "entity/decorated_pot/angler_pottery_pattern" } },
+					{ "value": "archer", "shape_texture": { "back": "entity/decorated_pot/archer_pottery_pattern" } },
+					{ "value": "arms_up", "shape_texture": { "back": "entity/decorated_pot/arms_up_pottery_pattern" } },
+					{ "value": "blade", "shape_texture": { "back": "entity/decorated_pot/blade_pottery_pattern" } },
+					{ "value": "brewer", "shape_texture": { "back": "entity/decorated_pot/brewer_pottery_pattern" } },
+					{ "value": "burn", "shape_texture": { "back": "entity/decorated_pot/burn_pottery_pattern" } },
+					{ "value": "danger", "shape_texture": { "back": "entity/decorated_pot/danger_pottery_pattern" } },
+					{ "value": "explorer", "shape_texture": { "back": "entity/decorated_pot/explorer_pottery_pattern" } },
+					{ "value": "friend", "shape_texture": { "back": "entity/decorated_pot/friend_pottery_pattern" } },
+					{ "value": "heart", "shape_texture": { "back": "entity/decorated_pot/heart_pottery_pattern" } },
+					{ "value": "heartbreak", "shape_texture": { "back": "entity/decorated_pot/heartbreak_pottery_pattern" } },
+					{ "value": "howl", "shape_texture": { "back": "entity/decorated_pot/howl_pottery_pattern" } },
+					{ "value": "miner", "shape_texture": { "back": "entity/decorated_pot/miner_pottery_pattern" } },
+					{ "value": "mourner", "shape_texture": { "back": "entity/decorated_pot/mourner_pottery_pattern" } },
+					{ "value": "plenty", "shape_texture": { "back": "entity/decorated_pot/plenty_pottery_pattern" } },
+					{ "value": "prize", "shape_texture": { "back": "entity/decorated_pot/prize_pottery_pattern" } },
+					{ "value": "sheaf", "shape_texture": { "back": "entity/decorated_pot/sheaf_pottery_pattern" } },
+					{ "value": "shelter", "shape_texture": { "back": "entity/decorated_pot/shelter_pottery_pattern" } },
+					{ "value": "skull", "shape_texture": { "back": "entity/decorated_pot/skull_pottery_pattern" } },
+					{ "value": "snort", "shape_texture": { "back": "entity/decorated_pot/snort_pottery_pattern" } }
+				],
+				"sherd_right": [
+					{ "value": "none" },
+					{ "value": "angler", "shape_texture": { "right": "entity/decorated_pot/angler_pottery_pattern" } },
+					{ "value": "archer", "shape_texture": { "right": "entity/decorated_pot/archer_pottery_pattern" } },
+					{ "value": "arms_up", "shape_texture": { "right": "entity/decorated_pot/arms_up_pottery_pattern" } },
+					{ "value": "blade", "shape_texture": { "right": "entity/decorated_pot/blade_pottery_pattern" } },
+					{ "value": "brewer", "shape_texture": { "right": "entity/decorated_pot/brewer_pottery_pattern" } },
+					{ "value": "burn", "shape_texture": { "right": "entity/decorated_pot/burn_pottery_pattern" } },
+					{ "value": "danger", "shape_texture": { "right": "entity/decorated_pot/danger_pottery_pattern" } },
+					{ "value": "explorer", "shape_texture": { "right": "entity/decorated_pot/explorer_pottery_pattern" } },
+					{ "value": "friend", "shape_texture": { "right": "entity/decorated_pot/friend_pottery_pattern" } },
+					{ "value": "heart", "shape_texture": { "right": "entity/decorated_pot/heart_pottery_pattern" } },
+					{ "value": "heartbreak", "shape_texture": { "right": "entity/decorated_pot/heartbreak_pottery_pattern" } },
+					{ "value": "howl", "shape_texture": { "right": "entity/decorated_pot/howl_pottery_pattern" } },
+					{ "value": "miner", "shape_texture": { "right": "entity/decorated_pot/miner_pottery_pattern" } },
+					{ "value": "mourner", "shape_texture": { "right": "entity/decorated_pot/mourner_pottery_pattern" } },
+					{ "value": "plenty", "shape_texture": { "right": "entity/decorated_pot/plenty_pottery_pattern" } },
+					{ "value": "prize", "shape_texture": { "right": "entity/decorated_pot/prize_pottery_pattern" } },
+					{ "value": "sheaf", "shape_texture": { "right": "entity/decorated_pot/sheaf_pottery_pattern" } },
+					{ "value": "shelter", "shape_texture": { "right": "entity/decorated_pot/shelter_pottery_pattern" } },
+					{ "value": "skull", "shape_texture": { "right": "entity/decorated_pot/skull_pottery_pattern" } },
+					{ "value": "snort", "shape_texture": { "right": "entity/decorated_pot/snort_pottery_pattern" } }
+				]
+			},
+			"default_state": "sherd_front=none,sherd_left=none,sherd_back=none,sherd_right=none"
 		},
 		{
 			"name": "camera",
@@ -1155,6 +1301,9 @@
 					{ "value": "acacia", "file": "acacia_planks.json" },
 					{ "value": "dark_oak", "file": "dark_oak_planks.json" },
 					{ "value": "mangrove", "file": "mangrove_planks.json" },
+					{ "value": "cherry", "file": "cherry_planks.json" },
+					{ "value": "bamboo", "file": "bamboo_planks.json" },
+					{ "value": "bamboo_mosaic", "file": "bamboo_mosaic.json" },
 					{ "value": "crimson", "file": "crimson_planks.json" },
 					{ "value": "warped", "file": "warped_planks.json" }
 				]	
@@ -1168,6 +1317,9 @@
 				"minecraft:acacia_planks": "variant=acacia",
 				"minecraft:dark_oak_planks": "variant=dark_oak",
 				"minecraft:mangrove_planks": "variant=mangrove",
+				"minecraft:cherry_planks": "variant=cherry",
+				"minecraft:bamboo_planks": "variant=bamboo",
+				"minecraft:bamboo_mosaic": "variant=bamboo_mosaic",
 				"minecraft:crimson_planks": "variant=crimson",
 				"minecraft:warped_planks": "variant=warped"
 			}
@@ -1181,7 +1333,8 @@
 					{ "value": "birch", "file": "birch_sapling.json" },
 					{ "value": "jungle", "file": "jungle_sapling.json" },
 					{ "value": "acacia", "file": "acacia_sapling.json" },
-					{ "value": "dark_oak", "file": "dark_oak_sapling.json" }
+					{ "value": "dark_oak", "file": "dark_oak_sapling.json" },
+					{ "value": "cherry", "file": "cherry_sapling.json" }
 				],
 				"stage": [ "0", "1" ]
 			},
@@ -1197,7 +1350,8 @@
 				"minecraft:birch_sapling": "variant=birch",
 				"minecraft:jungle_sapling": "variant=jungle",
 				"minecraft:acacia_sapling": "variant=acacia",
-				"minecraft:dark_oak_sapling": "variant=dark_oak"
+				"minecraft:dark_oak_sapling": "variant=dark_oak",
+				"minecraft:cherry_sapling": "variant=cherry"
 			}
 		},
 		{
@@ -1310,6 +1464,8 @@
 					{ "value": "acacia", "file": "acacia_log.json" },
 					{ "value": "dark_oak", "file": "dark_oak_log.json" },
 					{ "value": "mangrove", "file": "mangrove_log.json" },
+					{ "value": "cherry", "file": "cherry_log.json" },
+					{ "value": "bamboo_block", "file": "bamboo_block.json" },
 					{ "value": "crimson_stem", "file": "crimson_stem.json" },
 					{ "value": "warped_stem", "file": "warped_stem.json" }
 				],
@@ -1324,6 +1480,8 @@
 				"minecraft:acacia_log": "variant=acacia",
 				"minecraft:dark_oak_log": "variant=dark_oak",
 				"minecraft:mangrove_log": "variant=mangrove",
+				"minecraft:cherry_log": "variant=cherry",
+				"minecraft:bamboo_block": "variant=bamboo_block",
 				"minecraft:crimson_stem": "variant=crimson_stem",
 				"minecraft:warped_stem": "variant=warped_stem"
 			}
@@ -1339,6 +1497,8 @@
 					{ "value": "acacia", "file": "stripped_acacia_log.json" },
 					{ "value": "dark_oak", "file": "stripped_dark_oak_log.json" },
 					{ "value": "mangrove", "file": "stripped_mangrove_log.json" },
+					{ "value": "cherry", "file": "stripped_cherry_log.json" },
+					{ "value": "bamboo_block", "file": "stripped_bamboo_block.json" },
 					{ "value": "crimson_stem", "file": "stripped_crimson_stem.json" },
 					{ "value": "warped_stem", "file": "stripped_warped_stem.json" }
 				],
@@ -1353,6 +1513,8 @@
 				"minecraft:stripped_acacia_log": "variant=acacia",
 				"minecraft:stripped_dark_oak_log": "variant=dark_oak",
 				"minecraft:stripped_mangrove_log": "variant=mangrove",
+				"minecraft:stripped_cherry_log": "variant=cherry",
+				"minecraft:stripped_bamboo_block": "variant=bamboo_block",
 				"minecraft:stripped_crimson_stem": "variant=crimson_stem",
 				"minecraft:stripped_warped_stem": "variant=warped_stem"
 			}
@@ -1368,6 +1530,7 @@
 					{ "value": "acacia", "file": "acacia_wood.json" },
 					{ "value": "dark_oak", "file": "dark_oak_wood.json" },
 					{ "value": "mangrove", "file": "mangrove_wood.json" },
+					{ "value": "cherry", "file": "cherry_wood.json" },
 					{ "value": "crimson_hyphae", "file": "crimson_hyphae.json" },
 					{ "value": "warped_hyphae", "file": "warped_hyphae.json" }
 				],
@@ -1382,6 +1545,7 @@
 				"minecraft:acacia_wood": "variant=acacia",
 				"minecraft:dark_oak_wood": "variant=dark_oak",
 				"minecraft:mangrove_wood": "variant=mangrove",
+				"minecraft:cherry_wood": "variant=cherry",
 				"minecraft:crimson_hyphae": "variant=crimson_hyphae",
 				"minecraft:warped_hyphae": "variant=warped_hyphae"
 			}
@@ -1397,6 +1561,7 @@
 					{ "value": "acacia", "file": "stripped_acacia_wood.json" },
 					{ "value": "dark_oak", "file": "stripped_dark_oak_wood.json" },
 					{ "value": "mangrove", "file": "stripped_mangrove_wood.json" },
+					{ "value": "cherry", "file": "stripped_cherry_wood.json" },
 					{ "value": "crimson_hyphae", "file": "stripped_crimson_hyphae.json" },
 					{ "value": "warped_hyphae", "file": "stripped_warped_hyphae.json" }
 				],
@@ -1411,6 +1576,7 @@
 				"minecraft:stripped_acacia_wood": "variant=acacia",
 				"minecraft:stripped_dark_oak_wood": "variant=dark_oak",
 				"minecraft:stripped_mangrove_wood": "variant=mangrove",
+				"minecraft:stripped_cherry_wood": "variant=cherry",
 				"minecraft:stripped_crimson_hyphae": "variant=crimson_hyphae",
 				"minecraft:stripped_warped_hyphae": "variant=warped_hyphae"
 			}
@@ -1427,6 +1593,7 @@
 					{ "value": "acacia", "file": "acacia_leaves.json" },
 					{ "value": "dark_oak", "file": "dark_oak_leaves.json" },
 					{ "value": "mangrove", "file": "mangrove_leaves.json" },
+					{ "value": "cherry", "file": "cherry_leaves.json" },
 					{ "value": "azalea", "file": "azalea_leaves.json" },
 					{ "value": "flowering_azalea", "file": "flowering_azalea_leaves.json" }
 				]
@@ -1444,6 +1611,7 @@
 				"minecraft:acacia_leaves": "variant=acacia",
 				"minecraft:dark_oak_leaves": "variant=dark_oak",
 				"minecraft:mangrove_leaves": "variant=mangrove",
+				"minecraft:cherry_leaves": "variant=cherry",
 				"minecraft:azalea_leaves": "variant=azalea",
 				"minecraft:flowering_azalea_leaves": "variant=flowering_azalea"
 			}
@@ -1726,6 +1894,7 @@
 					{ "value": "oxeye_daisy", "file": "oxeye_daisy.json" },
 					{ "value": "cornflower", "file": "cornflower.json" },
 					{ "value": "lily_of_the_valley", "file": "lily_of_the_valley.json" },
+					{ "value": "torchflower", "file": "torchflower.json" },
 					{ "value": "wither_rose", "file": "wither_rose.json" }
 				]
 			},
@@ -1749,6 +1918,7 @@
 				"minecraft:oxeye_daisy": "type=oxeye_daisy",
 				"minecraft:cornflower": "type=cornflower",
 				"minecraft:lily_of_the_valley": "type=lily_of_the_valley",
+				"minecraft:torchflower": "type=torchflower",
 				"minecraft:wither_rose": "type=wither_rose"
 			}
 		},
@@ -1786,6 +1956,9 @@
 					{ "value": "acacia", "file": "acacia_slab.json" },
 					{ "value": "dark_oak", "file": "dark_oak_slab.json" },
 					{ "value": "mangrove", "file": "mangrove_slab.json" },
+					{ "value": "cherry", "file": "cherry_slab.json" },
+					{ "value": "bamboo", "file": "bamboo_slab.json" },
+					{ "value": "bamboo_mosaic", "file": "bamboo_mosaic_slab.json" },
 					{ "value": "crimson", "file": "crimson_slab.json" },
 					{ "value": "warped", "file": "warped_slab.json" },
 					{ "value": "stone", "file": "stone_slab.json" },
@@ -1845,6 +2018,9 @@
 				"minecraft:acacia_slab": "variant=acacia",
 				"minecraft:dark_oak_slab": "variant=dark_oak",
 				"minecraft:mangrove_slab": "variant=mangrove",
+				"minecraft:cherry_slab": "variant=cherry",
+				"minecraft:bamboo_slab": "variant=bamboo",
+				"minecraft:bamboo_mosaic_slab": "variant=bamboo_mosaic",
 				"minecraft:crimson_slab": "variant=crimson",
 				"minecraft:warped_slab": "variant=warped",
 				"minecraft:stone_slab": "variant=stone",
@@ -1908,6 +2084,21 @@
 			"name": "bookshelf",
 			"file": "bookshelf.json",
 			"id": "minecraft:bookshelf"
+		},
+		{
+			"name": "chiseled_bookshelf",
+			"file": "chiseled_bookshelf.json",
+			"states": {
+				"slot_0_occupied": [ "false", "true" ],
+				"slot_1_occupied": [ "false", "true" ],
+				"slot_2_occupied": [ "false", "true" ],
+				"slot_3_occupied": [ "false", "true" ],
+				"slot_4_occupied": [ "false", "true" ],
+				"slot_5_occupied": [ "false", "true" ],
+				"facing": [ "north", "south", "east", "west" ]
+			},
+			"default_state": "facing=west,slot_0_occupied=false,slot_1_occupied=false,slot_2_occupied=false,slot_3_occupied=false,slot_4_occupied=false,slot_5_occupied=false",
+			"id": "minecraft:chiseled_bookshelf"
 		},
 		{
 			"name": "mossy_cobblestone",
@@ -1988,6 +2179,9 @@
 					{ "value": "acacia", "file": "acacia_stairs.json" },
 					{ "value": "dark_oak", "file": "dark_oak_stairs.json" },
 					{ "value": "mangrove", "file": "mangrove_stairs.json" },
+					{ "value": "cherry", "file": "cherry_stairs.json" },
+					{ "value": "bamboo", "file": "bamboo_stairs.json" },
+					{ "value": "bamboo_mosaic", "file": "bamboo_mosaic_stairs.json" },
 					{ "value": "crimson", "file": "crimson_stairs.json" },
 					{ "value": "warped", "file": "warped_stairs.json" },
 					{ "value": "stone", "file": "stone_stairs.json" },
@@ -2045,6 +2239,9 @@
 				"minecraft:acacia_stairs": "variant=acacia",
 				"minecraft:dark_oak_stairs": "variant=dark_oak",
 				"minecraft:mangrove_stairs": "variant=mangrove",
+				"minecraft:cherry_stairs": "variant=cherry",
+				"minecraft:bamboo_stairs": "variant=bamboo",
+				"minecraft:bamboo_mosaic_stairs": "variant=bamboo_mosaic",
 				"minecraft:crimson_stairs": "variant=crimson",
 				"minecraft:warped_stairs": "variant=warped",
 				"minecraft:stone_stairs": "variant=stone",
@@ -2193,7 +2390,7 @@
 		{
 			"name": "sign",
 			"states": {
-				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "crimson", "warped" ],
+				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "crimson", "warped" ],
 				"rotation": [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" ]
 			},
 			"default_state": "rotation=0,wood=oak",
@@ -2207,6 +2404,8 @@
 					"wood=acacia": "wood=acacia,variant=standing",
 					"wood=dark_oak": "wood=dark_oak,variant=standing",
 					"wood=mangrove": "wood=mangrove,variant=standing",
+					"wood=cherry": "wood=cherry,variant=standing",
+					"wood=bamboo": "wood=bamboo,variant=standing",
 					"wood=crimson": "wood=crimson,variant=standing",
 					"wood=warped": "wood=warped,variant=standing"
 				},
@@ -2242,6 +2441,8 @@
 				"minecraft:acacia_sign": "wood=acacia",
 				"minecraft:dark_oak_sign": "wood=dark_oak",
 				"minecraft:mangrove_sign": "wood=mangrove",
+				"minecraft:cherry_sign": "wood=cherry",
+				"minecraft:bamboo_sign": "wood=bamboo",
 				"minecraft:crimson_sign": "wood=crimson",
 				"minecraft:warped_sign": "wood=warped"
 			}
@@ -2258,6 +2459,8 @@
 					{ "value": "acacia", "file": "acacia_door.json" },
 					{ "value": "dark_oak", "file": "dark_oak_door.json" },
 					{ "value": "mangrove", "file": "mangrove_door.json" },
+					{ "value": "cherry", "file": "cherry_door.json" },
+					{ "value": "bamboo", "file": "bamboo_door.json" },
 					{ "value": "crimson", "file": "crimson_door.json" },
 					{ "value": "warped", "file": "warped_door.json" },
 					{ "value": "iron", "file": "iron_door.json" }
@@ -2293,6 +2496,8 @@
 				"minecraft:acacia_door": "variant=acacia",
 				"minecraft:dark_oak_door": "variant=dark_oak",
 				"minecraft:mangrove_door": "variant=mangrove",
+				"minecraft:cherry_door": "variant=cherry",
+				"minecraft:bamboo_door": "variant=bamboo",
 				"minecraft:crimson_door": "variant=crimson",
 				"minecraft:warped_door": "variant=warped",
 				"minecraft:iron_door": "variant=iron"
@@ -2319,7 +2524,7 @@
 		{
 			"name": "wall_sign",
 			"states": {
-				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "crimson", "warped" ],
+				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "crimson", "warped" ],
 				"facing": [ "north", "south", "east", "west" ]
 			},
 			"default_state": "facing=west,wood=oak",
@@ -2333,6 +2538,8 @@
 					"wood=acacia": "wood=acacia,variant=wall",
 					"wood=dark_oak": "wood=dark_oak,variant=wall",
 					"wood=mangrove": "wood=mangrove,variant=wall",
+					"wood=cherry": "wood=cherry,variant=wall",
+					"wood=bamboo": "wood=bamboo,variant=wall",
 					"wood=crimson": "wood=crimson,variant=wall",
 					"wood=warped": "wood=warped,variant=wall"
 				},
@@ -2361,8 +2568,128 @@
 				"minecraft:acacia_wall_sign": "wood=acacia",
 				"minecraft:dark_oak_wall_sign": "wood=dark_oak",
 				"minecraft:mangrove_wall_sign": "wood=mangrove",
+				"minecraft:cherry_wall_sign": "wood=cherry",
+				"minecraft:bamboo_wall_sign": "wood=bamboo",
 				"minecraft:crimson_wall_sign": "wood=crimson",
 				"minecraft:warped_wall_sign": "wood=warped"
+			}
+		},
+		{
+			"name": "hanging_sign",
+			"states": {
+				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "crimson", "warped" ],
+				"rotation": [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" ],
+				"attached": [ "false", "true" ]
+			},
+			"default_state": "rotation=0,wood=oak,attached=false",
+			"timeline": {
+				"model": "hanging_sign",
+				"model_state": {
+					"wood=oak,attached=false": "wood=oak,variant=hanging",
+					"wood=spruce,attached=false": "wood=spruce,variant=hanging",
+					"wood=birch,attached=false": "wood=birch,variant=hanging",
+					"wood=jungle,attached=false": "wood=jungle,variant=hanging",
+					"wood=acacia,attached=false": "wood=acacia,variant=hanging",
+					"wood=dark_oak,attached=false": "wood=dark_oak,variant=hanging",
+					"wood=mangrove,attached=false": "wood=mangrove,variant=hanging",
+					"wood=cherry,attached=false": "wood=cherry,variant=hanging",
+					"wood=bamboo,attached=false": "wood=bamboo,variant=hanging",
+					"wood=crimson,attached=false": "wood=crimson,variant=hanging",
+					"wood=warped,attached=false": "wood=warped,variant=hanging",
+					"wood=oak,attached=true": "wood=oak,variant=attached",
+					"wood=spruce,attached=true": "wood=spruce,variant=attached",
+					"wood=birch,attached=true": "wood=birch,variant=attached",
+					"wood=jungle,attached=true": "wood=jungle,variant=attached",
+					"wood=acacia,attached=true": "wood=acacia,variant=attached",
+					"wood=dark_oak,attached=true": "wood=dark_oak,variant=attached",
+					"wood=mangrove,attached=true": "wood=mangrove,variant=attached",
+					"wood=cherry,attached=true": "wood=cherry,variant=attached",
+					"wood=bamboo,attached=true": "wood=bamboo,variant=attached",
+					"wood=crimson,attached=true": "wood=crimson,variant=attached",
+					"wood=warped,attached=true": "wood=warped,variant=attached"
+				},
+				"has_text": true,
+				"text_position": [ 0.2295, -11, 1.0625 ],
+				"text_scale": 0.2295,
+				"position": [ 8, 16, 8 ],
+				"rotation": {
+					"rotation=0": [ 0, 0, 0 ],
+					"rotation=1": [ 0, -22.5, 0 ],
+					"rotation=2": [ 0, -45, 0 ],
+					"rotation=3": [ 0, -67.5, 0 ],
+					"rotation=4": [ 0, -90, 0 ],
+					"rotation=5": [ 0, -112.5, 0 ],
+					"rotation=6": [ 0, -135, 0 ],
+					"rotation=7": [ 0, -157.5, 0 ],
+					"rotation=8": [ 0, 180, 0 ],
+					"rotation=9": [ 0, 157.5, 0 ],
+					"rotation=10": [ 0, 135, 0 ],
+					"rotation=11": [ 0, 112.5, 0 ],
+					"rotation=12": [ 0, 90, 0 ],
+					"rotation=13": [ 0, 67.5, 0 ],
+					"rotation=14": [ 0, 45, 0 ],
+					"rotation=15": [ 0, 22.5, 0 ]
+				}
+			},
+			"id": {
+				"minecraft:oak_hanging_sign": "wood=oak",
+				"minecraft:spruce_hanging_sign": "wood=spruce",
+				"minecraft:birch_hanging_sign": "wood=birch",
+				"minecraft:jungle_hanging_sign": "wood=jungle",
+				"minecraft:acacia_hanging_sign": "wood=acacia",
+				"minecraft:dark_oak_hanging_sign": "wood=dark_oak",
+				"minecraft:mangrove_hanging_sign": "wood=mangrove",
+				"minecraft:cherry_hanging_sign": "wood=cherry",
+				"minecraft:bamboo_hanging_sign": "wood=bamboo",
+				"minecraft:crimson_hanging_sign": "wood=crimson",
+				"minecraft:warped_hanging_sign": "wood=warped"
+			}
+		},
+		{
+			"name": "wall_hanging_sign",
+			"states": {
+				"wood": [ "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "crimson", "warped" ],
+				"facing": [ "north", "south", "east", "west" ]
+			},
+			"default_state": "facing=west,wood=oak",
+			"timeline": {
+				"model": "hanging_sign",
+				"model_state": {
+					"wood=oak": "wood=oak,variant=wall",
+					"wood=spruce": "wood=spruce,variant=wall",
+					"wood=birch": "wood=birch,variant=wall",
+					"wood=jungle": "wood=jungle,variant=wall",
+					"wood=acacia": "wood=acacia,variant=wall",
+					"wood=dark_oak": "wood=dark_oak,variant=wall",
+					"wood=mangrove": "wood=mangrove,variant=wall",
+					"wood=cherry": "wood=cherry,variant=wall",
+					"wood=bamboo": "wood=bamboo,variant=wall",
+					"wood=crimson": "wood=crimson,variant=wall",
+					"wood=warped": "wood=warped,variant=wall"
+				},
+				"has_text": true,
+				"text_position": [ 0.2295, -11, 1.0625 ],
+				"text_scale": 0.2295,
+				"position": [ 8, 16, 8 ],
+				"rotation": {
+					"facing=north": [ 0, 180, 0 ],
+					"facing=south": [ 0, 0, 0 ],
+					"facing=east": [ 0, 90, 0 ],
+					"facing=west": [ 0, -90, 0 ]
+				}
+			},
+			"id": {
+				"minecraft:oak_wall_hanging_sign": "wood=oak",
+				"minecraft:spruce_wall_hanging_sign": "wood=spruce",
+				"minecraft:birch_wall_hanging_sign": "wood=birch",
+				"minecraft:jungle_wall_hanging_sign": "wood=jungle",
+				"minecraft:acacia_wall_hanging_sign": "wood=acacia",
+				"minecraft:dark_oak_wall_hanging_sign": "wood=dark_oak",
+				"minecraft:mangrove_wall_hanging_sign": "wood=mangrove",
+				"minecraft:cherry_wall_hanging_sign": "wood=cherry",
+				"minecraft:bamboo_wall_hanging_sign": "wood=bamboo",
+				"minecraft:crimson_wall_hanging_sign": "wood=crimson",
+				"minecraft:warped_wall_hanging_sign": "wood=warped"
 			}
 		},
 		{
@@ -2416,6 +2743,8 @@
 					{ "value": "acacia", "file": "acacia_pressure_plate.json" },
 					{ "value": "dark_oak", "file": "dark_oak_pressure_plate.json" },
 					{ "value": "mangrove", "file": "mangrove_pressure_plate.json" },
+					{ "value": "cherry", "file": "cherry_pressure_plate.json" },
+					{ "value": "bamboo", "file": "bamboo_pressure_plate.json" },
 					{ "value": "crimson", "file": "crimson_pressure_plate.json" },
 					{ "value": "warped", "file": "warped_pressure_plate.json" },
 					{ "value": "polished_blackstone", "file": "polished_blackstone_pressure_plate.json" }
@@ -2436,6 +2765,8 @@
 				"minecraft:acacia_pressure_plate": "variant=acacia",
 				"minecraft:dark_oak_pressure_plate": "variant=dark_oak",
 				"minecraft:mangrove_pressure_plate": "variant=mangrove",
+				"minecraft:cherry_pressure_plate": "variant=cherry",
+				"minecraft:bamboo_pressure_plate": "variant=bamboo",
 				"minecraft:crimson_pressure_plate": "variant=crimson",
 				"minecraft:warped_pressure_plate": "variant=warped",
 				"minecraft:polished_blackstone_pressure_plate": "variant=polished_blackstone"
@@ -2497,6 +2828,8 @@
 					{ "value": "acacia", "file": "acacia_button.json" },
 					{ "value": "dark_oak", "file": "dark_oak_button.json" },
 					{ "value": "mangrove", "file": "mangrove_button.json" },
+					{ "value": "cherry", "file": "cherry_button.json" },
+					{ "value": "bamboo", "file": "bamboo_button.json" },
 					{ "value": "crimson", "file": "crimson_button.json" },
 					{ "value": "warped", "file": "warped_button.json" },
 					{ "value": "polished_blackstone", "file": "polished_blackstone_button.json" }
@@ -2540,6 +2873,8 @@
 				"minecraft:acacia_button": "variant=acacia",
 				"minecraft:dark_oak_button": "variant=dark_oak",
 				"minecraft:mangrove_button": "variant=mangrove",
+				"minecraft:cherry_button": "variant=cherry",
+				"minecraft:bamboo_button": "variant=bamboo",
 				"minecraft:crimson_button": "variant=crimson",
 				"minecraft:warped_button": "variant=warped",
 				"minecraft:polished_blackstone_button": "variant=polished_blackstone"
@@ -2599,6 +2934,8 @@
 					{ "value": "acacia", "file": "acacia_fence.json" },
 					{ "value": "dark_oak", "file": "dark_oak_fence.json" },
 					{ "value": "mangrove", "file": "mangrove_fence.json" },
+					{ "value": "cherry", "file": "cherry_fence.json" },
+					{ "value": "bamboo", "file": "bamboo_fence.json" },
 					{ "value": "crimson", "file": "crimson_fence.json" },
 					{ "value": "warped", "file": "warped_fence.json" },
 					{ "value": "nether_brick", "file": "nether_brick_fence.json" }
@@ -2618,6 +2955,8 @@
 				"minecraft:acacia_fence": "variant=acacia",
 				"minecraft:dark_oak_fence": "variant=dark_oak",
 				"minecraft:mangrove_fence": "variant=mangrove",
+				"minecraft:cherry_fence": "variant=cherry",
+				"minecraft:bamboo_fence": "variant=bamboo",
 				"minecraft:crimson_fence": "variant=crimson",
 				"minecraft:warped_fence": "variant=warped",
 				"minecraft:nether_brick_fence": "variant=nether_brick"
@@ -2791,6 +3130,8 @@
 					{ "value": "acacia", "file": "acacia_trapdoor.json" },
 					{ "value": "dark_oak", "file": "dark_oak_trapdoor.json" },
 					{ "value": "mangrove", "file": "mangrove_trapdoor.json" },
+					{ "value": "cherry", "file": "cherry_trapdoor.json" },
+					{ "value": "bamboo", "file": "bamboo_trapdoor.json" },
 					{ "value": "crimson", "file": "crimson_trapdoor.json" },
 					{ "value": "warped", "file": "warped_trapdoor.json" },
 					{ "value": "iron", "file": "iron_trapdoor.json" }
@@ -2836,6 +3177,8 @@
 				"minecraft:acacia_trapdoor": "variant=acacia",
 				"minecraft:dark_oak_trapdoor": "variant=dark_oak",
 				"minecraft:mangrove_trapdoor": "variant=mangrove",
+				"minecraft:cherry_trapdoor": "variant=cherry",
+				"minecraft:bamboo_trapdoor": "variant=bamboo",
 				"minecraft:crimson_trapdoor": "variant=crimson",
 				"minecraft:warped_trapdoor": "variant=warped",
 				"minecraft:iron_trapdoor": "variant=iron"
@@ -3037,6 +3380,8 @@
 					{ "value": "acacia", "file": "acacia_fence_gate.json" },
 					{ "value": "dark_oak", "file": "dark_oak_fence_gate.json" },
 					{ "value": "mangrove", "file": "mangrove_fence_gate.json" },
+					{ "value": "cherry", "file": "cherry_fence_gate.json" },
+					{ "value": "bamboo", "file": "bamboo_fence_gate.json" },
 					{ "value": "crimson", "file": "crimson_fence_gate.json" },
 					{ "value": "warped", "file": "warped_fence_gate.json" }
 				],
@@ -3055,6 +3400,8 @@
 					"variant=acacia": "variant=acacia",
 					"variant=dark_oak": "variant=dark_oak",
 					"variant=mangrove": "variant=mangrove",
+					"variant=cherry": "variant=cherry",
+					"variant=bamboo": "variant=bamboo",
 					"variant=crimson": "variant=crimson",
 					"variant=warped": "variant=warped"
 				},
@@ -3077,6 +3424,8 @@
 				"minecraft:acacia_fence_gate": "variant=acacia",
 				"minecraft:dark_oak_fence_gate": "variant=dark_oak",
 				"minecraft:mangrove_fence_gate": "variant=mangrove",
+				"minecraft:cherry_fence_gate": "variant=cherry",
+				"minecraft:bamboo_fence_gate": "variant=bamboo",
 				"minecraft:crimson_fence_gate": "variant=crimson",
 				"minecraft:warped_fence_gate": "variant=warped"
 			}
@@ -3382,6 +3731,7 @@
 					{ "value": "acacia_sapling", "file": "potted_acacia_sapling.json" },
 					{ "value": "dark_oak_sapling", "file": "potted_dark_oak_sapling.json" },
 					{ "value": "mangrove_propagule", "file": "potted_mangrove_propagule.json" },
+					{ "value": "cherry_sapling", "file": "potted_cherry_sapling.json" },
 					{ "value": "red_mushroom", "file": "potted_red_mushroom.json" },
 					{ "value": "brown_mushroom", "file": "potted_brown_mushroom.json" },
 					{ "value": "cactus", "file": "potted_cactus.json" },
@@ -3397,6 +3747,7 @@
 					{ "value": "oxeye_daisy", "file": "potted_oxeye_daisy.json" },
 					{ "value": "cornflower", "file": "potted_cornflower.json" },
 					{ "value": "lily_of_the_valley", "file": "potted_lily_of_the_valley.json" },
+					{ "value": "torchflower", "file": "potted_torchflower.json" },
 					{ "value": "wither_rose", "file": "potted_wither_rose.json" },
 					{ "value": "bamboo", "file": "potted_bamboo.json" },
 					{ "value": "warped_fungus", "file": "potted_warped_fungus.json" },
@@ -3419,6 +3770,7 @@
 				"minecraft:potted_acacia_sapling": "contents=acacia_sapling",
 				"minecraft:potted_dark_oak_sapling": "contents=dark_oak_sapling",
 				"minecraft:potted_mangrove_propagule": "contents=mangrove_propagule",
+				"minecraft:potted_cherry_sapling": "contents=cherry_sapling",
 				"minecraft:potted_red_mushroom": "contents=red_mushroom",
 				"minecraft:potted_brown_mushroom": "contents=brown_mushroom",
 				"minecraft:potted_cactus": "contents=cactus",
@@ -3434,6 +3786,7 @@
 				"minecraft:potted_oxeye_daisy": "contents=oxeye_daisy",
 				"minecraft:potted_cornflower": "contents=cornflower",
 				"minecraft:potted_lily_of_the_valley": "contents=lily_of_the_valley",
+				"minecraft:potted_torchflower": "contents=torchflower",
 				"minecraft:potted_wither_rose": "contents=wither_rose",
 				"minecraft:potted_bamboo": "contents=bamboo",
 				"minecraft:potted_warped_fungus": "contents=warped_fungus",
@@ -3476,7 +3829,7 @@
 			"name": "mob_head",
 			"states": {
 				"rotation": [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" ],
-				"character": [ "skeleton", "wither_skeleton", "human", "zombie", "creeper", "dragon" ]
+				"character": [ "skeleton", "wither_skeleton", "human", "zombie", "creeper", "piglin", "dragon" ]
 			},
 			"default_state": "rotation=0,character=human",
 			"timeline": {
@@ -3487,6 +3840,7 @@
 					"character=human": "character=human",
 					"character=zombie": "character=zombie",
 					"character=creeper": "character=creeper",
+					"character=piglin": "character=piglin",
 					"character=dragon": "character=dragon"
 				},
 				"position": [ 8, 0, 8 ],
@@ -3515,6 +3869,7 @@
 				"minecraft:player_head": "character=human",
 				"minecraft:zombie_head": "character=zombie",
 				"minecraft:creeper_head": "character=creeper",
+				"minecraft:piglin_head": "character=piglin",
 				"minecraft:dragon_head": "character=dragon"
 			}
 		},
@@ -3522,7 +3877,7 @@
 			"name": "mob_wall_head",
 			"states": {
 				"facing": [ "north", "south", "east", "west" ],
-				"character": [ "skeleton", "wither_skeleton", "human", "zombie", "creeper", "dragon" ]
+				"character": [ "skeleton", "wither_skeleton", "human", "zombie", "creeper", "piglin", "dragon" ]
 			},
 			"default_state": "facing=west,character=human",
 			"timeline": {
@@ -3533,6 +3888,7 @@
 					"character=human": "character=human",
 					"character=zombie": "character=zombie",
 					"character=creeper": "character=creeper",
+					"character=piglin": "character=piglin",
 					"character=dragon": "character=dragon"
 				},
 				"position": {
@@ -3554,6 +3910,7 @@
 				"minecraft:player_wall_head": "character=human",
 				"minecraft:zombie_wall_head": "character=zombie",
 				"minecraft:creeper_wall_head": "character=creeper",
+				"minecraft:piglin_wall_head": "character=piglin",
 				"minecraft:dragon_wall_head": "character=dragon"
 			}
 		},
@@ -4032,7 +4389,8 @@
 					{ "value": "tall_grass", "file": "tall_grass.json" },
 					{ "value": "large_fern", "file": "large_fern.json" },
 					{ "value": "rose_bush", "file": "rose_bush.json" },
-					{ "value": "peony", "file": "peony.json" }
+					{ "value": "peony", "file": "peony.json" },
+					{ "value": "pitcher_plant", "file": "pitcher_plant.json" }
 				],
 				"half": [ "lower", "upper" ]
 			},
@@ -4049,7 +4407,8 @@
 				"minecraft:tall_grass": "variant=tall_grass",
 				"minecraft:large_fern": "variant=large_fern",
 				"minecraft:rose_bush": "variant=rose_bush",
-				"minecraft:peony": "variant=peony"
+				"minecraft:peony": "variant=peony",
+				"minecraft:pitcher_plant": "variant=pitcher_plant"
 			}
 		},
 		{
@@ -4123,6 +4482,36 @@
 			"name": "end_stone_bricks",
 			"file": "end_stone_bricks.json",
 			"id": "minecraft:end_stone_bricks"
+		},
+		{
+			"name": "torchflower_crop",
+			"file": "torchflower_crop.json",
+			"states": {
+				"age": [ "0", "1", "2" ]
+			},
+			"default_state": "age=0",
+			"subsurface": 1,
+			"wind": {
+				"axis": "all",
+				"ymin": 0
+			},
+			"id": "minecraft:torchflower_crop"
+		},
+		{
+			"name": "pitcher_crop",
+			"file": "pitcher_crop.json",
+			"type": "double_plant",
+			"states": {
+				"age": [ "0", "1", "2", "3", "4" ],
+				"half": [ "lower", "upper" ]
+			},
+			"default_state": "age=0",
+			"subsurface": 1,
+			"wind": {
+				"axis": "all",
+				"ymin": 5
+			},
+			"id": "minecraft:pitcher_crop"
 		},
 		{
 			"name": "beetroots",
@@ -5203,6 +5592,16 @@
 			"id": "minecraft:sculk_sensor"
 		},
 		{
+			"name": "calibrated_sculk_sensor",
+			"file": "calibrated_sculk_sensor.json",
+			"states": {
+				"facing": [ "north", "south", "east", "west" ],
+				"sculk_sensor_phase": [ "active", "cooldown", "inactive" ]
+			},
+			"default_state": "facing=east,sculk_sensor_phase=inactive",
+			"id": "minecraft:calibrated_sculk_sensor"
+		},
+		{
 			"name": "sculk",
 			"file": "sculk.json",
 			"id": "minecraft:sculk"
@@ -5385,6 +5784,21 @@
 			}
 		},
 		{
+			"name": "pink_petals",
+			"file": "pink_petals.json",
+			"states": {
+				"flower_amount": [ "1", "2", "3", "4" ],
+				"facing": [ "north", "south", "east", "west" ]
+			},
+			"default_state": "facing=west,flower_amount=4",
+			"subsurface": 1,
+			"wind": {
+				"axis": "all",
+				"ymin": 0
+			},
+			"id": "minecraft:pink_petals"
+		},
+		{
 			"name": "moss_carpet",
 			"file": "moss_carpet.json",
 			"id": "minecraft:moss_carpet"
@@ -5544,6 +5958,52 @@
 			"name": "reinforced_deepslate",
 			"file": "reinforced_deepslate.json",
 			"id": "minecraft:reinforced_deepslate"
+		},
+		{
+			"name": "suspicious_sand",
+			"file": "suspicious_sand.json",
+			"states": {
+				"dusted": [ "0", "1", "2", "3" ]
+			},
+			"default_state": "dusted=0",
+			"id": "minecraft:suspicious_sand"
+		},
+		{
+			"name": "suspicious_gravel",
+			"file": "suspicious_gravel.json",
+			"states": {
+				"dusted": [ "0", "1", "2", "3" ]
+			},
+			"default_state": "dusted=0",
+			"id": "minecraft:suspicious_gravel"
+		},
+		{
+			"name": "sniffer_egg",
+			"file": "sniffer_egg.json",
+			"states": {
+				"hatch": [ "0", "1", "2" ]
+			},
+			"default_state": "hatch=0",
+			"id": "minecraft:sniffer_egg"
+		},
+		{
+			"name": "decorated_pot",
+			"file": "decorated_pot.json",
+			"states": {
+				"facing": [ "north", "south", "east", "west" ]
+			},
+			"default_state": "facing=east",
+			"timeline": {
+				"model": "decorated_pot",
+				"position": [ 8, 0, 8 ],
+				"rotation": {
+					"facing=north": [ 0, 180, 0 ],
+					"facing=south": [ 0, 0, 0 ],
+					"facing=east": [ 0, 90, 0 ],
+					"facing=west": [ 0, -90, 0 ]
+				}
+			},
+			"id": "minecraft:decorated_pot"
 		}
 	],
 	"model_textures": [
@@ -5622,12 +6082,15 @@
 		"entity/bell/bell_body",
 		"entity/blaze",
 		"entity/boat/acacia",
+		"entity/boat/bamboo",
 		"entity/boat/birch",
+		"entity/boat/cherry",
 		"entity/boat/dark_oak",
 		"entity/boat/jungle",
 		"entity/boat/mangrove",
 		"entity/boat/oak",
 		"entity/boat/spruce",
+		"entity/camel/camel",
 		"entity/cat/all_black",
 		"entity/cat/black",
 		"entity/cat/british_shorthair",
@@ -5652,7 +6115,9 @@
 		"entity/chest/trapped_left",
 		"entity/chest/trapped_right",
 		"entity/chest_boat/acacia",
+		"entity/chest_boat/bamboo",
 		"entity/chest_boat/birch",
+		"entity/chest_boat/cherry",
 		"entity/chest_boat/dark_oak",
 		"entity/chest_boat/jungle",
 		"entity/chest_boat/mangrove",
@@ -5667,6 +6132,28 @@
 		"entity/cow/cow",
 		"entity/cow/red_mooshroom",
 		"entity/creeper/creeper",
+		"entity/decorated_pot/decorated_pot_base",
+		"entity/decorated_pot/decorated_pot_side",
+		"entity/decorated_pot/angler_pottery_pattern",
+		"entity/decorated_pot/archer_pottery_pattern",
+		"entity/decorated_pot/arms_up_pottery_pattern",
+		"entity/decorated_pot/blade_pottery_pattern",
+		"entity/decorated_pot/brewer_pottery_pattern",
+		"entity/decorated_pot/burn_pottery_pattern",
+		"entity/decorated_pot/danger_pottery_pattern",
+		"entity/decorated_pot/explorer_pottery_pattern",
+		"entity/decorated_pot/friend_pottery_pattern",
+		"entity/decorated_pot/heart_pottery_pattern",
+		"entity/decorated_pot/heartbreak_pottery_pattern",
+		"entity/decorated_pot/howl_pottery_pattern",
+		"entity/decorated_pot/miner_pottery_pattern",
+		"entity/decorated_pot/mourner_pottery_pattern",
+		"entity/decorated_pot/plenty_pottery_pattern",
+		"entity/decorated_pot/prize_pottery_pattern",
+		"entity/decorated_pot/sheaf_pottery_pattern",
+		"entity/decorated_pot/shelter_pottery_pattern",
+		"entity/decorated_pot/skull_pottery_pattern",
+		"entity/decorated_pot/snort_pottery_pattern",
 		"entity/dolphin",
 		"entity/elytra",
 		"entity/enchanting_table_book",
@@ -5870,7 +6357,9 @@
 		"entity/shulker/shulker_yellow",
 		"entity/shulker/spark",
 		"entity/signs/acacia",
+		"entity/signs/bamboo",
 		"entity/signs/birch",
+		"entity/signs/cherry",
 		"entity/signs/crimson",
 		"entity/signs/dark_oak",
 		"entity/signs/jungle",
@@ -5878,6 +6367,17 @@
 		"entity/signs/oak",
 		"entity/signs/spruce",
 		"entity/signs/warped",
+		"entity/signs/hanging/acacia",
+		"entity/signs/hanging/bamboo",
+		"entity/signs/hanging/birch",
+		"entity/signs/hanging/cherry",
+		"entity/signs/hanging/crimson",
+		"entity/signs/hanging/dark_oak",
+		"entity/signs/hanging/jungle",
+		"entity/signs/hanging/mangrove",
+		"entity/signs/hanging/oak",
+		"entity/signs/hanging/spruce",
+		"entity/signs/hanging/warped",
 		"entity/silverfish",
 		"entity/skeleton/skeleton",
 		"entity/skeleton/stray",
@@ -5885,6 +6385,7 @@
 		"entity/skeleton/wither_skeleton",
 		"entity/slime/magmacube",
 		"entity/slime/slime",
+		"entity/sniffer/sniffer",
 		"entity/snow_golem",
 		"entity/spider_eyes",
 		"entity/spider/cave_spider",
@@ -5980,6 +6481,8 @@
 		"block/acacia_planks",
 		"block/dark_oak_planks",
 		"block/mangrove_planks",
+		"block/cherry_planks",
+		"block/bamboo_fence_gate",
 		"block/crimson_planks",
 		"block/warped_planks",
 		"block/piston_top_sticky",
@@ -6803,7 +7306,76 @@
 		"block/frogspawn noalpha",
 		"block/reinforced_deepslate_bottom",
 		"block/reinforced_deepslate_side",
-		"block/reinforced_deepslate_top"
+		"block/reinforced_deepslate_top",
+		"block/bamboo_block",
+		"block/bamboo_block_top",
+		"block/bamboo_door_bottom",
+		"block/bamboo_door_top",
+		"block/bamboo_fence",
+		"block/bamboo_fence_gate",
+		"block/bamboo_mosaic",
+		"block/bamboo_planks",
+		"block/bamboo_trapdoor",
+		"block/calibrated_sculk_sensor_amethyst",
+		"block/calibrated_sculk_sensor_input_side",
+		"block/calibrated_sculk_sensor_top",
+		"block/cherry_door_bottom",
+		"block/cherry_door_top",
+		"block/cherry_leaves",
+		"block/cherry_leaves opaque",
+		"block/cherry_log",
+		"block/cherry_log_top",
+		"block/cherry_planks",
+		"block/cherry_sapling",
+		"block/cherry_trapdoor",
+		"block/chiseled_bookshelf_empty",
+		"block/chiseled_bookshelf_occupied",
+		"block/chiseled_bookshelf_side",
+		"block/chiseled_bookshelf_top",
+		"block/pink_petals",
+		"block/pink_petals_stem",
+		"block/pitcher_crop_bottom",
+		"block/pitcher_crop_bottom_stage_1",
+		"block/pitcher_crop_bottom_stage_2",
+		"block/pitcher_crop_bottom_stage_3",
+		"block/pitcher_crop_bottom_stage_4",
+		"block/pitcher_crop_side",
+		"block/pitcher_crop_top",
+		"block/pitcher_crop_top_stage_3",
+		"block/pitcher_crop_top_stage_4",
+		"block/sniffer_egg_not_cracked_bottom",
+		"block/sniffer_egg_not_cracked_east",
+		"block/sniffer_egg_not_cracked_north",
+		"block/sniffer_egg_not_cracked_south",
+		"block/sniffer_egg_not_cracked_top",
+		"block/sniffer_egg_not_cracked_west",
+		"block/sniffer_egg_slightly_cracked_bottom",
+		"block/sniffer_egg_slightly_cracked_east",
+		"block/sniffer_egg_slightly_cracked_north",
+		"block/sniffer_egg_slightly_cracked_south",
+		"block/sniffer_egg_slightly_cracked_top",
+		"block/sniffer_egg_slightly_cracked_west",
+		"block/sniffer_egg_very_cracked_bottom",
+		"block/sniffer_egg_very_cracked_east",
+		"block/sniffer_egg_very_cracked_north",
+		"block/sniffer_egg_very_cracked_south",
+		"block/sniffer_egg_very_cracked_top",
+		"block/sniffer_egg_very_cracked_west",
+		"block/stripped_bamboo_block",
+		"block/stripped_bamboo_block_top",
+		"block/stripped_cherry_log",
+		"block/stripped_cherry_log_top",
+		"block/suspicious_gravel_0",
+		"block/suspicious_gravel_1",
+		"block/suspicious_gravel_2",
+		"block/suspicious_gravel_3",
+		"block/suspicious_sand_0",
+		"block/suspicious_sand_1",
+		"block/suspicious_sand_2",
+		"block/suspicious_sand_3",
+		"block/torchflower",
+		"block/torchflower_crop_stage0",
+		"block/torchflower_crop_stage1"
 	],
 	"block_textures_animated": [
 		"block/water_still",
@@ -6886,6 +7458,7 @@
 		"block/large_fern_bottom": "grass",
 		"block/large_fern_top": "grass",
 		"block/sugar_cane": "grass",
+		"block/pink_petals_stem": "grass",
 		"block/water_still": "water",
 		"block/water_flow": "water"
 	},
@@ -6897,6 +7470,7 @@
 		"jungle_sapling.json": { "colorZ": "#316D19", "alphaZ": 1 },
 		"acacia_sapling.json": { "colorZ": "#766614", "alphaZ": 1 },
 		"dark_oak_sapling.json": { "colorZ": "#265216", "alphaZ": 1 },
+		"cherry_sapling.json": { "colorZ": "#E986BB", "alphaZ": 1 },
 		"gold_ore.json": { "colorY": "#B79048", "colorZ": "#B79048", "alphaY": 1, "alphaZ": 1 },
 		"deepslate_gold_ore.json": { "colorY": "#B79048", "colorZ": "#B79048", "alphaY": 1, "alphaZ": 1 },
 		"iron_ore.json": { "colorY": "#99897D", "colorZ": "#99897D", "alphaY": 1, "alphaZ": 1 },
@@ -6910,7 +7484,6 @@
 		"acacia_leaves.json": { "colorY": "#B7B9B7", "colorZ": null, "alphaY": 1, "alphaZ": null },
 		"dark_oak_leaves.json": { "colorY": "#9E9E9E", "colorZ": null, "alphaY": 1, "alphaZ": null },
 		"mangrove_leaves.json": { "colorY": "#9E9E9E", "colorZ": null, "alphaY": 1, "alphaZ": null },
-		"mangrove_roots.json": { "colorY": "#463823", "colorZ": null, "alphaY": 1, "alphaZ": null },
 		"lapis_ore.json": { "colorY": "#4D6CA0", "colorZ": "#4D6CA0", "alphaY": 1, "alphaZ": 1 },
 		"deepslate_lapis_ore.json": { "colorY": "#4D6CA0", "colorZ": "#4D6CA0", "alphaY": 1, "alphaZ": 1 },
 		"cobweb.json": { "colorZ": "#F1F4F4", "alphaZ": 1 },
@@ -6929,6 +7502,7 @@
 		"oxeye_daisy.json": { "colorZ": "#F8F4CE", "alphaZ": 1 },
 		"cornflower.json": { "colorZ": "#6281E8", "alphaZ": 1 },
 		"lily_of_the_valley.json": { "colorZ": "#E7E7E7", "alphaZ": 1 },
+		"torchflower.json": { "colorZ": "#DE8B25", "alphaZ": 1 },
 		"wither_rose.json": { "colorZ": "#2A1F19", "alphaZ": 1 },
 		"brown_mushroom.json": { "colorZ": "#CC9978", "alphaZ": 1 },
 		"red_mushroom.json": { "colorZ": "#FE2A2A", "alphaZ": 1 },
@@ -6961,6 +7535,8 @@
 		"birch_trapdoor.json": { "colorZ": "#F2EEDE", "alphaZ": 1 },
 		"acacia_trapdoor.json": { "colorZ": "#BA683B", "alphaZ": 1 },
 		"mangrove_trapdoor.json": { "colorZ": "#8B4D3A", "alphaZ": 1 },
+		"cherry_trapdoor.json": { "colorZ": "#E7BAB4", "alphaZ": 1 },
+		"bamboo_trapdoor.json": { "colorZ": "#D9C25E", "alphaZ": 1 },
 		"crimson_trapdoor.json": { "colorZ": "#7E3A56", "alphaZ": 1 },
 		"warped_trapdoor.json": { "colorZ": "#398382", "alphaZ": 1 },
 		"vine.json": { "colorY": null, "colorZ": null },
@@ -6982,6 +7558,7 @@
 		"potted_acacia_sapling.json": { "colorY": "#766614", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_dark_oak_sapling.json": { "colorY": "#265216", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_mangrove_propagule.json": { "colorY": "#7FBF56", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
+		"potted_cherry_sapling.json": { "colorY": "#E986BB", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_red_mushroom.json": { "colorY": "#FE2A2A", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_brown_mushroom.json": { "colorY": "#CC9978", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_cactus.json": { "colorY": "#649832", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
@@ -6997,6 +7574,7 @@
 		"potted_oxeye_daisy.json": { "colorY": "#F8F4CE", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_cornflower.json": { "colorY": "#6281E8", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_lily_of_the_valley.json": { "colorY": "#E7E7E7", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
+		"potted_torchflower.json": { "colorY": "#DE8B25", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_wither_rose.json": { "colorY": "#2A1F19", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_bamboo.json": { "colorY": "#538209", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
 		"potted_warped_fungus.json": { "colorY": "#119B85", "colorZ": "#834939", "alphaY": 1, "alphaZ": 1 },
@@ -7013,6 +7591,9 @@
 		"peony.json": { "colorZ": "#DE93F1", "alphaZ": 1 },
 		"tall_grass.json": { "colorY": null, "colorZ": null },
 		"large_fern.json": { "colorY": null, "colorZ": null },
+		"pitcher_plant.json": { "colorY": null, "colorZ": "#9585E6", "alphaY": 1, "alphaZ": 1 },
+		"torchflower_crop.json": { "colorZ": "#65876E", "alphaZ": 1 },
+		"pitcher_crop.json": { "colorY": null, "colorZ": "#7BD4C7", "alphaY": 1, "alphaZ": 1 },
 		"beetroots.json": { "colorZ": "#9B221A", "alphaZ": 1 },
 		"bamboo.json": { "colorZ": "#538209", "alphaZ": 1 },
 		"grindstone.json": { "colorY": "#8F8F8F", "colorZ": "#686868", "alphaY": 1, "alphaZ": 1 },
@@ -7049,6 +7630,7 @@
 		"hanging_roots.json": { "colorZ": "#AD7D65", "alphaZ": 1 },
 		"deepslate.json": { "colorY": "#515151", "colorZ": "#515151", "alphaY": 1, "alphaZ": 1 },
 		"mangrove_propagule.json": { "colorZ": "#7FBF56", "alphaZ": 1 },
+		"mangrove_roots.json": { "colorY": "#463823", "colorZ": null, "alphaY": 1, "alphaZ": null },
 		"ochre_froglight.json": { "colorY": "#F5E7AD", "colorZ": "#F5E7AD", "alphaY": 1, "alphaZ": 1 },
 		"pearlescent_froglight.json": { "colorY": "#DECDD6", "colorZ": "#DECDD6", "alphaY": 1, "alphaZ": 1 },
 		"verdant_froglight.json": { "colorY": "#BADEB5", "colorZ": "#BADEB5", "alphaY": 1, "alphaZ": 1 }
@@ -7424,6 +8006,83 @@
 		"item/music_disc_5",
 		"item/disc_fragment_5",
 		"item/goat_horn",
+		"item/brush",
+		"item/angler_pottery_sherd",
+		"item/archer_pottery_sherd",
+		"item/arms_up_pottery_sherd",
+		"item/blade_pottery_sherd",
+		"item/brewer_pottery_sherd",
+		"item/burn_pottery_sherd",
+		"item/danger_pottery_sherd",
+		"item/explorer_pottery_sherd",
+		"item/friend_pottery_sherd",
+		"item/heart_pottery_sherd",
+		"item/heartbreak_pottery_sherd",
+		"item/howl_pottery_sherd",
+		"item/miner_pottery_sherd",
+		"item/mourner_pottery_sherd",
+		"item/plenty_pottery_sherd",
+		"item/prize_pottery_sherd",
+		"item/sheaf_pottery_sherd",
+		"item/shelter_pottery_sherd",
+		"item/skull_pottery_sherd",
+		"item/snort_pottery_sherd",
+		"item/pink_petals",
+		"item/torchflower_seeds",
+		"item/pitcher_pod",
+		"item/pitcher_plant",
+		"item/sniffer_egg",
+		"item/music_disc_relic",
+		"item/bamboo_raft",
+		"item/bamboo_chest_raft",
+		"item/bamboo_door",
+		"item/bamboo_sign",
+		"item/cherry_boat",
+		"item/cherry_chest_boat",
+		"item/cherry_door",
+		"item/cherry_sign",
+		"item/oak_hanging_sign",
+		"item/spruce_hanging_sign",
+		"item/birch_hanging_sign",
+		"item/jungle_hanging_sign",
+		"item/acacia_hanging_sign",
+		"item/dark_oak_hanging_sign",
+		"item/mangrove_hanging_sign",
+		"item/bamboo_hanging_sign",
+		"item/cherry_hanging_sign",
+		"item/crimson_hanging_sign",
+		"item/warped_hanging_sign",
+		"item/netherite_upgrade_smithing_template",
+		"item/sentry_armor_trim_smithing_template",
+		"item/vex_armor_trim_smithing_template",
+		"item/wild_armor_trim_smithing_template",
+		"item/coast_armor_trim_smithing_template",
+		"item/dune_armor_trim_smithing_template",
+		"item/wayfinder_armor_trim_smithing_template",
+		"item/raiser_armor_trim_smithing_template",
+		"item/shaper_armor_trim_smithing_template",
+		"item/host_armor_trim_smithing_template",
+		"item/ward_armor_trim_smithing_template",
+		"item/silence_armor_trim_smithing_template",
+		"item/tide_armor_trim_smithing_template",
+		"item/snout_armor_trim_smithing_template",
+		"item/rib_armor_trim_smithing_template",
+		"item/eye_armor_trim_smithing_template",
+		"item/spire_armor_trim_smithing_template",
+		"item/empty_slot_sword",
+		"item/empty_slot_pickaxe",
+		"item/empty_slot_axe",
+		"item/empty_slot_shovel",
+		"item/empty_slot_hoe",
+		"item/empty_slot_smithing_template_netherite_upgrade",
+		"item/empty_slot_smithing_template_armor_trim",
+		"item/empty_slot_amethyst_shard",
+		"item/empty_slot_diamond",
+		"item/empty_slot_emerald",
+		"item/empty_slot_ingot",
+		"item/empty_slot_lapis_lazuli",
+		"item/empty_slot_quartz",
+		"item/empty_slot_redstone_dust",
 		"item/light",
 		"item/light_00",
 		"item/light_01",
@@ -8190,6 +8849,12 @@
 				},
 				{
 					"name": "grove"
+				},
+				{
+					"name": "cherry_grove",
+					"foliage": "#B6DB61",
+					"grass": "#B6DB61",
+					"water": "#5DB7EF"
 				},
 				{
 					"name": "snowy_slopes"

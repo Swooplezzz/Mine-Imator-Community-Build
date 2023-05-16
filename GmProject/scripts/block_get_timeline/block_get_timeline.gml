@@ -37,10 +37,12 @@ function block_get_timeline(block, stateid)
 		{
 			text = mc_builder.block_text_map[?pos]
 			text_color = mc_builder.block_text_color_map[?pos]
+			text_emissive = mc_builder.block_text_glowing_map[?pos]
 			if (is_undefined(text))
 			{
 				text = ""
 				text_color = c_black
+				text_emissive = 0
 			}
 			
 			text_position = block.tl_text_position

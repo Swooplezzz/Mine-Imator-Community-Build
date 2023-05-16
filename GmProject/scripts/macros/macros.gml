@@ -21,10 +21,10 @@ function macros()
 	// Versions
 	#macro mineimator_version			"2.0.0"
 	#macro mineimator_version_sub		"Community Build 1.0.0"
-	#macro mineimator_version_extra		"Alpha 3"
+	#macro mineimator_version_extra		"Alpha 4"
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2023.04.29"
-	#macro minecraft_version			"1.19.4"
+	#macro mineimator_version_date		"2023.05.16"
+	#macro minecraft_version			"1.20-pre2"
 	#macro gm_runtime					GM_runtime_version
 	
 	// File formats
@@ -184,7 +184,6 @@ function macros()
 	// World
 	#macro block_size					16
 	#macro item_size					16
-	#macro clip_near					1
 	
 	// Vectors and matrices
 	#macro X							0
