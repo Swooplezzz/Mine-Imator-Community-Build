@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Glow",
-    "path": "folders/Scripts/App/Actions/Project/Render/Glow.yy",
+    "path": "folders/Render/Glow.yy",
   },
 }

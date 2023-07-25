@@ -7,6 +7,7 @@ function app_update_tl_edit_select()
 		transform.show = false
 		transform.enabled = false
 		constraints.enabled = false
+		constraints_path.enabled = false
 		material.enabled = false
 		particles.enabled = false
 		light.enabled = false
@@ -102,6 +103,8 @@ function app_update_tl_edit_select()
 		
 		if (value_type[e_value_type.TRANSFORM_POS] && (type != e_tl_type.PATH && type != e_tl_type.PATH_POINT))
 			app.frame_editor.constraints.enabled = true
+		if (value_type[e_value_type.TRANSFORM_POS] && (type = e_tl_type.PATH_POINT))
+			app.frame_editor.constraints_path.enabled = true
 		
 		if (value_type[e_value_type.MATERIAL])
 			app.frame_editor.material.enabled = true

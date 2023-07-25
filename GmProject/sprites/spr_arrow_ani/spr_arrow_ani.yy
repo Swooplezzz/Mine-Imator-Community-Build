@@ -85,7 +85,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"749adc2d-55a2-4a5b-a9aa-6713a0ba04ac","path":"sprites/spr_arrow_ani/spr_arrow_ani.yy",},},},"Disabled":false,"id":"e6976804-8e72-40be-bc47-fec38e960789","IsCreationKey":false,"Key":14.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 10,
     "yorigin": 10,

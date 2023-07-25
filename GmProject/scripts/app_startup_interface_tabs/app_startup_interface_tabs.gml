@@ -467,7 +467,8 @@ function app_startup_interface_tabs()
 			tbx_path_point_angle.suffix = "°"
 			tbx_path_point_scale = new_textbox_decimals()
 		}
-		
+		constraints_path = tab_add_category("frameeditorconstraintspath", icons.JOINT_SMALL, tab_frame_editor_constraints_path_point, false)
+
 		// Constraints
 		constraints = tab_add_category("frameeditorconstraints", icons.JOINT_SMALL, tab_frame_editor_constraints, false)
 		with (constraints)

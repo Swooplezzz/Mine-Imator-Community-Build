@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Anti-aliasing",
-    "path": "folders/Scripts/App/Actions/Project/Render/Anti-aliasing.yy",
+    "path": "folders/Render/Anti-aliasing.yy",
   },
 }

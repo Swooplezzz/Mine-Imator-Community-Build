@@ -17,6 +17,7 @@ uniform float uLightSpotSharpness; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 
+uniform sampler2D uLightGobo; // static
 uniform sampler2D uDepthBuffer; // static
 
 uniform sampler2D uTextureMaterial; // static
@@ -229,10 +230,15 @@ void main()
 				}
 			}
 		}
-		
-		// Diffuse light
+
+		//Diffuse light
+			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
+
 		light = uLightColor.rgb * uLightStrength * dif * shadow;
 		
+		
+		light *= texture2D(uLightGobo, fragCoord).rgb;
+
 		// Subsurface translucency
 		if (sss > 0.0)
 		{
@@ -241,7 +247,7 @@ void main()
 			light += uLightColor.rgb * uLightStrength * uSSSColor.rgb * transDif * subsurf * difMask;
 			light *= mix(vec3(1.0), uSSSColor.rgb, clamp(sss, 0.0, 1.0));
 		}
-		
+	
 		// Calculate specular
 		if (uLightSpecular * dif * shadow > 0.0)
 		{
@@ -261,6 +267,7 @@ void main()
 			spec = uLightColor.rgb * shadow * difMask * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
 		}
 	}
+	
 	
 	gl_FragData[0] = vec4(light, baseColor.a);
 	gl_FragData[1] = vec4(spec, baseColor.a);

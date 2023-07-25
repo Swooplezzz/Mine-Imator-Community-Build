@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Reflections",
-    "path": "folders/Scripts/App/Actions/Project/Render/Reflections.yy",
+    "path": "folders/Render/Reflections.yy",
   },
 }

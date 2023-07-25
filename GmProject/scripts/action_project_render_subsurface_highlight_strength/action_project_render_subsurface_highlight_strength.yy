@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Subsurface scattering",
-    "path": "folders/Scripts/App/Actions/Project/Render/Subsurface scattering.yy",
+    "path": "folders/Render/Subsurface scattering.yy",
   },
 }

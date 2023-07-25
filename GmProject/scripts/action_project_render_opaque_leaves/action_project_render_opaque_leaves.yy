@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Models & scenery",
-    "path": "folders/Scripts/App/Actions/Project/Render/Models & scenery.yy",
+    "path": "folders/Render/Models & scenery.yy",
   },
 }

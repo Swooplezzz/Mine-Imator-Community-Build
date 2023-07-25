@@ -181,6 +181,7 @@ function tl_update_values()
 		// Spotlight
 		if (value_type[e_value_type.SPOTLIGHT])
 		{
+			tl_update_values_ease(e_value.TEXTURE_OBJ)
 			tl_update_values_ease(e_value.LIGHT_SPOT_RADIUS)
 			tl_update_values_ease(e_value.LIGHT_SPOT_SHARPNESS)
 		}

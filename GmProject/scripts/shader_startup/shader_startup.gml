@@ -264,6 +264,7 @@ function shader_startup()
 		new_shader_uniform("uLightSpotSharpness")
 		new_shader_sampler("uDepthBuffer")
 		new_shader_uniform("uLightSpecular")
+		new_shader_sampler("uLightGobo")
 		new_shader_uniform("uLightSize")
 	}
 	

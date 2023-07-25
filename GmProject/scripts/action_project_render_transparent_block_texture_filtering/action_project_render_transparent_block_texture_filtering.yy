@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Texture filtering",
-    "path": "folders/Scripts/App/Actions/Project/Render/Texture filtering.yy",
+    "path": "folders/Render/Texture filtering.yy",
   },
 }

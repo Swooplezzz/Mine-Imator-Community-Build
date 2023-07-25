@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Ambient occlusion",
-    "path": "folders/Scripts/App/Actions/Project/Render/Ambient occlusion.yy",
+    "path": "folders/Render/Ambient occlusion.yy",
   },
 }

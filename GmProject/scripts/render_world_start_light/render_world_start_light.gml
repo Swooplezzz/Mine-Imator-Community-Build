@@ -13,7 +13,9 @@ function render_world_start_light(from, to, offset, tl)
 	render_light_near = 1
 	render_light_far = tl.value[e_value.LIGHT_RANGE]
 	render_light_color = tl.value[e_value.LIGHT_COLOR]
+
 	render_light_strength = tl.value[e_value.LIGHT_STRENGTH]
+	
 	render_light_specular_strength = tl.value[e_value.LIGHT_SPECULAR_STRENGTH]
 	render_light_size = tl.value[e_value.LIGHT_SIZE]
 	render_light_fade_size = tl.value[e_value.LIGHT_FADE_SIZE]
@@ -26,6 +28,12 @@ function render_world_start_light(from, to, offset, tl)
 	{
 		render_light_fov = tl.value[e_value.LIGHT_SPOT_RADIUS]
 		render_light_spot_sharpness = tl.value[e_value.LIGHT_SPOT_SHARPNESS]
+		if( tl.value[e_value.TEXTURE_OBJ] != null){
+			render_gobo_texture = tl.value[e_value.TEXTURE_OBJ].texture
+		}
+		else{
+			render_gobo_texture = spr_shape
+		}
 	}
 	
 	gpu_set_ztestenable(true)

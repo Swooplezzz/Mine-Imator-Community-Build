@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Indirect lighting",
-    "path": "folders/Scripts/App/Actions/Project/Render/Indirect lighting.yy",
+    "path": "folders/Render/Indirect lighting.yy",
   },
 }

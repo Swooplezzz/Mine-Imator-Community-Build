@@ -172,10 +172,16 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 			
 			if (value[e_value.ROT_TARGET] != null)
 			{
+				var target_rot_mat =  array_copy_1d(value[e_value.ROT_TARGET].matrix)
 				update_matrix = true
 				debug(value[e_value.ROT_TARGET].display_name)
 				matrix_remove_rotation(matrix)
-				matrix = matrix_multiply(matrix_create(point3D(0, 0, 0), vec3((value[e_value.FLW_ROT_X] == 1? value[e_value.ROT_TARGET].value[e_value.ROT_X] : value[e_value.ROT_X]), (value[e_value.FLW_ROT_Y] == 1 ? value[e_value.ROT_TARGET].value[e_value.ROT_Y] : value[e_value.ROT_Y]),(value[e_value.FLW_ROT_Z] == 1 ? value[e_value.ROT_TARGET].value[e_value.ROT_Z] : value[e_value.ROT_Z])), vec3(1)), matrix)
+				target_rot_mat[MAT_X] = 0;
+				target_rot_mat[MAT_Y] = 0;
+				target_rot_mat[MAT_Z] = 0;
+				matrix_remove_scale(target_rot_mat)
+		matrix = matrix_multiply(target_rot_mat, matrix)
+
 			}
 			
 			if (value[e_value.POS_TARGET] != null)
@@ -183,9 +189,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 				update_matrix = true
 				
 			    matrix_remove_rotation(matrix_parent)
-				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].value[e_value.POS_X]
-				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].value[e_value.POS_Y]
-				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].value[e_value.POS_Z]
+				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].world_pos[X]
+				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].world_pos[Y]
+				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].world_pos[Z]
 			}
 			
 			if (value[e_value.SCALE_TARGET] != null)

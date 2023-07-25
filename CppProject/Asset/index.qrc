@@ -59,8 +59,6 @@
 		<file>Shaders/Compiled/shader_high_light_point.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.vsh.d3d</file>
-		<file>Shaders/Compiled/shader_high_light_spot.fsh.d3d</file>
-		<file>Shaders/Compiled/shader_high_light_spot.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_lighting_apply.fsh.d3d</file>
@@ -91,6 +89,7 @@
 		<file>Shaders/Compiled/shader_tonemap.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_vignette.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_vignette.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_volumetric_fog.vsh.d3d</file>
 		<file>Shaders/Compiled/world_box.fsh.d3d</file>
 		<file>Shaders/Compiled/world_box.vsh.d3d</file>
 		<file>Shaders/Compiled/world_box_resize.fsh.d3d</file>
@@ -213,6 +212,7 @@
 		<file>Shaders/world_player.vsh</file>
 		<file>Shaders/world_preview.fsh</file>
 		<file>Shaders/world_preview.vsh</file>
+		<file>Sprites/Test_Gobo_frame_0.png</file>
 		<file>Sprites/spr_16_frame_0.png</file>
 		<file>Sprites/spr_arrow_ani_frame_0.png</file>
 		<file>Sprites/spr_arrow_ani_frame_1.png</file>
@@ -2427,6 +2427,7 @@
 		<file>Sprites/spr_selection_outline_frame_0.png</file>
 		<file>Sprites/spr_shape_frame_0.png</file>
 		<file>Sprites/spr_stars_frame_0.png</file>
+		<file>Sprites/spr_startupasset_gradient_frame_0.png</file>
 		<file>Sprites/spr_tooltip_arrow_frame_0.png</file>
 		<file>Sprites/spr_tooltip_arrow_frame_1.png</file>
 		<file>Sprites/spr_tooltip_arrow_frame_2.png</file>

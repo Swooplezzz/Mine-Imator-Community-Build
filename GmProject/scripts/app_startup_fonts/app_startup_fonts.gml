@@ -14,4 +14,7 @@ function app_startup_fonts()
 	font_heading = font_add(fonts_directory + "rubik_medium.ttf", 10, false, false, 32, 1024)
 	font_body_big = font_add(fonts_directory + "noto_regular.ttf", 12, false, false, 32, 1024)
 	font_heading_big = font_add(fonts_directory + "rubik_medium.ttf", 13, false, false, 32, 1024)
+	font_splash_bold_big  = font_add(fonts_directory + "rubik_semibold.ttf", 10.5, false, false, 32, 1024)
+	font_splash_bold = font_add(fonts_directory + "rubik_semibold.ttf", 10, false, false, 32, 1024)
+	font_splash_bold_secondary = font_add(fonts_directory + "rubik_semibold.ttf", 8.5, false, false, 32, 1024)
 }

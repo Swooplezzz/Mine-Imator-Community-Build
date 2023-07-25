@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Render",
-    "path": "folders/Scripts/App/Actions/Project/Render.yy",
+    "path": "folders/Render.yy",
   },
 }

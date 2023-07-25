@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Light management",
-    "path": "folders/Scripts/App/Actions/Project/Render/Light management.yy",
+    "path": "folders/Render/Light management.yy",
   },
 }
