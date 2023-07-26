@@ -1147,6 +1147,7 @@ function list_init(name)
 			// Import from file
 			menu_add_item(e_option.BROWSE, text_get("listbrowse"), null, null, action_tl_frame_light_gobo_tex_browse)
 			
+				// Add existing resources
 			for (var i = 0; i < ds_list_size(res_list.display_list); i++)
 			{
 				var res = res_list.display_list[|i];
