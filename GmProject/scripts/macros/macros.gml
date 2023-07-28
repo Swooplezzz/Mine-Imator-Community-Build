@@ -21,9 +21,9 @@ function macros()
 	// Versions
 	#macro mineimator_version			"2.0.0"
 	#macro mineimator_version_sub		"Community Build 1.0.0"
-	#macro mineimator_version_extra		"Indev"
+	#macro mineimator_version_extra		"Alpha 5"
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2023.07.27"
+	#macro mineimator_version_date		"2023.07.28"
 	#macro minecraft_version			"1.20-pre2"
 	#macro gm_runtime					GM_runtime_version
 	

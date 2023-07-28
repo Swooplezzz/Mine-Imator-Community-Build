@@ -77,16 +77,16 @@ function render_update_cascades(dir)
 		orthoMin[Y] = round(orthoMin[Y] / pixelsize) * pixelsize
 		
 		var lightMatVinv = matrix_inverse(sunmatV);
-        var lightPoints = [
-	        [orthoMin[X], orthoMax[Y], orthoMax[Z]],
-	        [orthoMin[X], orthoMin[Y], orthoMax[Z]],
-	        [orthoMax[X], orthoMin[Y], orthoMax[Z]],
-	        [orthoMax[X], orthoMax[Y], orthoMax[Z]],
-	        [orthoMin[X], orthoMax[Y], orthoMin[Z]],
-	        [orthoMin[X], orthoMin[Y], orthoMin[Z]],
-	        [orthoMax[X], orthoMin[Y], orthoMin[Z]],
-	        [orthoMax[X], orthoMax[Y], orthoMin[Z]]
-        ];
+		var lightPoints = [
+			[orthoMin[X], orthoMax[Y], orthoMax[Z]],
+			[orthoMin[X], orthoMin[Y], orthoMax[Z]],
+			[orthoMax[X], orthoMin[Y], orthoMax[Z]],
+			[orthoMax[X], orthoMax[Y], orthoMax[Z]],
+			[orthoMin[X], orthoMax[Y], orthoMin[Z]],
+			[orthoMin[X], orthoMin[Y], orthoMin[Z]],
+			[orthoMax[X], orthoMin[Y], orthoMin[Z]],
+			[orthoMax[X], orthoMax[Y], orthoMin[Z]]
+		];
 		
 		for (var j = 0; j < 8; j++)
 			cascade.corners[j] = vec3_mul_matrix(lightPoints[j], lightMatVinv)

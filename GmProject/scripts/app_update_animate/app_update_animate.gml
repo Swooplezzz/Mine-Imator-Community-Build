@@ -51,7 +51,7 @@ function app_update_animate()
 		if (value[e_value.PATH_OBJ] != null)
 			array_add(app.project_use_path_tl_array, id)
 		
-		// Get timelines that can use IK
+		// Get timelines that use IK (Uses "End offset", bend on "Lower", and only on "X" axis)
 		if (tl_supports_ik())
 			array_add(app.project_ik_part_array, id)
 			
@@ -164,7 +164,11 @@ function app_update_animate()
 	{
 		background_image_show					= bgobject.value[e_value.BG_IMAGE_SHOW]
 		background_image_rotation				= bgobject.value[e_value.BG_IMAGE_ROTATION]
+		background_sky_sun_angle				= bgobject.value[e_value.BG_SKY_SUN_ANGLE]
+		background_sky_sun_scale				= bgobject.value[e_value.BG_SKY_SUN_SCALE]
 		background_sky_moon_phase				= bgobject.value[e_value.BG_SKY_MOON_PHASE]
+		background_sky_moon_angle				= bgobject.value[e_value.BG_SKY_MOON_ANGLE]
+		background_sky_moon_scale				= bgobject.value[e_value.BG_SKY_MOON_SCALE]
 		background_sky_time						= bgobject.value[e_value.BG_SKY_TIME]
 		background_sky_rotation					= bgobject.value[e_value.BG_SKY_ROTATION]
 		background_sunlight_strength			= bgobject.value[e_value.BG_SUNLIGHT_STRENGTH]

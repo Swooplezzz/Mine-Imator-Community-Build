@@ -68,13 +68,13 @@ function draw_label()
 		{
 			color = argument[5]
 			alpha = argument[6]
-		
+			
 			if (color != null)
 			{
 				oldcolor = draw_get_color()
 				draw_set_color(color)
 			}
-		
+			
 			if (alpha < 1)
 			{
 				oldalpha = draw_get_alpha()
@@ -86,7 +86,7 @@ function draw_label()
 			{
 				font = argument[7]
 				draw_set_font(font)
-		
+				
 				strwid = string_width(str)
 				strhei = string_height(str)
 		

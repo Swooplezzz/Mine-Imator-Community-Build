@@ -70,7 +70,7 @@ function tab_frame_editor_tex_normal()
 			{
 				break // Text doesn't use textures
 			}
-		
+			
 			default: // Shapes
 			{
 				name = "frameeditorshapetexnormal"

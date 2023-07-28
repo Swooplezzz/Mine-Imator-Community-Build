@@ -197,13 +197,14 @@ function builder_generate()
 			singlemodel = block_rendermodels[model[0]]
 		else if (model > 0)
 			singlemodel = block_rendermodels[model]
-			
+		
 		if (singlemodel != null)
 		{
 			// Random X & Y offset
 			if ((singlemodel.random_offset && (build_size_total > 1)) || (singlemodel.random_offset_xy && (build_size_xy > 1)))
 			{
-				if (singlemodel.random_offset) {
+				if (singlemodel.random_offset)
+				{
 					random_set_seed(build_pos_x * build_size_y * build_size_z + build_pos_y * build_size_z + build_pos_z)
 					block_pos_z += irandom_range(-3, 0)
 				}
