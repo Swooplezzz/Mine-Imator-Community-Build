@@ -232,7 +232,7 @@ void main()
 		}
 
 		//Diffuse light
-			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
+			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vScreenCoord.z + 1.0) * 0.5;
 
 		light = uLightColor.rgb * uLightStrength * dif * shadow;
 		

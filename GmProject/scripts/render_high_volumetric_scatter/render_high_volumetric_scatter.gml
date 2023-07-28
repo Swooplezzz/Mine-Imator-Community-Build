@@ -1,6 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function render_high_volumetric_scatter(){
+
+function render_high_volumetric_scatter()
+{
 	var resultsurftemp, specresultsurftemp, sampleoffset, sunout, samplestart, sampleend, lightlist;
 	sampleoffset = point3D(0, 0, 0)
 	sunout = (background_sunlight_color_final != c_black)

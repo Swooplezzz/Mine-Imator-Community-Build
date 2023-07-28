@@ -13,7 +13,7 @@ function macros()
 	#macro dev_mode_project				file_directory + "//dev_project//dev_project.miproject"
 	#macro dev_mode_full				dev_mode && true
 	#macro dev_mode_advanced			dev_mode && true
-	#macro dev_mode_show_bones			dev_mode && false
+	#macro dev_mode_show_bones			dev_mode && true
 	#macro dev_mode_skip_tangents		dev_mode && false
 	#macro dev_mode_check_assets		dev_mode && true
 	#macro dev_mode_name_translation_message " is not defined in the translation, the key will be formatted"
@@ -21,9 +21,9 @@ function macros()
 	// Versions
 	#macro mineimator_version			"2.0.0"
 	#macro mineimator_version_sub		"Community Build 1.0.0"
-	#macro mineimator_version_extra		"Alpha 4"
+	#macro mineimator_version_extra		"Indev"
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2023.05.16"
+	#macro mineimator_version_date		"2023.07.27"
 	#macro minecraft_version			"1.20-pre2"
 	#macro gm_runtime					GM_runtime_version
 	

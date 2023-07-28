@@ -28,7 +28,6 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 		finalsurf = render_high_bloom(finalsurf)
 	render_update_effects()
 	
-
 	// Lens dirt overlay
 	if (render_camera_lens_dirt)
 		finalsurf = render_high_lens_dirt(finalsurf)

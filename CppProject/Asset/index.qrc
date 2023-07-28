@@ -59,6 +59,8 @@
 		<file>Shaders/Compiled/shader_high_light_point.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_light_spot.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_light_spot.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_lighting_apply.fsh.d3d</file>

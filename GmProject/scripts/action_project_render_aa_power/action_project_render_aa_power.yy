@@ -2,10 +2,10 @@
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
   "name": "action_project_render_aa_power",
-  "isCompatibility": false,
   "isDnD": false,
+  "isCompatibility": false,
   "parent": {
     "name": "Anti-aliasing",
-    "path": "folders/Render/Anti-aliasing.yy",
+    "path": "folders/Scripts/App/Actions/Project/Render/Anti-aliasing.yy",
   },
 }
