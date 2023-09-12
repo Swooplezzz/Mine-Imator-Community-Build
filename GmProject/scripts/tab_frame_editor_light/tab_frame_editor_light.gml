@@ -4,6 +4,12 @@ function tab_frame_editor_light()
 {
 	context_menu_group_temp = e_context_group.LIGHT
 	
+	tab_control_togglebutton()
+	togglebutton_add("frameeditorlightspot", null, e_tl_type.SPOT_LIGHT, tl_edit.type = e_tl_type.SPOT_LIGHT, action_tl_frame_light_type)
+	togglebutton_add("frameeditorlightpoint", null, e_tl_type.POINT_LIGHT, tl_edit.type = e_tl_type.POINT_LIGHT, action_tl_frame_light_type)
+	draw_togglebutton("frameeditorlightlighttype", dx, dy)
+	tab_next()
+	
 	tab_control_color()
 	draw_button_color("frameeditorlightcolor", dx, dy, dw, tl_edit.value[e_value.LIGHT_COLOR], c_white, false, action_tl_frame_light_color)
 	tab_next()

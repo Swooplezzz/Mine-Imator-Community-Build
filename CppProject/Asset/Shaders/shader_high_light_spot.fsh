@@ -232,11 +232,12 @@ void main()
 		}
 
 		//Diffuse light
-			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vScreenCoord.z + 1.0) * 0.5;
-
+			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vScreenCoord.z *  + 1.0) * 0.5;
+			    const float w = 1.57;
+    mat2 uvRotate = mat2(cos(w), -sin(w),
+                         sin(w),  cos(w));
 		light = uLightColor.rgb * uLightStrength * dif * shadow;
-		
-		
+
 		light *= texture2D(uLightGobo, fragCoord).rgb;
 
 		// Subsurface translucency

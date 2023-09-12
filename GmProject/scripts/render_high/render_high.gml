@@ -38,7 +38,7 @@ function render_high()
 		if (render_shadows)
 			render_high_shadows()
 		
-		render_high_volumetric_scatter()
+		//render_high_volumetric_scatter()
 		
 		// Indirect lighting
 		if (render_indirect)

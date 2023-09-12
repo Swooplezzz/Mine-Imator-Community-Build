@@ -41,7 +41,7 @@ function render_world_start_light(from, to, offset, tl)
 	// Get origin matrix for spotlight
 	if (tl.type = e_tl_type.SPOT_LIGHT)
 	{
-		render_set_projection(render_light_from, render_light_to, vec3(0, 0, 1), render_light_fov, 1, 1, render_light_far)
+		render_set_projection(render_light_from, render_light_to, vec3(0,0,1), render_light_fov, 1, 1, render_light_far)
 		spot_proj_matrix = matrix_get(matrix_projection)
 		spot_view_matrix = matrix_get(matrix_view)
 		spot_view_proj_matrix = matrix_multiply(spot_view_matrix, spot_proj_matrix)

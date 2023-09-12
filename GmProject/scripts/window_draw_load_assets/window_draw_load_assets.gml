@@ -53,9 +53,9 @@ function window_draw_load_assets()
 	draw_label(string(string_upper(mineimator_version_sub)), xoff + 95, yoff + 289 + 12, fa_middle, fa_bottom, c_accent, a_accent, font_splash_bold_secondary)
 	draw_label(string(string_upper(mineimator_version_extra)), xoff + 95, yoff + 289 + 28, fa_middle, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	
-		draw_label(text_get("startuploadingassets"), xoff + 12, yoff + 420, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
-	draw_label(string(string_upper(minecraft_version)), xoff + 12, yoff + 439, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
-			draw_label(string(floor(load_assets_progress * 100)) + "%", 185, yoff + 439, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
+		draw_label(text_get("startuploadingassets"), xoff + 12, yoff +418, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
+	draw_label(string(string_upper(minecraft_version)), xoff + 12, yoff + 435, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
+			draw_label(string(floor(load_assets_progress * 100)) + "%", 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 
 	// Splash
 	if (load_assets_splash != null)

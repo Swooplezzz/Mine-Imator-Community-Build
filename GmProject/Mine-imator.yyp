@@ -1771,6 +1771,7 @@
     {"id":{"name":"tl_copy","path":"scripts/tl_copy/tl_copy.yy",},"order":15,},
     {"id":{"name":"tl_duplicate","path":"scripts/tl_duplicate/tl_duplicate.yy",},"order":17,},
     {"id":{"name":"tl_event_create","path":"scripts/tl_event_create/tl_event_create.yy",},"order":19,},
+    {"id":{"name":"action_tl_frame_light_type","path":"scripts/action_tl_frame_light_type/action_tl_frame_light_type.yy",},"order":19,},
     {"id":{"name":"tl_event_destroy","path":"scripts/tl_event_destroy/tl_event_destroy.yy",},"order":21,},
     {"id":{"name":"tl_find_save_ids","path":"scripts/tl_find_save_ids/tl_find_save_ids.yy",},"order":23,},
     {"id":{"name":"action_reset_render_settings","path":"scripts/action_reset_render_settings/action_reset_render_settings.yy",},"order":19,},

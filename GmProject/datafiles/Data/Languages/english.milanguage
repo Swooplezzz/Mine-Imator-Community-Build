@@ -3042,6 +3042,7 @@
 		"color": "Color properties",
 		"surface": "Surface properties",
 		"subsurface": "Subsurface properties",
+	
 		"subsurface/": {
 			"radius": "Radius",
 			"radius/": {
@@ -3095,7 +3096,10 @@
 			"range": "Range",
 			"fadesize": "Fade size",
 			"spotsharpness": "Spot sharpness",
-			"spotradius": "Spot radius"
+			"spotradius": "Spot radius",
+			"point": "Point light",
+			"spot": "Spot light",
+			"lighttype": "Light type"
 		},
 		"camera": "CAMERA",
 		"camera/": {
