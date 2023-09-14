@@ -5,8 +5,9 @@
 /// @arg timeline
 /// @desc Render the scene from the light's point of view.
 
-function render_world_start_light(from, to, offset, tl)
+function render_world_start_light(from, to, offset, tl, up)
 {
+
 	render_light_from = from
 	render_light_to = to
 	render_light_offset = offset
@@ -37,11 +38,21 @@ function render_world_start_light(from, to, offset, tl)
 	}
 	
 	gpu_set_ztestenable(true)
-	
+var spot_up, xx, yy, zz;
+spot_up = vec3(0,0,1)
 	// Get origin matrix for spotlight
 	if (tl.type = e_tl_type.SPOT_LIGHT)
 	{
-		render_set_projection(render_light_from, render_light_to, vec3(0,0,1), render_light_fov, 1, 1, render_light_far)
+		var spot_up, xx, yy, zz;
+		spot_up = vec3(0,0,0)
+		xx = up[X] - render_light_from[X];
+		yy = up[Y] - render_light_from[Y];
+		zz = up[Z] - render_light_from[Z];
+		spot_up[X] = xx
+		spot_up[Y] = yy
+		spot_up[Z] = zz
+
+		render_set_projection(render_light_from, render_light_to, spot_up, render_light_fov, 1, 1, render_light_far)
 		spot_proj_matrix = matrix_get(matrix_projection)
 		spot_view_matrix = matrix_get(matrix_view)
 		spot_view_proj_matrix = matrix_multiply(spot_view_matrix, spot_proj_matrix)
@@ -49,7 +60,7 @@ function render_world_start_light(from, to, offset, tl)
 		render_spot_matrix = spot_view_proj_matrix
 	}
 	
-	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), vec3(0, 0, 1), render_light_fov, 1, 1, render_light_far)
+	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), spot_up, render_light_fov, 1, 1, render_light_far)
 	
 	render_proj_from = point3D_add(render_light_from, render_light_offset)
 	render_shadow_from = render_proj_from

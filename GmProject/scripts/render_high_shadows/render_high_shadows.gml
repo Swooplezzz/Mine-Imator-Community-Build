@@ -172,6 +172,8 @@ function render_high_shadows()
 				render_alpha_hash = app.project_render_shadows_transparent
 				render_alpha_hash_force = true
 				
+				
+				
 				// Depth
 				for (var d = e_dir.EAST; d < e_dir.amount; d++)
 				{
@@ -184,7 +186,7 @@ function render_high_shadows()
 						gpu_set_blendmode_ext(bm_one, bm_zero)
 						
 						draw_clear(c_white)
-						render_world_start_light(world_pos, point3D_add(world_pos, look), sampleoffset, id)
+						render_world_start_light(world_pos, point3D_add(world_pos, look), sampleoffset, id, point3D(0,0,1))
 						render_world(e_render_mode.HIGH_LIGHT_POINT_DEPTH)
 						
 						render_world_done()
@@ -233,7 +235,8 @@ function render_high_shadows()
 			else if (type = e_tl_type.SPOT_LIGHT)
 			{
 				var lookat = point3D_mul_matrix(point3D(0.0001, 1, 0), matrix);
-				
+				var up = point3D_mul_matrix(point3D(0.0001, 0.0001, 1), matrix);
+
 				taa_matrix = MAT_IDENTITY
 				render_alpha_hash = app.project_render_shadows_transparent
 				render_alpha_hash_force = true
@@ -246,7 +249,7 @@ function render_high_shadows()
 					
 					draw_clear(c_white)
 					
-					render_world_start_light(world_pos, lookat, sampleoffset, id)
+					render_world_start_light(world_pos, lookat, sampleoffset, id, up)
 					
 					// Only render depth for shadows if the light source isn't shadowless
 					if (shadows)
