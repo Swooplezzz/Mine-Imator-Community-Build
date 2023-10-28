@@ -4,7 +4,7 @@ function app_start_place(tl, spawn)
 	place_tl = tl
 	place_tl_render = false
 	place_spawn = spawn
-	
+
 	view_main.update_depth = true
 	view_main.surface_depth_value = 0.995
 	view_second.update_depth = true
@@ -18,8 +18,9 @@ function app_stop_place()
 {
 	with (place_tl)
 		tl_mark_placed(false)
-		
+
 	place_tl = null
+
 	window_busy = ""
 	mouse_clear(mb_left)
 }
@@ -86,8 +87,26 @@ function app_update_place()
 	}
 		
 	// Stop placing (no view clicked)
-	if (place_view_mouse = null && mouse_left_pressed)
-		app_stop_place()
+	if (place_view_mouse = null && mouse_left_released){
+			with (history[0])
+	        {
+			   value_default[e_value.POS_X] = 0
+			   value_default[e_value.POS_Y] = 0
+			   value_default[e_value.POS_Z] = 0
+		    }
+			with (place_tl){
+			value_default[e_value.POS_X] = 0
+			value_default[e_value.POS_Y] = 0
+			value_default[e_value.POS_Z] = 0
+			value[e_value.POS_X] = 0
+			value[e_value.POS_Y] = 0
+			value[e_value.POS_Z] = 0
+			update_matrix = true
+			}
+		    tl_update_matrix()
+			
+			app_stop_place()
+	}
 		
 	if (keyboard_check_pressed(vk_escape))
 	{

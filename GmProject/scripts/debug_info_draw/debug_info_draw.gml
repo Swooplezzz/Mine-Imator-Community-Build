@@ -17,6 +17,8 @@ function debug_info_draw()
 	str += "Primitive lines: " + string(get_primitive_lines()) + " \n"
 	str += "Primitive triangles: " + string(get_primitive_triangles()) + " \n"
 	str += "Primitive render calls: " + string(get_primitive_render_calls()) + " \n"
+	str += "Window busy: " + string(window_busy) + " \n"
+	str += "Window focus: " + string(window_focus) + " \n"
 	str += "[F12 to disable]"
 	
 	content_x = 0

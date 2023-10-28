@@ -21,6 +21,10 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 	{
 		curtl = app.project_timeline_list[|i]
 		
+		if(curtl.value[e_value.ROT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null){
+			curtl.update_matrix = true
+		}
+		
 		if (!curtl.update_matrix)
 			continue
 		
@@ -173,7 +177,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 			if (value[e_value.ROT_TARGET] != null)
 			{
 				var target_rot_mat =  array_copy_1d(value[e_value.ROT_TARGET].matrix)
-				update_matrix = true
+
 				debug(value[e_value.ROT_TARGET].display_name)
 				matrix_remove_rotation(matrix)
 				target_rot_mat[MAT_X] = 0;
@@ -181,22 +185,20 @@ function tl_update_matrix(usepaths = false, updateik = true, updateflw = true)
 				target_rot_mat[MAT_Z] = 0;
 				matrix_remove_scale(target_rot_mat)
 		matrix = matrix_multiply(target_rot_mat, matrix)
-
+		
 			}
 			
 			if (value[e_value.POS_TARGET] != null)
 			{
-				update_matrix = true
-				
 			    matrix_remove_rotation(matrix_parent)
-				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].world_pos[X]
-				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].world_pos[Y]
-				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].world_pos[Z]
+				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X]
+				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y]
+				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z]
 			}
 			
 			if (value[e_value.SCALE_TARGET] != null)
 			{
-				update_matrix = true
+
 				
 				matrix_remove_scale(matrix_parent)
 				

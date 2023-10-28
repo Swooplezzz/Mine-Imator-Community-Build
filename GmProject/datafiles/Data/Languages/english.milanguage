@@ -2814,7 +2814,8 @@
 		"blocksheet": "Block sheet",
 		"particlesheet": "Particle sheet",
 		"texture": "Texture",
-		"ok": "OK"
+		"ok": "OK",
+		"doall": "Do this to all images"
 	},
 	"importitemsheet/": {
 		"caption": "Import item sheet",

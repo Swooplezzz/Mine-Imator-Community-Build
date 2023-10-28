@@ -188,7 +188,7 @@ namespace CppProject
 		QFileDialog fd;
 		fd.setModal(true);
 		fd.setAcceptMode(QFileDialog::AcceptOpen);
-		fd.setFileMode(QFileDialog::ExistingFile);
+		fd.setFileMode(QFileDialog::ExistingFiles);
 		fd.setNameFilters(GetFilenameFilterList(filter));
 		if (file != "")
 		{
@@ -201,10 +201,10 @@ namespace CppProject
 		fd.setWindowTitle(caption);
 		if (!App->ExecDialog(&fd))
 			return "";
-
 		QStringList files = fd.selectedFiles();
+		
 		if (files.size() > 0)
-			return files[0];
+			return files.join("\n");
 		return "";
 	}
 

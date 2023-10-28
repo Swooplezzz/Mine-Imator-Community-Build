@@ -51,10 +51,13 @@ function app_startup_interface_popups()
 	}
 	
 	// Import image
-	popup_importimage = new_popup("importimage", popup_importimage_draw, 236, null, true)
+	popup_importimage = new_popup("importimage", popup_importimage_draw, 512, null, true)
 	with (popup_importimage)
 	{
 		filename = ""
+		filenames = ds_list_create();
+		do_all = false;
+		texture = null
 		type = e_res_type.SKIN
 	}
 	

@@ -850,6 +850,7 @@ function tab_timeline()
 	
 	var itemmaxw;
 	tlmaxw = 0
+
 	for (var t = timeline_list_first; t < ds_list_size(tree_visible_list); t++)
 	{
 		if (dy > listy + listh)
@@ -867,10 +868,37 @@ function tab_timeline()
 		// Hovering
 		if (itemhover)
 			mouse_cursor = cr_handpoint
+			
+		if(itemhover && (window_busy = "" || window_busy = "place")){
+           place_view_mouse = "timeline";
+	    }
+		// Parent placing item to clicked tl
+		if ((itemhover && mouse_left_released && place_tl != null && place_tl != tl)){
+
+			with (history[0])
+	        {
+		       parent = tl
+			   value_default[e_value.POS_X] = 0
+			   value_default[e_value.POS_Y] = 0
+			   value_default[e_value.POS_Z] = 0
+		    }
+			place_tl.value_default[e_value.POS_X] = 0
+			place_tl.value_default[e_value.POS_Y] = 0
+			place_tl.value_default[e_value.POS_Z] = 0
+			place_tl.value[e_value.POS_X] = 0
+			place_tl.value[e_value.POS_Y] = 0
+			place_tl.value[e_value.POS_Z] = 0
+			with(place_tl){
+			tl_set_parent(tl)
+			}
+			tl_update_list()
+	        tl_update_matrix()
+			app_stop_place()
+		}
 		
 		if ((itemhover && mouse_left) || tl.selected)
 			draw_box(content_x, itemy, listw, itemh, false, c_accent_overlay, a_accent_overlay)
-		else if (tl.selected || itemhover || tl = context_menu_value || (window_busy = "timelineclick" && timeline_select = tl))
+		else if (tl.selected || itemhover || tl = context_menu_value || ((window_busy = "timelineclick") && timeline_select = tl)|| ((window_busy = "timelineclick" && window_busy = "place") && timeline_select = tl))
 			draw_box(content_x, itemy, listw, itemh, false, c_overlay, a_overlay)
 		
 		xx = itemx + itemw - ((buttonsize + 4) * (itemhover || tl.hide || tl.lock || (!setting_timeline_hide_ghosts && tl.ghost)))
@@ -1075,6 +1103,7 @@ function tab_timeline()
 			// Draw name
 			if (tl.selected || (window_busy = "timelineclick" && timeline_select = tl) || ((itemhover && !buttonhover) && (mouse_left || mouse_left_released)))
 			{
+
 				if (tl.color_tag = null)
 					namecolor = c_accent
 				else
@@ -1455,8 +1484,10 @@ function tab_timeline()
 					else
 						app_update_tl_edit()
 				}
-				else
+				else{
 					action_tl_select(timeline_select)
+
+				}
 			}
 			else
 				action_tl_deselect_all()
@@ -1650,7 +1681,7 @@ function tab_timeline()
 	}
 	
 	// Move view when selecting
-	if (window_busy = "timelinemove" || window_busy = "timelineselect")
+	if (window_busy = "timelinemove" || window_busy = "timelineselect" || window_busy = "place")
 	{
 		if (mouse_y < tly)
 			timeline.ver_scroll.value -= 8

@@ -20,7 +20,7 @@ function new_popup()
 	popup.caption = text_get(popup.name + "caption")
 	popup.offset_x = 0
 	popup.offset_y = 0
-	
+
 	if (argument_count > 5)
 		popup.custom = argument[5]
 	else

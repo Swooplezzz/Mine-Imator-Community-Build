@@ -59,7 +59,15 @@ spot_up = vec3(0,0,1)
 		
 		render_spot_matrix = spot_view_proj_matrix
 	}
-	
+
+		var light_from = point3D_add(render_light_from, render_light_offset);
+		up = point3D_add(up, render_light_offset)
+		xx = up[X] - light_from[X];
+		yy = up[Y] - light_from[Y];
+		zz = up[Z] - light_from[Z];
+		spot_up[X] = xx
+		spot_up[Y] = yy
+		spot_up[Z] = zz
 	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), spot_up, render_light_fov, 1, 1, render_light_far)
 	
 	render_proj_from = point3D_add(render_light_from, render_light_offset)
