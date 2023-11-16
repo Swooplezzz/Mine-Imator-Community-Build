@@ -53,12 +53,16 @@
 		<file>Shaders/Compiled/shader_high_fog.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_fog_apply.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_fog_apply.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_glint.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_glint.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_indirect_blur.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_indirect_blur.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_point_shadowless.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_light_spot.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_light_spot.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_light_sun.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_lighting_apply.fsh.d3d</file>
@@ -81,6 +85,10 @@
 		<file>Shaders/Compiled/shader_high_subsurface_scatter.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_outline.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_outline.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_palette.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_palette.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace_alpha.fsh.d3d</file>
@@ -151,6 +159,8 @@
 		<file>Shaders/shader_high_fog.vsh</file>
 		<file>Shaders/shader_high_fog_apply.fsh</file>
 		<file>Shaders/shader_high_fog_apply.vsh</file>
+		<file>Shaders/shader_high_glint.fsh</file>
+		<file>Shaders/shader_high_glint.vsh</file>
 		<file>Shaders/shader_high_indirect_blur.fsh</file>
 		<file>Shaders/shader_high_indirect_blur.vsh</file>
 		<file>Shaders/shader_high_light_apply.fsh</file>
@@ -193,6 +203,10 @@
 		<file>Shaders/shader_high_subsurface_scatter.vsh</file>
 		<file>Shaders/shader_noise.fsh</file>
 		<file>Shaders/shader_noise.vsh</file>
+		<file>Shaders/shader_outline.fsh</file>
+		<file>Shaders/shader_outline.vsh</file>
+		<file>Shaders/shader_palette.fsh</file>
+		<file>Shaders/shader_palette.vsh</file>
 		<file>Shaders/shader_replace.fsh</file>
 		<file>Shaders/shader_replace.vsh</file>
 		<file>Shaders/shader_replace_alpha.fsh</file>

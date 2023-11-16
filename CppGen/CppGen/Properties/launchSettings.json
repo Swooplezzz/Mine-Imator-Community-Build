@@ -2,8 +2,12 @@
   "profiles": {
     "CppGen": {
       "commandName": "Project",
+
+      // Swooplezz
       "commandLineArgs": "F:\\MineimatorDev\\Mine-imator-Community-Build-Master\\GmProject F:\\MineimatorDev\\Mine-imator-Community-Build-Master\\CppProject\\Generated F:\\MineimatorDev\\Mine-imator-Community-Build-Master\\CppProject\\Asset\\Sprites F:\\MineimatorDev\\Mine-imator-Community-Build-Master\\CppProject\\Asset\\Shaders F:\\MineimatorDev\\Mine-imator-Community-Build-Master\\CppGen\\gml.json",
-      "commandLineArgsMB": "D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\GmProject D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Generated D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Asset\\Sprites D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Asset\\Shaders D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppGen\\gml.json"
+
+      // mbanders
+      //"commandLineArgs": "D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\GmProject D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Generated D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Asset\\Sprites D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppProject\\Asset\\Shaders D:\\Documents\\GameMakerStudio2\\Mine-Imator-Community-Build\\CppGen\\gml.json"
     },
     "WSL": {
       "commandName": "WSL2",

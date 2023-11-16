@@ -7,16 +7,13 @@
 
 function render_world_start_light(from, to, offset, tl, up)
 {
-
 	render_light_from = from
 	render_light_to = to
 	render_light_offset = offset
 	render_light_near = 1
 	render_light_far = tl.value[e_value.LIGHT_RANGE]
 	render_light_color = tl.value[e_value.LIGHT_COLOR]
-
 	render_light_strength = tl.value[e_value.LIGHT_STRENGTH]
-	
 	render_light_specular_strength = tl.value[e_value.LIGHT_SPECULAR_STRENGTH]
 	render_light_size = tl.value[e_value.LIGHT_SIZE]
 	render_light_fade_size = tl.value[e_value.LIGHT_FADE_SIZE]
@@ -29,17 +26,18 @@ function render_world_start_light(from, to, offset, tl, up)
 	{
 		render_light_fov = tl.value[e_value.LIGHT_SPOT_RADIUS]
 		render_light_spot_sharpness = tl.value[e_value.LIGHT_SPOT_SHARPNESS]
-		if( tl.value[e_value.TEXTURE_OBJ] != null){
+		
+		if (tl.value[e_value.TEXTURE_OBJ] != null)
 			render_gobo_texture = tl.value[e_value.TEXTURE_OBJ].texture
-		}
-		else{
+		else
 			render_gobo_texture = spr_shape
-		}
 	}
 	
 	gpu_set_ztestenable(true)
-var spot_up, xx, yy, zz;
-spot_up = vec3(0,0,1)
+	
+	var spot_up, xx, yy, zz;
+	spot_up = vec3(0,0,1)
+	
 	// Get origin matrix for spotlight
 	if (tl.type = e_tl_type.SPOT_LIGHT)
 	{
@@ -60,14 +58,15 @@ spot_up = vec3(0,0,1)
 		render_spot_matrix = spot_view_proj_matrix
 	}
 
-		var light_from = point3D_add(render_light_from, render_light_offset);
-		up = point3D_add(up, render_light_offset)
-		xx = up[X] - light_from[X];
-		yy = up[Y] - light_from[Y];
-		zz = up[Z] - light_from[Z];
-		spot_up[X] = xx
-		spot_up[Y] = yy
-		spot_up[Z] = zz
+	var light_from = point3D_add(render_light_from, render_light_offset);
+	up = point3D_add(up, render_light_offset)
+	xx = up[X] - light_from[X];
+	yy = up[Y] - light_from[Y];
+	zz = up[Z] - light_from[Z];
+	spot_up[X] = xx
+	spot_up[Y] = yy
+	spot_up[Z] = zz
+	
 	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), spot_up, render_light_fov, 1, 1, render_light_far)
 	
 	render_proj_from = point3D_add(render_light_from, render_light_offset)

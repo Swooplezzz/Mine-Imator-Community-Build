@@ -75,6 +75,8 @@ function popup_about_draw()
 	draw_label("Nimi", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	dy += 19
 	draw_label("Marvin", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
+	dy += 19
+	draw_label("mbanders", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	
 	// Mod Development
 	dy += 34

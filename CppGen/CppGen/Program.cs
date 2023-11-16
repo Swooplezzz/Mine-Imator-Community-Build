@@ -64,7 +64,7 @@ namespace CppGen
 
             if (args.Length == 5)
 			{
-                Console.WriteLine("ARGS FOUND");
+                Console.WriteLine("commandLineArgs found");
 
                 gmDir = args[0];
 				outputCodeDir = args[1];

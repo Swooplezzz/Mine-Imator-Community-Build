@@ -19,7 +19,6 @@ function render_world(mode)
 	// Render negative depth
 	for (i = 0; i < renderlistsize; i++)
 	{
-
 		tl = render_list[|i]
 
 		if (tl.depth >= 0)
@@ -27,7 +26,6 @@ function render_world(mode)
 		
 		with (tl)
 			render_world_tl()
-
 	}
 	
 	// Neutral depth (0)

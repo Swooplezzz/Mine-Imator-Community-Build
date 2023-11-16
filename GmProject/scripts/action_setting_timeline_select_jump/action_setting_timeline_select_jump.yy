@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Keyframes",
-    "path": "folders/Scripts/App/Actions/Timeline/Keyframes.yy",
+    "name": "Timeline",
+    "path": "folders/Scripts/App/Actions/Settings/Timeline.yy",
   },
 }

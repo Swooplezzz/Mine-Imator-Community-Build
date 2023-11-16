@@ -25,9 +25,8 @@ function render_free()
 	// Camera effects
 	surface_free(render_surface_lens)
 	
-	//Gobos
+	// Gobos
 	//surface_free(render_gobo_texture)
-
 	
 	// Sampling
 	surface_free(render_surface_sample_expo)

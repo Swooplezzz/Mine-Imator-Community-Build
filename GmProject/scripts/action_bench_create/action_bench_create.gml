@@ -242,14 +242,13 @@ function action_bench_create(edit = false)
 				value_default[e_value.ROT_X] = history_data.value_default[e_value.ROT_X]
 				value_default[e_value.ROT_Y] = history_data.value_default[e_value.ROT_Y]
 				value_default[e_value.ROT_Z] = history_data.value_default[e_value.ROT_Z]
-
 				value[e_value.POS_X] = value_default[e_value.POS_X]
 				value[e_value.POS_Y] = value_default[e_value.POS_Y]
 				value[e_value.POS_Z] = value_default[e_value.POS_Z]
 				value[e_value.ROT_X] = value_default[e_value.ROT_X]
 				value[e_value.ROT_Y] = value_default[e_value.ROT_Y]
 				value[e_value.ROT_Z] = value_default[e_value.ROT_Z]
-				tl_set_parent(history_data.parent);
+				tl_set_parent(history_data.parent)
 			}
 		}
 		else
@@ -262,7 +261,7 @@ function action_bench_create(edit = false)
 				value_default[e_value.ROT_X] = tl.value_default[e_value.ROT_X]
 				value_default[e_value.ROT_Y] = tl.value_default[e_value.ROT_Y]
 				value_default[e_value.ROT_Z] = tl.value_default[e_value.ROT_Z]
-				parent = app;
+				parent = app
 			}
 			
 			// Start placing

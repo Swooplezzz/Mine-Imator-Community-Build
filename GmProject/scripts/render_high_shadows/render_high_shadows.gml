@@ -172,8 +172,6 @@ function render_high_shadows()
 				render_alpha_hash = app.project_render_shadows_transparent
 				render_alpha_hash_force = true
 				
-				
-				
 				// Depth
 				for (var d = e_dir.EAST; d < e_dir.amount; d++)
 				{
@@ -315,9 +313,6 @@ function render_high_shadows()
 	
 	if (render_pass = e_render_pass.SHADOWS) 
 		render_pass_surf = surface_duplicate(render_surface_shadows)
-	
-	if (render_pass = e_render_pass.SPECULAR)
-		render_pass_surf = surface_duplicate(render_surface_specular)
 }
 
 function render_high_shadows_shadowless()

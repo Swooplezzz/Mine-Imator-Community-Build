@@ -49,13 +49,13 @@ function window_draw_load_assets()
 	draw_set_font(font_splash_bold)
 	draw_set_font(font_splash_bold_secondary);
 		
-		draw_label("Mine-imator " + string(mineimator_version), xoff + 95, yoff + 289,fa_middle, fa_bottom, c_text_main, a_text_main, font_splash_bold)
+	draw_label("Mine-imator " + string(mineimator_version), xoff + 95, yoff + 289,fa_middle, fa_bottom, c_text_main, a_text_main, font_splash_bold)
 	draw_label(string(string_upper(mineimator_version_sub)), xoff + 95, yoff + 289 + 12, fa_middle, fa_bottom, c_accent, a_accent, font_splash_bold_secondary)
 	draw_label(string(string_upper(mineimator_version_extra)), xoff + 95, yoff + 289 + 28, fa_middle, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	
-		draw_label(text_get("startuploadingassets"), xoff + 12, yoff +418, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
+	draw_label(text_get("startuploadingassets"), xoff + 12, yoff +418, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 	draw_label(string(string_upper(minecraft_version)), xoff + 12, yoff + 435, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
-			draw_label(string(floor(load_assets_progress * 100)) + "%", 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
+	draw_label(string(floor(load_assets_progress * 100)) + "%", 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 
 	// Splash
 	if (load_assets_splash != null)
@@ -65,12 +65,14 @@ function window_draw_load_assets()
 	
 	if (load_assets_splash = null || sprite_get_width(load_assets_splash) = 550)
 		draw_gradient(xoff + 190, yoff, shadow_size, 450, c_black, shadow_alpha, 0, 0, shadow_alpha)
+	
 	// Splash credits
-	if (load_assets_credits != ""){
-
+	if (load_assets_credits != "")
+	{
 		draw_label(text_get("startupsplashauthor"), xoff + 95, yoff + 289 + 34, fa_middle, fa_top, c_text_main, a_text_main, font_splash_bold)
-		draw_label("@" + load_assets_credits, xoff + 95, yoff + 289 + 50, fa_middle, fa_top, c_accent, a_accent, font_splash_bold)
+		draw_label(load_assets_credits, xoff + 95, yoff + 289 + 50, fa_middle, fa_top, c_accent, a_accent, font_splash_bold)
 	}
+	
 	if (dev_mode)
 		draw_label("DEV MODE ENABLED", xoff + 95, yoff + 4, fa_middle, fa_top, c_accent, 1, font_heading_big)
 	

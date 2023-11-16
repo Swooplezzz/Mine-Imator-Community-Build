@@ -20,13 +20,9 @@ function shader_high_light_spot_set()
 	render_set_uniform("uLightFadeSize", render_light_fade_size)
 	render_set_uniform("uLightSpotSharpness", render_light_spot_sharpness)
 	
-
 	texture_set_stage(sampler_map[?"uLightGobo"], sprite_get_texture(render_gobo_texture, 0))
 	gpu_set_texfilter_ext(sampler_map[?"uLightGobo"], true)
-
-
+	
 	texture_set_stage(sampler_map[?"uDepthBuffer"], surface_get_texture(render_surface_spot_buffer))
 	gpu_set_texfilter_ext(sampler_map[?"uDepthBuffer"], true)
-
-
 }

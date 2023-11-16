@@ -178,12 +178,10 @@ function block_load_state_file(fname, block, state)
 										other.state_id_map[?i] = array_add(other.state_id_map[?i], id)
 							}
 						}
-						
-						/*
-						// currently copy of OR code, must figure out where to go from here -mb
-						// AND, all of multiple sets of conditions must match
-						else if (ds_list_valid(andlist))
+						else if (ds_list_valid(andlist)) // AND, all of multiple sets of conditions must match
 						{
+							var condarr = [];
+							
 							for (var oc = 0; oc < ds_list_size(andlist); oc++)
 							{
 								var curcondmap, condvars, cond;
@@ -205,14 +203,27 @@ function block_load_state_file(fname, block, state)
 									cond = ds_map_find_next(curcondmap, cond)
 								}
 								
-								// Apply to matching state IDs
-								for (var i = 0; i < block.state_id_amount; i++)
-									if (state_vars_match_state_id(condvars, block, i))
-										other.state_id_map[?i] = array_add(other.state_id_map[?i], id)
+								condarr = array_add(condarr, condvars, false)
+							}
+							
+							// Apply to matching state IDs
+							for (var i = 0; i < block.state_id_amount; i++)
+							{
+								var match = true;
+								
+								for (var j = 0; j < array_length(condarr); j++)
+								{
+									if (!match)
+										continue
+									
+									if (!state_vars_match_state_id(condarr[j], block, i))
+										match = false
+								}
+								
+								if (match)
+									other.state_id_map[?i] = array_add(other.state_id_map[?i], id)
 							}
 						}
-						*/
-						
 						// Single condition
 						else
 						{

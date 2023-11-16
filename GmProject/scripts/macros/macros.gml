@@ -14,23 +14,23 @@ function macros()
 	#macro dev_mode_full				dev_mode && true
 	#macro dev_mode_advanced			dev_mode && true
 	#macro dev_mode_show_bones			dev_mode && true
-	#macro dev_mode_skip_tangents		dev_mode && false
+	#macro dev_mode_skip_tangents		dev_mode && true
 	#macro dev_mode_check_assets		dev_mode && true
 	#macro dev_mode_name_translation_message " is not defined in the translation, the key will be formatted"
 	
 	// Versions
-	#macro mineimator_version			"2.0.0"
-	#macro mineimator_version_sub		"Community Build 1.0.0"
-	#macro mineimator_version_extra		"Alpha 5.1"
+	#macro mineimator_version			"2.0.2"						// Base Mine-imator version
+	#macro mineimator_version_sub		"Community Build 1.0.0"		// Mod name and version (e.g. "Community Build 1.0.0")
+	#macro mineimator_version_extra		"Alpha 6"					// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2023.09.014"
-	#macro minecraft_version			"1.20-pre2"
+	#macro mineimator_version_date		"2023.11.15"
+	#macro minecraft_version			"1.20.2"
 	#macro gm_runtime					GM_runtime_version
 	
 	// File formats
 	#macro project_format				e_project.FORMAT_200_PRE_5
 	#macro settings_format				e_settings.FORMAT_200
-	#macro minecraft_assets_format		e_minecraft_assets.FORMAT_200
+	#macro minecraft_assets_format		e_minecraft_assets.FORMAT_201
 	
 	// Directories
 	#macro file_directory				game_save_id
@@ -58,7 +58,7 @@ function macros()
 	#macro unzip_directory				file_directory + "unzip/"
 	#macro render_default				"performance"
 	#macro render_default_file			render_directory + render_default + ".mirender"
-	#macro asset_exts					"*.miobject;*.miframes;*.zip;*.schematic;*.miproject;*.miparticles;*.mimodel;*.png;*.jpg;*.json;*.ttf;*.mp3;*.wav;*.ogg;*.flac;*.wma;*.m4a;*.object;*.keyframes;*.particles;*.mproj;*.mani;*.blocks;*.nbt;"
+	#macro asset_exts					"*.miobject;*.miframes;*.zip;*.schematic;*.miproject;*.miparticles;*.mimodel;*.png;*.jpg;*.json;*.ttf;*.mp3;*.wav;*.ogg;*.flac;*.wma;*.m4a;*.object;*.keyframes;*.particles;*.mproj;*.mani;*.blocks;*.nbt;*.dat;"
 	
 	// Minecraft structure
 	#macro mc_file_directory			file_directory + "Minecraft_unzip/"
@@ -79,10 +79,12 @@ function macros()
 	#macro mc_sun_image_file			mc_textures_directory + "environment/sun.png"
 	#macro mc_moon_phases_image_file	mc_textures_directory + "environment/moon_phases.png"
 	#macro mc_clouds_image_file			mc_textures_directory + "environment/clouds.png"
+	#macro mc_glint_entity_file			mc_textures_directory + "misc/enchanted_glint_entity.png"
+	#macro mc_glint_item_file			mc_textures_directory + "misc/enchanted_glint_item.png"
 	
 	// Links
 	#macro link_website					"https://www.mineimator.com"
-	#macro link_tutorials				"https://www.mineimator.com/tutorials"
+	#macro link_tutorials				"https://www.mineimator.com/tutorials2"
 	#macro link_download				"https://www.mineimator.com/download"
 	#macro link_upgrade					"https://www.mineimator.com/upgrade"
 	#macro link_assets					"https://www.mineimator.com/assets/"
@@ -108,7 +110,7 @@ function macros()
 	#macro block_sheet_height			32
 	#macro block_sheet_ani_width		32
 	#macro block_sheet_ani_height		2
-	#macro block_sheet_ani_frames		80
+	#macro block_sheet_ani_frames		64
 	#macro item_sheet_width				32
 	#macro item_sheet_height			32
 	
@@ -130,24 +132,6 @@ function macros()
 	#macro c_sunset_start				hex_to_color("B2353B")
 	#macro c_sunset_end					hex_to_color("C04E37")
 	#macro c_normal						make_color_rgb(127, 127, 255)
-	
-	// Minecraft color palette
-	#macro c_minecraft_white			hex_to_color("F4F4F4")
-	#macro c_minecraft_orange			hex_to_color("F07613")
-	#macro c_minecraft_magenta			hex_to_color("BD44B3")
-	#macro c_minecraft_light_blue		hex_to_color("3AAFD9")
-	#macro c_minecraft_yellow			hex_to_color("F8C627")
-	#macro c_minecraft_lime				hex_to_color("70B919")
-	#macro c_minecraft_pink				hex_to_color("ED8DAC")
-	#macro c_minecraft_gray				hex_to_color("3E4447")
-	#macro c_minecraft_light_gray		hex_to_color("8E8E86")
-	#macro c_minecraft_cyan				hex_to_color("158991")
-	#macro c_minecraft_purple			hex_to_color("792AAC")
-	#macro c_minecraft_blue				hex_to_color("35399D")
-	#macro c_minecraft_brown			hex_to_color("724728")
-	#macro c_minecraft_green			hex_to_color("546D1B")
-	#macro c_minecraft_red				hex_to_color("A12722")
-	#macro c_minecraft_black			hex_to_color("141519")
 	
 	// Audio
 	#macro sample_rate					44100

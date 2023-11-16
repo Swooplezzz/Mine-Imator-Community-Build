@@ -74,7 +74,8 @@ function enums()
 		FORMAT_123			= 5,
 		FORMAT_128			= 6,
 		FORMAT_129			= 7,
-		FORMAT_200			= 8
+		FORMAT_200			= 8,
+		FORMAT_201			= 9
 	}
 	
 	enum e_minecraft_pack
@@ -314,6 +315,8 @@ function enums()
 		TEXT_HALIGN,
 		TEXT_VALIGN,
 		TEXT_AA,
+		TEXT_OUTLINE,
+		TEXT_OUTLINE_COLOR,
 		CUSTOM_ITEM_SLOT,
 		ITEM_SLOT,
 		ITEM_NAME,
@@ -852,7 +855,8 @@ function enums()
 		HIGH_DEPTH_NORMAL,
 		AO_MASK,
 		MATERIAL,
-		SUBSURFACE
+		SUBSURFACE,
+		GLINT
 	}
 	
 	// Viewport render mode
@@ -1103,6 +1107,14 @@ function enums()
 		FORMAT_NONE,
 		FORMAT_SEUS,
 		FORMAT_LABPBR
+	}
+	
+	// Glint mode
+	enum e_glint
+	{
+		NONE,
+		ITEM,
+		ENTITY
 	}
 	
 	// Alpha mode

@@ -14,6 +14,9 @@ function project_save_template()
 			json_save_var_save_id("model_tex_material", model_tex_material)
 			json_save_var_save_id("model_tex_normal", model_tex_normal)
 			
+			json_save_var_bool("model_use_blend_color", model_use_blend_color)
+			json_save_var_color("model_blend_color", model_blend_color)
+			
 			json_save_object_start("model")
 				json_save_var("name", model_name)
 				json_save_var_state_vars("state", model_state)
@@ -28,9 +31,9 @@ function project_save_template()
 			// Pattern values
 			if (pattern_type != "")
 			{
-				var colorindex = ds_list_find_index(minecraft_color_list, pattern_base_color);
-				if (colorindex > -1)
-					json_save_var("pattern_base_color", minecraft_color_name_list[|colorindex])
+				var color = ds_map_find_key(minecraft_swatch_dyes.map, pattern_base_color);
+				if (color != undefined)
+					json_save_var("pattern_base_color", color)
 				else
 					json_save_var("pattern_base_color", "white")
 				
@@ -44,9 +47,33 @@ function project_save_template()
 				json_save_array_start("pattern_color_list")
 				
 					for (var c = 0; c < array_length(pattern_color_list); c++)
-						json_save_array_value(minecraft_color_name_list[|ds_list_find_index(minecraft_color_list, pattern_color_list[c])])
+						json_save_array_value(ds_map_find_key(minecraft_swatch_dyes.map, pattern_color_list[c]))
 					
 				json_save_array_done()
+			}
+			
+			if (model_name = "armor")
+			{
+				json_save_object_start("armor")
+				
+					json_save_var_color("helmet_dye", armor_array[1])
+					json_save_var("helmet_trim_pattern", armor_array[2])
+					json_save_var("helmet_trim_material", armor_array[3])
+
+					json_save_var_color("chestplate_dye", armor_array[5])
+					json_save_var("chestplate_trim_pattern", armor_array[6])
+					json_save_var("chestplate_trim_material", armor_array[7])
+
+					json_save_var_color("leggings_dye", armor_array[9])
+					json_save_var("leggings_trim_pattern", armor_array[10])
+					json_save_var("leggings_trim_material", armor_array[11])
+
+					json_save_var_color("boots_dye", armor_array[13])
+					json_save_var("boots_trim_pattern", armor_array[14])
+					json_save_var("boots_trim_material", armor_array[15])
+				
+				json_save_object_done()
+
 			}
 		}
 		else if (type = e_temp_type.ITEM)

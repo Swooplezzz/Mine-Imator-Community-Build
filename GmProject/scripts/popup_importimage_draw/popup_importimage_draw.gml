@@ -36,8 +36,11 @@ function popup_importimage_draw()
 	tab_control_checkbox()
 	draw_radiobutton("importimagetexture", dx, dy, e_res_type.TEXTURE, popup.type = e_res_type.TEXTURE, action_toolbar_importimage_type)
 	tab_next()
+	
 	tab_control_checkbox()
 	draw_checkbox("importimagedoall", dx, dy, popup.do_all, action_toolbar_importimage_do_all)
+	tab_next()
+		
 	// Ok
 	tab_control_button_label()
 	if (draw_button_label("importimageok", dx + dw, dy, null, null, e_button.PRIMARY, null, e_anchor.RIGHT))
