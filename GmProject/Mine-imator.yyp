@@ -1623,6 +1623,7 @@
     {"id":{"name":"project_load_background","path":"scripts/project_load_background/project_load_background.yy",},"order":9,},
     {"id":{"name":"action_tl_alpha_mode","path":"scripts/action_tl_alpha_mode/action_tl_alpha_mode.yy",},"order":64,},
     {"id":{"name":"project_load_find_save_ids","path":"scripts/project_load_find_save_ids/project_load_find_save_ids.yy",},"order":11,},
+    {"id":{"name":"string_width_font","path":"scripts/string_width_font/string_width_font.yy",},"order":27,},
     {"id":{"name":"project_load_markers","path":"scripts/project_load_markers/project_load_markers.yy",},"order":13,},
     {"id":{"name":"project_load_set_part_root","path":"scripts/project_load_set_part_root/project_load_set_part_root.yy",},"order":15,},
     {"id":{"name":"vec4_mul","path":"scripts/vec4_mul/vec4_mul.yy",},"order":27,},
@@ -2196,6 +2197,7 @@
     {"id":{"name":"spr_startupasset_gradient","path":"sprites/spr_startupasset_gradient/spr_startupasset_gradient.yy",},"order":31,},
     {"id":{"name":"obj_block_load_element","path":"objects/obj_block_load_element/obj_block_load_element.yy",},"order":3,},
     {"id":{"name":"obj_block_load_model_file","path":"objects/obj_block_load_model_file/obj_block_load_model_file.yy",},"order":5,},
+    {"id":{"name":"string_height_font","path":"scripts/string_height_font/string_height_font.yy",},"order":26,},
     {"id":{"name":"action_tl_path_shape_generate","path":"scripts/action_tl_path_shape_generate/action_tl_path_shape_generate.yy",},"order":4,},
     {"id":{"name":"obj_block_load_multipart_case","path":"objects/obj_block_load_multipart_case/obj_block_load_multipart_case.yy",},"order":7,},
     {"id":{"name":"action_bench_shape_tex_normal","path":"scripts/action_bench_shape_tex_normal/action_bench_shape_tex_normal.yy",},"order":11,},
@@ -2624,6 +2626,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.2.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.1.31",
+    "IDEVersion": "2022.0.2.51",
   },
 }
