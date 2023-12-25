@@ -10,6 +10,8 @@
 #include "Render/GraphicsApiHandler.hpp"
 #include "Render/PrimitiveRenderer.hpp"
 #include "Render/VertexBufferRenderer.hpp"
+#include "OpenImageDenoise/oidn.hpp"
+
 
 namespace CppProject
 {
@@ -719,5 +721,19 @@ namespace CppProject
 	void update_frustum()
 	{
 		GFX->UpdateFrustum();
+	}
+	IntType render_denoise(IntType id) {
+		//if (Surface* surf = FindSurface(id))
+		//{
+		//	GFX->SubmitBatch();
+		//	GFX->ClipEnd();
+		//	GFX->ResetMRT();
+		//	GFX->surface->EndUse();
+		//	GFX->surface = surf;
+		//	if (GFX->surface->BeginUse())
+		//		return 1;
+		//}
+		//WARNING("surface_set_target failed for id " + NumStr(id));
+		//return -1;
 	}
 }

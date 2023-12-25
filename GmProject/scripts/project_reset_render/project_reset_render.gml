@@ -28,6 +28,9 @@ function project_reset_render()
 	project_render_reflections = true
 	project_render_reflections_precision = .3
 	project_render_reflections_thickness = 1
+	project_render_open_image_denoise = 0
+	project_render_open_image_denoise_usediffuse = 0
+	project_render_open_image_denoise_usenormals = 0
 	project_render_reflections_fade_amount = 1
 	
 	project_render_glow = true

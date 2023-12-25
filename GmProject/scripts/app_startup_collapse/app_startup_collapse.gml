@@ -31,6 +31,7 @@ function app_startup_collapse()
 	collapse_register("light_management")
 	collapse_register("models_scenery")
 	collapse_register("glint")
+	collapse_register("openimagedenoise")
 	
 	collapse_register("sunlight")
 	collapse_register("sky")

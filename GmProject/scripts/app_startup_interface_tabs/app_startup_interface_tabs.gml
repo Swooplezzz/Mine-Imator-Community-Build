@@ -567,6 +567,7 @@ function app_startup_interface_tabs()
 		{
 			video_template = null
 			look_at_rotate = true
+			tbx_aspect = new_textbox_decimals()
 			tbx_fov = new_textbox_decimals()
 			tbx_fov.suffix = "°"
 			tbx_clip_near = new_textbox_integer()

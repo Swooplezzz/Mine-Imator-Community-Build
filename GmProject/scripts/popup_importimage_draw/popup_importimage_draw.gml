@@ -50,8 +50,11 @@ function popup_importimage_draw()
 		else
 		{
 			action_res_image_load(popup.filename, popup.type)
-			if(ds_list_size(popup.filenames) = 1)
+			if(ds_list_size(popup.filenames) = 1){
 			popup_close()
+
+
+			}
 		}
 
 		if(ds_list_size(popup.filenames) > 1){

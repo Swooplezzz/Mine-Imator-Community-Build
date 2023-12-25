@@ -53,6 +53,10 @@ function project_save_render()
 		json_save_var("glint_speed", project_render_glint_speed)
 		json_save_var("glint_strength", project_render_glint_strength)
 		
+		json_save_var("open_image_denoise", project_render_open_image_denoise)
+		json_save_var("open_image_denoise_usediffuse", project_render_open_image_denoise_usediffuse)
+		json_save_var("open_image_denoise_usenormals", project_render_open_image_denoise_usenormals)
+		
 		json_save_var_bool("texture_filtering", project_render_texture_filtering)
 		json_save_var_bool("transparent_block_texture_filtering", project_render_transparent_block_texture_filtering)
 		json_save_var("texture_filtering_level", project_render_texture_filtering_level)

@@ -28,10 +28,41 @@ function asset_load()
 		else
 			fn = file_dialog_open_asset()
 	}
+	var path_array = string_split(fn, "\n");
+	var path_array_count = array_length(path_array);
+	show_debug_message("FILE COUNT = " + string(path_array_count));
+
+	if (path_array_count==0){
+		return false;
+	}
 	
+	ds_list_clear(popup_importimage.filenames)
+	
+	for(var i = 0; i< path_array_count; i+=1){
+	fn = path_array[i];
+
 	if (fn = "" || !file_exists_lib(fn))
 		return false
-	
+
+	var ext = string_lower(filename_ext(fn));
+	switch(ext){
+		case ".png":
+		case ".jpg":
+		case ".jpeg":
+		case ".dat":
+			log("Opening image", fn)
+		    ds_list_add(popup_importimage.filenames, fn)
+			show_debug_message(fn)
+	}
+	}
+		
+	for(var i = 0; i< path_array_count; i+=1){
+		fn = path_array[i];
+
+	if (fn = "" || !file_exists_lib(fn))
+		return false
+
+
 	var ext = string_lower(filename_ext(fn));
 	if (ext = ".zip")
 	{
@@ -110,7 +141,7 @@ function asset_load()
 		case ".jpeg":
 		case ".dat":
 			log("Opening image", fn)
-		    ds_list_add(popup_importimage.filenames, fn)
+			show_debug_message(fn)
 			popup_show(popup_importimage)
 			return true
 	}
@@ -246,6 +277,6 @@ function asset_load()
 	project_reset_loaded()
 	
 	log("Asset loaded")
-	
+		}
 	return true
 }

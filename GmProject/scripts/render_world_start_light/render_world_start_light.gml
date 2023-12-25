@@ -59,6 +59,7 @@ function render_world_start_light(from, to, offset, tl, up)
 	}
 
 	var light_from = point3D_add(render_light_from, render_light_offset);
+		if (tl.type = e_tl_type.SPOT_LIGHT){
 	up = point3D_add(up, render_light_offset)
 	xx = up[X] - light_from[X];
 	yy = up[Y] - light_from[Y];
@@ -66,7 +67,7 @@ function render_world_start_light(from, to, offset, tl, up)
 	spot_up[X] = xx
 	spot_up[Y] = yy
 	spot_up[Z] = zz
-	
+		}
 	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), spot_up, render_light_fov, 1, 1, render_light_far)
 	
 	render_proj_from = point3D_add(render_light_from, render_light_offset)

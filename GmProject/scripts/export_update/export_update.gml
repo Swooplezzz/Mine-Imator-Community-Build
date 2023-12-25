@@ -83,6 +83,10 @@ function export_update()
 	render_active = null
 	render_samples = -1
 	
+	if(project_render_open_image_denoise){
+	export_surface = render_denoise();	
+	}
+	
 	// Save movie frame
 	if (window_state = "export_movie")
 	{

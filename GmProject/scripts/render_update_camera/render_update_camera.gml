@@ -20,6 +20,7 @@ function render_update_camera()
 		cam_up[Z] = cx * (xx * xx + yy * yy)
 		
 		cam_fov = 45
+		cam_aspect = 1
 		
 		// Uncomment these if you wanna try fixing camera clipping -mb
 		//cam_near = 1
@@ -58,6 +59,7 @@ function render_update_camera()
 		cam_up[Y] = mat[9]
 		cam_up[Z] = mat[10]
 		cam_fov = max(1, render_camera.value[e_value.CAM_FOV])
+		cam_aspect = max(0, render_camera.value[e_value.CAM_ASPECT])
 		
 		// Uncomment these if you wanna try fixing camera clipping -mb
 		//cam_near = render_camera.value[e_value.CAM_CLIP_NEAR]

@@ -33,6 +33,7 @@ function render_start()
 	// Use camera settings
 	if (render_camera != null)
 	{
+		cam_aspect = render_camera.value[e_value.CAM_ASPECT]
 		if (!render_camera.value[e_value.CAM_SIZE_USE_PROJECT])
 		{
 			render_width = render_camera.value[e_value.CAM_WIDTH]
@@ -88,7 +89,7 @@ function render_start()
 		render_camera_lens_dirt = false
 		render_camera_lens_dirt_bloom = false
 		render_camera_lens_dirt_glow = false
-		
+		cam_aspect = 1
 		render_camera_colors = false
 		
 		render_tonemapper = project_render_tonemapper
@@ -103,7 +104,7 @@ function render_start()
 		render_height = argument[3]
 	}
 	
-	render_ratio = render_width / render_height
+	render_ratio = (render_width / render_height) * cam_aspect
 	render_overlay = (render_camera_colors || render_watermark)
 	
 	// Effects must be in the order they're done in rendering

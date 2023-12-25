@@ -51,6 +51,10 @@ function tab_frame_editor_camera()
 	tab_control_meter()
 	draw_meter("frameeditorcamerafov", dx, dy, dw, tl_edit.value[e_value.CAM_FOV], 1, 170, 45, 1, tab.camera.tbx_fov, action_tl_frame_cam_fov)
 	tab_next()
+	// ASPECT
+	tab_control_dragger()
+	draw_dragger("frameeditorcameraaspect", dx, dy, dragger_width, tl_edit.value[e_value.CAM_ASPECT], 0.01, 0.0001, no_limit, 1, 0.0001, tab.camera.tbx_aspect, action_tl_frame_cam_aspect)
+	tab_next()
 	
 	// Advanced mode only
 	if (setting_advanced_mode)

@@ -2514,6 +2514,12 @@
 			"level": "Texture filtering level",
 			"transparentblocks": "Transparent block texture filtering"
 		},
+		"openimagedenoise": "Open image denoising",
+		"openimagedenoisetip": "Remove noise from rendered frames.",
+		"openimagedenoise/": {
+			"usediffuse": "Use diffuse",
+			"usenormals": "Use normals"
+		},
 		"aa": "Anti-aliasing",
 		"aatip": "Smoothen the edges of objects in the final render.",
 		"aapower": "Strength",
@@ -3291,16 +3297,16 @@
 		},
 		"constraints": "CONSTRAINTS",
 		"followpath": "Follow path",
-        "followrot": "Follow rotation",
-        "followpos": "Follow position",
-        "followscale": "Follow scale",
+        "followrot": "Copy rotation",
+        "followpos": "Copy position",
+        "followscale": "Copy scale",
 		"followrot/":{
 			"tip": "Allows the object to inherit rotation from a separate object.",
 			"target": "Target",
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Follow axis"
+			"followaxis": "Axis"
 		},
 		"followpos/":{
 			"tip": "Allows the object to inherit position from a separate object.",
@@ -3308,7 +3314,7 @@
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Follow axis",
+			"followaxis": "Axis",
 			"xoffset": "X",
 			"yoffset": "Y",
 			"zoffset": "Z",
@@ -3320,7 +3326,7 @@
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Follow axis"
+			"followaxis": "Axis"
 		},
 		"path": "Path timeline",
 		"path/": {

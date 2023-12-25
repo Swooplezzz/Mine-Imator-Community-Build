@@ -9,8 +9,7 @@ function view_click(view, cam)
 	surf = surface_create(content_width, content_height)
 	
 	render_camera = cam
-	render_ratio = content_width / content_height
-	
+	render_ratio = (content_width / content_height)*cam_aspect	
 	surface_set_target(surf)
 	{
 		draw_clear(c_black)
