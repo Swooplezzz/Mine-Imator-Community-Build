@@ -19,9 +19,7 @@ function render_world_start_light(from, to, offset, tl, up)
 	render_light_fade_size = tl.value[e_value.LIGHT_FADE_SIZE]
 	
 	if (tl.type = e_tl_type.POINT_LIGHT)
-	{
 		render_light_fov = 90
-	}
 	else if (tl.type = e_tl_type.SPOT_LIGHT)
 	{
 		render_light_fov = tl.value[e_value.LIGHT_SPOT_RADIUS]
@@ -56,18 +54,16 @@ function render_world_start_light(from, to, offset, tl, up)
 		spot_view_proj_matrix = matrix_multiply(spot_view_matrix, spot_proj_matrix)
 		
 		render_spot_matrix = spot_view_proj_matrix
+		
+		var light_from = point3D_add(render_light_from, render_light_offset);
+		up = point3D_add(up, render_light_offset)
+		xx = up[X] - light_from[X];
+		yy = up[Y] - light_from[Y];
+		zz = up[Z] - light_from[Z];
+		spot_up[X] = xx
+		spot_up[Y] = yy
+		spot_up[Z] = zz
 	}
-
-	var light_from = point3D_add(render_light_from, render_light_offset);
-		if (tl.type = e_tl_type.SPOT_LIGHT){
-	up = point3D_add(up, render_light_offset)
-	xx = up[X] - light_from[X];
-	yy = up[Y] - light_from[Y];
-	zz = up[Z] - light_from[Z];
-	spot_up[X] = xx
-	spot_up[Y] = yy
-	spot_up[Z] = zz
-		}
 	render_set_projection(point3D_add(render_light_from, render_light_offset), point3D_add(render_light_to, render_light_offset), spot_up, render_light_fov, 1, 1, render_light_far)
 	
 	render_proj_from = point3D_add(render_light_from, render_light_offset)

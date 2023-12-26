@@ -1,4 +1,7 @@
-/// CppSeparate void render_denoise()
-function render_denoise(surf){
+/// render_denoise(surface)
+/// @arg surface
+
+function render_denoise(surf)
+{
 	
 }

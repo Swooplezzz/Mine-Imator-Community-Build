@@ -1,5 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/// action_project_render_open_image_denoise(enable)
+/// @arg enable
+
 function action_project_render_open_image_denoise(enable)
 {
 	if (!history_undo && !history_redo)

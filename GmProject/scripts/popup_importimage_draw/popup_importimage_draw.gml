@@ -2,7 +2,6 @@
 
 function popup_importimage_draw()
 {
-
 	with (popup_importimage)
 	{
 	    filename = filenames[|0];
@@ -10,9 +9,9 @@ function popup_importimage_draw()
 			texture_free(texture)
 		
 		texture = texture_create(filename)
-
 	}
-	draw_image_box_cover(popup.texture,  dx + dw - 130, dy+24, 128, 128);
+	
+	draw_image_box_cover(popup.texture, dx + dw - 130, dy + 24, 128, 128)
 	// Info
 	draw_label(text_get("importimagetype") + ":", dx, dy + 14, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	dy += 28
@@ -50,17 +49,16 @@ function popup_importimage_draw()
 		else
 		{
 			action_res_image_load(popup.filename, popup.type)
-			if(ds_list_size(popup.filenames) = 1){
-			popup_close()
-
-
-			}
+			
+			if (ds_list_size(popup.filenames) = 1)
+				popup_close()
 		}
 
-		if(ds_list_size(popup.filenames) > 1){
-			ds_list_delete(popup.filenames,0);
-			popup_show(popup);
-			show_debug_message("new popup");
+		if (ds_list_size(popup.filenames) > 1)
+		{
+			ds_list_delete(popup.filenames, 0)
+			popup_show(popup)
+			show_debug_message("new popup")
 		}
 	}
 	tab_next()

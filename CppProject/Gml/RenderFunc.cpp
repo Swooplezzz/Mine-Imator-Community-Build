@@ -722,18 +722,18 @@ namespace CppProject
 	{
 		GFX->UpdateFrustum();
 	}
-	IntType render_denoise(IntType id) {
-		//if (Surface* surf = FindSurface(id))
-		//{
-		//	GFX->SubmitBatch();
-		//	GFX->ClipEnd();
-		//	GFX->ResetMRT();
-		//	GFX->surface->EndUse();
-		//	GFX->surface = surf;
-		//	if (GFX->surface->BeginUse())
-		//		return 1;
-		//}
-		//WARNING("surface_set_target failed for id " + NumStr(id));
-		//return -1;
-	}
+	//IntType render_denoise(IntType id) {
+	//	if (Surface* surf = FindSurface(id))
+	//	{
+	//		GFX->SubmitBatch();
+	//		GFX->ClipEnd();
+	//		GFX->ResetMRT();
+	//		GFX->surface->EndUse();
+	//		GFX->surface = surf;
+	//		if (GFX->surface->BeginUse())
+	//			return 1;
+	//	}
+	//	WARNING("surface_set_target failed for id " + NumStr(id));
+	//	return -1;
+	//}
 }

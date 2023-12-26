@@ -155,7 +155,7 @@ function tab_properties_render()
 	
 	// Glow
 	tab_control_switch()
-	draw_button_collapse("glow", collapse_map[?"glow"], action_project_render_glow , project_render_glow, "renderglow")
+	draw_button_collapse("glow", collapse_map[?"glow"], action_project_render_glow, project_render_glow, "renderglow")
 	tab_next()
 	
 	if (project_render_glow && collapse_map[?"glow"])
@@ -336,8 +336,10 @@ function tab_properties_render()
 		tab_control_switch()
 		draw_switch("renderopenimagedenoiseusenormals", dx, dy, project_render_open_image_denoise_usenormals, action_project_render_open_image_denoise_usenormals)
 		tab_next()
+		
 		tab_collapse_end()
 	}
+	
 	// Default emissive
 	tab_control_dragger()
 	draw_dragger("renderdefaultemissive", dx, dy, dragger_width, round(project_render_block_emissive * 100), 1, 0, no_limit, 100, 1, tab.render.tbx_block_emissive, action_project_render_block_emissive, null, true, false, "renderdefaultemissivetip")
