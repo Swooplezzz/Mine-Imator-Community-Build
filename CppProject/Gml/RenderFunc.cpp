@@ -10,7 +10,7 @@
 #include "Render/GraphicsApiHandler.hpp"
 #include "Render/PrimitiveRenderer.hpp"
 #include "Render/VertexBufferRenderer.hpp"
-#include "OpenImageDenoise/oidn.hpp"
+#include <OpenImageDenoise/oidn.hpp>
 
 
 namespace CppProject
@@ -723,17 +723,35 @@ namespace CppProject
 		GFX->UpdateFrustum();
 	}
 	IntType render_denoise(IntType id) {
+		//QImage img;
+		//QImage out(surface_get_width(id), surface_get_height(id), QImage::Format_RGBA8888);
 		//if (Surface* surf = FindSurface(id))
-		//{
-		//	GFX->SubmitBatch();
-		//	GFX->ClipEnd();
-		//	GFX->ResetMRT();
-		//	GFX->surface->EndUse();
-		//	GFX->surface = surf;
-		//	if (GFX->surface->BeginUse())
-		//		return 1;
-		//}
-		//WARNING("surface_set_target failed for id " + NumStr(id));
-		//return -1;
+		//	img = surf->ToImage();
+		//oidn::DeviceRef device = oidn::newDevice();
+		//device.commit();
+		//float* colorPtr = (float*)img.data_ptr();
+
+		//float* outputPtr = (float*)out.data_ptr();
+
+		//oidn::BufferRef colorBuf = device.newBuffer(surface_get_width(id) * surface_get_height(id) * 3 * sizeof(float));
+
+		//oidn::FilterRef filter = device.newFilter("RT");
+		//filter.setImage("color", colorPtr, oidn::Format::Float3, surface_get_width(id), surface_get_height(id));
+
+		//filter.setImage("output", outputPtr, oidn::Format::Float3, surface_get_width(id), surface_get_height(id));
+		//filter.set("hdr", true); 
+
+		//filter.commit();
+
+
+		//filter.execute();
+
+		//out.save("C://Denoised.png");
+		//
+		//// Check for errors
+		//const char* errorMessage;
+		//if (device.getError(errorMessage) != oidn::Error::None)
+		//	std::cout << "Error: " << errorMessage << std::endl;
+		return id;
 	}
 }

@@ -6,6 +6,32 @@ function tl_update_model_shape_bend()
 	var bend = vec3(value_inherit[e_value.BEND_ANGLE_X],
 					value_inherit[e_value.BEND_ANGLE_Y],
 					value_inherit[e_value.BEND_ANGLE_Z]);
+
+			
+	if(value[e_value.BEND_IK_TARGET] != null){
+
+				var mat = matrix_parent;
+				
+				//TARGET ROTATION MATRIX
+				var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
+				
+				//REMOVE GLOBAL POSITION
+				target_rot_mat[MAT_X] = 0;
+				target_rot_mat[MAT_Y] = 0;
+				target_rot_mat[MAT_Z] = 0;
+				
+				//REMOVE SCALE
+				matrix_remove_scale(target_rot_mat)
+				
+				//INVERT MATRIX_PARENT (USED FOR RESETTING THE BEND ROTATION)
+				var mat_inv = matrix_inverse(mat) 
+				
+				//MULTIPLY THE TARGET ROTATION WITH THE INVERSE TRANSFORM MATRIX
+				var rot_target = matrix_rotation(matrix_multiply(target_rot_mat,mat_inv)) 
+				
+				//SET THE BEND TO THE FINAL VALUE
+				bend = rot_target; 
+    }
 	
 	// No change
 	if (vec3_equals(bend_rot_last, bend) && bend_model_part_last = model_part)

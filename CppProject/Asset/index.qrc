@@ -177,8 +177,16 @@
 		<file>Shaders/shader_high_material.vsh</file>
 		<file>Shaders/shader_high_raytrace.fsh</file>
 		<file>Shaders/shader_high_raytrace.vsh</file>
+		<file>Shaders/shader_high_raytrace_indirect.fsh</file>
+		<file>Shaders/shader_high_raytrace_indirect.vsh</file>
+		<file>Shaders/shader_high_raytrace_reflections.fsh</file>
+		<file>Shaders/shader_high_raytrace_reflections.vsh</file>
 		<file>Shaders/shader_high_raytrace_resolve.fsh</file>
 		<file>Shaders/shader_high_raytrace_resolve.vsh</file>
+		<file>Shaders/shader_high_raytrace_uv.fsh</file>
+		<file>Shaders/shader_high_raytrace_uv.vsh</file>
+		<file>Shaders/shader_high_reflections_apply.fsh</file>
+		<file>Shaders/shader_high_reflections_apply.vsh</file>
 		<file>Shaders/shader_high_samples_add.fsh</file>
 		<file>Shaders/shader_high_samples_add.vsh</file>
 		<file>Shaders/shader_high_samples_unpack.fsh</file>

@@ -332,6 +332,7 @@ function enums()
 		ROT_TARGET,
 		POS_TARGET,
 		SCALE_TARGET,
+		BEND_IK_TARGET,
 		FLW_ROT_X,
 		FLW_ROT_Y,
 		FLW_ROT_Z,

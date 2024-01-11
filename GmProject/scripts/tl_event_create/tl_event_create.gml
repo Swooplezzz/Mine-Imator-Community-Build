@@ -134,6 +134,7 @@ function tl_event_create()
 	
 	update_matrix = true
 	bend_rot_last = vec3(0)
+	ik_bend_value = vec3(0)
 	bend_model_part_last = null
 	
 	// Only used if the timeline is a banner special block in scenery

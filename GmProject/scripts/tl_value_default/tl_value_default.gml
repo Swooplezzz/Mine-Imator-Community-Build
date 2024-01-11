@@ -152,6 +152,7 @@ function tl_value_default(valueid)
 		case e_value.ROT_TARGET:
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
+		case e_value.BEND_IK_TARGET:
 		case e_value.FLW_POS_OFFSET_X:
 		case e_value.FLW_POS_OFFSET_Y:
 		case e_value.FLW_POS_OFFSET_Z:

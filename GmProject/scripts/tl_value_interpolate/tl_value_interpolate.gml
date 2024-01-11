@@ -53,6 +53,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.ROT_TARGET:
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
+		case e_value.BEND_IK_TARGET:
 		case e_value.FLW_POS_X:
 		case e_value.FLW_POS_Y:
 		case e_value.FLW_POS_Z:

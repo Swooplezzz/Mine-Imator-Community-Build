@@ -46,6 +46,7 @@ function app_startup_collapse()
 	collapse_register("followrot")
 	collapse_register("followpos")
 	collapse_register("followscale")
+	collapse_register("bendik")
 	
 	collapse_register("path_shape")
 	collapse_register("path_shape_tube")

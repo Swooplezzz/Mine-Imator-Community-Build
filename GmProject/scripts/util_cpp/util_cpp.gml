@@ -411,3 +411,7 @@ function clip_is_active() {
 function update_frustum()
 {
 }
+/// CppSeparate IntType render_denoise(IntType)
+function render_denoise(surf){
+return surf;
+}

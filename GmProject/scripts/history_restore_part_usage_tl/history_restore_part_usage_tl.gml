@@ -25,6 +25,11 @@ function history_restore_part_usage_tl(hobj)
 			tl = save_id_find(usage_tl_flw_rot_target_save_id[i])
 			tl.value[e_value.ROT_TARGET] = save_id_find(usage_tl_flw_rot_target_part_save_id[i])
 		}
+		for (var i = 0; i < usage_tl_flw_scale_target_amount; i++)
+		{
+			tl = save_id_find(usage_tl_flw_scale_target_save_id[i])
+			tl.value[e_value.SCALE_TARGET] = save_id_find(usage_tl_flw_scale_target_part_save_id[i])
+		}
 		
 		for (var i = 0; i < usage_tl_ik_target_angle_amount; i++)
 		{
@@ -66,6 +71,13 @@ function history_restore_part_usage_tl(hobj)
 			tl = save_id_find(usage_kf_flw_scale_target_tl_save_id[i])
 			kfindex = usage_kf_flw_scale_target_index[i]
 			tl.keyframe_list[|kfindex].value[e_value.SCALE_TARGET] = save_id_find(usage_kf_flw_scale_target_tl_part_save_id[i])
+		}
+		
+	    for (var i = 0; i < usage_kf_bnd_ik_target_amount; i++)
+		{
+			tl = save_id_find(usage_kf_bnd_ik_target_tl_save_id[i])
+			kfindex = usage_kf_bnd_ik_target_index[i]
+			tl.keyframe_list[|kfindex].value[e_value.BEND_IK_TARGET] = save_id_find(usage_kf_bnd_ik_target_tl_part_save_id[i])
 		}
 		
 		for (var i = 0; i < usage_kf_ik_target_angle_amount; i++)

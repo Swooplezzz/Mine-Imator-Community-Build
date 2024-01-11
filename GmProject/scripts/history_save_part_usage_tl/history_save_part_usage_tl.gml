@@ -44,6 +44,22 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
+		if (value[e_value.SCALE_TARGET] = tl)
+		{
+			hobj.usage_tl_flw_scale_target_save_id[hobj.usage_tl_flw_scale_target_amount] = save_id
+			hobj.usage_tl_flw_scale_target_part_save_id[hobj.usage_tl_flw_scale_target_amount] = tl.save_id
+			hobj.usage_tl_flw_scale_target_amount++
+			
+			used = true
+		}
+		if (value[e_value.BEND_IK_TARGET] = tl)
+		{
+			hobj.usage_tl_bnd_ik_target_save_id[hobj.usage_tl_bnd_ik_target_amount] = save_id
+			hobj.usage_tl_bnd_ik_target_part_save_id[hobj.usage_tl_bnd_ik_target_amount] = tl.save_id
+			hobj.usage_tl_bnd_ik_target_amount++
+			
+			used = true
+		}
 	}
 	
 	// Save references in keyframes
@@ -88,7 +104,15 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
-		
+		if (value[e_value.BEND_IK_TARGET] = tl)
+		{
+			hobj.usage_kf_bnd_ik_target_tl_save_id[hobj.usage_kf_bnd_ik_target_amount] = save_id_get(timeline)
+			hobj.usage_kf_bnd_ik_target_tl_part_save_id[hobj.usage_kf_bnd_ik_target_amount] = tl.save_id
+			hobj.usage_kf_bnd_ik_target_index[hobj.usage_kf_bnd_ik_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+			hobj.usage_kf_bnd_ik_target_amount++
+			
+			used = true
+		}
 		if (value[e_value.IK_TARGET_ANGLE] = tl)
 		{
 			hobj.usage_kf_ik_target_angle_tl_save_id[hobj.usage_kf_ik_target_angle_amount] = save_id_get(timeline)
