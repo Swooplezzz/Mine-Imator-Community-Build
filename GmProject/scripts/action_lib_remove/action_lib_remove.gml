@@ -98,7 +98,7 @@ function action_lib_remove()
 	
 	tab_template_editor_update_ptype_list()
 	
-	project_flw_obj_array = null
+	project_copy_obj_array = null
 	
 	tl_update_length()
 	tl_update_list()

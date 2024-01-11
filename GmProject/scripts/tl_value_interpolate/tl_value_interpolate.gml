@@ -54,19 +54,19 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
 		case e_value.BEND_IK_TARGET:
-		case e_value.FLW_POS_X:
-		case e_value.FLW_POS_Y:
-		case e_value.FLW_POS_Z:
-		case e_value.FLW_ROT_X:
-		case e_value.FLW_ROT_Y:
-		case e_value.FLW_ROT_Z:
-		case e_value.FLW_SCALE_X:
-		case e_value.FLW_SCALE_Y:
-		case e_value.FLW_SCALE_Z:
-		case e_value.FLW_POS_OFFSET_X:
-		case e_value.FLW_POS_OFFSET_Y:
-		case e_value.FLW_POS_OFFSET_Z:
-		case e_value.FLW_SCALE_MULT:
+		case e_value.COPY_POS_X:
+		case e_value.COPY_POS_Y:
+		case e_value.COPY_POS_Z:
+		case e_value.COPY_ROT_X:
+		case e_value.COPY_ROT_Y:
+		case e_value.COPY_ROT_Z:
+		case e_value.COPY_SCALE_X:
+		case e_value.COPY_SCALE_Y:
+		case e_value.COPY_SCALE_Z:
+		case e_value.COPY_POS_OFFSET_X:
+		case e_value.COPY_POS_OFFSET_Y:
+		case e_value.COPY_POS_OFFSET_Z:
+		case e_value.COPY_SCALE_MULT:
 		case e_value.IK_TARGET_ANGLE:
 		case e_value.ATTRACTOR:
 		case e_value.CAM_LIGHT_MANAGEMENT:

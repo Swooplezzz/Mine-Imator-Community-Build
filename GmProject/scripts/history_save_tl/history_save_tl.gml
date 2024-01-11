@@ -54,9 +54,9 @@ function history_save_tl(tl)
 		usage_tl_path_amount = 0
 		usage_tl_attractor_amount = 0
 		usage_tl_ik_target_amount = 0
-		usage_tl_flw_rot_target_amount = 0
-		usage_tl_flw_pos_target_amount = 0
-		usage_tl_flw_scale_target_amount = 0
+		usage_tl_copy_rot_target_amount = 0
+		usage_tl_copy_pos_target_amount = 0
+		usage_tl_copy_scale_target_amount = 0
 		usage_tl_ik_target_angle_amount = 0
 		with (obj_timeline)
 		{
@@ -86,20 +86,20 @@ function history_save_tl(tl)
 			
 			if (value[e_value.ROT_TARGET] = tl)
 			{
-				save.usage_tl_flw_rot_target_save_id[save.usage_tl_flw_rot_target_amount] = save_id
-				save.usage_tl_flw_rot_target_amount++
+				save.usage_tl_copy_rot_target_save_id[save.usage_tl_copy_rot_target_amount] = save_id
+				save.usage_tl_copy_rot_target_amount++
 			}
 			
 		    if (value[e_value.POS_TARGET] = tl)
 			{
-				save.usage_tl_flw_pos_target_save_id[save.usage_tl_flw_pos_target_amount] = save_id
-				save.usage_tl_flw_pos_target_amount++
+				save.usage_tl_copy_pos_target_save_id[save.usage_tl_copy_pos_target_amount] = save_id
+				save.usage_tl_copy_pos_target_amount++
 			}
 			
 			if (value[e_value.SCALE_TARGET] = tl)
 			{
-				save.usage_tl_flw_scale_target_save_id[save.usage_tl_flw_scale_target_amount] = save_id
-				save.usage_tl_flw_scale_target_amount++
+				save.usage_tl_copy_scale_target_save_id[save.usage_tl_copy_scale_target_amount] = save_id
+				save.usage_tl_copy_scale_target_amount++
 			}
 			
 			if (value[e_value.IK_TARGET_ANGLE] = tl)
@@ -113,9 +113,9 @@ function history_save_tl(tl)
 		usage_kf_texture_amount = 0
 		usage_kf_path_amount = 0
 		usage_kf_ik_target_amount = 0
-		usage_kf_flw_rot_target_amount = 0
-		usage_kf_flw_pos_target_amount = 0
-		usage_kf_flw_scale_target_amount = 0
+		usage_kf_copy_rot_target_amount = 0
+		usage_kf_copy_pos_target_amount = 0
+		usage_kf_copy_scale_target_amount = 0
 		usage_kf_ik_target_angle_amount = 0
 		usage_kf_attractor_amount = 0
 		with (obj_keyframe)
@@ -143,23 +143,23 @@ function history_save_tl(tl)
 			
 			if (value[e_value.ROT_TARGET] = tl)
 			{
-				save.usage_kf_flw_rot_target_tl_save_id[save.usage_kf_flw_rot_target_amount] = save_id_get(timeline)
-				save.usage_kf_flw_rot_target_index[save.usage_kf_flw_rot_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-				save.usage_kf_flw_rot_target_amount++
+				save.usage_kf_copy_rot_target_tl_save_id[save.usage_kf_copy_rot_target_amount] = save_id_get(timeline)
+				save.usage_kf_copy_rot_target_index[save.usage_kf_copy_rot_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+				save.usage_kf_copy_rot_target_amount++
 			}
 			
 			if (value[e_value.POS_TARGET] = tl)
 			{
-				save.usage_kf_flw_pos_target_tl_save_id[save.usage_kf_flw_pos_target_amount] = save_id_get(timeline)
-				save.usage_kf_flw_pos_target_index[save.usage_kf_flw_pos_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-				save.usage_kf_flw_pos_target_amount++
+				save.usage_kf_copy_pos_target_tl_save_id[save.usage_kf_copy_pos_target_amount] = save_id_get(timeline)
+				save.usage_kf_copy_pos_target_index[save.usage_kf_copy_pos_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+				save.usage_kf_copy_pos_target_amount++
 			}
 			
 			if (value[e_value.SCALE_TARGET] = tl)
 			{
-				save.usage_kf_flw_scale_target_tl_save_id[save.usage_kf_flw_scale_target_amount] = save_id_get(timeline)
-				save.usage_kf_flw_scale_target_index[save.usage_kf_flw_scale_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-				save.usage_kf_flw_scale_target_amount++
+				save.usage_kf_copy_scale_target_tl_save_id[save.usage_kf_copy_scale_target_amount] = save_id_get(timeline)
+				save.usage_kf_copy_scale_target_index[save.usage_kf_copy_scale_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+				save.usage_kf_copy_scale_target_amount++
 			}
 			
 			if (value[e_value.IK_TARGET_ANGLE] = tl)

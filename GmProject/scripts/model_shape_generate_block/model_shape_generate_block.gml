@@ -197,7 +197,7 @@ function model_shape_generate_block(bend)
 			startp = 1
 		else // Start inside bend, apply partial angle
 			startp = (1 - bendend / bendsize)
-
+		
 		if (invangle)
 			startp = 1 - startp
 		

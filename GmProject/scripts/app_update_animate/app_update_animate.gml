@@ -16,7 +16,7 @@ function app_update_animate()
 	project_use_path_tl_array = []
 	project_ik_part_array = [] // If null, will generate in tl_update_matrix
 	project_inherit_pose_array = []
-	project_flw_obj_array = []
+	project_copy_obj_array = []
 	
 	// Update background time
 	background_time_prev = background_time
@@ -57,7 +57,7 @@ function app_update_animate()
 			array_add(app.project_ik_part_array, id)
 			
 		if (value[e_value.ROT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null || value[e_value.BEND_IK_TARGET] != null)
-			array_add(app.project_flw_obj_array, id)
+			array_add(app.project_copy_obj_array, id)
 		
 		// Get cameras
 		if (type = e_tl_type.CAMERA)
@@ -128,8 +128,8 @@ function app_update_animate()
 	for (var i = 0; i < array_length(project_use_path_tl_array); i++)
 		project_use_path_tl_array[i].update_matrix = true
 	
-	for (var i = 0; i < array_length(project_flw_obj_array); i++)
-		project_flw_obj_array[i].update_matrix = true
+	for (var i = 0; i < array_length(project_copy_obj_array); i++)
+		project_copy_obj_array[i].update_matrix = true
 	
 	if (array_length(project_use_path_tl_array) > 0)
 	{
@@ -137,7 +137,7 @@ function app_update_animate()
 			tl_update_matrix(true)
 	}
 	
-	if (array_length(project_flw_obj_array) > 0)
+	if (array_length(project_copy_obj_array) > 0)
 	{
 		with (app)
 			tl_update_matrix(false, false, true)

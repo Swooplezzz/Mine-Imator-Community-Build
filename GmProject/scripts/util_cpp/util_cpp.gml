@@ -403,7 +403,8 @@ function builder_add_triangle()
 }
 
 /// CppSeparate BoolType clip_is_active()
-function clip_is_active() {
+function clip_is_active()
+{
 	return shader_clip_active
 }
 
@@ -411,7 +412,9 @@ function clip_is_active() {
 function update_frustum()
 {
 }
+
 /// CppSeparate IntType render_denoise(IntType)
-function render_denoise(surf){
-return surf;
+function render_denoise(surf)
+{
+	return surf;
 }

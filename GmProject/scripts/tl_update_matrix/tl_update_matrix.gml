@@ -4,7 +4,7 @@
 /// @arg updatepose]
 /// @desc Updates matrixes and positions.
 
-function tl_update_matrix(usepaths = false, updateik = true, updatepose = false, updateflw = true)
+function tl_update_matrix(usepaths = false, updateik = true, updatepose = false, updatecopy = true)
 {
 	var start, curtl, tlamount, bend, pos, rot, sca, par, matrixnoscale, hasik, lasttex, ikblend, posebend;
 	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf;
@@ -29,9 +29,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				if (curtl.tree_list[|t].inherit_pose)
 					array_add(app.project_inherit_pose_array, curtl.tree_list[|t])
 		
-		if(curtl.value[e_value.ROT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null){
+		if (curtl.value[e_value.ROT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
 			curtl.update_matrix = true
-		}
 		
 		if (!curtl.update_matrix)
 			continue
@@ -262,13 +261,13 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			value_inherit[e_value.SCA_Y] = 1
 			value_inherit[e_value.SCA_Z] = 1
 			tl = id
-
+			
 			while (1)
 			{
 				par = tl.parent
 				if (par = app)
 					break
-			
+				
 				value_inherit[e_value.SCA_X] *= par.value[e_value.SCA_X]
 				value_inherit[e_value.SCA_Y] *= par.value[e_value.SCA_Y]
 				value_inherit[e_value.SCA_Z] *= par.value[e_value.SCA_Z]
@@ -277,9 +276,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					break
 				tl = par
 			}
-
 			
-
 			// Inherit
 			lasttex = value_inherit[e_value.TEXTURE_OBJ]
 			ikblend = value[e_value.IK_BLEND] * hasik
@@ -303,11 +300,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			value_inherit[e_value.SUBSURFACE_COLOR] = value[e_value.SUBSURFACE_COLOR] // Multiplied
 			value_inherit[e_value.WIND_INFLUENCE] = value[e_value.WIND_INFLUENCE] // Multiplied
 			value_inherit[e_value.VISIBLE] = value[e_value.VISIBLE]
-
 			value_inherit[e_value.BEND_ANGLE_X] = value[e_value.BEND_ANGLE_X] * (1 - ikblend) // Added
 			value_inherit[e_value.BEND_ANGLE_Y] = value[e_value.BEND_ANGLE_Y] * (1 - ikblend) // Added
 			value_inherit[e_value.BEND_ANGLE_Z] = value[e_value.BEND_ANGLE_Z] * (1 - ikblend) // Added
-
 			value_inherit[e_value.TEXTURE_OBJ] = value[e_value.TEXTURE_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_MATERIAL_OBJ] = value[e_value.TEXTURE_MATERIAL_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_NORMAL_OBJ] = value[e_value.TEXTURE_NORMAL_OBJ] // Overwritten
@@ -321,10 +316,10 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			inhsurf = true
 			inhsubsurf = true
 			tl = id
-
+			
 			for (var j = X; j <= Z; j++)
 				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j]
-
+			
 			while (true)
 			{
 				par = tl.parent;
@@ -421,10 +416,10 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					value_inherit[e_value.TEXTURE_OBJ] = par.value[e_value.TEXTURE_OBJ]
 				
 				value_inherit[e_value.WIND_INFLUENCE] *= par.value[e_value.WIND_INFLUENCE]
-	
+				
 				tl = par
 			}
-
+			
 			colors_ext = (value_inherit[e_value.ALPHA] < 1 ||
 						  value_inherit[e_value.RGB_ADD] - value_inherit[e_value.RGB_SUB] != c_black ||
 						  value_inherit[e_value.HSB_ADD] - value_inherit[e_value.HSB_SUB] != c_black ||
@@ -435,9 +430,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			// Add bend angle from IK
 			if (hasik)
 				value_inherit[e_value.BEND_ANGLE_X] += part_joint_bend_angle * ikblend
-				
-	
-			 
+			
 			if ((value_inherit[e_value.ALPHA] * 1000) != 0)
 			{
 				// Update 3D planes if texture changed
@@ -468,9 +461,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				for (var t = 0; t < ds_list_size(tree_list); t++)
 					tree_list[|t].update_matrix = true
 			}
-	
-	
-	
+			
 			// Update render resource
 			if (lasttex != value_inherit[e_value.TEXTURE_OBJ] && tl_get_visible())
 				render_update_tl_resource()
@@ -506,16 +497,16 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		app.project_inherit_pose_array = []
 	}
 	
-	if (updateflw)
+	if (updatecopy)
 	{
-		if (app.project_flw_obj_array = null)
+		if (app.project_copy_obj_array = null)
 		{
-			app.project_flw_obj_array = []
+			app.project_copy_obj_array = []
 			with (obj_timeline)
 				if (value[e_value.ROT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null  || value[e_value.BEND_IK_TARGET] != null)
-					array_add(app.project_flw_obj_array, id)
+					array_add(app.project_copy_obj_array, id)
 		}
 		
-		tl_update_flw(app.project_flw_obj_array)
+		tl_update_copy(app.project_copy_obj_array)
 	}
 }

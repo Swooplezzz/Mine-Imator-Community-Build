@@ -496,10 +496,10 @@ function app_startup_interface_tabs()
 			// Path
 			tbx_path_offset = new_textbox_ndecimals()
 			
-			// Follow position offset
-			tbx_follow_pos_offset_x = new_textbox_decimals()
-			tbx_follow_pos_offset_y = new_textbox_decimals()
-			tbx_follow_pos_offset_z = new_textbox_decimals()
+			//// Follow position offset
+			//tbx_copy_pos_offset_x = new_textbox_decimals()
+			//tbx_copy_pos_offset_y = new_textbox_decimals()
+			//tbx_copy_pos_offset_z = new_textbox_decimals()
 			
 			// IK
 			tbx_ik_blend = new_textbox_integer()

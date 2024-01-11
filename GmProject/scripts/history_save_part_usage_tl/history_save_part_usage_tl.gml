@@ -38,17 +38,17 @@ function history_save_part_usage_tl(tl, hobj)
 		
 		if (value[e_value.ROT_TARGET] = tl)
 		{
-			hobj.usage_tl_flw_rot_target_save_id[hobj.usage_tl_flw_rot_target_amount] = save_id
-			hobj.usage_tl_flw_rot_target_part_save_id[hobj.usage_tl_flw_rot_target_amount] = tl.save_id
-			hobj.usage_tl_flw_rot_target_amount++
+			hobj.usage_tl_copy_rot_target_save_id[hobj.usage_tl_copy_rot_target_amount] = save_id
+			hobj.usage_tl_copy_rot_target_part_save_id[hobj.usage_tl_copy_rot_target_amount] = tl.save_id
+			hobj.usage_tl_copy_rot_target_amount++
 			
 			used = true
 		}
 		if (value[e_value.SCALE_TARGET] = tl)
 		{
-			hobj.usage_tl_flw_scale_target_save_id[hobj.usage_tl_flw_scale_target_amount] = save_id
-			hobj.usage_tl_flw_scale_target_part_save_id[hobj.usage_tl_flw_scale_target_amount] = tl.save_id
-			hobj.usage_tl_flw_scale_target_amount++
+			hobj.usage_tl_copy_scale_target_save_id[hobj.usage_tl_copy_scale_target_amount] = save_id
+			hobj.usage_tl_copy_scale_target_part_save_id[hobj.usage_tl_copy_scale_target_amount] = tl.save_id
+			hobj.usage_tl_copy_scale_target_amount++
 			
 			used = true
 		}
@@ -77,30 +77,30 @@ function history_save_part_usage_tl(tl, hobj)
 		
 		if (value[e_value.ROT_TARGET] = tl)
 		{
-			hobj.usage_kf_flw_rot_target_tl_save_id[hobj.usage_kf_flw_rot_target_amount] = save_id_get(timeline)
-			hobj.usage_kf_flw_rot_target_tl_part_save_id[hobj.usage_kf_flw_rot_target_amount] = tl.save_id
-			hobj.usage_kf_flw_rot_target_index[hobj.usage_kf_flw_rot_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-			hobj.usage_kf_flw_rot_target_amount++
+			hobj.usage_kf_copy_rot_target_tl_save_id[hobj.usage_kf_copy_rot_target_amount] = save_id_get(timeline)
+			hobj.usage_kf_copy_rot_target_tl_part_save_id[hobj.usage_kf_copy_rot_target_amount] = tl.save_id
+			hobj.usage_kf_copy_rot_target_index[hobj.usage_kf_copy_rot_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+			hobj.usage_kf_copy_rot_target_amount++
 			
 			used = true
 		}
 		
 		if (value[e_value.POS_TARGET] = tl)
 		{
-			hobj.usage_kf_flw_pos_target_tl_save_id[hobj.usage_kf_flw_pos_target_amount] = save_id_get(timeline)
-			hobj.usage_kf_flw_pos_target_tl_part_save_id[hobj.usage_kf_flw_pos_target_amount] = tl.save_id
-			hobj.usage_kf_flw_pos_target_index[hobj.usage_kf_flw_pos_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-			hobj.usage_kf_flw_pos_target_amount++
+			hobj.usage_kf_copy_pos_target_tl_save_id[hobj.usage_kf_copy_pos_target_amount] = save_id_get(timeline)
+			hobj.usage_kf_copy_pos_target_tl_part_save_id[hobj.usage_kf_copy_pos_target_amount] = tl.save_id
+			hobj.usage_kf_copy_pos_target_index[hobj.usage_kf_copy_pos_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+			hobj.usage_kf_copy_pos_target_amount++
 			
 			used = true
 		}
 		
 		if (value[e_value.SCALE_TARGET] = tl)
 		{
-			hobj.usage_kf_flw_scale_target_tl_save_id[hobj.usage_kf_flw_scale_target_amount] = save_id_get(timeline)
-			hobj.usage_kf_flw_scale_target_tl_part_save_id[hobj.usage_kf_flw_scale_target_amount] = tl.save_id
-			hobj.usage_kf_flw_scale_target_index[hobj.usage_kf_flw_scale_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
-			hobj.usage_kf_flw_scale_target_amount++
+			hobj.usage_kf_copy_scale_target_tl_save_id[hobj.usage_kf_copy_scale_target_amount] = save_id_get(timeline)
+			hobj.usage_kf_copy_scale_target_tl_part_save_id[hobj.usage_kf_copy_scale_target_amount] = tl.save_id
+			hobj.usage_kf_copy_scale_target_index[hobj.usage_kf_copy_scale_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+			hobj.usage_kf_copy_scale_target_amount++
 			
 			used = true
 		}

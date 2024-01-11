@@ -45,25 +45,27 @@ function tab_frame_editor_light()
 	draw_dragger("frameeditorlightspecularstrength", dx, dy, dragger_width, floor(tl_edit.value[e_value.LIGHT_SPECULAR_STRENGTH] * 100), 0.1, 0, no_limit, 100, 1, tab.light.tbx_specular_strength, action_tl_frame_light_specular_strength)
 	tab_next()
 	
-	if(tl_edit.type = e_tl_type.SPOT_LIGHT){
-	var texobj, tex, text;
-	texobj = tl_edit.value[e_value.TEXTURE_OBJ]
-	tex = null
+	if (tl_edit.type = e_tl_type.SPOT_LIGHT)
+	{
+		var texobj, tex, text;
+		texobj = tl_edit.value[e_value.TEXTURE_OBJ]
+		tex = null
 			
-	if (texobj != null)
-		text = texobj.display_name
-	else
-		text = text_get("listnone")
+		if (texobj != null)
+			text = texobj.display_name
+		else
+			text = text_get("listnone")
 			
-	if (texobj = null)
-		text = text_get("listdefault", text)
+		if (texobj = null)
+			text = text_get("listdefault", text)
 			
-	if (texobj != null && texobj.type != e_tl_type.CAMERA) // Don't preview cameras
-		tex = texobj.texture
+		if (texobj != null && texobj.type != e_tl_type.CAMERA) // Don't preview cameras
+			tex = texobj.texture
 			
-	tab_control_menu(ui_large_height)
-	draw_button_menu("frameeditorlightgobotexture", e_menu.LIST, dx, dy, dw, ui_large_height, tl_edit.value[e_value.TEXTURE_OBJ], text, action_tl_frame_texture_light_gobo, false, tex)
-	tab_next()
+		tab_control_menu(ui_large_height)
+		draw_button_menu("frameeditorlightgobotexture", e_menu.LIST, dx, dy, dw, ui_large_height, tl_edit.value[e_value.TEXTURE_OBJ], text, action_tl_frame_texture_light_gobo, false, tex)
+		tab_next()
 	}
+	
 	context_menu_group_temp = null
 }

@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2023.12.25"
+		"lastchange": "2024.01.11"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -451,7 +451,7 @@
 		"author": "Project author",
 		"description": "Project description",
 		"location": "Project location",
-		"namedefault": "New project",
+		"namedefault": "New Project",
 		"create": "Create project"
 	},
 	"toolbar/": {
@@ -632,6 +632,7 @@
 			"videosizecustomwidth": "W",
 			"videosizecustomheight": "H",
 			"videosizecustomkeepaspectratio": "Keep aspect ratio",
+			"videosizecustomerror": "MP4 and MOV formats don't support odd-numbered video sizes.",
 			"format": "Format",
 			"format/": {
 				"mp4": "MP4",
@@ -3297,36 +3298,36 @@
 		},
 		"constraints": "CONSTRAINTS",
 		"followpath": "Follow path",
-        "followrot": "Copy rotation",
-        "followpos": "Copy position",
-        "followscale": "Copy scale",
-		"followrot/":{
+        "copyrot": "Copy rotation",
+        "copypos": "Copy position",
+        "copyscale": "Copy scale",
+		"copyrot/": {
 			"tip": "Allows the object to inherit rotation from a separate object.",
 			"target": "Target",
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Axis"
+			"copyaxis": "Axis"
 		},
-		"followpos/":{
+		"copypos/": {
 			"tip": "Allows the object to inherit position from a separate object.",
 			"target": "Target",
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Axis",
+			"copyaxis": "Axis",
 			"xoffset": "X",
 			"yoffset": "Y",
 			"zoffset": "Z",
 			"offset": "Offset"
 		},
-		"followscale/":{
+		"copyscale/": {
 			"tip": "Allows the object to inherit scale from a separate object.",
 			"target": "Target",
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"followaxis": "Axis"
+			"copyaxis": "Axis"
 		},
 		"path": "Path timeline",
 		"path/": {
@@ -3339,6 +3340,11 @@
 			"blend": "Blend",
 			"angletarget": "Angle target",
 			"angleoffset": "Angle offset"
+		},
+		"bendik": "Bend inverse kinematics",
+		"bendik/": {
+			"tip": "Allan please add details",
+			"target": "Target"
 		},
 		"material": "MATERIAL",
 		"opacity": "Opacity",

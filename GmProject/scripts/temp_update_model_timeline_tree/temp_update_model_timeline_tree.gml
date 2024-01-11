@@ -42,7 +42,7 @@ function temp_update_model_timeline_tree(hobj = null)
 			hobj.usage_tl_ik_target_amount = 0
 			hobj.usage_tl_ik_target_angle_amount = 0
 			
-			hobj.usage_tl_flw_rot_target_amount = 0
+			hobj.usage_tl_copy_rot_target_amount = 0
 			
 			hobj.usage_kf_ik_target_amount = 0
 			hobj.usage_kf_ik_target_angle_amount = 0

@@ -1,5 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/// action_tl_frame_bend_ik_target(target)
+/// @arg target
+
 function action_tl_frame_bend_ik_target(target)
 {
 	tl_value_set_start(action_tl_frame_bend_ik_target, false)

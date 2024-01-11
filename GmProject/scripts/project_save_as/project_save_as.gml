@@ -22,7 +22,7 @@ function project_save_as()
 	
 	load_folder = project_folder
 	project_folder = dirname
-	project_file = project_folder + "\\" + filename_get_valid(project_name) + ".miproject"
+	project_file = project_folder + "/" + filename_get_valid(project_name) + ".miproject"
 	save_folder = project_folder
 	
 	with (obj_resource)

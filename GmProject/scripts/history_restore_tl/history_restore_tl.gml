@@ -93,34 +93,34 @@ function history_restore_tl(save, tl = null)
 			}
 		}
 		
-	    for (var s = 0; s < save.usage_tl_flw_rot_target_amount; s++)
+		for (var s = 0; s < save.usage_tl_copy_rot_target_amount; s++)
 		{
-			with (save_id_find(save.usage_tl_flw_rot_target_save_id[s]))
+			with (save_id_find(save.usage_tl_copy_rot_target_save_id[s]))
 			{
 				value[e_value.ROT_TARGET] = tl
 				update_matrix = true
 			}
 		}
 		
-	    for (var s = 0; s < save.usage_tl_flw_pos_target_amount; s++)
+		for (var s = 0; s < save.usage_tl_copy_pos_target_amount; s++)
 		{
-			with (save_id_find(save.usage_tl_flw_pos_target_save_id[s]))
+			with (save_id_find(save.usage_tl_copy_pos_target_save_id[s]))
 			{
 				value[e_value.POS_TARGET] = tl
 				update_matrix = true
 			}
 		}
 		
-	    for (var s = 0; s < save.usage_tl_flw_scale_target_amount; s++)
+		for (var s = 0; s < save.usage_tl_copy_scale_target_amount; s++)
 		{
-			with (save_id_find(save.usage_tl_flw_scale_target_save_id[s]))
+			with (save_id_find(save.usage_tl_copy_scale_target_save_id[s]))
 			{
 				value[e_value.SCALE_TARGET] = tl
 				update_matrix = true
 			}
 		}
 		
-	    for (var s = 0; s < save.usage_tl_bnd_ik_target_amount; s++)
+		for (var s = 0; s < save.usage_tl_bnd_ik_target_amount; s++)
 		{
 			with (save_id_find(save.usage_tl_bnd_ik_target_save_id[s]))
 			{
@@ -172,17 +172,17 @@ function history_restore_tl(save, tl = null)
 			with (save_id_find(save.usage_kf_ik_target_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_ik_target_index[s]].value[e_value.IK_TARGET] = tl
 		
-		for (var s = 0; s < save.usage_kf_flw_rot_target_amount; s++)
-			with (save_id_find(save.usage_kf_flw_rot_target_tl_save_id[s]))
-				keyframe_list[|save.usage_kf_flw_rot_target_index[s]].value[e_value.ROT_TARGET] = tl
+		for (var s = 0; s < save.usage_kf_copy_rot_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_rot_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_rot_target_index[s]].value[e_value.ROT_TARGET] = tl
 		
-		for (var s = 0; s < save.usage_kf_flw_pos_target_amount; s++)
-			with (save_id_find(save.usage_kf_flw_pos_target_tl_save_id[s]))
-				keyframe_list[|save.usage_kf_flw_pos_target_index[s]].value[e_value.POS_TARGET] = tl
+		for (var s = 0; s < save.usage_kf_copy_pos_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_pos_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_pos_target_index[s]].value[e_value.POS_TARGET] = tl
 		
-		for (var s = 0; s < save.usage_kf_flw_scale_target_amount; s++)
-			with (save_id_find(save.usage_kf_flw_scale_target_tl_save_id[s]))
-				keyframe_list[|save.usage_kf_flw_scale_target_index[s]].value[e_value.SCALE_TARGET] = tl
+		for (var s = 0; s < save.usage_kf_copy_scale_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_scale_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_scale_target_index[s]].value[e_value.SCALE_TARGET] = tl
 		
 		
 		for (var s = 0; s < save.usage_kf_bnd_ik_target_amount; s++)

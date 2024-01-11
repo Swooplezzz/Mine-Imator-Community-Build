@@ -1,7 +1,7 @@
-/// tl_update_flw(parts)
+/// tl_update_copy(parts)
 /// @arg parts
 
-function tl_update_flw(parts)
+function tl_update_copy(parts)
 {
 	if (array_length(parts) = 0)
 		return 0
@@ -28,7 +28,7 @@ function tl_update_flw(parts)
 	}
 }
 
-function do_flw(tl)
+function do_copy(tl)
 {
 	if (tl = null)
 		return 0

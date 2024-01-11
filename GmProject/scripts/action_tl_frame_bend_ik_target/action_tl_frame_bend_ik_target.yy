@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Bend Ik",
-    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Bend Ik.yy",
+    "name": "Bend IK",
+    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Bend IK.yy",
   },
 }
