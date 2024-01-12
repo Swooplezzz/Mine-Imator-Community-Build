@@ -29,18 +29,19 @@ function debug_info_draw()
 	str += "current_step: " + string(current_step) + " \n"
 	str += "\n"
 	
-	var nodox_userprofile = string_replace_all(string(environment_get_variable("USERPROFILE")), string(environment_get_variable("USERNAME")), "?????")
-	var nodox_project_file = string_replace_all(string(project_file), string(environment_get_variable("USERPROFILE")), string(nodox_userprofile))
-	var nodox_project_folder = string_replace_all(string(project_folder), string(environment_get_variable("USERPROFILE")), string(nodox_userprofile))
-	var nodox_working_directory = string_replace_all(string(working_directory), string(environment_get_variable("USERPROFILE")), string(nodox_userprofile))
-	var nodox_file_directory = string_replace_all(string(file_directory), string(environment_get_variable("USERPROFILE")), string(nodox_userprofile))
+	var userprofile = string_replace_all(string(environment_get_variable("USERPROFILE")), "/", "\\")
+	var nodox_userprofile = string_replace_all(userprofile, string(environment_get_variable("USERNAME")), "?????")
+	var nodox_project_file = string_replace_all(project_file, "/", "\\")
+	var nodox_project_folder = string_replace_all(project_folder, "/", "\\")
+	var nodox_working_directory = string_replace_all(working_directory, "/", "\\")
+	var nodox_file_directory = string_replace_all(file_directory, "/", "\\")
 	
 	str += "Project: \n"
 	str += "======================================= \n"
-	str += "project_file: " + string_replace_all(nodox_project_file, "/", "\\") + " \n"
-	str += "project_folder: " + string_replace_all(nodox_project_folder, "/", "\\") + " \n"
-	str += "working_directory: " + string_replace_all(nodox_working_directory, "/", "\\") + " \n"
-	str += "file_directory: " + string_replace_all(nodox_file_directory, "/", "\\") + " \n"
+	str += "project_file: " + string_replace_all(nodox_project_file, userprofile, nodox_userprofile) + " \n"
+	str += "project_folder: " + string_replace_all(nodox_project_folder, userprofile, nodox_userprofile) + " \n"
+	str += "working_directory: " + string_replace_all(nodox_working_directory, userprofile, nodox_userprofile) + " \n"
+	str += "file_directory: " + string_replace_all(nodox_file_directory, userprofile, nodox_userprofile) + " \n"
 	str += "\n"
 	
 	str += "instance_count: " + string(instance_count) + " \n"

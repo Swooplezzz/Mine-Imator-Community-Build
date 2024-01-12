@@ -54,8 +54,12 @@ function render_world_start_light(from, to, offset, tl, up)
 		spot_view_proj_matrix = matrix_multiply(spot_view_matrix, spot_proj_matrix)
 		
 		render_spot_matrix = spot_view_proj_matrix
-		
-		var light_from = point3D_add(render_light_from, render_light_offset);
+	}
+	
+	var light_from = point3D_add(render_light_from, render_light_offset);
+	
+	if (tl.type = e_tl_type.SPOT_LIGHT)
+	{
 		up = point3D_add(up, render_light_offset)
 		xx = up[X] - light_from[X];
 		yy = up[Y] - light_from[Y];
