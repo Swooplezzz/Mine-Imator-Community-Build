@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "Mine-imator",
+  "name": "Mine-imator Community Build",
   "resources": [
     {"id":{"name":"new_minecraft_map","path":"scripts/new_minecraft_map/new_minecraft_map.yy",},"order":21,},
     {"id":{"name":"spr_colorpicker","path":"sprites/spr_colorpicker/spr_colorpicker.yy",},"order":1,},
@@ -593,7 +593,6 @@
     {"id":{"name":"action_tl_keyframe_create","path":"scripts/action_tl_keyframe_create/action_tl_keyframe_create.yy",},"order":0,},
     {"id":{"name":"action_tl_keyframe_deselect","path":"scripts/action_tl_keyframe_deselect/action_tl_keyframe_deselect.yy",},"order":1,},
     {"id":{"name":"action_tl_keyframe_select","path":"scripts/action_tl_keyframe_select/action_tl_keyframe_select.yy",},"order":2,},
-    {"id":{"name":"Test_Gobo","path":"sprites/Test_Gobo/Test_Gobo.yy",},"order":22,},
     {"id":{"name":"render_set_uniform_mat4_array","path":"scripts/render_set_uniform_mat4_array/render_set_uniform_mat4_array.yy",},"order":30,},
     {"id":{"name":"action_tl_keyframes_create","path":"scripts/action_tl_keyframes_create/action_tl_keyframes_create.yy",},"order":3,},
     {"id":{"name":"action_tl_keyframes_cut","path":"scripts/action_tl_keyframes_cut/action_tl_keyframes_cut.yy",},"order":4,},
@@ -1549,6 +1548,7 @@
     {"id":{"name":"new_shader_uniform","path":"scripts/new_shader_uniform/new_shader_uniform.yy",},"order":5,},
     {"id":{"name":"new_shader_sampler","path":"scripts/new_shader_sampler/new_shader_sampler.yy",},"order":6,},
     {"id":{"name":"render_generate_text","path":"scripts/render_generate_text/render_generate_text.yy",},"order":1,},
+    {"id":{"name":"action_background_ground_direction","path":"scripts/action_background_ground_direction/action_background_ground_direction.yy",},"order":8,},
     {"id":{"name":"render_update_text","path":"scripts/render_update_text/render_update_text.yy",},"order":3,},
     {"id":{"name":"render_world","path":"scripts/render_world/render_world.yy",},"order":1,},
     {"id":{"name":"render_world_background","path":"scripts/render_world_background/render_world_background.yy",},"order":3,},
@@ -1846,7 +1846,6 @@
     {"id":{"name":"save_id_get","path":"scripts/save_id_get/save_id_get.yy",},"order":45,},
     {"id":{"name":"temp_get_shape_tex_normal_obj","path":"scripts/temp_get_shape_tex_normal_obj/temp_get_shape_tex_normal_obj.yy",},"order":13,},
     {"id":{"name":"array","path":"scripts/array/array.yy",},"order":1,},
-    {"id":{"name":"spr_path_example","path":"sprites/spr_path_example/spr_path_example.yy",},"order":29,},
     {"id":{"name":"array_contains","path":"scripts/array_contains/array_contains.yy",},"order":3,},
     {"id":{"name":"array_copy_1d","path":"scripts/array_copy_1d/array_copy_1d.yy",},"order":5,},
     {"id":{"name":"popup_advanced_draw","path":"scripts/popup_advanced_draw/popup_advanced_draw.yy",},"order":0,},

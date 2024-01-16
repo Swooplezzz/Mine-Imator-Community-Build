@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.01.11"
+		"lastchange": "2024.01.16"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -2926,6 +2926,7 @@
 		"twilighttip": "Toggle color changes in the environment during sunrise/sunset.",
 		"groundshow": "Ground",
 		"ground": "Ground",
+		"grounddirection": "Direction",
 		"groundtex": "Texture",
 		"groundtexmaterial": "Material map",
 		"groundtexnormal": "Normal map",
@@ -3299,8 +3300,6 @@
 		"constraints": "CONSTRAINTS",
 		"followpath": "Follow path",
         "copyrot": "Copy rotation",
-        "copypos": "Copy position",
-        "copyscale": "Copy scale",
 		"copyrot/": {
 			"tip": "Allows the object to inherit rotation from a separate object.",
 			"target": "Target",
@@ -3309,6 +3308,7 @@
 			"z": "Z",
 			"copyaxis": "Axis"
 		},
+        "copypos": "Copy position",
 		"copypos/": {
 			"tip": "Allows the object to inherit position from a separate object.",
 			"target": "Target",
@@ -3321,6 +3321,7 @@
 			"zoffset": "Z",
 			"offset": "Offset"
 		},
+        "copyscale": "Copy scale",
 		"copyscale/": {
 			"tip": "Allows the object to inherit scale from a separate object.",
 			"target": "Target",
@@ -3410,6 +3411,9 @@
 		},
 		"light": "LIGHT",
 		"light/": {
+			"lighttype": "Light type",
+			"point": "Point light",
+			"spot": "Spot light",
 			"color": "Color",
 			"strength": "Strength",
 			"specularstrength": "Specular strength",
@@ -3417,10 +3421,7 @@
 			"range": "Range",
 			"fadesize": "Fade size",
 			"spotsharpness": "Spot sharpness",
-			"spotradius": "Spot radius",
-			"point": "Point light",
-			"spot": "Spot light",
-			"lighttype": "Light type"
+			"spotradius": "Spot radius"
 		},
 		"camera": "CAMERA",
 		"camera/": {
