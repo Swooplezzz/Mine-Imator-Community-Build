@@ -2,6 +2,9 @@
 
 function tab_frame_editor_bend_ik()
 {
+	if (tl_edit.type != e_tl_type.BODYPART || !tl_edit.value_type[e_value_type.TRANSFORM_BEND] || tl_edit.model_part = null)
+		return 0
+	
 	tab_control_switch()
 	draw_button_collapse("bendik", collapse_map[?"bendik"], null, true, "frameeditorbendik", "frameeditorbendiktip")
 	tab_next()
