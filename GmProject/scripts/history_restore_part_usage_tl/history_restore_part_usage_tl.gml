@@ -31,6 +31,11 @@ function history_restore_part_usage_tl(hobj)
 			tl = save_id_find(usage_tl_copy_scale_target_save_id[i])
 			tl.value[e_value.SCALE_TARGET] = save_id_find(usage_tl_copy_scale_target_part_save_id[i])
 		}
+		for (var i = 0; i < usage_tl_bnd_ik_target_amount; i++)
+		{
+			tl = save_id_find(usage_tl_bnd_ik_target_save_id[i])
+			tl.value[e_value.BEND_IK_TARGET] = save_id_find(usage_tl_bnd_ik_target_part_save_id[i])
+		}
 		
 		for (var i = 0; i < usage_tl_ik_target_angle_amount; i++)
 		{

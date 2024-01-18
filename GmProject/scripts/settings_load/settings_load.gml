@@ -190,6 +190,7 @@ function settings_load()
 			setting_snap_size_position = value_get_real(interfacemap[?"snap_size_position"], setting_snap_size_position)
 			setting_snap_size_rotation = value_get_real(interfacemap[?"snap_size_rotation"], setting_snap_size_rotation)
 			setting_snap_size_scale = value_get_real(interfacemap[?"snap_size_scale"], setting_snap_size_scale)
+			setting_select_locked_parent = value_get_real(interfacemap[?"setting_select_locked_parent"], setting_select_locked_parent)
 			
 			setting_modelbench_popup_hidden = value_get_real(interfacemap[?"modelbench_popup_hidden"], setting_modelbench_popup_hidden)
 		}

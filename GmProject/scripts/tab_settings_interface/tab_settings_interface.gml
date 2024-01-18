@@ -138,4 +138,9 @@ function tab_settings_interface()
 	tab_control_switch()
 	draw_switch("settingsplacenew", dx, dy, setting_place_new, action_setting_place_new)
 	tab_next()
+	
+	// Select parents of locked elements
+	tab_control_switch()
+	draw_switch("settingsselectlockedparent", dx, dy, setting_select_locked_parent, action_setting_select_locked_parent)
+	tab_next()
 }

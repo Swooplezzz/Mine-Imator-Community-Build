@@ -10,8 +10,6 @@
 #include "Render/GraphicsApiHandler.hpp"
 #include "Render/PrimitiveRenderer.hpp"
 #include "Render/VertexBufferRenderer.hpp"
-#include <OpenImageDenoise/oidn.hpp>
-
 
 namespace CppProject
 {

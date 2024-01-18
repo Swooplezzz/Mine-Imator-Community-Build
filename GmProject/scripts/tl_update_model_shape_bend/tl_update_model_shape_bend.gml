@@ -31,12 +31,19 @@ function tl_update_model_shape_bend()
 		
 		// Set the bend to the final value
 		bend = rot_target; 
+		bend[X] *= (model_part.bend_invert[X] ? -1: 1)
+		bend[Y] *= (model_part.bend_invert[Y] ? -1: 1)
+		bend[Z] *= (model_part.bend_invert[Z] ? -1: 1)
+		
+	    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
+		value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
+		value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
     }
 	
 	// No change
 	if (vec3_equals(bend_rot_last, bend) && bend_model_part_last = model_part)
 		return 0
-	
+
 	// Invalid part, no bending or no shapes
 	if (model_part = null || model_part.bend_part = null || model_part.shape_list = null)
 		return 0

@@ -3649,6 +3649,7 @@
 		"compact": "Compact panels",
 		"compacttimeline": "Compact timeline list",
 		"reducedmotion": "Reduced motion",
+		"selectlockedparent": "Select lock parent",
 		"timeline": "Timeline",
 		"timeline/": {
 			"autoscroll": "Auto-scroll when playing animation",

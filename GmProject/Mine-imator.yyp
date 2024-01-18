@@ -1032,6 +1032,7 @@
     {"id":{"name":"new_textbox","path":"scripts/new_textbox/new_textbox.yy",},"order":1,},
     {"id":{"name":"action_lib_item_tex_normal","path":"scripts/action_lib_item_tex_normal/action_lib_item_tex_normal.yy",},"order":13,},
     {"id":{"name":"new_textbox_hex","path":"scripts/new_textbox_hex/new_textbox_hex.yy",},"order":3,},
+    {"id":{"name":"action_setting_select_locked_parent","path":"scripts/action_setting_select_locked_parent/action_setting_select_locked_parent.yy",},"order":33,},
     {"id":{"name":"new_textbox_decimals","path":"scripts/new_textbox_decimals/new_textbox_decimals.yy",},"order":5,},
     {"id":{"name":"new_textbox_integer","path":"scripts/new_textbox_integer/new_textbox_integer.yy",},"order":7,},
     {"id":{"name":"new_textbox_ndecimals","path":"scripts/new_textbox_ndecimals/new_textbox_ndecimals.yy",},"order":9,},
@@ -2630,6 +2631,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.2.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.2.51",
+    "IDEVersion": "2022.0.1.31",
   },
 }
