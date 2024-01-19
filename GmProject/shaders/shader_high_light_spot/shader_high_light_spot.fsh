@@ -267,6 +267,7 @@ void main()
 			float specular = numerator / denominator;
 		
 			spec = uLightColor.rgb * shadow * difMask * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
+			spec *= texture2D(uLightGobo, fragCoord).rgb;
 		}
 	}
 	

@@ -466,6 +466,7 @@ function shader_startup()
 	{
 		new_shader_sampler("uSSSBuffer")
 		new_shader_sampler("uSSSRangeBuffer")
+		new_shader_sampler("uLightGobo")
 		new_shader_sampler("uDepthBuffer")
 		new_shader_sampler("uDirect")
 		new_shader_sampler("uNoiseBuffer")
