@@ -3344,7 +3344,7 @@
 		},
 		"bendik": "Bend inverse kinematics",
 		"bendik/": {
-			"tip": "Allan please add details",
+			"tip": "Allows the part to bend parallel to the rotation of another timeline.",
 			"target": "Target"
 		},
 		"material": "MATERIAL",

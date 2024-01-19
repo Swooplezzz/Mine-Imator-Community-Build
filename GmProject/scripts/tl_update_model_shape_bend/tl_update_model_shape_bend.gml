@@ -27,10 +27,10 @@ function tl_update_model_shape_bend()
 		var mat_inv = matrix_inverse(mat) 
 		
 		// Multiply the target rotation with the inverse transform matrix
-		var rot_target = matrix_rotation(matrix_multiply(target_rot_mat,mat_inv)) 
+		var rot_target = matrix_rotation(matrix_multiply(target_rot_mat, mat_inv)) 
 		
 		// Set the bend to the final value
-		bend = rot_target; 
+		bend = rot_target
 		bend[X] *= (model_part.bend_invert[X] ? -1: 1)
 		bend[Y] *= (model_part.bend_invert[Y] ? -1: 1)
 		bend[Z] *= (model_part.bend_invert[Z] ? -1: 1)
@@ -43,7 +43,7 @@ function tl_update_model_shape_bend()
 	// No change
 	if (vec3_equals(bend_rot_last, bend) && bend_model_part_last = model_part)
 		return 0
-
+	
 	// Invalid part, no bending or no shapes
 	if (model_part = null || model_part.bend_part = null || model_part.shape_list = null)
 		return 0
