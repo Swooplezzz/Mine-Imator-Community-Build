@@ -155,7 +155,7 @@ function tab_properties_render()
 	
 	// Glow
 	tab_control_switch()
-	draw_button_collapse("glow", collapse_map[?"glow"], action_project_render_glow , project_render_glow, "renderglow")
+	draw_button_collapse("glow", collapse_map[?"glow"], action_project_render_glow, project_render_glow, "renderglow")
 	tab_next()
 	
 	if (project_render_glow && collapse_map[?"glow"])

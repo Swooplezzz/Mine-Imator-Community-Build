@@ -87,10 +87,10 @@ function tl_update_values()
 	tl_update_values_ease(e_value.COPY_SCALE_X)
 	tl_update_values_ease(e_value.COPY_SCALE_Y)
 	tl_update_values_ease(e_value.COPY_SCALE_Z)
+	
 	//tl_update_values_ease(e_value.COPY_POS_OFFSET_X)
 	//tl_update_values_ease(e_value.COPY_POS_OFFSET_Y)
 	//tl_update_values_ease(e_value.COPY_POS_OFFSET_Z)
-	
 
 	// Rotation
 	if (value_type[e_value_type.TRANSFORM_ROT])
@@ -99,7 +99,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.ROT_Y)
 		tl_update_values_ease(e_value.ROT_Z)
 		
-		//tl_constraints_update_rot();
+		//tl_constraints_update_rot()
 	}
 	
 	// Scale

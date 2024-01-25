@@ -177,16 +177,8 @@
 		<file>Shaders/shader_high_material.vsh</file>
 		<file>Shaders/shader_high_raytrace.fsh</file>
 		<file>Shaders/shader_high_raytrace.vsh</file>
-		<file>Shaders/shader_high_raytrace_indirect.fsh</file>
-		<file>Shaders/shader_high_raytrace_indirect.vsh</file>
-		<file>Shaders/shader_high_raytrace_reflections.fsh</file>
-		<file>Shaders/shader_high_raytrace_reflections.vsh</file>
 		<file>Shaders/shader_high_raytrace_resolve.fsh</file>
 		<file>Shaders/shader_high_raytrace_resolve.vsh</file>
-		<file>Shaders/shader_high_raytrace_uv.fsh</file>
-		<file>Shaders/shader_high_raytrace_uv.vsh</file>
-		<file>Shaders/shader_high_reflections_apply.fsh</file>
-		<file>Shaders/shader_high_reflections_apply.vsh</file>
 		<file>Shaders/shader_high_samples_add.fsh</file>
 		<file>Shaders/shader_high_samples_add.vsh</file>
 		<file>Shaders/shader_high_samples_unpack.fsh</file>
@@ -221,7 +213,6 @@
 		<file>Shaders/world_player.vsh</file>
 		<file>Shaders/world_preview.fsh</file>
 		<file>Shaders/world_preview.vsh</file>
-		<file>Sprites/Test_Gobo_frame_0.png</file>
 		<file>Sprites/spr_16_frame_0.png</file>
 		<file>Sprites/spr_arrow_ani_frame_0.png</file>
 		<file>Sprites/spr_arrow_ani_frame_1.png</file>
@@ -877,7 +868,6 @@
 		<file>Sprites/spr_marker_stripe_frame_0.png</file>
 		<file>Sprites/spr_missing_thumbnail_frame_0.png</file>
 		<file>Sprites/spr_modelbench_ad_frame_0.png</file>
-		<file>Sprites/spr_path_example_frame_0.png</file>
 		<file>Sprites/spr_pattern_left_frame_0.png</file>
 		<file>Sprites/spr_pattern_left_frame_1.png</file>
 		<file>Sprites/spr_pattern_right_frame_0.png</file>

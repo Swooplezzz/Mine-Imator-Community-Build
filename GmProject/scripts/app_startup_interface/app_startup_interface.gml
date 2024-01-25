@@ -53,10 +53,9 @@ function app_startup_interface()
 			else
 			{
 				var projfile = setting_project_folder + popup_newproject.folder + "/New Project.miproject";
-				if (file_exists_lib(projfile))
-					project_load(projfile)
-				else
+				if (!file_exists_lib(projfile))
 					project_create()
+				project_load(projfile)
 			}
 		
 			window_state = ""

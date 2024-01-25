@@ -562,6 +562,7 @@
         "surface_save": { "return": "void", "args": [ "int", "string" ] },
         "surface_set_target_ext": { "return": "int", "args": [ "int", "int" ] },
         "surface_set_target": { "return": "int", "args": [ "int" ] },
+        "tan": { "return": "real", "args": [ "real" ] },
         "texture_set_stage": { "return": "void", "args": [ "int", "int" ] },
         "vertex_begin": { "return": "void", "args": [ "int", "int" ] },
         "vertex_color": { "return": "void", "args": [ "int", "int", "real" ] },
