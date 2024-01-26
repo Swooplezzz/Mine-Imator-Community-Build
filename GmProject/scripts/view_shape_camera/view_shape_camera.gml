@@ -31,73 +31,26 @@ function view_shape_camera(tl)
 
 function view_shape_camera_frustum(tl)
 {
-	var distnear, distfar, ratio, sizemath;
-	distnear = cam_near
-	distfar = cam_far
-	
+	var ratio, sizemath;
 	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * tl.value[e_value.CAM_ASPECT]
 	sizemath = tan(degtorad(tl.value[e_value.CAM_FOV] * 0.5)) // Multiply this by distance
 	
 	var viewfrustumpoints = array(
-		point3D(-((sizemath * distnear) * ratio), distnear, -sizemath * distnear), //nbr
-		point3D(-((sizemath * distnear) * ratio), distnear, sizemath * distnear), //ntr
-		point3D(((sizemath * distnear) * ratio), distnear, -sizemath * distnear), //nbl
-		point3D(((sizemath * distnear) * ratio), distnear, sizemath * distnear), //ntl
-		point3D(-((sizemath * distfar) * ratio), distfar, -sizemath * distfar), //fbr
-		point3D(-((sizemath * distfar) * ratio), distfar, sizemath * distfar), //ftr
-		point3D(((sizemath * distfar) * ratio), distfar, -sizemath * distfar), //fbl
-		point3D(((sizemath * distfar) * ratio), distfar, sizemath * distfar) //ftl
+		point3D(-((sizemath * cam_near) * ratio), cam_near, -sizemath * cam_near), //nbr
+		point3D(-((sizemath * cam_near) * ratio), cam_near, sizemath * cam_near), //ntr
+		point3D(((sizemath * cam_near) * ratio), cam_near, -sizemath * cam_near), //nbl
+		point3D(((sizemath * cam_near) * ratio), cam_near, sizemath * cam_near), //ntl
+		point3D(-((sizemath * cam_far) * ratio), cam_far, -sizemath * cam_far), //fbr
+		point3D(-((sizemath * cam_far) * ratio), cam_far, sizemath * cam_far), //ftr
+		point3D(((sizemath * cam_far) * ratio), cam_far, -sizemath * cam_far), //fbl
+		point3D(((sizemath * cam_far) * ratio), cam_far, sizemath * cam_far) //ftl
 	)
 	
 	// DOF visualizer
 	if (tl.value[e_value.CAM_DOF])
-	{
-		var dofnear, doffar, dofblurnear, dofblurfar;
-		dofnear = min(distfar, max(distnear, tl.value[e_value.CAM_DOF_DEPTH] - tl.value[e_value.CAM_DOF_RANGE]))
-		doffar = min(distfar, max(distnear, tl.value[e_value.CAM_DOF_DEPTH] + tl.value[e_value.CAM_DOF_RANGE]))
-		dofblurnear = min(distfar, max(distnear, (tl.value[e_value.CAM_DOF_DEPTH] - tl.value[e_value.CAM_DOF_RANGE]) - tl.value[e_value.CAM_DOF_FADE_SIZE]))
-		dofblurfar = min(distfar, max(distnear, (tl.value[e_value.CAM_DOF_DEPTH] + tl.value[e_value.CAM_DOF_RANGE]) + tl.value[e_value.CAM_DOF_FADE_SIZE]))
-		
-		var viewfrustumdofpoints = array(
-			point3D(-((sizemath * dofnear) * ratio), dofnear, -sizemath * dofnear), //nbr
-			point3D(-((sizemath * dofnear) * ratio), dofnear, sizemath * dofnear), //ntr
-			point3D(((sizemath * dofnear) * ratio), dofnear, -sizemath * dofnear), //nbl
-			point3D(((sizemath * dofnear) * ratio), dofnear, sizemath * dofnear), //ntl
-			point3D(-((sizemath * doffar) * ratio), doffar, -sizemath * doffar), //fbr
-			point3D(-((sizemath * doffar) * ratio), doffar, sizemath * doffar), //ftr
-			point3D(((sizemath * doffar) * ratio), doffar, -sizemath * doffar), //fbl
-			point3D(((sizemath * doffar) * ratio), doffar, sizemath * doffar) //ftl
-		)
-		var viewfrustumdofblurpoints = array(
-			point3D(-((sizemath * dofblurnear) * ratio), dofblurnear, -sizemath * dofblurnear), //nbr
-			point3D(-((sizemath * dofblurnear) * ratio), dofblurnear, sizemath * dofblurnear), //ntr
-			point3D(((sizemath * dofblurnear) * ratio), dofblurnear, -sizemath * dofblurnear), //nbl
-			point3D(((sizemath * dofblurnear) * ratio), dofblurnear, sizemath * dofblurnear), //ntl
-			point3D(-((sizemath * dofblurfar) * ratio), dofblurfar, -sizemath * dofblurfar), //fbr
-			point3D(-((sizemath * dofblurfar) * ratio), dofblurfar, sizemath * dofblurfar), //ftr
-			point3D(((sizemath * dofblurfar) * ratio), dofblurfar, -sizemath * dofblurfar), //fbl
-			point3D(((sizemath * dofblurfar) * ratio), dofblurfar, sizemath * dofblurfar) //ftl
-		)
-		
-		draw_set_alpha(.375)
-		draw_set_color(c_control_blue)
-		
-		view_shape_draw(viewfrustumdofpoints, tl.matrix)
-		
-		draw_set_color(c_control_cyan)
-		
-		view_shape_draw(viewfrustumdofblurpoints, tl.matrix)
-		
-		draw_set_alpha(1)
-	}
-	
-	draw_set_color(c_control_red)
-	draw_set_alpha(.5)
-	view_shape_draw(viewfrustumpoints, tl.matrix)
-	draw_set_alpha(1)
+		view_shape_camera_frustum_dof(tl)
 	
 	/*
-	// Use triangles (glitches when out of work camera view :/ )
 	var viewfrustum = array(
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[0], tl.matrix)),
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[1], tl.matrix)),
@@ -108,28 +61,142 @@ function view_shape_camera_frustum(tl)
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[6], tl.matrix)),
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[7], tl.matrix))
 	)
-		
+	
+	// Frustum edge triangles
 	render_set_culling(false)
 	draw_primitive_begin(pr_trianglelist)
-		
+	
 	draw_set_alpha(.15)
 	draw_set_color(c_control_blue)
 	view_shape_triangle_draw(viewfrustum[0], viewfrustum[1], viewfrustum[4])
 	view_shape_triangle_draw(viewfrustum[5], viewfrustum[4], viewfrustum[1])
-		
+	
 	view_shape_triangle_draw(viewfrustum[3], viewfrustum[2], viewfrustum[7])
 	view_shape_triangle_draw(viewfrustum[6], viewfrustum[7], viewfrustum[2])
-		
+	
 	draw_set_color(merge_color(c_control_blue, c_white, 0.25))
 	view_shape_triangle_draw(viewfrustum[1], viewfrustum[3], viewfrustum[5])
 	view_shape_triangle_draw(viewfrustum[7], viewfrustum[5], viewfrustum[3])
-		
+	
 	draw_set_color(merge_color(c_control_blue, c_black, 0.25))
 	view_shape_triangle_draw(viewfrustum[2], viewfrustum[0], viewfrustum[6])
 	view_shape_triangle_draw(viewfrustum[4], viewfrustum[6], viewfrustum[0])
-		
+	
+	draw_primitive_end()
+	render_set_culling(true)
+	draw_set_alpha(1)
+	
+	// Frustum end triangles
+	render_set_culling(false)
+	draw_primitive_begin(pr_trianglelist)
+	
+	draw_set_alpha(.15)
+	draw_set_color(c_control_red)
+	view_shape_triangle_draw(viewfrustum[0], viewfrustum[1], viewfrustum[2])
+	view_shape_triangle_draw(viewfrustum[1], viewfrustum[2], viewfrustum[3])
+	
+	view_shape_triangle_draw(viewfrustum[4], viewfrustum[5], viewfrustum[6])
+	view_shape_triangle_draw(viewfrustum[5], viewfrustum[6], viewfrustum[7])
+	
 	draw_primitive_end()
 	render_set_culling(true)
 	draw_set_alpha(1)
 	*/
+	
+	// Frustum outline
+	draw_set_color(c_control_red)
+	draw_set_alpha(.5)
+	view_shape_draw(viewfrustumpoints, tl.matrix)
+	draw_set_alpha(1)
+}
+
+function view_shape_camera_frustum_dof(tl)
+{
+	var ratio, sizemath;
+	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * tl.value[e_value.CAM_ASPECT]
+	sizemath = tan(degtorad(tl.value[e_value.CAM_FOV] * 0.5)) // Multiply this by distance
+	
+	var dofnear, doffar, dofblurnear, dofblurfar;
+	dofnear = min(cam_far, max(cam_near, tl.value[e_value.CAM_DOF_DEPTH] - tl.value[e_value.CAM_DOF_RANGE]))
+	doffar = min(cam_far, max(cam_near, tl.value[e_value.CAM_DOF_DEPTH] + tl.value[e_value.CAM_DOF_RANGE]))
+	dofblurnear = min(cam_far, max(cam_near, (tl.value[e_value.CAM_DOF_DEPTH] - tl.value[e_value.CAM_DOF_RANGE]) - tl.value[e_value.CAM_DOF_FADE_SIZE]))
+	dofblurfar = min(cam_far, max(cam_near, (tl.value[e_value.CAM_DOF_DEPTH] + tl.value[e_value.CAM_DOF_RANGE]) + tl.value[e_value.CAM_DOF_FADE_SIZE]))
+		
+	var viewfrustumdofpoints = array(
+		point3D(-((sizemath * dofnear) * ratio), dofnear, -sizemath * dofnear), //nbr
+		point3D(-((sizemath * dofnear) * ratio), dofnear, sizemath * dofnear), //ntr
+		point3D(((sizemath * dofnear) * ratio), dofnear, -sizemath * dofnear), //nbl
+		point3D(((sizemath * dofnear) * ratio), dofnear, sizemath * dofnear), //ntl
+		point3D(-((sizemath * doffar) * ratio), doffar, -sizemath * doffar), //fbr
+		point3D(-((sizemath * doffar) * ratio), doffar, sizemath * doffar), //ftr
+		point3D(((sizemath * doffar) * ratio), doffar, -sizemath * doffar), //fbl
+		point3D(((sizemath * doffar) * ratio), doffar, sizemath * doffar) //ftl
+	)
+	var viewfrustumdofblurpoints = array(
+		point3D(-((sizemath * dofblurnear) * ratio), dofblurnear, -sizemath * dofblurnear), //nbr
+		point3D(-((sizemath * dofblurnear) * ratio), dofblurnear, sizemath * dofblurnear), //ntr
+		point3D(((sizemath * dofblurnear) * ratio), dofblurnear, -sizemath * dofblurnear), //nbl
+		point3D(((sizemath * dofblurnear) * ratio), dofblurnear, sizemath * dofblurnear), //ntl
+		point3D(-((sizemath * dofblurfar) * ratio), dofblurfar, -sizemath * dofblurfar), //fbr
+		point3D(-((sizemath * dofblurfar) * ratio), dofblurfar, sizemath * dofblurfar), //ftr
+		point3D(((sizemath * dofblurfar) * ratio), dofblurfar, -sizemath * dofblurfar), //fbl
+		point3D(((sizemath * dofblurfar) * ratio), dofblurfar, sizemath * dofblurfar) //ftl
+	)
+	/*
+	var viewfrustumdof = array(
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[0], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[1], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[2], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[3], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[4], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[5], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[6], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofpoints[7], tl.matrix))
+	)
+	var viewfrustumdofblur = array(
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[0], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[1], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[2], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[3], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[4], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[5], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[6], tl.matrix)),
+		view_shape_project(point3D_mul_matrix(viewfrustumdofblurpoints[7], tl.matrix))
+	)
+	
+	// DOF end triangles
+	render_set_culling(false)
+	draw_primitive_begin(pr_trianglelist)
+	
+	draw_set_alpha(.15)
+	draw_set_color(c_control_blue)
+	view_shape_triangle_draw(viewfrustumdof[0], viewfrustumdof[1], viewfrustumdof[2])
+	view_shape_triangle_draw(viewfrustumdof[1], viewfrustumdof[2], viewfrustumdof[3])
+	
+	view_shape_triangle_draw(viewfrustumdof[4], viewfrustumdof[5], viewfrustumdof[6])
+	view_shape_triangle_draw(viewfrustumdof[5], viewfrustumdof[6], viewfrustumdof[7])
+	
+	draw_set_color(c_control_cyan)
+	view_shape_triangle_draw(viewfrustumdofblur[0], viewfrustumdofblur[1], viewfrustumdofblur[2])
+	view_shape_triangle_draw(viewfrustumdofblur[1], viewfrustumdofblur[2], viewfrustumdofblur[3])
+	
+	view_shape_triangle_draw(viewfrustumdofblur[4], viewfrustumdofblur[5], viewfrustumdofblur[6])
+	view_shape_triangle_draw(viewfrustumdofblur[5], viewfrustumdofblur[6], viewfrustumdofblur[7])
+	
+	draw_primitive_end()
+	render_set_culling(true)
+	draw_set_alpha(1)
+	*/
+	
+	// DOF outlines
+	draw_set_alpha(.375)
+	draw_set_color(c_control_blue)
+	
+	view_shape_draw(viewfrustumdofpoints, tl.matrix)
+	
+	draw_set_color(c_control_cyan)
+	
+	view_shape_draw(viewfrustumdofblurpoints, tl.matrix)
+		
+	draw_set_alpha(1)
 }
