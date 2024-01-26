@@ -17,8 +17,9 @@ function tl_value_default(valueid)
 		case e_value.WIND_INFLUENCE: return 1
 		case e_value.GLOW_COLOR:
 		case e_value.RGB_MUL:
-		case e_value.HSB_MUL: 
-		case e_value.SUBSURFACE_COLOR: return c_white
+		case e_value.HSB_MUL:
+		case e_value.SUBSURFACE_COLOR:
+		case e_value.TEXT_OUTLINE_COLOR: return c_white
 		case e_value.SPAWN: return true
 		case e_value.FREEZE:
 		case e_value.CLEAR:
