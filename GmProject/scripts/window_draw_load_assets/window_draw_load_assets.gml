@@ -37,8 +37,11 @@ function window_draw_load_assets()
 	content_width = window_width - 56
 	content_height = window_height - 56
 	
+	draw_dropshadow(xoff, yoff, 740, 450, c_accent, 1)
+	draw_image(spr_jonathan_splash, 0, xoff + (740/2), yoff + 100)
+	
 	draw_box(xoff, yoff, 740, 450, false, c_level_middle, 1)
-	draw_sprite_ext(spr_startupasset_gradient, 0, 0, 0, 1, 1, 0, merge_color(c_accent, c_white, 0.2), .5)
+	draw_sprite_ext(spr_startupasset_gradient, 0, xoff, yoff, 1, 1, 0, merge_color(c_accent, c_white, 0.2), .5)
 	
 	// Pattern
 	var pattern = (setting_theme = theme_light ? 0 : 1);
@@ -55,7 +58,7 @@ function window_draw_load_assets()
 	
 	draw_label(text_get("startuploadingassets"), xoff + 12, yoff +418, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 	draw_label(string(string_upper(minecraft_version)), xoff + 12, yoff + 435, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
-	draw_label(string(floor(load_assets_progress * 100)) + "%", 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
+	draw_label(string(floor(load_assets_progress * 100)) + "%", xoff + 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 
 	// Splash
 	if (load_assets_splash != null)

@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.01.16"
+		"lastchange": "2024.01.24"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -1137,6 +1137,7 @@
 		"mule": "Mule",
 		"evoker": "Evoker",
 		"vindicator": "Vindicator",
+		"illusioner": "Illusioner",
 		"elder_guardian": "Elder Guardian",
 		"piglin_brute": "Piglin Brute",
 		"zombified_piglin": "Zombified Piglin",
@@ -1181,7 +1182,11 @@
 		"horse_armor": "Horse Armor",
 		"painting": "Painting",
 		"item_frame": "Item Frame",
+		"armadillo": "Armadillo",
 		"breeze": "Breeze",
+		"llama_spit": "Llama Spit",
+		"wither_skull": "Wither Skull",
+		"wind_charge": "Wind Charge",
 		"part/": {
 			"body": "Body",
 			"right_arm": "Right arm",
@@ -1253,6 +1258,7 @@
 			"body_3": "Body 3",
 			"body_4": "Body 4",
 			"body_5": "Body 5",
+			"rods": "Rods",
 			"rods_lower": "Rods lower",
 			"rod_1": "Rod 1",
 			"rod_2": "Rod 2",
@@ -1392,7 +1398,11 @@
 			"post": "Post",
 			"pot": "Pot",
 			"painting": "Painting",
-			"item_frame": "Item frame"
+			"item_frame": "Item frame",
+			"wind": "Wind",
+			"wind_1": "Wind 1",
+			"wind_2": "Wind 2",
+			"wind_3": "Wind 3"
 		},
 		"state/": {
 			"type": "Type",
@@ -1401,6 +1411,7 @@
 			"sheared": "Sheared",
 			"wool_color": "Wool color",
 			"collar": "Collar",
+			"armor": "Armor",
 			"chests": "Chests",
 			"markings": "Markings",
 			"decor": "Decoration",
@@ -2011,6 +2022,7 @@
 		"sniffer_egg": "Sniffer Egg",
 		"decorated_pot": "Decorated Pot",
 		"crafter": "Crafter",
+		"trial_spawner": "Trial Spawner",
 		"state/": {
 			"variant": "Variant",
 			"snowy": "Snowy",
@@ -2090,6 +2102,7 @@
 			"dusted": "Dusted",
 			"triggered": "Triggered",
 			"crafting": "Crafting",
+			"trial_spawner_state": "State",
 			"value/": {
 				"stone": "Stone",
 				"smooth_stone": "Smooth Stone",
@@ -2173,7 +2186,7 @@
 				"ascending_south": "Ascending South",
 				"ascending_east": "Ascending East",
 				"ascending_west": "Ascending West",
-				"grass": "Grass",
+				"short_grass": "Short Grass",
 				"fern": "Fern",
 				"dead_bush": "Dead Bush",
 				"upper": "Upper",
@@ -2414,7 +2427,10 @@
 				"chiseled_deepslate": "Chiseled Deepslate",
 				"ochre": "Ochre",
 				"pearlescent": "Pearlescent",
-				"verdant": "Verdant"
+				"verdant": "Verdant",
+				"waiting_for_players": "Waiting for players",
+				"waiting_for_reward_ejection": "Waiting for reward ejection",
+				"ejecting_reward": "Ejecting reward"
 			}
 		}
 	},
@@ -2477,8 +2493,7 @@
 		},
 		"subsurfacescattering": "Subsurface scattering",
 		"subsurfacescatteringtip": "Simulates light passing through an object, such as leaves.",
-		"subsurfacescatter/":
-		{
+		"subsurfacescatter/": {
 			"quality": "Blur quality",
 			"highlight": "Highlight",
 			"highlighttip": "Distributes additional light in objects when a light source is directly behind it.",
@@ -2728,6 +2743,7 @@
 					"glint": "Glint",
 					"glitter": "Glitter",
 					"glow": "Glow",
+					"gust": "Gust",
 					"heart": "Heart",
 					"lava": "Lava",
 					"nautilus": "Nautilus",
@@ -2742,7 +2758,8 @@
 					"spark": "Spark",
 					"spell": "Spell",
 					"splash": "Splash",
-					"sweep": "Sweep"
+					"sweep": "Sweep",
+					"trial_spawner_detection": "Trial Spawner Detection"
 				},
 				"teximage": "Image",
 				"teximage1": "Sheet 1",
@@ -3134,8 +3151,7 @@
 		"partof": "%1 of %2",
 		"unusedbodypart": "Unused body part",
 		"frame": "Frame %1",
-		"intervals/":
-		{
+		"intervals/": {
 			"show": "Show intervals",
 			"hide": "Hide intervals",
 			"size": "Interval size",

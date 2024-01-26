@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "tl_update_flw",
+  "name": "tl_update_copy",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
