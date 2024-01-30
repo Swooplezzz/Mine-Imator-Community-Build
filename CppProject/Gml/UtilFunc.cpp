@@ -459,12 +459,13 @@ namespace CppProject
 		Printer::Line(text);
 	}
 
-	RealType parameter_count() {	
-		
+	RealType parameter_count()
+	{
 		return __argc;
 	}
-	StringType parameter_string(IntType i) {
 
+	StringType parameter_string(IntType i)
+	{
 		return __argv[i];
 	}
 }

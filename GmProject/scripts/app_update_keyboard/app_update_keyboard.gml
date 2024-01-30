@@ -63,6 +63,12 @@ function app_update_keyboard()
 			
 			if (keybinds[e_keybind.MARKER_LEFT].active)
 				action_tl_left()
+			
+			if (keybinds[e_keybind.FRAME_PREVIOUS].pressed)
+				action_tl_frame_previous()
+			
+			if (keybinds[e_keybind.FRAME_NEXT].pressed)
+				action_tl_frame_next()
 		}
 		
 		if (keybinds[e_keybind.RENDER_MODE].pressed)

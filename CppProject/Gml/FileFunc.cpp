@@ -393,5 +393,4 @@ namespace CppProject
 
 		return nstr;
 	}
-
 }

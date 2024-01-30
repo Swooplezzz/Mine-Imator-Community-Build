@@ -11,12 +11,17 @@ function app_startup_collapse()
 	collapse_register("backup")
 	collapse_register("watermark")
 	
-	collapse_register("file")
-	collapse_register("edit")
-	collapse_register("tools")
-	collapse_register("viewport")
-	collapse_register("timeline")
-	collapse_register("camera")
+	collapse_register("uiappearance")
+	collapse_register("uitimeline")
+	collapse_register("uitools")
+	collapse_register("uiviewport")
+	
+	collapse_register("bindsfile")
+	collapse_register("bindsedit")
+	collapse_register("bindstools")
+	collapse_register("bindsviewport")
+	collapse_register("bindstimeline")
+	collapse_register("bindscamera")
 	
 	collapse_register("texfilter")
 	

@@ -26,8 +26,6 @@ namespace CppProject
 	struct VertexBuffer;
 	struct VertexBufferRenderer;
 
-
-
 	// Application handler
 	struct AppHandler : QObject
 	{

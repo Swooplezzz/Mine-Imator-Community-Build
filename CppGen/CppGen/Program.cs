@@ -76,7 +76,6 @@ namespace CppGen
             if (!File.Exists(jsonFile))
 			{
 				Console.WriteLine("FATAL ERROR: Could not find gml.json");
-		
                 Environment.Exit(1);
 			}
 			if (new DirectoryInfo(gmDir).GetFiles("*.yyp").Length == 0)

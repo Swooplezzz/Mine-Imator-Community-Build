@@ -8,10 +8,10 @@ function tab_settings_controls()
 	
 	// File
 	tab_control_switch()
-	draw_button_collapse("file", collapse_map[?"file"], null, true, "settingscontrolsfile")
+	draw_button_collapse("bindsfile", collapse_map[?"bindsfile"], null, true, "settingscontrolsfile")
 	tab_next()
 	
-	if (collapse_map[?"file"])
+	if (collapse_map[?"bindsfile"])
 	{
 		tab_collapse_start()
 	
@@ -27,10 +27,10 @@ function tab_settings_controls()
 	
 	// Edit
 	tab_control_switch()
-	draw_button_collapse("edit", collapse_map[?"edit"], null, true, "settingscontrolsedit")
+	draw_button_collapse("bindsedit", collapse_map[?"bindsedit"], null, true, "settingscontrolsedit")
 	tab_next()
 	
-	if (collapse_map[?"edit"])
+	if (collapse_map[?"bindsedit"])
 	{
 		tab_collapse_start()
 		
@@ -54,10 +54,10 @@ function tab_settings_controls()
 	
 	// Tools
 	tab_control_switch()
-	draw_button_collapse("tools", collapse_map[?"tools"], null, true, "settingscontrolstools")
+	draw_button_collapse("bindstools", collapse_map[?"bindstools"], null, true, "settingscontrolstools")
 	tab_next()
 	
-	if (collapse_map[?"tools"])
+	if (collapse_map[?"bindstools"])
 	{
 		tab_collapse_start()
 		
@@ -75,17 +75,17 @@ function tab_settings_controls()
 	
 	// Viewport
 	tab_control_switch()
-	draw_button_collapse("viewport", collapse_map[?"viewport"], null, true, "settingscontrolsviewport")
+	draw_button_collapse("bindsviewport", collapse_map[?"bindsviewport"], null, true, "settingscontrolsviewport")
 	tab_next()
 	
-	if (collapse_map[?"viewport"])
+	if (collapse_map[?"bindsviewport"])
 	{
 		tab_collapse_start()
 		
 		draw_keybind(e_keybind.RENDER_MODE, dx, dy)
+		draw_keybind(e_keybind.SECONDARY_VIEW, dx, dy)
 		draw_keybind(e_keybind.PARTICLES_SPAWN, dx, dy)
 		draw_keybind(e_keybind.PARTICLES_CLEAR, dx, dy)
-		draw_keybind(e_keybind.SECONDARY_VIEW, dx, dy)
 		dy += 8
 		
 		tab_collapse_end()
@@ -93,10 +93,10 @@ function tab_settings_controls()
 	
 	// Timeline
 	tab_control_switch()
-	draw_button_collapse("timeline", collapse_map[?"timeline"], null, true, "settingscontrolstimeline")
+	draw_button_collapse("bindstimeline", collapse_map[?"bindstimeline"], null, true, "settingscontrolstimeline")
 	tab_next()
 	
-	if (collapse_map[?"timeline"])
+	if (collapse_map[?"bindstimeline"])
 	{
 		tab_collapse_start()
 		
@@ -104,6 +104,8 @@ function tab_settings_controls()
 		draw_keybind(e_keybind.PLAY_BEGINNING, dx, dy)
 		draw_keybind(e_keybind.MARKER_LEFT, dx, dy)
 		draw_keybind(e_keybind.MARKER_RIGHT, dx, dy)
+		draw_keybind(e_keybind.FRAME_PREVIOUS, dx, dy)
+		draw_keybind(e_keybind.FRAME_NEXT, dx, dy)
 		dy += 8
 		
 		tab_collapse_end()
@@ -111,10 +113,10 @@ function tab_settings_controls()
 	
 	// Camera
 	tab_control_switch()
-	draw_button_collapse("camera", collapse_map[?"camera"], null, true, "settingscontrolscamera")
+	draw_button_collapse("bindscamera", collapse_map[?"bindscamera"], null, true, "settingscontrolscamera")
 	tab_next()
 	
-	if (collapse_map[?"camera"])
+	if (collapse_map[?"bindscamera"])
 	{
 		tab_collapse_start()
 		

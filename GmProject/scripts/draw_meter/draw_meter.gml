@@ -33,10 +33,9 @@ function draw_meter(name, xx, yy, wid, value, minval, maxval, def, snapval, tbx,
 	// Textbox
 	microani_set(name, script, false, false, false)
 	
-	var compact = (app.panel_compact || window_compact);
-	var draggerwid = (compact ? dragger_width : 80);
+	var draggerwid = dragger_width;
 	
-	draw_dragger(name + "input", (xx + wid - draggerwid) + (!compact * 6), yy, draggerwid, value, snapval * .1, minval, maxval, def, snapval, tbx, script, null, false)
+	draw_dragger(name + "input", (xx + wid - draggerwid), yy, draggerwid, value, snapval * .1, minval, maxval, def, snapval, tbx, script, null, false)
 	
 	inputfocus = microani_arr[e_microani.ACTIVE]
 	
@@ -62,7 +61,7 @@ function draw_meter(name, xx, yy, wid, value, minval, maxval, def, snapval, tbx,
 	if (string_width(labelshort) < dw)
 		draw_help_circle(tip, xx + string_width(labelshort) + 4, yy + 2, false)
 	
-	if (compact)
+	if (app.panel_compact || window_compact)
 		return 0
 	
 	// Slider

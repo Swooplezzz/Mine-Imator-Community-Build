@@ -215,8 +215,6 @@ namespace CppProject
 		}
 	}
 
-
-
 	int AppHandler::Run()
 	{
 		return qApp->exec();

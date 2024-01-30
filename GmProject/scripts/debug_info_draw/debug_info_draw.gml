@@ -53,11 +53,18 @@ function debug_info_draw()
 	str += "Primitive render calls: " + string(get_primitive_render_calls()) + " \n"
 	str += "\n"
 	
+	if (dev_mode)
+	{
+		str += "[F7]: Reload Minecraft assets" + " \n"
+		str += "[F9]: Open file directory" + " \n"
+		str += "[F10]: Open working directory" + " \n"
+		str += "[F11]: Open log file" + " \n"
+	}
 	str += "[F12 to disable]"
 	
 	var w = string_width_font(str, font_label) + 16
 	var h = string_height_font(str, font_label) + 16;
 	
-	draw_box(window_width - w - 8, window_height - h - 8, w, h, false, c_black, .75)
-	draw_label(str, window_width - w, window_height - 16, fa_left, fa_bottom, c_white, 1, font_label)
+	draw_box(8, window_height - h - 8, w, h, false, c_black, .75) //window_width - w - 8
+	draw_label(str, 16, window_height - 16, fa_left, fa_bottom, c_white, 1, font_label)
 }

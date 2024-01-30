@@ -127,6 +127,8 @@ function settings_startup()
 	setting_world_import_unload_regions = true
 	
 	// Viewport
+	setting_work_camera_fov = 45
+	
 	setting_snap = false
 	setting_snap_absolute = true
 	setting_snap_size_position = 1

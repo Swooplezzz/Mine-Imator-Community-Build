@@ -185,6 +185,8 @@ function settings_load()
 			if (ds_map_valid(interfacemap[?"view_second_window"]))
 				window_state_restore(e_window.VIEW_SECOND, interfacemap[?"view_second_window"])
 			
+			setting_work_camera_fov = value_get_real(interfacemap[?"work_camera_fov"], setting_work_camera_fov)
+			
 			setting_snap = value_get_real(interfacemap[?"snap"], setting_snap)
 			setting_snap_absolute = value_get_real(interfacemap[?"snap_absolute"], setting_snap_absolute)
 			setting_snap_size_position = value_get_real(interfacemap[?"snap_size_position"], setting_snap_size_position)

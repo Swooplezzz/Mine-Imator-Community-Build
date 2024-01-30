@@ -150,6 +150,8 @@ function settings_save()
 			json_save_object_done()
 		}
 		
+		json_save_var("work_camera_fov", setting_work_camera_fov)
+		
 		json_save_var_bool("snap", setting_snap)
 		json_save_var_bool("snap_absolute", setting_snap_absolute)
 		json_save_var("snap_size_position", setting_snap_size_position)
