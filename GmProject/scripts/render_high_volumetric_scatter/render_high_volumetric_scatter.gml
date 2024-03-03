@@ -1,33 +1,27 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
-function render_high_volumetric_scatter()
+function render_high_volumetric_scatter(prevsurf)
 {
-	var resultsurftemp, specresultsurftemp, sampleoffset, sunout, samplestart, sampleend, lightlist;
-	sampleoffset = point3D(0, 0, 0)
-	sunout = (background_sunlight_color_final != c_black)
-	samplestart = 0
-	sampleend = 0
-	lightlist = array()
+	render_surface[0] = surface_require(render_surface[0],render_width,render_height);
 	
-	// Get visible lights
-	with (obj_timeline)
-	{
-		// Light source check
-		if (type != e_tl_type.POINT_LIGHT && type != e_tl_type.SPOT_LIGHT)
-			continue
-		
-		// Hidden
-		if (!value_inherit[e_value.VISIBLE] || hide)
-			continue
-		
-		// Shadowless pointlight
-		if (type = e_tl_type.POINT_LIGHT && !shadows)
+	surface_set_target(render_surface[0]){
+		draw_clear_alpha(c_black, 0)
+		render_shader_obj = shader_map[?shader_volumelight]
+		with (render_shader_obj)
 		{
-			ds_list_add(render_shadowless_point_list, id)
-			continue
+			shader_set(shader)
+			shader_high_dof_coc_set(depthsurf)
 		}
+		draw_blank(0, 0, render_width, render_height)
+		draw_surface_exists(prevsurf, 0, 0)
+		with (render_shader_obj)
+			shader_clear()
 		
-		lightlist = array_add(lightlist, id)
 	}
+	surface_reset_target()
+	surface_set_target(prevsurf){
+		
+	}
+	surface_reset_target()
 }

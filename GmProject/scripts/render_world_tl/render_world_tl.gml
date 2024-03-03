@@ -32,11 +32,16 @@ function render_world_tl()
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
 		return 0
+		
+	var tl = id;
+	while(tl.parent != app && tl.parent.lock &&app.setting_select_locked_parent){
+	tl = tl.parent	
+	}
 	
 	// Click mode
 	if (render_mode = e_render_mode.CLICK)
 	{
-		if (selected || (lock && !app.setting_select_locked_parent) || !tl_update_list_filter(id)) // Already selected when clicking?
+		if (selected || ( lock && !app.setting_select_locked_parent) || (tl.lock && tl.parent = app && app.setting_select_locked_parent)|| !tl_update_list_filter(id)) // Already selected when clicking?
 			return 0
 		
 		render_set_uniform_color("uReplaceColor", id, 1)

@@ -228,8 +228,9 @@ void main()
 						
 						if ((fragDepth - (bias * 0.01)) <= sampleDepth)
 							dis = vec3(0.0);
-						
-						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att;
+							
+						fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
+						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * texture2D(uLightGobo, fragCoord).rgb ;
 					}
 				}
 			}

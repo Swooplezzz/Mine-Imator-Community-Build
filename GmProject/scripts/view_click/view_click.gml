@@ -26,7 +26,7 @@ function view_click(view, cam)
 			while (tl.parent != app && (setting_select_locked_parent && tl.lock? tl.parent.lock : !tl.parent.lock) && tl_update_list_filter(tl.parent))
 				tl = tl.parent
 		
-		if (tl.lock && !tl.parent.lock && setting_select_locked_parent)
+		if (tl.lock && setting_select_locked_parent && tl.parent != app)
 			tl = tl.parent
 		
 		// Select
