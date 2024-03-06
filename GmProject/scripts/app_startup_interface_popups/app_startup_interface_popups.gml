@@ -51,7 +51,7 @@ function app_startup_interface_popups()
 	}
 	
 	// Import image
-	popup_importimage = new_popup("importimage", popup_importimage_draw, 512, null, true)
+	popup_importimage = new_popup("importimage", popup_importimage_draw, 477, null, true)
 	with (popup_importimage)
 	{
 		filename = ""
@@ -62,7 +62,7 @@ function app_startup_interface_popups()
 	}
 	
 	// Import item sheet
-	popup_importitemsheet = new_popup("importitemsheet", popup_importitemsheet_draw, 288, null, true)
+	popup_importitemsheet = new_popup("importitemsheet", popup_importitemsheet_draw, 280, null, true)
 	with (popup_importitemsheet)
 	{
 		filename = ""

@@ -25,15 +25,15 @@ function view_shape_camera(tl)
 	view_shape_circle(point3D(0, -3, 6.5), 2.5, tl.matrix)
 	
 	// Frustum (only visible on selected cameras)
-	if (tl.selected && tl.value[e_value.CAM_FOV] % 180 != 0)
+	if (tl.selected && cam_fov % 180 != 0)
 		view_shape_camera_frustum(tl)
 }
 
 function view_shape_camera_frustum(tl)
 {
 	var ratio, sizemath;
-	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * tl.value[e_value.CAM_ASPECT]
-	sizemath = tan(degtorad(tl.value[e_value.CAM_FOV] * 0.5)) // Multiply this by distance
+	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * cam_aspect
+	sizemath = tan(degtorad(cam_fov * 0.5)) // Multiply this by distance
 	
 	var viewfrustumpoints = array(
 		point3D(-((sizemath * cam_near) * ratio), cam_near, -sizemath * cam_near), //nbr
@@ -113,8 +113,8 @@ function view_shape_camera_frustum(tl)
 function view_shape_camera_frustum_dof(tl)
 {
 	var ratio, sizemath;
-	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * tl.value[e_value.CAM_ASPECT]
-	sizemath = tan(degtorad(tl.value[e_value.CAM_FOV] * 0.5)) // Multiply this by distance
+	ratio = (tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]) * cam_aspect
+	sizemath = tan(degtorad(cam_fov * 0.5)) // Multiply this by distance
 	
 	var dofnear, doffar, dofblurnear, dofblurfar;
 	dofnear = min(cam_far, max(cam_near, tl.value[e_value.CAM_DOF_DEPTH] - tl.value[e_value.CAM_DOF_RANGE]))

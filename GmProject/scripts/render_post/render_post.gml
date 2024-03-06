@@ -7,7 +7,6 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 {
 	// Start post processing
 	finalsurf = render_high_post_start(finalsurf)
-
 	
 	// DOF
 	if (render_camera_dof && sceneeffects)

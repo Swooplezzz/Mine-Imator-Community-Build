@@ -11,7 +11,36 @@ function popup_importimage_draw()
 		texture = texture_create(filename)
 	}
 	
-	draw_image_box_cover(popup.texture, dx + dw - 130, dy + 24, 128, 128)
+	// Preview
+	var previewsize, previewx, previewy, previewwid, previewhei;
+	var texwid, texhei, scale;
+	previewsize = 209
+	previewx = floor((content_x - (dx - content_x)) + content_width - previewsize)
+	previewy = floor(dy + previewsize / 2 - previewsize / 2)
+	texwid = texture_width(popup.texture)
+	texhei = texture_height(popup.texture)
+	
+	draw_box(previewx, previewy, previewsize, previewsize, false, c_level_bottom, 1)
+	
+	// Too big for preview, scale down
+	if (texhei > texwid)
+	{
+		scale = previewsize / texhei
+		previewx += (previewsize - scale * texwid) / 2
+	}
+	else
+	{
+		scale = previewsize / texwid
+		previewy = dy
+	}
+	
+	previewwid = texwid * scale
+	previewhei = texhei * scale
+	
+	draw_texture(popup.texture, previewx, previewy, scale, scale)
+	
+	//draw_image_box_cover(popup.texture, dx + dw - 130, dy + 24, 128, 128)
+	
 	// Info
 	draw_label(text_get("importimagetype") + ":", dx, dy + 14, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	dy += 28
@@ -58,7 +87,7 @@ function popup_importimage_draw()
 		{
 			ds_list_delete(popup.filenames, 0)
 			popup_show(popup)
-			show_debug_message("new popup")
+			show_debug_message("New popup")
 		}
 	}
 	tab_next()
