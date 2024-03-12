@@ -1,7 +1,7 @@
 /// tab_control(height)
 /// @arg height
 
-function tab_control(height)
+function tab_control(height = 0)
 {
 	tab_control_h = height
 	

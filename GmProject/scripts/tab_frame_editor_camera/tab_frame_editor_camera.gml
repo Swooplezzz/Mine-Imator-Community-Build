@@ -92,43 +92,43 @@ function tab_frame_editor_camera()
 			
 			tab_collapse_end()
 		}
+	
+		// Light management
+		tab_control_switch()
+		draw_button_collapse("light_management_cam", collapse_map[?"light_management_cam"], action_tl_frame_cam_light_management, tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT], "frameeditorcameralightmanagement")
+		tab_next()
+	
+		if (tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT] && collapse_map[?"light_management_cam"])
+		{
+			tab_collapse_start()
+		
+			// Tonemapper
+			if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.REINHARD)
+				text = text_get("frameeditorcameratonemapperreinhard")
+			else if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.ACES)
+				text = text_get("frameeditorcameratonemapperaces")
+			else
+				text = text_get("frameeditorcameratonemappernone")
+		
+			tab_control_menu()
+			draw_button_menu("frameeditorcameratonemapper", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_TONEMAPPER], text, action_tl_frame_cam_tonemapper)
+			tab_next()
+		
+			// Exposure
+			tab_control_dragger()
+			draw_dragger("frameeditorcameraexposure", dx, dy, dragger_width, tl_edit.value[e_value.CAM_EXPOSURE], 0.01, 0, no_limit, 1, 0.01, tab.camera.tbx_exposure, action_tl_frame_cam_exposure)
+			tab_next()
+		
+			// Gamma
+			tab_control_dragger()
+			draw_dragger("frameeditorcameragamma", dx, dy, dragger_width, tl_edit.value[e_value.CAM_GAMMA], 0.01, 0, no_limit, 2.2, 0.01, tab.camera.tbx_gamma, action_tl_frame_cam_gamma)
+			tab_next()
+		
+			tab_collapse_end()
+		}
 	}
 	
-	// Light management
-	tab_control_switch()
-	draw_button_collapse("light_management_cam", collapse_map[?"light_management_cam"], action_tl_frame_cam_light_management, tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT], "frameeditorcameralightmanagement")
-	tab_next()
-	
-	if (tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT] && collapse_map[?"light_management_cam"])
-	{
-		tab_collapse_start()
-		
-		// Tonemapper
-		if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.REINHARD)
-			text = text_get("frameeditorcameratonemapperreinhard")
-		else if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.ACES)
-			text = text_get("frameeditorcameratonemapperaces")
-		else
-			text = text_get("frameeditorcameratonemappernone")
-		
-		tab_control_menu()
-		draw_button_menu("frameeditorcameratonemapper", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_TONEMAPPER], text, action_tl_frame_cam_tonemapper)
-		tab_next()
-		
-		// Exposure
-		tab_control_dragger()
-		draw_dragger("frameeditorcameraexposure", dx, dy, dragger_width, tl_edit.value[e_value.CAM_EXPOSURE], 0.01, 0, no_limit, 1, 0.01, tab.camera.tbx_exposure, action_tl_frame_cam_exposure)
-		tab_next()
-		
-		// Gamma
-		tab_control_dragger()
-		draw_dragger("frameeditorcameragamma", dx, dy, dragger_width, tl_edit.value[e_value.CAM_GAMMA], 0.01, 0, no_limit, 2.2, 0.01, tab.camera.tbx_gamma, action_tl_frame_cam_gamma)
-		tab_next()
-		
-		tab_collapse_end()
-	}
-	
-	// Rotate point
+	// Rotate around point
 	tab_control_switch()
 	draw_button_collapse("rotatepoint", collapse_map[?"rotatepoint"], action_tl_frame_cam_rotate, tl_edit.value[e_value.CAM_ROTATE], "frameeditorcamerarotate")
 	tab_next()
@@ -313,15 +313,15 @@ function tab_frame_editor_camera()
 		tab_collapse_start()
 		
 		tab_control_dragger()
-		draw_dragger("frameeditorcamerabloomthreshold", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_BLOOM_THRESHOLD] * 100), .1, 0, 100, 85, 1, tab.camera.tbx_bloom_threshold, action_tl_frame_cam_bloom_threshold)
-		tab_next()
-		
-		tab_control_dragger()
 		draw_dragger("frameeditorcamerabloomradius", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_BLOOM_RADIUS] * 100), .1, 0, no_limit, 100, 1, tab.camera.tbx_bloom_radius, action_tl_frame_cam_bloom_radius)
 		tab_next()
 		
 		tab_control_dragger()
 		draw_dragger("frameeditorcamerabloomintensity", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_BLOOM_INTENSITY] * 100), .1, 0, no_limit, 40, 1, tab.camera.tbx_bloom_intensity, action_tl_frame_cam_bloom_intensity)
+		tab_next()
+		
+		tab_control_meter()
+		draw_meter("frameeditorcamerabloomthreshold", dx, dy, dw, round(tl_edit.value[e_value.CAM_BLOOM_THRESHOLD] * 100), 0, 100, 85, 1, tab.camera.tbx_bloom_threshold, action_tl_frame_cam_bloom_threshold)
 		tab_next()
 		
 		// Advanced mode only
@@ -332,7 +332,7 @@ function tab_frame_editor_camera()
 			tab_next()
 			
 			tab_control_color()
-			draw_button_color("frameeditorcamerabloomblend", dx, dy, floor(dw/2), tl_edit.value[e_value.CAM_BLOOM_BLEND], c_white, false, action_tl_frame_cam_bloom_blend)
+			draw_button_color("frameeditorcamerabloomblend", dx, dy, dw, tl_edit.value[e_value.CAM_BLOOM_BLEND], c_white, false, action_tl_frame_cam_bloom_blend)
 			tab_next()
 		}
 		
@@ -427,7 +427,7 @@ function tab_frame_editor_camera()
 		tab_next()
 		
 		tab_control_color()
-		draw_button_color("frameeditorcameracolorcorrectioncolorburn", dx, dy, dw/2, tl_edit.value[e_value.CAM_COLOR_BURN], c_white, false, action_tl_frame_cam_clrcor_color_burn)
+		draw_button_color("frameeditorcameracolorcorrectioncolorburn", dx, dy, dw, tl_edit.value[e_value.CAM_COLOR_BURN], c_white, false, action_tl_frame_cam_clrcor_color_burn)
 		tab_next()
 		
 		tab_collapse_end()
@@ -488,9 +488,10 @@ function tab_frame_editor_camera()
 		tab_collapse_end()
 	}
 	
-	// Chromatic aberration (Advanced mode only)
+	// Advanced mode only
 	if (setting_advanced_mode)
 	{
+		// Chromatic aberration
 		tab_control_switch()
 		draw_button_collapse("ca", collapse_map[?"ca"], action_tl_frame_cam_ca, tl_edit.value[e_value.CAM_CA], "frameeditorcameraca")
 		tab_next()
@@ -517,11 +518,8 @@ function tab_frame_editor_camera()
 			
 			tab_collapse_end()
 		}
-	}
 	
-	// Distort (Advanced mode only)
-	if (setting_advanced_mode)
-	{
+		// Distort
 		tab_control_switch()
 		draw_button_collapse("distort", collapse_map[?"distort"], action_tl_frame_cam_distort, tl_edit.value[e_value.CAM_DISTORT], "frameeditorcameradistort")
 		tab_next()

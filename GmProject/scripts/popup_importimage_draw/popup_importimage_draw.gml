@@ -2,44 +2,17 @@
 
 function popup_importimage_draw()
 {
-	with (popup_importimage)
-	{
-	    filename = filenames[|0];
-		if (texture != null)
-			texture_free(texture)
-		
-		texture = texture_create(filename)
-	}
-	
 	// Preview
-	var previewsize, previewx, previewy, previewwid, previewhei;
-	var texwid, texhei, scale;
-	previewsize = 209
+	var previewsize, previewx, previewy, texwid, texhei, scale;
+	previewsize = 256
 	previewx = floor((content_x - (dx - content_x)) + content_width - previewsize)
-	previewy = floor(dy + previewsize / 2 - previewsize / 2)
+	previewy = dy
 	texwid = texture_width(popup.texture)
 	texhei = texture_height(popup.texture)
+	scale = max(texwid / previewsize, texhei / previewsize)
 	
 	draw_box(previewx, previewy, previewsize, previewsize, false, c_level_bottom, 1)
-	
-	// Too big for preview, scale down
-	if (texhei > texwid)
-	{
-		scale = previewsize / texhei
-		previewx += (previewsize - scale * texwid) / 2
-	}
-	else
-	{
-		scale = previewsize / texwid
-		previewy = dy
-	}
-	
-	previewwid = texwid * scale
-	previewhei = texhei * scale
-	
-	draw_texture(popup.texture, previewx, previewy, scale, scale)
-	
-	//draw_image_box_cover(popup.texture, dx + dw - 130, dy + 24, 128, 128)
+	draw_texture(popup.texture, previewx + ((previewsize / 2) - ((texwid / scale) / 2)), dy + ((previewsize / 2) - ((texhei / scale) / 2)), 1 / scale, 1 / scale)
 	
 	// Info
 	draw_label(text_get("importimagetype") + ":", dx, dy + 14, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
@@ -65,12 +38,15 @@ function popup_importimage_draw()
 	draw_radiobutton("importimagetexture", dx, dy, e_res_type.TEXTURE, popup.type = e_res_type.TEXTURE, action_toolbar_importimage_type)
 	tab_next()
 	
-	tab_control_checkbox()
-	draw_checkbox("importimagedoall", dx, dy, popup.do_all, action_toolbar_importimage_do_all)
-	tab_next()
-		
+	tab_control(80)
+	tab_next(false)
+	
 	// Ok
 	tab_control_button_label()
+
+	if (ds_list_size(popup.filenames) > 1 || !is_cpp())
+		draw_checkbox("importimagedoall", dx, dy, popup.do_all, action_toolbar_importimage_do_all)
+	
 	if (draw_button_label("importimageok", dx + dw, dy, null, null, e_button.PRIMARY, null, e_anchor.RIGHT))
 	{
 		if (popup.type = e_res_type.ITEM_SHEET)
@@ -79,14 +55,14 @@ function popup_importimage_draw()
 		{
 			action_res_image_load(popup.filename, popup.type)
 			
-			if (ds_list_size(popup.filenames) = 1)
+			if (ds_list_size(popup.filenames) <= 1)
 				popup_close()
 		}
-
+		
 		if (ds_list_size(popup.filenames) > 1)
 		{
 			ds_list_delete(popup.filenames, 0)
-			popup_show(popup)
+			popup_switch(popup)
 			show_debug_message("New popup")
 		}
 	}

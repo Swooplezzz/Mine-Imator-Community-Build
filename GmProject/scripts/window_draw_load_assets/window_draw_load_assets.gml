@@ -50,6 +50,7 @@ function window_draw_load_assets()
 	draw_dropshadow(xoff, yoff, screenwid, screenhei, c_accent, 1)
 	draw_box(xoff, yoff, screenwid, screenhei, false, c_level_middle, 1)
 	
+	draw_sprite(spr_logo, 0, window_width / 2, yoff - sprite_get_height(spr_logo))
 	draw_sprite_ext(spr_startupasset_gradient, 0, xoff, yoff, 1, 1, 0, merge_color(c_accent, c_white, 0.2), .5)
 	
 	// Pattern
@@ -66,7 +67,7 @@ function window_draw_load_assets()
 	draw_label(string(string_upper(mineimator_version_extra)), xoff + 95, yoff + 289 + 28, fa_middle, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	
 	draw_label(text_get("startuploadingassets"), xoff + 12, yoff + 418, fa_left, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
-	draw_label(string(string_upper(minecraft_version)), xoff + 12, yoff + 435, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
+	draw_label(string(app.setting_minecraft_assets_version), xoff + 12, yoff + 435, fa_left, fa_bottom, c_accent, a_accent, font_splash_bold_big)
 	draw_label(string(floor(load_assets_progress * 100)) + "%", xoff + 180, yoff + 435, fa_right, fa_bottom, c_text_main, a_text_main, font_splash_bold_big)
 	
 	draw_gradient(xoff + 190, yoff, shadow_size * 2, screenhei, c_black, shadow_alpha * 2, 0, 0, shadow_alpha * 2)
@@ -84,7 +85,7 @@ function window_draw_load_assets()
 		if (texwid > splashwid || texhei > screenhei)
 			scale = max(texwid / splashwid, texhei / screenhei)
 		
-		draw_sprite_ext(load_assets_splash, 0, xoff + 190 + (275 - ((texwid / scale) / 2)), yoff + (225 - ((texhei / scale) / 2)), 1 / scale, 1 / scale, 0, c_white, 1)
+		draw_sprite_ext(load_assets_splash, 0, xoff + 190 + ((splashwid / 2) - ((texwid / scale) / 2)), yoff + ((screenhei / 2) - ((texhei / scale) / 2)), 1 / scale, 1 / scale, 0, c_white, 1)
 	}
 	
 	// Splash credits

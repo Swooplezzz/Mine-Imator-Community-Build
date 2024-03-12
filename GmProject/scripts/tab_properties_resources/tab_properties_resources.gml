@@ -113,13 +113,12 @@ function tab_properties_resources()
 	{
 		// Size
 		axis_edit = X
-		tab_control_dragger()
-		draw_dragger("resourcesitemsheetsizerows", dx, dy, dragger_width, res_edit.item_sheet_size[X], 1 / 10, 1, no_limit, item_sheet_width, 1, tab.resources.tbx_item_sheet_width, action_res_item_sheet_size)
-		tab_next()
-		
+		textfield_group_add("resourcesitemsheetsizerows", res_edit.item_sheet_size[X], item_sheet_width, action_res_item_sheet_size, axis_edit, tab.resources.tbx_item_sheet_width, null, 1, 1, no_limit)
 		axis_edit = Y
-		tab_control_dragger()
-		draw_dragger("resourcesitemsheetsizecolumns", dx, dy, dragger_width, res_edit.item_sheet_size[Y], 1 / 10, 1, no_limit, item_sheet_height, 1, tab.resources.tbx_item_sheet_height, action_res_item_sheet_size)
+		textfield_group_add("resourcesitemsheetsizecolumns", res_edit.item_sheet_size[Y], item_sheet_height, action_res_item_sheet_size, axis_edit, tab.resources.tbx_item_sheet_height, null, 1, 1, no_limit)
+		
+		tab_control_textfield(true)
+		draw_textfield_group("resourcesitemsheetsizegrid", dx, dy, dw, .1, 1, no_limit, 1, true)
 		tab_next()
 	}
 	else if (res_edit.scenery_structure)

@@ -424,7 +424,7 @@ namespace CppProject
 			WriteUniformValue(uni, dat);
 		}
 	}
-
+	
 	void Shader::SubmitMat4(IntType index, const Matrix& matrix)
 	{
 		if (!IsLoaded() || index < 0 || index >= numUniforms)

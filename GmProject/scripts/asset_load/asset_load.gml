@@ -31,7 +31,7 @@ function asset_load()
 	
 	var path_array = string_split(fn, "\n");
 	var path_array_count = array_length(path_array);
-	show_debug_message("FILE COUNT = " + string(path_array_count))
+	show_debug_message("File count: " + string(path_array_count))
 
 	if (path_array_count = 0)
 		return false
@@ -145,7 +145,7 @@ function asset_load()
 			case ".dat":
 				log("Opening image", fn)
 				show_debug_message(fn)
-				popup_show(popup_importimage)
+				popup_importimage_show(fn)
 				return true
 		}
 	

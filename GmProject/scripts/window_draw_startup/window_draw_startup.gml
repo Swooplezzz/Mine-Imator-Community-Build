@@ -118,41 +118,38 @@ function window_draw_startup()
 		// Not Jonathan splash
 		var midx, midy;
 		midx = snap(window_width / 2, 2)
-		midy = snap(headersize + ((window_height - headersize) / 1.75), 2)
+		midy = snap((2 * headersize) + ((window_height - (2 * headersize)) / 2), 2)
 		
 		// Only draw splash if it fits well on screen
-		if ((midy + (sprite_get_height(spr_jonathan_splash) / 2)) <= (window_height - (headersize / 2)))
+		if ((midy + (sprite_get_height(spr_jonathan_splash) / 2)) <= window_height)
 		{
 			/*
-			var accent = 0;
+			var accent, pos, pos_s;
+			accent = 0
 			if (setting_accent = 9)
 				accent = setting_accent_custom
 			else
 				accent = setting_theme.accent_list[setting_accent]
 			
-            // radians: pi - half a hue circle, 2 * pi - full circle
-			if (accent != c_white || accent != c_black)
+			if (accent != c_white && accent != c_black) // radians: pi - half a hue circle, 2 * pi - full circle
+			{
 				pos = 2 * pi - degtorad(color_to_hue(accent))
-			
-			pos_s = (1 - color_get_sat(accent))
-			
-			if (accent == c_black || accent == c_white)
+				pos_s = (1 - color_get_sat(accent))
+			}
+			else
 			{
 				pos = 0;
 				pos_s = 0;
 			}
 			
-			u_position = shader_get_uniform(shader_hue, "u_Position"); // control shader
-			u_position_s = shader_get_uniform(shader_hue, "u_Position_s"); // control shade
-			
-			shader_set(shader_hue);
-            shader_set_uniform_f(u_position, pos);
-            shader_set_uniform_f(u_position_s, pos_s +.2);
+			shader_set(shader_hue)
+            shader_set_uniform_f(shader_get_uniform(shader_hue, "u_Position"), pos)
+            shader_set_uniform_f(shader_get_uniform(shader_hue, "u_Position_s"), pos_s + .2)
 			*/
-			draw_image(spr_jonathan_splash, 1, midx, midy, 1, 1, c_white, 255, 0)
-			//shader_reset();
-			//shader_clear();
-			draw_image(spr_jonathan_splash, 0, midx, midy, 1, 1, c_white, 255, 0)	
+			draw_image(spr_jonathan_splash, 1, midx, midy)
+			//shader_reset()
+			//shader_clear()
+			draw_image(spr_jonathan_splash, 0, midx, midy)
 		}
 	}
 	draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
