@@ -39,6 +39,7 @@ namespace CppProject
 		{ Shader::VEC3, (IntType)sizeof(float) * 3 },
 		{ Shader::VEC4, (IntType)sizeof(float) * 4 },
 		{ Shader::MAT4, (IntType)sizeof(float) * 16 },
+		{ Shader::MAT3, (IntType)sizeof(float) * 9 },
 		{ Shader::SAMPLER2D, 0 }, // Not in buffer
 	};
 	QStringList Shader::matrixUniformName = {

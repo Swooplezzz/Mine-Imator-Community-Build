@@ -14,6 +14,7 @@ namespace CppProject
         { Shader::VEC3, "float3" },
         { Shader::VEC4, "float4" },
         { Shader::MAT4, "float4x4" },
+        { Shader::MAT3, "float3x3" },
     };
 
 	void Shader::LoadCode(QString vsCode, QString fsCode, BoolType useCache)
