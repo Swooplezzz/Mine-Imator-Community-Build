@@ -34,6 +34,7 @@ function render_start()
 	if (render_camera != null)
 	{
 		cam_aspect = render_camera.value[e_value.CAM_ASPECT]
+		
 		if (!render_camera.value[e_value.CAM_SIZE_USE_PROJECT])
 		{
 			render_width = render_camera.value[e_value.CAM_WIDTH]
@@ -78,6 +79,8 @@ function render_start()
 	}
 	else 
 	{
+		cam_aspect = 1
+		
 		render_camera_bloom = false
 		render_camera_dof = false
 		render_camera_color_correction = false
@@ -89,7 +92,6 @@ function render_start()
 		render_camera_lens_dirt = false
 		render_camera_lens_dirt_bloom = false
 		render_camera_lens_dirt_glow = false
-		cam_aspect = 1
 		render_camera_colors = false
 		
 		render_tonemapper = project_render_tonemapper

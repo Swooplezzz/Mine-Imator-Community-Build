@@ -215,8 +215,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			if (value[e_value.ROT_TARGET] != null)
 			{
 				var target_rot_mat =  array_copy_1d(value[e_value.ROT_TARGET].matrix)
-
-				debug(value[e_value.ROT_TARGET].display_name)
+				//debug(value[e_value.ROT_TARGET].display_name)
+				
 				matrix_remove_rotation(matrix)
 				target_rot_mat[MAT_X] = 0;
 				target_rot_mat[MAT_Y] = 0;

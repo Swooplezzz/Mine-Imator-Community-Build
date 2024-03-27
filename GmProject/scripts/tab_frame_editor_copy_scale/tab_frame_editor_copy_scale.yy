@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "tab_frame_editor_follow_pos",
+  "name": "tab_frame_editor_copy_scale",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

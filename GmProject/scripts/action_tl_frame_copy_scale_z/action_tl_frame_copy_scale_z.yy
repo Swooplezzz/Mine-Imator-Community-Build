@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Follow scale",
-    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Copy targets/Follow scale.yy",
+    "name": "Copy scale",
+    "path": "folders/Scripts/App/Actions/Timeline/Frame editor/Constraints/Copy targets/Copy scale.yy",
   },
 }

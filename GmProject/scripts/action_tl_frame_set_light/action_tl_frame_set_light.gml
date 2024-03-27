@@ -1,4 +1,4 @@
-/// action_tl_frame_set_light(color, strength, specstrength, size, range, fadesize, spotradius, spotsharpness)
+/// action_tl_frame_set_light(color, strength, specstrength, size, range, fadesize, spotradius, spotsharpness, texture)
 /// @arg color
 /// @arg strength
 /// @arg specstrength
@@ -7,8 +7,9 @@
 /// @arg fadesize
 /// @arg spotradius
 /// @arg spotsharpness
+/// @arg texture
 
-function action_tl_frame_set_light(color, strength, specstrength, size, range, fadesize, spotradius, spotsharpness)
+function action_tl_frame_set_light(color, strength, specstrength, size, range, fadesize, spotradius, spotsharpness, texture)
 {
 	tl_value_set_start(action_tl_frame_set_light, false)
 	tl_value_set(e_value.LIGHT_COLOR, color, false)
@@ -19,5 +20,6 @@ function action_tl_frame_set_light(color, strength, specstrength, size, range, f
 	tl_value_set(e_value.LIGHT_FADE_SIZE, fadesize, false)
 	tl_value_set(e_value.LIGHT_SPOT_RADIUS, spotradius, false)
 	tl_value_set(e_value.LIGHT_SPOT_SHARPNESS, spotsharpness, false)
+	tl_value_set(e_value.TEXTURE_OBJ, texture, false)
 	tl_value_set_done()
 }
