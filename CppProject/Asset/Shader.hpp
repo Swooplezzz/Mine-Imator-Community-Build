@@ -113,7 +113,7 @@ namespace CppProject
 		// Data type for uniforms.
 		enum DataType : int
 		{
-			INT, FLOAT, VEC2, VEC3, VEC4, MAT4, SAMPLER2D, MAT3
+			INT, FLOAT, VEC2, VEC3, VEC4, MAT4, SAMPLER2D
 		};
 
 		// Render mode for submitted vertices.

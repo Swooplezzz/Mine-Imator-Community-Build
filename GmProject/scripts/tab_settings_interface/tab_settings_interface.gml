@@ -48,7 +48,7 @@ function tab_settings_interface()
 			}
 		}
 		tab_next()
-	
+		
 		dy += 5
 	
 		// Language
