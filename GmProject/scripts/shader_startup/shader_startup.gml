@@ -79,7 +79,7 @@ function shader_startup()
 		new_shader("shader_tonemap")
 		new_shader("shader_clip")
 		new_shader("shader_high_glint")
-		//new_shader("shader_hue")
+		new_shader("shader_hue_yiq")
 		
 		shader_texture_surface = false
 		shader_texture_filter_linear = false
@@ -433,13 +433,11 @@ function shader_startup()
 		new_shader_sampler("uSample")
 	}
 	
-	/*
-	with (shader_map[?shader_hue])
+	with (shader_map[?shader_hue_yiq])
 	{
-		new_shader_uniform("u_Position")
-		new_shader_uniform("u_Position_s")
+		new_shader_uniform("hueShift")
+		new_shader_uniform("satShift")
 	}
-	*/
 	
 	with (shader_map[?shader_high_samples_unpack])
 	{

@@ -123,32 +123,7 @@ function window_draw_startup()
 		// Only draw splash if it fits well on screen
 		if ((midy + (sprite_get_height(spr_jonathan_splash) / 2)) <= window_height)
 		{
-			/*
-			var accent, pos, pos_s;
-			accent = 0
-			if (setting_accent = 9)
-				accent = setting_accent_custom
-			else
-				accent = setting_theme.accent_list[setting_accent]
-			
-			if (accent != c_white && accent != c_black) // radians: pi - half a hue circle, 2 * pi - full circle
-			{
-				pos = 2 * pi - degtorad(color_to_hue(accent))
-				pos_s = (1 - color_get_sat(accent))
-			}
-			else
-			{
-				pos = 0;
-				pos_s = 0;
-			}
-			
-			shader_set(shader_hue)
-            shader_set_uniform_f(shader_get_uniform(shader_hue, "u_Position"), pos)
-            shader_set_uniform_f(shader_get_uniform(shader_hue, "u_Position_s"), pos_s + .2)
-			*/
-			draw_image(spr_jonathan_splash, 1, midx, midy)
-			//shader_reset()
-			//shader_clear()
+			draw_image_accent(spr_jonathan_splash, 1, midx, midy)
 			draw_image(spr_jonathan_splash, 0, midx, midy)
 		}
 	}

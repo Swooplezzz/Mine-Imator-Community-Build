@@ -8,10 +8,10 @@ function color_get_sat(color)
 	g = color_get_green(color)
 	b = color_get_blue(color)
 	
-	var max_ = max(r, max(g,b))
-	var min_ = min(r, min(g,b))
+	var cmax = max(r, max(g,b))
+	var cmin = min(r, min(g,b))
 	
-	var sat = min_/max_
+	var sat = cmin/cmax
 	
 	return sat
 }

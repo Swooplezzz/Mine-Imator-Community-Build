@@ -83,6 +83,8 @@
 		<file>Shaders/Compiled/shader_high_subsurface.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_subsurface_scatter.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_subsurface_scatter.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_hue_yiq.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_hue_yiq.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_outline.fsh.d3d</file>
@@ -189,6 +191,8 @@
 		<file>Shaders/shader_high_subsurface.vsh</file>
 		<file>Shaders/shader_high_subsurface_scatter.fsh</file>
 		<file>Shaders/shader_high_subsurface_scatter.vsh</file>
+		<file>Shaders/shader_hue_yiq.fsh</file>
+		<file>Shaders/shader_hue_yiq.vsh</file>
 		<file>Shaders/shader_noise.fsh</file>
 		<file>Shaders/shader_noise.vsh</file>
 		<file>Shaders/shader_outline.fsh</file>
