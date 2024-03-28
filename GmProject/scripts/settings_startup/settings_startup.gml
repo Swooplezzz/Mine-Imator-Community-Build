@@ -128,6 +128,7 @@ function settings_startup()
 	
 	// Viewport
 	setting_work_camera_fov = 45
+	setting_work_camera_frustum = false
 	
 	setting_snap = false
 	setting_snap_absolute = true
