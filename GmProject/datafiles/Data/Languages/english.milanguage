@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.03.26"
+		"lastchange": "2024.04.03"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -849,6 +849,11 @@
 			"rows": "Rows",
 			"columns": "Columns"
 		},
+		"overlay/": {
+			"controls": "View controls",
+			"shapes": "Timeline shapes",
+			"frustum": "Camera frustums"
+		},
 		"snap/": {
 			"move": "Move",
 			"rotate": "Rotate",
@@ -1007,20 +1012,24 @@
 			"uncraftable": "Uncraftable",
 			"night_vision": "Night Vision",
 			"invisibility": "Invisibility",
-			"jump_boost": "Jump Boost",
+			"leaping": "Leaping",
 			"fire_resistance": "Fire Resistance",
 			"swiftness": "Swiftness",
 			"slowness": "Slowness",
 			"turtle_master": "Turtle Master",
 			"water_breathing": "Water Breathing",
-			"instant_health": "Instant Health",
-			"instant_damage": "Instant Damage",
+			"healing": "Healing",
+			"harming": "Harming",
 			"poison": "Poison",
 			"regeneration": "Regeneration",
 			"strength": "Strength",
 			"weakness": "Weakness",
 			"luck": "Luck",
-			"slow_falling": "Slow Falling"
+			"slow_falling": "Slow Falling",
+			"wind_charged": "Wind Charging",
+			"weaving": "Weaving",
+			"oozing": "Oozing",
+			"infested": "Infestation"
 		},
 		"text_glow": "GLOWING DYE TEXT",
 		"text_glow/": {
@@ -1511,6 +1520,7 @@
 				"ragdoll": "Ragdoll",
 				"siamese": "Siamese",
 				"tabby": "Tabby",
+				"tame": "Tame",
 				"pale": "Pale",
 				"pale_tame": "Pale (Tame)",
 				"pale_angry": "Pale (Angry)",
@@ -2146,6 +2156,7 @@
 			"crafting": "Crafting",
 			"trial_spawner_state": "State",
 			"vault_state": "State",
+			"ominous": "Ominous",
 			"value/": {
 				"stone": "Stone",
 				"smooth_stone": "Smooth Stone",
@@ -2791,13 +2802,17 @@
 					"glow": "Glow",
 					"gust": "Gust",
 					"heart": "Heart",
+					"infested": "Infested",
 					"lava": "Lava",
 					"nautilus": "Nautilus",
 					"note": "Note",
+					"ominous_spawning": "Ominous Spawning",
+					"raid_omen": "Raid Omen",
 					"sculk_charge": "Sculk Charge",
 					"sculk_charge_pop": "Sculk Charge Pop",
 					"sculk_soul": "Sculk Soul",
 					"sga": "Enchanting Glyphs",
+					"small_gust": "Small Gust",
 					"sonic_boom": "Sonic Boom",
 					"soul": "Soul",
 					"soul_fire_flame": "Soul Fire Flame",
@@ -2805,7 +2820,10 @@
 					"spell": "Spell",
 					"splash": "Splash",
 					"sweep": "Sweep",
-					"trial_spawner_detection": "Trial Spawner Detection"
+					"trial_omen": "Trial Omen",
+					"trial_spawner_detection": "Trial Spawner Detection",
+					"trial_spawner_detection_ominous": "Ominous Trial Spawner Detection",
+					"vault_connection": "Vault Connection"
 				},
 				"teximage": "Image",
 				"teximage1": "Sheet 1",

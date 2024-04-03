@@ -82,23 +82,29 @@ function settings_save()
 		json_save_var("accent", setting_accent)
 		json_save_var_color("accent_custom", setting_accent_custom)
 		
-		json_save_var_bool("timeline_autoscroll", setting_timeline_autoscroll)
-		json_save_var_bool("timeline_show_markers", setting_timeline_show_markers)
 		json_save_var_bool("interface_compact", setting_interface_compact)
 		json_save_var_bool("timeline_compact", setting_timeline_compact)
 		json_save_var_bool("reduced_motion", setting_reduced_motion)
+		json_save_var("scale", setting_interface_scale)
+		json_save_var_bool("scale_auto", setting_interface_scale_auto)
+		
+		json_save_var_bool("timeline_autoscroll", setting_timeline_autoscroll)
 		json_save_var_bool("timeline_select_jump", setting_timeline_select_jump)
-		json_save_var_bool("timeline_hide_ghosts", setting_timeline_hide_ghosts)
 		json_save_var_bool("timeline_frame_snap", setting_timeline_frame_snap)
+		
 		json_save_var_bool("z_is_up", setting_z_is_up)
 		json_save_var_bool("separate_tool_modes", setting_separate_tool_modes)
-		json_save_var_bool("show_shortcuts_bar", setting_show_shortcuts_bar)
+		
+		json_save_var("work_camera_fov", setting_work_camera_fov)
 		json_save_var_bool("gizmos_face_camera", setting_gizmos_face_camera)
 		json_save_var_bool("fade_gizmos", setting_fade_gizmos)
 		json_save_var_bool("camera_lock_mouse", setting_camera_lock_mouse)
 		json_save_var_bool("place_new", setting_place_new)
-		json_save_var("scale", setting_interface_scale)
-		json_save_var_bool("scale_auto", setting_interface_scale_auto)
+		json_save_var_bool("setting_select_locked_parent", setting_select_locked_parent)
+		
+		json_save_var_bool("timeline_show_markers", setting_timeline_show_markers)
+		json_save_var_bool("show_shortcuts_bar", setting_show_shortcuts_bar)
+		json_save_var_bool("timeline_hide_ghosts", setting_timeline_hide_ghosts)
 		
 		json_save_var("panel_left_bottom_size", panel_map[?"left_secondary"].size)
 		json_save_var("panel_right_bottom_size", panel_map[?"right_secondary"].size)
@@ -150,15 +156,15 @@ function settings_save()
 			json_save_object_done()
 		}
 		
-		json_save_var("work_camera_fov", setting_work_camera_fov)
-		json_save_var("work_camera_frustum", setting_work_camera_frustum)
+		json_save_var("overlay_view_controls", setting_overlay_view_controls)
+		json_save_var("overlay_view_shapes", setting_overlay_view_shapes)
+		json_save_var("overlay_camera_frustum", setting_overlay_camera_frustum)
 		
 		json_save_var_bool("snap", setting_snap)
 		json_save_var_bool("snap_absolute", setting_snap_absolute)
 		json_save_var("snap_size_position", setting_snap_size_position)
 		json_save_var("snap_size_rotation", setting_snap_size_rotation)
 		json_save_var("snap_size_scale", setting_snap_size_scale)
-		json_save_var_bool("setting_select_locked_parent", setting_select_locked_parent)
 		
 		json_save_var_bool("modelbench_popup_hidden", popup_modelbench.hidden)
 		

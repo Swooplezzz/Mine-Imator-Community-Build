@@ -25,7 +25,7 @@ function view_shape_camera(tl)
 	view_shape_circle(point3D(0, -3, 6.5), 2.5, tl.matrix)
 	
 	// Frustum (only visible on selected cameras)
-	if (tl.selected && setting_work_camera_frustum && tl.value[e_value.CAM_FOV] % 180 != 0)
+	if (tl.selected && setting_overlay_camera_frustum && tl.value[e_value.CAM_FOV] % 180 != 0)
 		view_shape_camera_frustum(tl)
 }
 
