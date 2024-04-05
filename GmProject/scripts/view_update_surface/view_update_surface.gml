@@ -22,7 +22,7 @@ function view_update_surface(view, cam)
 	if (view.gizmos)
 	{
 		// Selection
-		if (tl_edit_amount > 0)
+		if (setting_overlay_view_controls && tl_edit_amount > 0)
 			view.surface_select = render_select(e_render_mode.SELECT, view.surface_select)
 		
 		// Shapes and controls
@@ -30,39 +30,42 @@ function view_update_surface(view, cam)
 		{
 			surface_set_target(render_target)
 			{
-				// Shapes
-				with (obj_timeline)
+				if (setting_overlay_view_shapes)
 				{
-					with (app)
+					// Shapes
+					with (obj_timeline)
 					{
-						var tl = other.id;
-						if (tl.hide || !tl.value_inherit[e_value.VISIBLE])
-							continue
-						
-						draw_set_color((tl.selected || tl.parent_is_selected) ? c_white : c_controls)
-						
-						if (tl.type = e_tl_type.SPOT_LIGHT)
-							view_shape_spotlight(tl)
-						else if (tl.type = e_tl_type.POINT_LIGHT)
-							view_shape_pointlight(tl)
-						else if (tl.type = e_tl_type.CAMERA && tl != cam)
-							view_shape_camera(tl)
-						else if (tl.type = e_temp_type.PARTICLE_SPAWNER)
-							view_shape_particles(tl)
-						else if (tl.type = e_tl_type.PATH)
-							view_shape_path(view, tl)
-						
-						if (dev_mode_show_bones && tl.selected && tl.type = e_tl_type.BODYPART && array_length(tl.part_joints_pos) > 0)
+						with (app)
 						{
-							// Draw bones
-							for (var i = 0; i < 2; i++)
-								view_shape_bone(tl.part_joints_pos[i], point3D_distance(tl.part_joints_pos[i], tl.part_joints_pos[i + 1]), tl.part_joints_bone_matrix[i])
+							var tl = other.id;
+							if (tl.hide || !tl.value_inherit[e_value.VISIBLE])
+								continue
+						
+							draw_set_color((tl.selected || tl.parent_is_selected) ? c_white : c_controls)
+						
+							if (tl.type = e_tl_type.SPOT_LIGHT)
+								view_shape_spotlight(tl)
+							else if (tl.type = e_tl_type.POINT_LIGHT)
+								view_shape_pointlight(tl)
+							else if (tl.type = e_tl_type.CAMERA && tl != cam)
+								view_shape_camera(tl)
+							else if (tl.type = e_temp_type.PARTICLE_SPAWNER)
+								view_shape_particles(tl)
+							else if (tl.type = e_tl_type.PATH)
+								view_shape_path(view, tl)
+						
+							if (dev_mode_show_bones && tl.selected && tl.type = e_tl_type.BODYPART && array_length(tl.part_joints_pos) > 0)
+							{
+								// Draw bones
+								for (var i = 0; i < 2; i++)
+									view_shape_bone(tl.part_joints_pos[i], point3D_distance(tl.part_joints_pos[i], tl.part_joints_pos[i + 1]), tl.part_joints_bone_matrix[i])
+							}
 						}
 					}
 				}
 				
 				// Controls
-				if (tl_edit != null && tl_edit != cam && view.gizmos)
+				if (view.gizmos && setting_overlay_view_controls && tl_edit != null && tl_edit != cam)
 				{
 					var vis = tl_edit.render_visible;
 					

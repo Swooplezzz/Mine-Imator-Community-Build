@@ -91,13 +91,6 @@ function settings_load()
 		var interfacemap = map[?"interface"];
 		if (ds_map_valid(interfacemap))
 		{
-			setting_language_filename = value_get_string(interfacemap[?"language_filename"], setting_language_filename)
-			if (!file_exists_lib(setting_language_filename))
-				setting_language_filename = language_file
-			
-			if (setting_language_filename != language_file)
-				language_load(setting_language_filename, language_map)
-			
 			var themename = theme_light.name;
 			themename = value_get_string(interfacemap[?"theme"], themename)
 			
@@ -113,21 +106,17 @@ function settings_load()
 			setting_accent = value_get_real(interfacemap[?"accent"], setting_accent)
 			setting_accent_custom = value_get_color(interfacemap[?"accent_custom"], setting_accent_custom)
 			
-			setting_timeline_autoscroll = value_get_real(interfacemap[?"timeline_autoscroll"], setting_timeline_autoscroll)
-			setting_timeline_show_markers = value_get_real(interfacemap[?"timeline_show_markers"], setting_timeline_show_markers)
+			setting_language_filename = value_get_string(interfacemap[?"language_filename"], setting_language_filename)
+			if (!file_exists_lib(setting_language_filename))
+				setting_language_filename = language_file
+			
+			if (setting_language_filename != language_file)
+				language_load(setting_language_filename, language_map)
+			
 			setting_interface_compact = value_get_real(interfacemap[?"interface_compact"], setting_interface_compact)
 			setting_timeline_compact = value_get_real(interfacemap[?"timeline_compact"], setting_timeline_compact)
 			setting_reduced_motion = value_get_real(interfacemap[?"reduced_motion"], setting_reduced_motion)
-			setting_timeline_select_jump = value_get_real(interfacemap[?"timeline_select_jump"], setting_timeline_select_jump)
-			setting_timeline_hide_ghosts = value_get_real(interfacemap[?"timeline_hide_ghosts"], setting_timeline_hide_ghosts)
-			setting_timeline_frame_snap = value_get_real(interfacemap[?"timeline_frame_snap"], setting_timeline_frame_snap)
-			setting_z_is_up = value_get_real(interfacemap[?"z_is_up"], setting_z_is_up)
-			setting_show_shortcuts_bar = value_get_real(interfacemap[?"show_shortcuts_bar"], setting_show_shortcuts_bar)
-			setting_gizmos_face_camera = value_get_real(interfacemap[?"gizmos_face_camera"], setting_gizmos_face_camera)
-			setting_fade_gizmos = value_get_real(interfacemap[?"fade_gizmos"], setting_fade_gizmos)
-			setting_camera_lock_mouse = value_get_real(interfacemap[?"camera_lock_mouse"], setting_camera_lock_mouse)
-			window_mouse_set_permission(setting_camera_lock_mouse)
-			setting_place_new = value_get_real(interfacemap[?"place_new"], setting_place_new)
+			
 			setting_interface_scale_auto = value_get_real(interfacemap[?"scale_auto"], setting_interface_scale_auto)
 			if (setting_interface_scale_auto)
 				setting_interface_scale = interface_scale_default_get()
@@ -135,12 +124,29 @@ function settings_load()
 				setting_interface_scale = value_get_real(interfacemap[?"scale"], setting_interface_scale)
 			interface_scale_set(setting_interface_scale)
 			
+			setting_timeline_autoscroll = value_get_real(interfacemap[?"timeline_autoscroll"], setting_timeline_autoscroll)
+			setting_timeline_select_jump = value_get_real(interfacemap[?"timeline_select_jump"], setting_timeline_select_jump)
+			setting_timeline_frame_snap = value_get_real(interfacemap[?"timeline_frame_snap"], setting_timeline_frame_snap)
+			
+			setting_z_is_up = value_get_real(interfacemap[?"z_is_up"], setting_z_is_up)
 			setting_separate_tool_modes = value_get_real(interfacemap[?"separate_tool_modes"], setting_separate_tool_modes)
 			if (setting_separate_tool_modes)
 			{
 				action_tools_disable_all()
 				setting_tool_select = true
 			}
+			
+			setting_work_camera_fov = value_get_real(interfacemap[?"work_camera_fov"], setting_work_camera_fov)
+			setting_gizmos_face_camera = value_get_real(interfacemap[?"gizmos_face_camera"], setting_gizmos_face_camera)
+			setting_fade_gizmos = value_get_real(interfacemap[?"fade_gizmos"], setting_fade_gizmos)
+			setting_camera_lock_mouse = value_get_real(interfacemap[?"camera_lock_mouse"], setting_camera_lock_mouse)
+			window_mouse_set_permission(setting_camera_lock_mouse)
+			setting_place_new = value_get_real(interfacemap[?"place_new"], setting_place_new)
+			setting_select_locked_parent = value_get_real(interfacemap[?"setting_select_locked_parent"], setting_select_locked_parent)
+			
+			setting_timeline_show_markers = value_get_real(interfacemap[?"timeline_show_markers"], setting_timeline_show_markers)
+			setting_show_shortcuts_bar = value_get_real(interfacemap[?"show_shortcuts_bar"], setting_show_shortcuts_bar)
+			setting_timeline_hide_ghosts = value_get_real(interfacemap[?"timeline_hide_ghosts"], setting_timeline_hide_ghosts)
 			
 			setting_panel_left_bottom_size = value_get_real(interfacemap[?"panel_left_bottom_size"], setting_panel_left_bottom_size)
 			setting_panel_right_bottom_size = value_get_real(interfacemap[?"panel_right_bottom_size"], setting_panel_right_bottom_size)
@@ -185,15 +191,15 @@ function settings_load()
 			if (ds_map_valid(interfacemap[?"view_second_window"]))
 				window_state_restore(e_window.VIEW_SECOND, interfacemap[?"view_second_window"])
 			
-			setting_work_camera_fov = value_get_real(interfacemap[?"work_camera_fov"], setting_work_camera_fov)
-			setting_work_camera_frustum = value_get_real(interfacemap[?"work_camera_frustum"], setting_work_camera_frustum)
+			setting_overlay_view_controls = value_get_real(interfacemap[?"overlay_view_controls"], setting_overlay_view_controls)
+			setting_overlay_view_shapes = value_get_real(interfacemap[?"overlay_view_shapes"], setting_overlay_view_shapes)
+			setting_overlay_camera_frustum = value_get_real(interfacemap[?"overlay_camera_frustum"], setting_overlay_camera_frustum)
 			
 			setting_snap = value_get_real(interfacemap[?"snap"], setting_snap)
 			setting_snap_absolute = value_get_real(interfacemap[?"snap_absolute"], setting_snap_absolute)
 			setting_snap_size_position = value_get_real(interfacemap[?"snap_size_position"], setting_snap_size_position)
 			setting_snap_size_rotation = value_get_real(interfacemap[?"snap_size_rotation"], setting_snap_size_rotation)
 			setting_snap_size_scale = value_get_real(interfacemap[?"snap_size_scale"], setting_snap_size_scale)
-			setting_select_locked_parent = value_get_real(interfacemap[?"setting_select_locked_parent"], setting_select_locked_parent)
 			
 			setting_modelbench_popup_hidden = value_get_real(interfacemap[?"modelbench_popup_hidden"], setting_modelbench_popup_hidden)
 		}
