@@ -1841,6 +1841,7 @@
     {"id":{"name":"temp_get_shape_tex_material_obj","path":"scripts/temp_get_shape_tex_material_obj/temp_get_shape_tex_material_obj.yy",},"order":12,},
     {"id":{"name":"new_videoquality","path":"scripts/new_videoquality/new_videoquality.yy",},"order":27,},
     {"id":{"name":"new_videotemplate","path":"scripts/new_videotemplate/new_videotemplate.yy",},"order":29,},
+    {"id":{"name":"action_recent_search","path":"scripts/action_recent_search/action_recent_search.yy",},"order":6,},
     {"id":{"name":"project_create","path":"scripts/project_create/project_create.yy",},"order":31,},
     {"id":{"name":"project_reset","path":"scripts/project_reset/project_reset.yy",},"order":33,},
     {"id":{"name":"project_reset_backup","path":"scripts/project_reset_backup/project_reset_backup.yy",},"order":35,},
@@ -2635,6 +2636,7 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"Chicken_Champion.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"pillage_and_destroy.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"To_infinity_and_beyond.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"recent.midata","CopyToMask":-1,"filePath":"datafiles/Data",},
   ],
   "MetaData": {
     "IDEVersion": "2022.0.1.31",

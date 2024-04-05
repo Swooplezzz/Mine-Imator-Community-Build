@@ -30,8 +30,12 @@ function window_draw_startup()
 	// No recent projects text
 	if (ds_list_size(recent_list) = 0)
 	{
-		draw_label(text_get("recentnone"), window_width / 2, dy, fa_center, fa_middle, c_accent, 1, font_heading_big)
+		draw_label(text_get("recentnone"), window_width / 2, dy, fa_center, fa_middle, c_dkgray, 1, font_heading_big)
 		dy += 48
+	}
+			
+	if(recent_list_amount_search = 0 && recent_list_amount > 0){
+		draw_label(text_get("recentsearchnone"), window_width / 2, dy, fa_center, fa_middle, c_dkgray, 1, font_heading_big)
 	}
 	
 	// Draw buttons
@@ -42,7 +46,18 @@ function window_draw_startup()
 	browsewidth = string_width(text_get("startupbrowse")) + button_icon_padding
 	centerx = round((window_width / 2) - ((browsewidth + newprojectwidth) / 2))
 	
-	if (ds_list_size(recent_list) > 0)
+	if (recent_list_amount > 0)
+    dx = (window_width / 2) - (dw / 2)
+		else
+	dx = (window_width / 2) - 256/2
+	// Element search
+	if (recent_list_amount > 0){
+	tab_control(24)
+	draw_textfield("searchprojects",dx, dy, 256, 24, tbx_recent_search, action_recent_search, text_get("recentsearchcaption"), "none")
+	tab_next()
+	}
+	
+	if (recent_list_amount > 0)
 		dx = (window_width / 2) + (dw / 2)
 	else
 		dx = centerx + (browsewidth + 24 + newprojectwidth)
@@ -82,6 +97,7 @@ function window_draw_startup()
 	// Show recent models
 	if (recent_list_amount > 0)
 	{
+		draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
 		// Recent model grid/list button
 		dx -= (12 + 28)
 		
@@ -107,7 +123,7 @@ function window_draw_startup()
 		if (recent_display_mode = "list")
 			listheight = 28 + min(window_height - dy, (min(ds_list_size(recent_list), 8) * 44))
 		else
-			listheight = min(window_height - dy, ceil(recent_list_amount / 4) * 256)
+			listheight = min(window_height - dy, ceil(recent_list_amount_search / 4) * 256)
 		
 		tab_control(listheight)
 		draw_recent(dx, dy, dw, listheight)
@@ -126,6 +142,6 @@ function window_draw_startup()
 			draw_image_accent(spr_jonathan_splash, 1, midx, midy)
 			draw_image(spr_jonathan_splash, 0, midx, midy)
 		}
+		draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
 	}
-	draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
 }

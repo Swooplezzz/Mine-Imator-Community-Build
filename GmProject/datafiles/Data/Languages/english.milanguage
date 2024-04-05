@@ -288,6 +288,7 @@
 	},
 	"recent/": {
 		"lastopened": "Last opened",
+		"searchcaption": "Search...",
 		"lastopened/": {
 			"recently": "Last opened recently",
 			"minutes": "Last opened %1 minutes ago",

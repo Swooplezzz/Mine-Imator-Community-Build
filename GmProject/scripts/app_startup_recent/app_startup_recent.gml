@@ -17,6 +17,7 @@ function app_startup_recent()
 	recent_thumbnail_width = 240
 	recent_thumbnail_height = 180
 	
+	recent_list_amount_search = 0
 	recent_list_amount = 0
 	recent_list_update = false
 	

@@ -3,7 +3,16 @@
 function action_toolbar_import_asset()
 {
 	var fn = file_dialog_open_asset();
+	var path_array = string_split(fn, "\n");
+	var path_array_count = array_length(path_array);
+	show_debug_message("File count: " + string(path_array_count))
 
-	show_debug_message(fn)
-	asset_load(fn)
+	if (path_array_count = 0)
+		return false
+	for (var i = 0; i < path_array_count; i += 1)
+	{
+		show_debug_message(string("Starting Import : ", path_array[i]))
+	    asset_load(path_array[i])
+	}
+
 }

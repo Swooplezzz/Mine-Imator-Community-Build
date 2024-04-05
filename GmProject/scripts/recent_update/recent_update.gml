@@ -33,14 +33,19 @@ function recent_update()
 	recent_update_sort(unpinnedlist)
 	
 	// Put them back together
-	for (var i = 0; i < ds_list_size(pinnedlist); i++)
+	for (var i = 0; i < ds_list_size(pinnedlist); i++){
+		if (string_contains(string_upper(filename_name(pinnedlist[|i].filename)), string_upper(app.search_string)))
 		ds_list_add(recent_list_display, pinnedlist[|i])
+	}
 	
-	for (var i = 0; i < ds_list_size(unpinnedlist); i++)
+	for (var i = 0; i < ds_list_size(unpinnedlist); i++){
+		if (string_contains(string_upper(filename_name(unpinnedlist[|i].filename)), string_upper(app.search_string)))
 		ds_list_add(recent_list_display, unpinnedlist[|i])
+	}
 	
-	recent_list_amount = ds_list_size(recent_list_display)
 	
+	recent_list_amount_search = ds_list_size(recent_list_display)
+	recent_list_amount = ds_list_size(unpinnedlist) + ds_list_size(pinnedlist)
 	// Cleanup
 	ds_list_destroy(pinnedlist)
 	ds_list_destroy(unpinnedlist)
