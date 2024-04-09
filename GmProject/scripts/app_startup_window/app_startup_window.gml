@@ -11,8 +11,7 @@ function app_startup_window()
 	minute_steps = 60 * 60
 	delta = 1
 	
-	tbx_recent_search = new_textbox(true,0,"")
-	search_string = ""
+	tbx_recent_search = new_textbox(true, 0, "")
 	log("Windows startup")
 	
 	http_assets = null
