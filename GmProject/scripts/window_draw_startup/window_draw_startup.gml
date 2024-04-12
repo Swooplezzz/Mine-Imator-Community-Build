@@ -14,12 +14,12 @@ function window_draw_startup()
 	draw_pattern(0, headersize, window_width, window_height - headersize)
 	
 	// Header
-	draw_box(0, 0, window_width, headersize, false, c_level_top, 1)
+    draw_box(0, 0, window_width, headersize, false, merge_color(c_level_top, c_level_bottom, .5), 1)
 	draw_divide(0, headersize, window_width)
 	
 	// Logo
-	draw_sprite(spr_logo, 0, window_width / 2, headersize / 2)
-	
+           draw_image_accent(spr_logo, 0, window_width / 2, headersize/2)
+	        draw_gradient(0, 0, window_width, headersize, c_accent,0,0,0.07,0.07)
 	// Version
 	var trial = (trial_version ? " " + text_get("startuptrial") : "");
 	draw_button_text(text_get("startupversion", mineimator_version_full + trial), (window_width / 2) + 259, floor((headersize/2) + (sprite_get_height(spr_logo)/2)) + 3, popup_switch, popup_about)
