@@ -1,4 +1,4 @@
-///action_recent_search(search)
+/// action_recent_search(search)
 /// @arg search
 
 function action_recent_search(search)

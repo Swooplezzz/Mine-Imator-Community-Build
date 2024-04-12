@@ -3,11 +3,11 @@
 function popup_about_draw()
 {
 	// Header
-	draw_box(dx, dy, dw, 128, false, c_overlay, a_overlay)
+	draw_box(dx, dy, dw, 144, false, c_overlay, a_overlay)
 	
 	// Logo
 	gpu_set_tex_filter(true)
-	draw_sprite_ext(spr_logo, 0, dx + dw / 2, dy + 54, .75, .75, 0, c_white, draw_get_alpha())
+	draw_image_accent(spr_logo, 0, dx + dw / 2, dy + 54, .75, .75, c_white, draw_get_alpha(), 0)
 	gpu_set_tex_filter(false)
 	
 	// Program info
@@ -19,18 +19,18 @@ function popup_about_draw()
 	textx = floor(dx + dw/2 - width/2)
 	
 	var version = text_get("aboutversion", mineimator_version_full) + (trial_version ? " " + text_get("startuptrial") : "");
-	draw_button_text(version, textx, dy + 98, popup_open_url, link_website, link_website)
+	draw_button_text(version, textx, dy + 114, popup_open_url, link_website, link_website)
 	textx += string_width(version)
 	
-	draw_label(text_get("aboutreleasedate", mineimator_version_date), textx, dy + 98, fa_left, fa_bottom, c_text_secondary, a_text_secondary)
+	draw_label(text_get("aboutreleasedate", mineimator_version_date), textx, dy + 114, fa_left, fa_bottom, c_text_secondary, a_text_secondary)
 	
 	// Minecraft credits
 	var mctext, mctextx;
 	mctext = string_width(text_get("aboutminecraftpre") + text_get("aboutminecraft"))
 	mctextx = floor(content_x + (content_width/2) - (mctext/2))
-	draw_label(text_get("aboutminecraftpre"), mctextx, dy + 98 + 19, fa_left, fa_bottom, c_text_secondary, a_text_secondary)
+	draw_label(text_get("aboutminecraftpre"), mctextx, dy + 114 + 19, fa_left, fa_bottom, c_text_secondary, a_text_secondary)
 	mctextx += string_width(text_get("aboutminecraftpre"))
-	draw_button_text(text_get("aboutminecraft"), mctextx, dy + 98 + 19, popup_open_url, link_minecraft, link_minecraft)
+	draw_button_text(text_get("aboutminecraft"), mctextx, dy + 114 + 19, popup_open_url, link_minecraft, link_minecraft)
 	
 	// Button links
 	var buttonx, buttony;

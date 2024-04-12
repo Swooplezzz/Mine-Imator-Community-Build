@@ -50,7 +50,7 @@ function window_draw_load_assets()
 	draw_dropshadow(xoff, yoff, screenwid, screenhei, c_accent, 1)
 	draw_box(xoff, yoff, screenwid, screenhei, false, c_level_middle, 1)
 	
-	draw_sprite(spr_logo, 0, window_width / 2, yoff - sprite_get_height(spr_logo))
+	draw_image_accent(spr_logo, 0, window_width / 2, yoff - sprite_get_height(spr_logo))
 	draw_sprite_ext(spr_startupasset_gradient, 0, xoff, yoff, 1, 1, 0, merge_color(c_accent, c_white, 0.2), .5)
 	
 	// Pattern
