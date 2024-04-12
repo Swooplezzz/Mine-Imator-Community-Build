@@ -215,30 +215,32 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			if (value[e_value.ROT_TARGET] != null)
 			{
 				var target_rot_mat =  array_copy_1d(value[e_value.ROT_TARGET].matrix)
-				//debug(value[e_value.ROT_TARGET].display_name)
-				
+
 				matrix_remove_rotation(matrix)
-				target_rot_mat[MAT_X] = 0;
-				target_rot_mat[MAT_Y] = 0;
-				target_rot_mat[MAT_Z] = 0;
+				var target_rotation = matrix_rotation(target_rot_mat);
+				target_rotation[X] = (value[e_value.COPY_ROT_X] ? target_rotation[X] : 0);
+				target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : 0);
+				target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0);
 				matrix_remove_scale(target_rot_mat)
-				matrix = matrix_multiply(target_rot_mat, matrix)
+				matrix = matrix_multiply(matrix_create(vec3(0), target_rotation, vec3(1)), matrix);
 			}
 			
 			if (value[e_value.POS_TARGET] != null)
 			{
 			    matrix_remove_rotation(matrix_parent)
-				matrix[MAT_X] = value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X]
-				matrix[MAT_Y] = value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y]
-				matrix[MAT_Z] = value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z]
+				
+				matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] : matrix[MAT_X]);
+				matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] : matrix[MAT_Y]);
+				matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] : matrix[MAT_Z]);
 			}
 			
 			if (value[e_value.SCALE_TARGET] != null)
 			{
 				matrix_remove_scale(matrix_parent)
-				value[e_value.SCA_X] = value[e_value.SCALE_TARGET].value[e_value.SCA_X]
-				value[e_value.SCA_Y] = value[e_value.SCALE_TARGET].value[e_value.SCA_Y]
-				value[e_value.SCA_Z] = value[e_value.SCALE_TARGET].value[e_value.SCA_Z]
+				
+				value[e_value.SCA_X] = (value[e_value.COPY_SCALE_X] ? value[e_value.SCALE_TARGET].value[e_value.SCA_X] : value[e_value.SCA_X])
+				value[e_value.SCA_Y] = (value[e_value.COPY_SCALE_Y] ? value[e_value.SCALE_TARGET].value[e_value.SCA_Y] : value[e_value.SCA_Y])
+				value[e_value.SCA_Z] = (value[e_value.COPY_SCALE_Z] ? value[e_value.SCALE_TARGET].value[e_value.SCA_Z] : value[e_value.SCA_Z])
 			}
 			
 			// Create rotation point
@@ -316,6 +318,39 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			inhsurf = true
 			inhsubsurf = true
 			tl = id
+			
+				if (value[e_value.BEND_IK_TARGET] != null)
+	{
+		var mat = matrix_parent;
+		
+		// Target rotation matrix
+		var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
+		
+		// Remove global position
+		target_rot_mat[MAT_X] = 0;
+		target_rot_mat[MAT_Y] = 0;
+		target_rot_mat[MAT_Z] = 0;
+		
+		// Remove scale
+		matrix_remove_scale(target_rot_mat)
+		
+		// Invert matrix_parent (Used for resetting the bend rotation)
+		var mat_inv = matrix_inverse(mat) 
+		
+		// Multiply the target rotation with the inverse transform matrix
+		var rot_target = matrix_rotation(matrix_multiply(target_rot_mat, mat_inv)) 
+		
+		// Set the bend to the final value
+		var bend = rot_target
+		bend[X] *= (model_part.bend_invert[X] ? -1: 1)
+		bend[Y] *= (model_part.bend_invert[Y] ? -1: 1)
+		bend[Z] *= (model_part.bend_invert[Z] ? -1: 1)
+		
+	    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
+		value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
+		value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
+    }
+			
 			
 			for (var j = X; j <= Z; j++)
 				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j]

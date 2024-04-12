@@ -8,37 +8,7 @@ function tl_update_model_shape_bend()
 					value_inherit[e_value.BEND_ANGLE_Z]);
 
 			
-	if (value[e_value.BEND_IK_TARGET] != null)
-	{
-		var mat = matrix_parent;
-		
-		// Target rotation matrix
-		var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
-		
-		// Remove global position
-		target_rot_mat[MAT_X] = 0;
-		target_rot_mat[MAT_Y] = 0;
-		target_rot_mat[MAT_Z] = 0;
-		
-		// Remove scale
-		matrix_remove_scale(target_rot_mat)
-		
-		// Invert matrix_parent (Used for resetting the bend rotation)
-		var mat_inv = matrix_inverse(mat) 
-		
-		// Multiply the target rotation with the inverse transform matrix
-		var rot_target = matrix_rotation(matrix_multiply(target_rot_mat, mat_inv)) 
-		
-		// Set the bend to the final value
-		bend = rot_target
-		bend[X] *= (model_part.bend_invert[X] ? -1: 1)
-		bend[Y] *= (model_part.bend_invert[Y] ? -1: 1)
-		bend[Z] *= (model_part.bend_invert[Z] ? -1: 1)
-		
-	    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
-		value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
-		value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
-    }
+
 	
 	// No change
 	if (vec3_equals(bend_rot_last, bend) && bend_model_part_last = model_part)

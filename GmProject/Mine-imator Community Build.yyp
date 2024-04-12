@@ -2640,9 +2640,8 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"Chicken_Champion.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"pillage_and_destroy.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"To_infinity_and_beyond.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"recent.midata","CopyToMask":-1,"filePath":"datafiles/Data",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.2.51",
+    "IDEVersion": "2022.0.1.31",
   },
 }

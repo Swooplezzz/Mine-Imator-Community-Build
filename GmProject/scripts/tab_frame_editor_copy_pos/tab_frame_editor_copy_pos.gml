@@ -30,11 +30,11 @@ function tab_frame_editor_copy_pos()
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyposy", dx, dy, tl_edit.value[e_value.COPY_POS_Y], action_tl_frame_copy_pos_y)
+		draw_checkbox("frameeditorcopyposy", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Y] : tl_edit.value[e_value.COPY_POS_Z]), (setting_z_is_up ? action_tl_frame_copy_pos_y : action_tl_frame_copy_pos_z))
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyposz", dx, dy, tl_edit.value[e_value.COPY_POS_Z], action_tl_frame_copy_pos_z)
+		draw_checkbox("frameeditorcopyposz", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Z] : tl_edit.value[e_value.COPY_POS_Y]), (setting_z_is_up ? action_tl_frame_copy_pos_z : action_tl_frame_copy_pos_y))
 		tab_next()
 		
 		/*

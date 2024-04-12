@@ -30,11 +30,11 @@ function tab_frame_editor_copy_rot()
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyroty", dx, dy, tl_edit.value[e_value.COPY_ROT_Y], action_tl_frame_copy_rot_y)
+		draw_checkbox("frameeditorcopyroty", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]), (setting_z_is_up ? action_tl_frame_copy_rot_y : action_tl_frame_copy_rot_z))
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyrotz", dx, dy, tl_edit.value[e_value.COPY_ROT_Z], action_tl_frame_copy_rot_z)
+		draw_checkbox("frameeditorcopyrotz", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? action_tl_frame_copy_rot_z : action_tl_frame_copy_rot_y))
 		tab_next()
 		
 		tab_collapse_end()

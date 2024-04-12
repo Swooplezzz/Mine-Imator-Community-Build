@@ -11,7 +11,7 @@ function action_toolbar_import_asset()
 		return false
 	for (var i = 0; i < path_array_count; i += 1)
 	{
-		show_debug_message(string("Starting Import : ", path_array[i]))
+
 	    asset_load(path_array[i])
 	}
 

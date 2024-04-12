@@ -30,11 +30,11 @@ function tab_frame_editor_copy_scale()
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyscaley", dx, dy, tl_edit.value[e_value.COPY_SCALE_Y], action_tl_frame_copy_scale_y)
+		draw_checkbox("frameeditorcopyscaley", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]), (setting_z_is_up ? action_tl_frame_copy_scale_y : action_tl_frame_copy_scale_z))
 		tab_next(false)
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyscalez", dx, dy, tl_edit.value[e_value.COPY_SCALE_Z], action_tl_frame_copy_scale_z)
+		draw_checkbox("frameeditorcopyscalez", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? action_tl_frame_copy_scale_z : action_tl_frame_copy_scale_y))
 		tab_next()
 		
 		tab_collapse_end()

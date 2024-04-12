@@ -35,7 +35,9 @@ function render_world_tl()
 	
 	var tl = id;
 	
-	while (tl.parent != app && tl.parent.lock && app.setting_select_locked_parent)
+
+	while (tl.parent != app && app.setting_select_locked_parent && render_mode = e_render_mode.CLICK)
+	if(tl.parent.lock)
 		tl = tl.parent
 	
 	// Click mode

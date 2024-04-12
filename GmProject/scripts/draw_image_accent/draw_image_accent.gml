@@ -33,6 +33,5 @@ function draw_image_accent(sprite, subimage, xx, yy, xscale = 1, yscale = 1, col
 	
 	draw_image(sprite, subimage, xx, yy, xscale, yscale, color, alpha, rotation)
 	
-	shader_reset()
 	shader_clear()
 }
