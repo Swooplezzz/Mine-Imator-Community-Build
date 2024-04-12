@@ -14,16 +14,11 @@ function window_draw_startup()
 	draw_pattern(0, headersize, window_width, window_height - headersize)
 	
 	// Header
-	draw_box(0, 0, window_width, headersize, false, merge_color(c_level_top, c_level_bottom, .5), 1)
+	draw_box(0, 0, window_width, headersize, false, c_level_top, 1)
 	draw_divide(0, headersize, window_width)
 	
 	// Logo
-
-		
-	       draw_image_accent(spr_logo, 0, window_width / 2, headersize/2)
-		   
-
-		draw_gradient(0, 0, window_width, headersize, c_accent,0,0,0.07,0.07)
+	draw_sprite(spr_logo, 0, window_width / 2, headersize / 2)
 	
 	// Version
 	var trial = (trial_version ? " " + text_get("startuptrial") : "");
@@ -32,15 +27,13 @@ function window_draw_startup()
 	dy = headersize + 48
 	dw = min(window_width - 48, 1008)
 	
+	draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
+	
 	// No recent projects text
 	if (ds_list_size(recent_list) = 0)
 	{
-		draw_label(text_get("recentnone"), window_width / 2, dy, fa_center, fa_middle, c_dkgray, 1, font_heading_big)
+		draw_label(text_get("recentnone"), window_width / 2, dy, fa_center, fa_middle, c_accent, 1, font_heading_big)
 		dy += 48
-	}
-			
-	if(recent_list_amount_search = 0 && recent_list_amount > 0){
-		draw_label(text_get("recentsearchnone"), window_width / 2, dy, fa_center, fa_middle, c_dkgray, 1, font_heading_big)
 	}
 	
 	// Draw buttons
@@ -51,21 +44,15 @@ function window_draw_startup()
 	browsewidth = string_width(text_get("startupbrowse")) + button_icon_padding
 	centerx = round((window_width / 2) - ((browsewidth + newprojectwidth) / 2))
 	
-	if (recent_list_amount > 0)
-    dx = (window_width / 2) - (dw / 2)
-		else
-	dx = (window_width / 2) - 256/2
 	// Element search
-	if (recent_list_amount > 0){
-	tab_control(24)
-	draw_textfield("searchprojects",dx, dy, 256, 24, tbx_recent_search, action_recent_search, text_get("recentsearchcaption"), "none")
-	tab_next()
-	}
-	
+	dx = recent_list_amount > 0 ? (window_width / 2) - (dw / 2) : (window_width / 2) - (256 / 2)
 	if (recent_list_amount > 0)
-		dx = (window_width / 2) + (dw / 2)
-	else
-		dx = centerx + (browsewidth + 24 + newprojectwidth)
+	{
+		tab_control(24)
+		draw_textfield("searchprojects", dx, dy, 256, 24, tbx_recent_search, action_recent_search, text_get("recentsearchcaption"), "none")
+		tab_next()
+	}
+	dx = recent_list_amount > 0 ? (window_width / 2) + (dw / 2) : centerx + (browsewidth + 24 + newprojectwidth)
 	
 	// New project
 	dx -= newprojectwidth
@@ -99,11 +86,9 @@ function window_draw_startup()
 		}
 	}
 	
-	// Show recent models
+	// Show recent projects
 	if (recent_list_amount > 0)
 	{
-		
-		draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
 		// Recent model grid/list button
 		dx -= (12 + 28)
 		
@@ -111,7 +96,7 @@ function window_draw_startup()
 		
 		draw_set_font(font_heading)
 		
-		// Recent models label
+		// Recent projects label
 		draw_label(text_get("startuprecentprojects"), dx, dy + 16, fa_left, fa_middle, c_accent, 1)
 		
 		var labelwid = string_width(text_get("startuprecentprojects"));
@@ -124,6 +109,9 @@ function window_draw_startup()
 		
 		dy += 72
 		
+		if (recent_list_amount_search = 0)
+			draw_label(text_get("recentsearchnone"), window_width / 2, dy, fa_center, fa_middle, c_accent, 1, font_heading_big)
+
 		var listheight;
 		
 		if (recent_display_mode = "list")
@@ -148,6 +136,5 @@ function window_draw_startup()
 			draw_image_accent(spr_jonathan_splash, 1, midx, midy)
 			draw_image(spr_jonathan_splash, 0, midx, midy)
 		}
-		draw_gradient(0, headersize, window_width, window_height - headersize, c_accent, 0, 0, 0.1, 0.1)
 	}
 }

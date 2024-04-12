@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.04.03"
+		"lastchange": "2024.04.09"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -288,7 +288,6 @@
 	},
 	"recent/": {
 		"lastopened": "Last opened",
-		"searchcaption": "Search...",
 		"lastopened/": {
 			"recently": "Last opened recently",
 			"minutes": "Last opened %1 minutes ago",
@@ -301,6 +300,8 @@
 			"future": "Last opened in the future"
 		},
 		"none": "The projects you've opened recently will appear here!",
+		"searchnone": "No projects were found by that name.",
+		"searchcaption": "Search...",
 		"sortdatenewest": "Date (newest)",
 		"sortdateoldest": "Date (oldest)",
 		"sortnameaz": "Name (A-Z)",

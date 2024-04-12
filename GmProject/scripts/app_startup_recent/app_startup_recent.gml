@@ -9,6 +9,8 @@ function app_startup_recent()
 		name_za
 	}
 	
+	recent_search = ""
+	
 	recent_display_mode = "grid"
 	recent_sort_mode = e_recent_sort.date_newest
 	
