@@ -110,11 +110,14 @@ function draw_recent()
 		namex = xx + 12
 		timex = xx + 12 + namewidth + 12
 		
-		// File name
-		draw_label(text_get("recentfilename"), namex, recenty + 14, fa_left, fa_middle, c_text_secondary, a_text_secondary)
+		if (recent_list_amount_search > 0)
+		{
+			// File name
+			draw_label(text_get("recentname"), namex, recenty + 14, fa_left, fa_middle, c_text_secondary, a_text_secondary)
 		
-		// Last opened
-		draw_label(text_get("recentlastopened"), timex, recenty + 14, fa_left, fa_middle, c_text_secondary, a_text_secondary)
+			// Last opened
+			draw_label(text_get("recentlastopened"), timex, recenty + 14, fa_left, fa_middle, c_text_secondary, a_text_secondary)
+		}
 		
 		recenty += 28
 		

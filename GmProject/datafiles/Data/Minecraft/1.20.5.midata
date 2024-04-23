@@ -1,5 +1,5 @@
 {
-	"version": "1.20.2",
+	"version": "1.20.5",
 	"patch": 0,
 	"format": 9,
 	"characters": [
@@ -42,7 +42,7 @@
 				"variant": [
 					{ "value": "skeleton", "file": "skeleton.mimodel" },
 					{ "value": "wither_skeleton", "file": "wither_skeleton.mimodel" },
-					{ "value": "stray_skeleton", "file": "stray_skeleton.mimodel" }
+					{ "value": "stray", "file": "stray.mimodel" }
 				]
 			},
 			"default_state": "variant=skeleton"
@@ -207,9 +207,33 @@
 			"file": "wolf.mimodel",
 			"states": {
 				"variant": [
-					{ "value": "normal", "texture": "entity/wolf/wolf" },
-					{ "value": "tame", "texture": "entity/wolf/wolf_tame" },
-					{ "value": "angry", "texture": "entity/wolf/wolf_angry" }
+					{ "value": "pale", "texture": "entity/wolf/wolf" },
+					{ "value": "pale_tame", "texture": "entity/wolf/wolf_tame" },
+					{ "value": "pale_angry", "texture": "entity/wolf/wolf_angry" },
+					{ "value": "woods", "texture": "entity/wolf/wolf_woods" },
+					{ "value": "woods_tame", "texture": "entity/wolf/wolf_woods_tame" },
+					{ "value": "woods_angry", "texture": "entity/wolf/wolf_woods_angry" },
+					{ "value": "ashen", "texture": "entity/wolf/wolf_ashen" },
+					{ "value": "ashen_tame", "texture": "entity/wolf/wolf_ashen_tame" },
+					{ "value": "ashen_angry", "texture": "entity/wolf/wolf_ashen_angry" },
+					{ "value": "black", "texture": "entity/wolf/wolf_black" },
+					{ "value": "black_tame", "texture": "entity/wolf/wolf_black_tame" },
+					{ "value": "black_angry", "texture": "entity/wolf/wolf_black_angry" },
+					{ "value": "chestnut", "texture": "entity/wolf/wolf_chestnut" },
+					{ "value": "chestnut_tame", "texture": "entity/wolf/wolf_chestnut_tame" },
+					{ "value": "chestnut_angry", "texture": "entity/wolf/wolf_chestnut_angry" },
+					{ "value": "rusty", "texture": "entity/wolf/wolf_rusty" },
+					{ "value": "rusty_tame", "texture": "entity/wolf/wolf_rusty_tame" },
+					{ "value": "rusty_angry", "texture": "entity/wolf/wolf_rusty_angry" },
+					{ "value": "spotted", "texture": "entity/wolf/wolf_spotted" },
+					{ "value": "spotted_tame", "texture": "entity/wolf/wolf_spotted_tame" },
+					{ "value": "spotted_angry", "texture": "entity/wolf/wolf_spotted_angry" },
+					{ "value": "striped", "texture": "entity/wolf/wolf_striped" },
+					{ "value": "striped_tame", "texture": "entity/wolf/wolf_striped_tame" },
+					{ "value": "striped_angry", "texture": "entity/wolf/wolf_striped_angry" },
+					{ "value": "snowy", "texture": "entity/wolf/wolf_snowy" },
+					{ "value": "snowy_tame", "texture": "entity/wolf/wolf_snowy_tame" },
+					{ "value": "snowy_angry", "texture": "entity/wolf/wolf_snowy_angry" }
 				],
 				"collar": [
 					{ "value": "none", "shape_hide": [ "collar" ] },
@@ -231,7 +255,7 @@
 					{ "value": "black", "shape_color": { "collar": "dye:black" } }
 				]
 			},
-			"default_state": "variant=normal,collar=red"
+			"default_state": "variant=pale,collar=red"
 		},
 		{
 			"name": "parrot",
@@ -759,6 +783,10 @@
 			"file": "sniffer.mimodel"
 		},
 		{
+			"name": "armadillo",
+			"file": "armadillo.mimodel"
+		},
+		{
 			"name": "wither",
 			"file": "wither.mimodel",
 			"states": {
@@ -949,6 +977,23 @@
 				]
 			},
 			"default_state": "variant=iron,saddle=true,chests=true"
+		},
+		{
+			"name": "wolf_armor",
+			"file": "wolf_armor.mimodel",
+			"states": {
+				"dyed": [
+					{ "value": "false", "shape_hide": [ "overlay" ] },
+					{ "value": "true" }
+				],
+				"crack_amount": [
+					{ "value": "none", "shape_hide": [ "crack" ] },
+					{ "value": "low", "shape_texture": { "crack": "entity/wolf/wolf_armor_crackiness_low" } },
+					{ "value": "medium", "shape_texture": { "crack": "entity/wolf/wolf_armor_crackiness_medium" } },
+					{ "value": "high", "shape_texture": { "crack": "entity/wolf/wolf_armor_crackiness_high" } }
+				]
+			},
+			"default_state": "dyed=false,crack_amount=none"
 		},
 		{
 			"name": "shield",
@@ -1914,12 +1959,12 @@
 			"name": "grass",
 			"states": {
 				"type": [
-					{ "value": "grass", "file": "grass.json", "random_offset": true },
+					{ "value": "short_grass", "file": "short_grass.json", "random_offset": true },
 					{ "value": "fern", "file": "fern.json", "random_offset": true },
 					{ "value": "dead_bush", "file": "dead_bush.json" }
 				]
 			},
-			"default_state": "type=grass",
+			"default_state": "type=short_grass",
 			"subsurface": 1,
 			"wind": {
 				"axis": "all",
@@ -1927,7 +1972,7 @@
 			},
 			"id": {
 				"minecraft:dead_bush": "type=dead_bush",
-				"minecraft:grass": "type=grass",
+				"minecraft:short_grass": "type=short_grass",
 				"minecraft:fern": "type=fern"
 			}
 		},
@@ -2410,7 +2455,7 @@
 			"name": "chest",
 			"type": "chest",
 			"states": {
-				"type": [ "legacy" , "single", "right", "left" ],
+				"type": [ "legacy", "single", "right", "left" ],
 				"facing": [ "north", "south", "east", "west" ],
 				"double": [ "false", "true" ]
 			},
@@ -4647,7 +4692,7 @@
 			"name": "torchflower_crop",
 			"file": "torchflower_crop.json",
 			"states": {
-				"age": [ "0", "1", "2" ]
+				"age": [ "0", "1" ]
 			},
 			"default_state": "age=0",
 			"subsurface": 1,
@@ -6178,6 +6223,7 @@
 	],
 	"model_textures": [
 		"entity/allay/allay",
+		"entity/armadillo",
 		"entity/armorstand/wood",
 		"entity/axolotl/axolotl_blue",
 		"entity/axolotl/axolotl_cyan",
@@ -6610,8 +6656,37 @@
 		"entity/wither/wither_invulnerable",
 		"entity/wolf/wolf",
 		"entity/wolf/wolf_angry",
+		"entity/wolf/wolf_armor",
+		"entity/wolf/wolf_armor_crackiness_high",
+		"entity/wolf/wolf_armor_crackiness_low",
+		"entity/wolf/wolf_armor_crackiness_medium",
+		"entity/wolf/wolf_armor_overlay",
+		"entity/wolf/wolf_ashen",
+		"entity/wolf/wolf_ashen_angry",
+		"entity/wolf/wolf_ashen_tame",
+		"entity/wolf/wolf_black",
+		"entity/wolf/wolf_black_angry",
+		"entity/wolf/wolf_black_tame",
+		"entity/wolf/wolf_chestnut",
+		"entity/wolf/wolf_chestnut_angry",
+		"entity/wolf/wolf_chestnut_tame",
 		"entity/wolf/wolf_collar",
+		"entity/wolf/wolf_rusty",
+		"entity/wolf/wolf_rusty_angry",
+		"entity/wolf/wolf_rusty_tame",
+		"entity/wolf/wolf_snowy",
+		"entity/wolf/wolf_snowy_angry",
+		"entity/wolf/wolf_snowy_tame",
+		"entity/wolf/wolf_spotted",
+		"entity/wolf/wolf_spotted_angry",
+		"entity/wolf/wolf_spotted_tame",
+		"entity/wolf/wolf_striped",
+		"entity/wolf/wolf_striped_angry",
+		"entity/wolf/wolf_striped_tame",
 		"entity/wolf/wolf_tame",
+		"entity/wolf/wolf_woods",
+		"entity/wolf/wolf_woods_angry",
+		"entity/wolf/wolf_woods_tame",
 		"entity/zombie/drowned",
 		"entity/zombie/drowned_outer_layer",
 		"entity/zombie/husk",
@@ -7025,7 +7100,7 @@
 		"block/sugar_cane",
 		"block/flower_pot",
 		"block/cobweb",
-		"block/grass",
+		"block/short_grass",
 		"block/fern",
 		"block/dead_bush",
 		"block/brown_mushroom",
@@ -7721,7 +7796,7 @@
 		"block/melon_stem": "#80DF10",
 		"block/lily_pad": "#208030",
 		"block/vine": "foliage",
-		"block/grass": "grass",
+		"block/short_grass": "grass",
 		"block/fern": "grass",
 		"block/tall_grass_bottom": "grass",
 		"block/tall_grass_top": "grass",
@@ -7757,7 +7832,7 @@
 		"lapis_ore.json": { "colorY": "#4D6CA0", "colorZ": "#4D6CA0", "alphaY": 1, "alphaZ": 1 },
 		"deepslate_lapis_ore.json": { "colorY": "#4D6CA0", "colorZ": "#4D6CA0", "alphaY": 1, "alphaZ": 1 },
 		"cobweb.json": { "colorZ": "#F1F4F4", "alphaZ": 1 },
-		"grass.json": { "colorY": null, "colorZ": null },
+		"short_grass.json": { "colorY": null, "colorZ": null },
 		"fern.json": { "colorY": null, "colorZ": null },
 		"dead_bush.json": { "colorZ": "#A26F2F", "alphaZ": 1 },
 		"dandelion.json": { "colorZ": "#FBD33F", "alphaZ": 1 },
@@ -8173,7 +8248,7 @@
 		"item/dried_kelp",
 		"item/seagrass",
 		"item/sea_pickle",
-		"item/scute",
+		"item/turtle_scute",
 		"item/turtle_egg",
 		"item/turtle_helmet",
 		"item/trident",
@@ -8357,6 +8432,9 @@
 		"trims/items/chestplate_trim",
 		"trims/items/leggings_trim",
 		"trims/items/boots_trim",
+		"item/armadillo_scute",
+		"item/wolf_armor",
+		"item/wolf_armor_overlay",
 		"item/light",
 		"item/light_00",
 		"item/light_01",
@@ -9196,7 +9274,6 @@
 			"name": "potion",
 			"colors": [
 				{ "name": "water", "value": "#395FCA" },
-				{ "name": "uncraftable", "value": "#FC00FC" },
 				{ "name": "night_vision", "value": "#2020A4" },
 				{ "name": "invisibility", "value": "#818595" },
 				{ "name": "leaping", "value": "#23FC4D" },

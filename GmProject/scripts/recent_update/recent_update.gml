@@ -35,13 +35,13 @@ function recent_update()
 	// Put them back together
 	for (var i = 0; i < ds_list_size(pinnedlist); i++)
 	{
-		if (string_contains(string_upper(filename_name(pinnedlist[|i].name)), string_upper(recent_search)) || recent_search = "")
+		if (recent_search = "" || string_contains(string_upper(filename_name(pinnedlist[|i].name)), string_upper(recent_search)))
 			ds_list_add(recent_list_display, pinnedlist[|i])
 	}
 	
 	for (var i = 0; i < ds_list_size(unpinnedlist); i++)
 	{
-		if (string_contains(string_upper(filename_name(unpinnedlist[|i].name)), string_upper(recent_search)) || recent_search = "")
+		if (recent_search = "" || string_contains(string_upper(filename_name(unpinnedlist[|i].name)), string_upper(recent_search)))
 			ds_list_add(recent_list_display, unpinnedlist[|i])
 	}
 	
