@@ -309,17 +309,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			value_inherit[e_value.TEXTURE_MATERIAL_OBJ] = value[e_value.TEXTURE_MATERIAL_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_NORMAL_OBJ] = value[e_value.TEXTURE_NORMAL_OBJ] // Overwritten
 			
-			inhalpha = true
-			inhcolor = true
-			inhglowcolor = true
-			inhvis = true
-			inhbend = true
-			inhtex = true
-			inhsurf = true
-			inhsubsurf = true
-			tl = id
-			
-				if (value[e_value.BEND_IK_TARGET] != null)
+	if (value[e_value.BEND_IK_TARGET] != null)
 	{
 		var mat = matrix_parent;
 		
@@ -350,7 +340,20 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
 		value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
     }
+		
 			
+			
+			inhalpha = true
+			inhcolor = true
+			inhglowcolor = true
+			inhvis = true
+			inhbend = true
+			inhtex = true
+			inhsurf = true
+			inhsubsurf = true
+			tl = id
+			
+	
 			
 			for (var j = X; j <= Z; j++)
 				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j]
@@ -445,6 +448,11 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					value_inherit[e_value.BEND_ANGLE_X] += par.value[e_value.BEND_ANGLE_X]
 					value_inherit[e_value.BEND_ANGLE_Y] += par.value[e_value.BEND_ANGLE_Y]
 					value_inherit[e_value.BEND_ANGLE_Z] += par.value[e_value.BEND_ANGLE_Z]
+					if(par.value[e_value.BEND_IK_TARGET] != null){
+					value_inherit[e_value.BEND_ANGLE_X] += par.value_inherit[e_value.BEND_ANGLE_X]
+					value_inherit[e_value.BEND_ANGLE_Y] += par.value_inherit[e_value.BEND_ANGLE_Y]
+					value_inherit[e_value.BEND_ANGLE_Z] += par.value_inherit[e_value.BEND_ANGLE_Z]
+					}
 				}
 				
 				if (inhtex)

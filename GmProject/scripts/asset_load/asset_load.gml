@@ -112,7 +112,7 @@ function asset_load()
 		case ".jpeg":
 		case ".dat":
 			log("Opening image", fn)
-			show_debug_message(fn)
+			ds_list_add(popup_importimage.filenames, fn);
 			popup_importimage_show(fn)
 			return true
 	}
