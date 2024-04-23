@@ -2622,8 +2622,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"performance.mirender","CopyToMask":-1,"filePath":"datafiles/Data/Render",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"balanced.mirender","CopyToMask":-1,"filePath":"datafiles/Data/Render",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"rubik_semibold.ttf","CopyToMask":-1,"filePath":"datafiles/Data/Fonts",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.2.midata","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.2.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"hween.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"dangerous_temple.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"duality_of_noob.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
@@ -2640,6 +2638,8 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"Chicken_Champion.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"pillage_and_destroy.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"To_infinity_and_beyond.png","CopyToMask":-1,"filePath":"datafiles/Data/Splashes",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.5.midata","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.5.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
   ],
   "MetaData": {
     "IDEVersion": "2022.0.1.31",

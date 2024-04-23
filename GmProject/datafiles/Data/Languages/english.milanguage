@@ -306,7 +306,7 @@
 		"sortdateoldest": "Date (oldest)",
 		"sortnameaz": "Name (A-Z)",
 		"sortnameza": "Name (Z-A)",
-		"filename": "File name",
+		"name": "Name",
 		"projects": "Recent projects"
 	},
 	"alert/": {
