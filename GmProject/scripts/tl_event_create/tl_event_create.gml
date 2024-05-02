@@ -59,6 +59,7 @@ function tl_event_create()
 	keyframe_next_values = null
 	
 	world_pos = point3D(0, 0, 0)
+	world_rot = vec4(0)
 	world_pos_rotate = point3D(0, 0, 0)
 	world_pos_2d = point2D(0, 0)
 	world_pos_2d_error = false

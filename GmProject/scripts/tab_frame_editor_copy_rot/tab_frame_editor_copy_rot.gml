@@ -2,6 +2,9 @@
 
 function tab_frame_editor_copy_rot()
 {
+	if(tl_edit.type = e_tl_type.PATH_POINT)
+	return 0
+	
 	tab_control_switch()
 	draw_button_collapse("copyrot", collapse_map[?"copyrot"], null, true, "frameeditorcopyrot", "frameeditorcopyrottip")
 	tab_next()

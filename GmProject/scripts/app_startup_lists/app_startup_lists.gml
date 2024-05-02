@@ -223,6 +223,7 @@ function app_startup_lists()
 		"IK_BLEND",
 		"IK_TARGET_ANGLE",
 		"IK_ANGLE_OFFSET",
+		"BEND_IK_INFLUENCE",
 		"ROT_TARGET",
 		"POS_TARGET",
 		"SCALE_TARGET",
