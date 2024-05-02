@@ -22,11 +22,11 @@ function view_click(view, cam)
 	if (tl > 0)
 	{
 		// Find timeline to select
-		if (!tl_edit && !keyboard_check(vk_control) || setting_select_locked_parent && tl.lock)
-			while (tl.parent != app && (setting_select_locked_parent && tl.lock? tl.parent.lock : !tl.parent.lock) && tl_update_list_filter(tl.parent))
+		if (!tl_edit && !keyboard_check(vk_control) || app.setting_select_locked_parent && tl.lock)
+			while (tl.parent != app && (app.setting_select_locked_parent && tl.lock ? tl.parent.lock : !tl.parent.lock) && tl_update_list_filter(tl.parent))
 				tl = tl.parent
 		
-		if (tl.lock && setting_select_locked_parent && tl.parent != app)
+		if (app.setting_select_locked_parent && tl.lock && tl.parent != app)
 			tl = tl.parent
 		
 		// Select

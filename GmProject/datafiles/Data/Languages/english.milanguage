@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.04.09"
+		"lastchange": "2024.05.02"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -1011,7 +1011,6 @@
 		"potion": "POTIONS",
 		"potion/": {
 			"water": "Water",
-			"uncraftable": "Uncraftable",
 			"night_vision": "Night Vision",
 			"invisibility": "Invisibility",
 			"leaping": "Leaping",
@@ -3432,7 +3431,8 @@
 		"bendik": "Bend inverse kinematics",
 		"bendik/": {
 			"tip": "Allows the part to bend parallel to the rotation of another timeline.",
-			"target": "Target"
+			"target": "Target",
+			"multiplier": "Multiplier"
 		},
 		"material": "MATERIAL",
 		"opacity": "Opacity",

@@ -2,8 +2,8 @@
 
 function tab_frame_editor_copy_pos()
 {
-	if(tl_edit.type = e_tl_type.PATH_POINT)
-	return 0
+	if (tl_edit.type = e_tl_type.PATH_POINT)
+		return 0
 	
 	tab_control_switch()
 	draw_button_collapse("copypos", collapse_map[?"copypos"], null, true, "frameeditorcopypos", "frameeditorcopypostip")

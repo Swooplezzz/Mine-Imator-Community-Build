@@ -228,16 +228,16 @@ void main()
 						
 						if ((fragDepth - (bias * 0.01)) <= sampleDepth)
 							dis = vec3(0.0);
-					    //Broken needs a fix
-						fragCoord = (vec2(vShadowCoord.x , -vShadowCoord.y) /(vShadowCoord.z) + 1.0) * 0.5 ;
+					    // Broken needs a fix
+						fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / (vShadowCoord.z) + 1.0) * 0.5;
 						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * texture2D(uLightGobo, fragCoord).rgb;
 					}
 				}
 			}
 		}
 
-		//Diffuse light
-			vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
+		// Diffuse light
+		vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
 
 		light = uLightColor.rgb * uLightStrength * dif * shadow;
 		light *= texture2D(uLightGobo, fragCoord).rgb;
@@ -271,7 +271,6 @@ void main()
 			spec *= texture2D(uLightGobo, fragCoord).rgb;
 		}
 	}
-	
 	
 	gl_FragData[0] = vec4(light, baseColor.a);
 	gl_FragData[1] = vec4(spec, baseColor.a);

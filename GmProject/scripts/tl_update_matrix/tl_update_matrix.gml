@@ -62,7 +62,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				if (parent.type = e_tl_type.BODYPART && lock_bend && parent.model_part != null && parent.model_part.bend_part != null)
 				{
 					bend = vec3(parent.value_inherit[e_value.BEND_ANGLE_X], parent.value_inherit[e_value.BEND_ANGLE_Y], parent.value_inherit[e_value.BEND_ANGLE_Z]);
-					matrix_parent = matrix_multiply(model_part_get_bend_matrix(parent.model_part, bend, point3D(0, 0, 0),vec3(1),id), matrix_parent)
+					matrix_parent = matrix_multiply(model_part_get_bend_matrix(parent.model_part, bend, point3D(0, 0, 0), vec3(1), id), matrix_parent)
 				}
 			}
 			else
@@ -212,16 +212,14 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				matrix[MAT_Z] = value[e_value.POS_Z]
 			}
 			
-			//QUATERNIONS
-			
-			//world_rot = quat_euler(vec3(value[e_value.ROT_X],value[e_value.ROT_Y],value[e_value.ROT_Z]));
-			//if(id.parent != app){
-			//	world_rot = quat_mul(world_rot, id.parent.world_rot );
-			//}
+			// Quaternions
+			//world_rot = quat_euler(vec3(value[e_value.ROT_X], value[e_value.ROT_Y], value[e_value.ROT_Z]));
+			//if (id.parent != app)
+			//	world_rot = quat_mul(world_rot, id.parent.world_rot);
 			
 			if (value[e_value.ROT_TARGET] != null)
 			{
-				var target_rot_mat =  array_copy_1d(value[e_value.ROT_TARGET].matrix)
+				var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
 				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value_inherit[e_value.ROT_X], value_inherit[e_value.ROT_Y], value_inherit[e_value.ROT_Z]), vec3(1)), target_rot_mat);
 				matrix_remove_rotation(matrix)
 				var target_rotation = matrix_rotation(target_rot_mat);
@@ -264,10 +262,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			
 			// Set world position
 			world_pos = point3D(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z])
-			
-		
-			
-
 			
 			// Add rotation point
 			matrix_render = matrix_multiply(matrix_create(point3D_mul(rot_point_render, -1), vec3(0), vec3(1)), matrix)
@@ -323,45 +317,42 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			value_inherit[e_value.TEXTURE_MATERIAL_OBJ] = value[e_value.TEXTURE_MATERIAL_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_NORMAL_OBJ] = value[e_value.TEXTURE_NORMAL_OBJ] // Overwritten
 			
-	if (value[e_value.BEND_IK_TARGET] != null)
-	{
-		var mat = matrix_parent;
+			if (value[e_value.BEND_IK_TARGET] != null)
+			{
+				var mat = matrix_parent;
 		
-		// Target rotation matrix
-		var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
+				// Target rotation matrix
+				var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
 		
-		// Remove global position
-		target_rot_mat[MAT_X] = 0;
-		target_rot_mat[MAT_Y] = 0;
-		target_rot_mat[MAT_Z] = 0;
+				// Remove global position
+				target_rot_mat[MAT_X] = 0;
+				target_rot_mat[MAT_Y] = 0;
+				target_rot_mat[MAT_Z] = 0;
 		
-		// Remove scale
-		matrix_remove_scale(target_rot_mat)
+				// Remove scale
+				matrix_remove_scale(target_rot_mat)
 		
-		// Invert matrix_parent (Used for resetting the bend rotation)
-		var mat_inv = matrix_inverse(mat) 
+				// Invert matrix_parent (Used for resetting the bend rotation)
+				var mat_inv = matrix_inverse(mat) 
 		
-		// Multiply the target rotation with the inverse transform matrix
-		 rot_target = matrix_rotation(matrix_multiply(target_rot_mat, mat_inv)) 
-		//var rot_target = to_euler(QuatInvert(world_rot)) 
+				// Multiply the target rotation with the inverse transform matrix
+				rot_target = matrix_rotation(matrix_multiply(target_rot_mat, mat_inv)) 
+				//var rot_target = to_euler(QuatInvert(world_rot)) 
 		
-		// Set the bend to the final value
-		var bend = rot_target
+				// Set the bend to the final value
+				var bend = rot_target
 
-		//ISSUE X ROTATIONS MORE THAN 90 RESULT IN Y AND Z MIRRORING AXIS
-		
+				//ISSUE X ROTATIONS MORE THAN 90 RESULT IN Y AND Z MIRRORING AXIS
 
-		//show_debug_message(string(bend));
-		bend[X] *= (model_part.bend_invert[X] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
-		bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
-		bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
+				//show_debug_message(string(bend));
+				bend[X] *= (model_part.bend_invert[X] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
+				bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
+				bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
 		
-	    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
-		value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
-		value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
-    }
-		
-			
+			    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
+				value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
+				value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
+			}
 			
 			inhalpha = true
 			inhcolor = true
@@ -372,8 +363,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			inhsurf = true
 			inhsubsurf = true
 			tl = id
-			
-	
 			
 			for (var j = X; j <= Z; j++)
 				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j]
@@ -468,10 +457,12 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					value_inherit[e_value.BEND_ANGLE_X] += par.value[e_value.BEND_ANGLE_X]
 					value_inherit[e_value.BEND_ANGLE_Y] += par.value[e_value.BEND_ANGLE_Y]
 					value_inherit[e_value.BEND_ANGLE_Z] += par.value[e_value.BEND_ANGLE_Z]
-					if(par.value[e_value.BEND_IK_TARGET] != null){
-					value_inherit[e_value.BEND_ANGLE_X] += par.value_inherit[e_value.BEND_ANGLE_X]
-					value_inherit[e_value.BEND_ANGLE_Y] += par.value_inherit[e_value.BEND_ANGLE_Y]
-					value_inherit[e_value.BEND_ANGLE_Z] += par.value_inherit[e_value.BEND_ANGLE_Z]
+					
+					if (par.value[e_value.BEND_IK_TARGET] != null)
+					{
+						value_inherit[e_value.BEND_ANGLE_X] += par.value_inherit[e_value.BEND_ANGLE_X]
+						value_inherit[e_value.BEND_ANGLE_Y] += par.value_inherit[e_value.BEND_ANGLE_Y]
+						value_inherit[e_value.BEND_ANGLE_Z] += par.value_inherit[e_value.BEND_ANGLE_Z]
 					}
 				}
 				

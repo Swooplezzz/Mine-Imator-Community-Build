@@ -149,26 +149,26 @@ function tl_value_default(valueid)
 		case e_value.BG_WIND_DIRECTIONAL_SPEED: return app.background_wind_directional_speed
 		case e_value.BG_WIND_DIRECTIONAL_STRENGTH: return app.background_wind_directional_strength
 		case e_value.BG_TEXTURE_ANI_SPEED: return app.background_texture_animation_speed
-		case e_value.PATH_OBJ: return null
-		case e_value.IK_TARGET:  return null
-		case e_value.ROT_TARGET: return null
-		case e_value.POS_TARGET: return null
-		case e_value.SCALE_TARGET: return null
+		case e_value.PATH_OBJ:
+		case e_value.IK_TARGET:
+		case e_value.ROT_TARGET:
+		case e_value.POS_TARGET:
+		case e_value.SCALE_TARGET:
 		case e_value.BEND_IK_TARGET: return null
-		case e_value.BEND_IK_INFLUENCE: return 1
+		case e_value.BEND_IK_MULTIPLIER: return 1
 		case e_value.COPY_POS_OFFSET_X:
 		case e_value.COPY_POS_OFFSET_Y:
 		case e_value.COPY_POS_OFFSET_Z:
 		case e_value.COPY_SCALE_MULT:
 		case e_value.IK_TARGET_ANGLE: return null
-		case e_value.COPY_POS_X: return true
-		case e_value.COPY_POS_Y: return true
-		case e_value.COPY_POS_Z: return true
-		case e_value.COPY_ROT_X: return true
-		case e_value.COPY_ROT_Y: return true
-		case e_value.COPY_ROT_Z: return true
-		case e_value.COPY_SCALE_X: return true 
-		case e_value.COPY_SCALE_Y: return true
+		case e_value.COPY_POS_X:
+		case e_value.COPY_POS_Y:
+		case e_value.COPY_POS_Z:
+		case e_value.COPY_ROT_X:
+		case e_value.COPY_ROT_Y:
+		case e_value.COPY_ROT_Z:
+		case e_value.COPY_SCALE_X:
+		case e_value.COPY_SCALE_Y:
 		case e_value.COPY_SCALE_Z: return true
 		case e_value.ATTRACTOR:
 		case e_value.TEXTURE_OBJ:

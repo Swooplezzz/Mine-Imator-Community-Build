@@ -34,16 +34,18 @@ function render_world_tl()
 		return 0
 	
 	var tl = id;
-	
 
-	while (tl.parent != app && app.setting_select_locked_parent && render_mode = e_render_mode.CLICK)
-	if(tl.parent.lock)
+	while (app.setting_select_locked_parent && (tl.parent != app && tl.parent.lock) && render_mode = e_render_mode.CLICK)
 		tl = tl.parent
 	
 	// Click mode
 	if (render_mode = e_render_mode.CLICK)
 	{
-		if (selected || (lock && !app.setting_select_locked_parent) || (tl.lock && tl.parent = app && app.setting_select_locked_parent) || !tl_update_list_filter(id)) // Already selected when clicking?
+		// Already selected when clicking?
+		if (selected ||
+				(lock && !app.setting_select_locked_parent) ||
+				(tl.lock && tl.parent = app && app.setting_select_locked_parent) ||
+				!tl_update_list_filter(id))
 			return 0
 		
 		render_set_uniform_color("uReplaceColor", id, 1)

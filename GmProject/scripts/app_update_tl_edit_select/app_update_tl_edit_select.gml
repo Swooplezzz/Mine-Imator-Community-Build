@@ -100,9 +100,8 @@ function app_update_tl_edit_select()
 		if (value_type[e_value_type.TRANSFORM])
 			app.frame_editor.transform.enabled = true
 			
-		if (value_type[e_value_type.TRANSFORM_POS] && (  type != e_tl_type.PATH_POINT))
+		if (value_type[e_value_type.TRANSFORM_POS] && (type != e_tl_type.PATH_POINT))
 			app.frame_editor.constraints.enabled = true
-
 		
 		if (value_type[e_value_type.MATERIAL])
 			app.frame_editor.material.enabled = true

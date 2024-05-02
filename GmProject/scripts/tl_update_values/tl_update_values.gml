@@ -122,7 +122,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.IK_TARGET_ANGLE)
 		tl_update_values_ease(e_value.IK_ANGLE_OFFSET)
 		
-		tl_update_values_ease(e_value.BEND_IK_INFLUENCE)
+		tl_update_values_ease(e_value.BEND_IK_MULTIPLIER)
 	}
 	
 	// Path point

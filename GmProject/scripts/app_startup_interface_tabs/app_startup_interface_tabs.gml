@@ -509,8 +509,8 @@ function app_startup_interface_tabs()
 			tbx_ik_angle_offset = new_textbox_ndecimals()
 			tbx_ik_angle_offset.suffix = "°"
 			
-			// BEND IK
-			tbx_bend_ik_influence = new_textbox_ndecimals()
+			// Bend IK
+			tbx_bend_ik_multiplier = new_textbox_ndecimals()
 		}
 		
 		// Material

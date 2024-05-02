@@ -37,7 +37,7 @@ function tab_frame_editor_ik()
 		
 		// Angle offset
 		tab_control_dragger()
-		draw_dragger("frameeditorikangleoffset", dx, dy, dragger_width, tl_edit.value[e_value.IK_ANGLE_OFFSET], 0.1, -no_limit, no_limit, 1, snap_min, tab.constraints.tbx_ik_angle_offset, action_tl_frame_ik_angle_offset, null, true, tl_edit.value[e_value.IK_TARGET] = null || tl_edit.value[e_value.IK_TARGET_ANGLE] = null)
+		draw_dragger("frameeditorikangleoffset", dx, dy, dragger_width, tl_edit.value[e_value.IK_ANGLE_OFFSET], 0.1, -no_limit, no_limit, 0, snap_min, tab.constraints.tbx_ik_angle_offset, action_tl_frame_ik_angle_offset, null, true, tl_edit.value[e_value.IK_TARGET] = null || tl_edit.value[e_value.IK_TARGET_ANGLE] = null)
 		tab_next()
 		
 		// Blend
