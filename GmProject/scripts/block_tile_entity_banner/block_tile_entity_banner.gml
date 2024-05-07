@@ -6,12 +6,19 @@ function block_tile_entity_banner(map)
 	var patterns, base, legacy;
 	var patternlist, patterncolorlist;
 	
-	if (ds_map_valid(map[?"patterns"])) // 1.20.5+ format
+	if (ds_list_valid(map[?"patterns"])) // 1.20.5+ format
 	{
 		patterns = map[?"patterns"]
 		patternlist = array()
 		patterncolorlist = array()
 		
+		// Base color
+		var color = c_white;
+		var col = block_get_state_id_value(block_current, block_state_id_current, "color");
+		if (!is_undefined(col))
+			color = minecraft_get_color("dye:" + col)
+		
+		// Patterns
 		if (ds_list_valid(patterns))
 		{
 			for (var i = 0; i < ds_list_size(patterns); i++)
@@ -20,23 +27,20 @@ function block_tile_entity_banner(map)
 			
 				if (!ds_map_valid(patternmap))
 					continue
-			
-				var pattern, colorname;
+				
+				var pattern, colorname, patternindex;
 				pattern = string_replace(value_get_string(patternmap[?"pattern"], minecraft_pattern_list[|1]), "minecraft:", "")
 				colorname = value_get_string(patternmap[?"color"], "black")
 				patternindex = ds_list_find_index(minecraft_pattern_list, pattern)
+				
+				if (patternindex = -1)
+					continue
 				
 				array_add(patternlist, minecraft_pattern_list[|patternindex])
 				array_add(patterncolorlist, minecraft_get_color("dye:" + colorname))
 			}
 		}
-		
-		// Base color
-		var color = c_white;
-		var col = block_get_state_id_value(block_current, block_state_id_current, "color");
-		if (!is_undefined(col))
-			color = minecraft_get_color("dye:" + col)
-				
+			
 		mc_builder.block_banner_color_map[?build_pos] = color
 		mc_builder.block_banner_patterns_map[?build_pos] = patternlist
 		mc_builder.block_banner_pattern_colors_map[?build_pos] = patterncolorlist

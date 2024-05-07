@@ -15,7 +15,7 @@ function debug_info_draw()
 	
 	if (debug_info == 1)
 	{
-		str += "[F12] | FPS: " + string(fps) + " (" + string(fps_real) + ")\n"
+		str += "[F12] | FPS: " + string(fps) + " (" + string(fps_real) + ")"
 	}
 	else
 	{
