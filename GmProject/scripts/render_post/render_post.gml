@@ -14,12 +14,12 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	render_update_effects()
 	
 	// Glow
-	if (render_glow && (sceneeffects || posteffects))
+	if (render_glow && (sceneeffects))
 		finalsurf = render_high_glow(finalsurf)
 	render_update_effects()
 	
 	// Glow (Falloff)
-	if (render_glow_falloff && (sceneeffects || posteffects))
+	if (render_glow_falloff && (sceneeffects))
 		finalsurf = render_high_glow(finalsurf, true)
 	render_update_effects()
 	

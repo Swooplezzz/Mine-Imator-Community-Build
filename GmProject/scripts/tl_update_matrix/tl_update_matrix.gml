@@ -236,7 +236,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			if (value[e_value.POS_TARGET] != null)
 			{
 			    matrix_remove_rotation(matrix_parent)
-				
+	
 				matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value_inherit[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] : matrix[MAT_X]);
 				matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value_inherit[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] : matrix[MAT_Y]);
 				matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value_inherit[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] : matrix[MAT_Z]);

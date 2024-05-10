@@ -416,6 +416,8 @@ function model_file_load_part(map, root, res, model)
 		// Whether this part contains 3D planes that need to be regenerated on texture switches
 		has_3d_plane = false
 		
+		has_wind = false
+		
 		// Add shapes (optional)
 		var shapelist = map[?"shapes"]
 		if (ds_list_valid(shapelist))

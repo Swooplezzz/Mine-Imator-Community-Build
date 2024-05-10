@@ -2644,6 +2644,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.5.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.2.51",
+    "IDEVersion": "2022.0.1.31",
   },
 }

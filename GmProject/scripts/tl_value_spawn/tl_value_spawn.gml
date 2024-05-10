@@ -30,6 +30,7 @@ function tl_value_spawn()
 		
 		// Locked state
 		lock = model_part.locked
+		wind = model_part.has_wind
 	}
 	
 	// Background objects inherit current settings
