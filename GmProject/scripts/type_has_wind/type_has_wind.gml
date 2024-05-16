@@ -7,5 +7,6 @@ function type_has_wind(type)
 			type = e_temp_type.BLOCK || 
 			type = e_temp_type.PARTICLE_SPAWNER || 
 			type = e_temp_type.TEXT || 
-			type_is_shape(type) || type = e_temp_type.BODYPART)
+			type = e_temp_type.BODYPART || 
+			type_is_shape(type))
 }

@@ -240,6 +240,8 @@ function model_file_load_shape(map, res)
 			if (is_real(windmap[?"ymax"]))
 				wind_wave_zmax = windmap[?"ymax"]
 		}
+		if (wind_wave != e_vertex_wave.NONE)
+			other.has_wind = true
 		
 		// Generate default mesh
 		if (type = "block")
@@ -257,8 +259,6 @@ function model_file_load_shape(map, res)
 			return null
 		}
 		
-
-		
 		// Update bounds
 		var boundsmat = matrix_create(position, rotation, vec3(1))
 		var startpos = point3D_mul_matrix(from, boundsmat);
@@ -275,9 +275,6 @@ function model_file_load_shape(map, res)
 		other.bounds_end[X] = max(other.bounds_end[X], bounds_end[X])
 		other.bounds_end[Y] = max(other.bounds_end[Y], bounds_end[Y])
 		other.bounds_end[Z] = max(other.bounds_end[Z], bounds_end[Z])
-		
-		if(wind_wave != e_vertex_wave.NONE)
-		other.has_wind = true
 		
 		return id
 	}

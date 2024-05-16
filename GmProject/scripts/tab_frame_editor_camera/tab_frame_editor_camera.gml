@@ -92,40 +92,40 @@ function tab_frame_editor_camera()
 			
 			tab_collapse_end()
 		}
+	}
 	
-		// Light management
-		tab_control_switch()
-		draw_button_collapse("light_management_cam", collapse_map[?"light_management_cam"], action_tl_frame_cam_light_management, tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT], "frameeditorcameralightmanagement")
+	// Light management
+	tab_control_switch()
+	draw_button_collapse("light_management_cam", collapse_map[?"light_management_cam"], action_tl_frame_cam_light_management, tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT], "frameeditorcameralightmanagement")
+	tab_next()
+	
+	if (tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT] && collapse_map[?"light_management_cam"])
+	{
+		tab_collapse_start()
+		
+		// Tonemapper
+		if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.REINHARD)
+			text = text_get("frameeditorcameratonemapperreinhard")
+		else if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.ACES)
+			text = text_get("frameeditorcameratonemapperaces")
+		else
+			text = text_get("frameeditorcameratonemappernone")
+		
+		tab_control_menu()
+		draw_button_menu("frameeditorcameratonemapper", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_TONEMAPPER], text, action_tl_frame_cam_tonemapper)
 		tab_next()
-	
-		if (tl_edit.value[e_value.CAM_LIGHT_MANAGEMENT] && collapse_map[?"light_management_cam"])
-		{
-			tab_collapse_start()
 		
-			// Tonemapper
-			if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.REINHARD)
-				text = text_get("frameeditorcameratonemapperreinhard")
-			else if (tl_edit.value[e_value.CAM_TONEMAPPER] = e_tonemapper.ACES)
-				text = text_get("frameeditorcameratonemapperaces")
-			else
-				text = text_get("frameeditorcameratonemappernone")
+		// Exposure
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraexposure", dx, dy, dragger_width, tl_edit.value[e_value.CAM_EXPOSURE], 0.01, 0, no_limit, 1, 0.01, tab.camera.tbx_exposure, action_tl_frame_cam_exposure)
+		tab_next()
 		
-			tab_control_menu()
-			draw_button_menu("frameeditorcameratonemapper", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_TONEMAPPER], text, action_tl_frame_cam_tonemapper)
-			tab_next()
+		// Gamma
+		tab_control_dragger()
+		draw_dragger("frameeditorcameragamma", dx, dy, dragger_width, tl_edit.value[e_value.CAM_GAMMA], 0.01, 0, no_limit, 2.2, 0.01, tab.camera.tbx_gamma, action_tl_frame_cam_gamma)
+		tab_next()
 		
-			// Exposure
-			tab_control_dragger()
-			draw_dragger("frameeditorcameraexposure", dx, dy, dragger_width, tl_edit.value[e_value.CAM_EXPOSURE], 0.01, 0, no_limit, 1, 0.01, tab.camera.tbx_exposure, action_tl_frame_cam_exposure)
-			tab_next()
-		
-			// Gamma
-			tab_control_dragger()
-			draw_dragger("frameeditorcameragamma", dx, dy, dragger_width, tl_edit.value[e_value.CAM_GAMMA], 0.01, 0, no_limit, 2.2, 0.01, tab.camera.tbx_gamma, action_tl_frame_cam_gamma)
-			tab_next()
-		
-			tab_collapse_end()
-		}
+		tab_collapse_end()
 	}
 	
 	// Rotate around point

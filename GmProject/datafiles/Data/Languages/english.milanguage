@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.05.03"
+		"lastchange": "2024.05.16"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -2715,6 +2715,7 @@
 			"texvmirror": "Mirror vertically",
 			"closed": "Closed",
 			"invert": "Invert",
+			"smooth": "Smooth",
 			"detail": "Detail",
 			"facecamera": "Face camera"
 		},

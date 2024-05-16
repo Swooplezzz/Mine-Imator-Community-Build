@@ -548,6 +548,11 @@ function tab_properties_library()
 			
 			if (temp_edit.type = e_temp_type.SPHERE || temp_edit.type = e_temp_type.CONE || temp_edit.type = e_temp_type.CYLINDER)
 			{
+				// Smooth
+				tab_control_checkbox()
+				draw_checkbox("libraryshapesmooth", dx, dy, temp_edit.shape_smooth, action_lib_shape_smooth)
+				tab_next()
+				
 				// Detail
 				tab_control_dragger()
 				draw_dragger("libraryshapedetail", dx, dy, dragger_width, temp_edit.shape_detail, 0.25, 3, no_limit, 32, 1, tab.library.tbx_shape_detail, action_lib_shape_detail)

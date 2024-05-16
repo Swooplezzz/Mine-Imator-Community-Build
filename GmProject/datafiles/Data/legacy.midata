@@ -4324,8 +4324,18 @@
 		"cobblestone_wall": "wall",
 		"grass_path": "dirt_path",
 		"target_block": "target",
-		"jigsaw_block": "jigsaw",
-		"grass": "short_grass"
+		"jigsaw_block": "jigsaw"
+	},
+	"legacy_block_states":
+	{
+	},
+	"legacy_block_state_values":
+	{
+		"grass": {
+			"type": {
+				"grass": "short_grass"
+			}
+		}
 	},
 	"legacy_particles":
 	{
