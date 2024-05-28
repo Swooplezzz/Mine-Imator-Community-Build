@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.05.16"
+		"lastchange": "2024.05.27"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -3042,7 +3042,8 @@
 		"skycloudscolor": "Clouds",
 		"sunlightcolor": "Sunlight",
 		"ambientcolor": "Ambient",
-		"nightcolor": "Night",
+		"nightskycolor": "Night sky",
+		"nightcolor": "Night ambient",
 		"grasscolor": "Grass",
 		"foliagecolor": "Foliage",
 		"watercolor": "Water",

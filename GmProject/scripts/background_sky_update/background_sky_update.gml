@@ -4,7 +4,7 @@ function background_sky_update()
 {
 	if (!background_fog_color_custom) // Fog color
 	{
-		background_fog_color_final = background_sky_color
+		background_fog_color_final = background_sky_color_final
 		if (!background_image_show)
 		{
 			background_fog_color_final = merge_color(background_fog_color_final, merge_color(background_fog_color_final, 0, 0.95), background_night_alpha)

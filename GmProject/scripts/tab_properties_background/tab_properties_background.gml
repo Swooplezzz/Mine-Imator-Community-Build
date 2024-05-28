@@ -394,7 +394,12 @@ function tab_properties_background()
 	draw_button_color("backgroundambientcolor", dx, dy, dw, background_ambient_color, c_ambient, false, action_background_ambient_color)
 	tab_next()
 	
-	// Night
+	// Night sky
+	tab_control_color()
+	draw_button_color("backgroundnightskycolor", dx, dy, dw, background_night_sky_color, c_night_sky, false, action_background_night_sky_color)
+	tab_next()
+	
+	// Night ambient
 	tab_control_color()
 	draw_button_color("backgroundnightcolor", dx, dy, dw, background_night_color, c_night, false, action_background_night_color)
 	tab_next()

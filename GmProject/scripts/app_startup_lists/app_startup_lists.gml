@@ -170,6 +170,7 @@ function app_startup_lists()
 		"BG_SKY_CLOUDS_COLOR",
 		"BG_SUNLIGHT_COLOR",
 		"BG_AMBIENT_COLOR",
+		"BG_NIGHT_SKY_COLOR",
 		"BG_NIGHT_COLOR",
 		"BG_GRASS_COLOR",
 		"BG_FOLIAGE_COLOR",
