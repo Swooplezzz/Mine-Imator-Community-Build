@@ -123,7 +123,7 @@ function render_startup()
 	render_surface_sample_alpha = null 
 	render_gobo_texture = null
 	
-	depth_near = 1
+	depth_near = clip_near
 	depth_far = 5000
 	render_post_index = 0
 	

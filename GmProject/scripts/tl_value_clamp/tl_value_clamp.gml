@@ -54,6 +54,8 @@ function tl_value_clamp(vid, val)
 		case e_value.BG_SUNLIGHT_COLOR:
 		case e_value.BG_AMBIENT_COLOR:
 		case e_value.BG_NIGHT_SKY_COLOR:
+		case e_value.BG_NIGHT_SKY_CLOUDS_COLOR:
+		case e_value.BG_NIGHT_SKY_STARS_COLOR:
 		case e_value.BG_NIGHT_COLOR:
 		case e_value.BG_GRASS_COLOR:
 		case e_value.BG_FOLIAGE_COLOR:
@@ -71,8 +73,6 @@ function tl_value_clamp(vid, val)
 		case e_value.BEND_ANGLE_Z: return clamp(val, -180, 180)
 		case e_value.CAM_FOV: return clamp(val, 1, 170)
 		case e_value.CAM_ASPECT: return clamp(val, 0, 360)
-		case e_value.CAM_CLIP_NEAR:
-		case e_value.CAM_CLIP_FAR: return clamp(val, 1, app.project_render_distance)
 		case e_value.CAM_BLADE_AMOUNT: return clamp(val, 0, 32)
 		case e_value.CAM_ROTATE_DISTANCE: return max(1, val)
 		case e_value.CAM_EXPOSURE:

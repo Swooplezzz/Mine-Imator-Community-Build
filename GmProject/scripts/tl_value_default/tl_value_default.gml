@@ -38,8 +38,6 @@ function tl_value_default(valueid)
 		case e_value.LIGHT_SPOT_SHARPNESS: return 0.5
 		case e_value.CAM_FOV: return 45
 		case e_value.CAM_ASPECT: return 1
-		case e_value.CAM_CLIP_NEAR: return 1
-		case e_value.CAM_CLIP_FAR: return 30000
 		case e_value.CAM_EXPOSURE: return 1
 		case e_value.CAM_GAMMA: return 2.2
 		case e_value.CAM_BLADE_AMOUNT:
@@ -123,6 +121,8 @@ function tl_value_default(valueid)
 		case e_value.BG_SUNLIGHT_COLOR: return app.background_sunlight_color
 		case e_value.BG_AMBIENT_COLOR: return app.background_ambient_color
 		case e_value.BG_NIGHT_SKY_COLOR: return app.background_night_sky_color
+		case e_value.BG_NIGHT_SKY_CLOUDS_COLOR: return app.background_night_sky_clouds_color
+		case e_value.BG_NIGHT_SKY_STARS_COLOR: return app.background_night_sky_stars_color
 		case e_value.BG_NIGHT_COLOR: return app.background_night_color
 		case e_value.BG_GRASS_COLOR: return app.background_grass_color
 		case e_value.BG_FOLIAGE_COLOR: return app.background_foliage_color
@@ -152,6 +152,7 @@ function tl_value_default(valueid)
 		case e_value.BG_TEXTURE_ANI_SPEED: return app.background_texture_animation_speed
 		case e_value.PATH_OBJ:
 		case e_value.IK_TARGET:
+		case e_value.IK_TARGET_ANGLE:
 		case e_value.ROT_TARGET:
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
@@ -160,8 +161,7 @@ function tl_value_default(valueid)
 		case e_value.COPY_POS_OFFSET_X:
 		case e_value.COPY_POS_OFFSET_Y:
 		case e_value.COPY_POS_OFFSET_Z:
-		case e_value.COPY_SCALE_MULT:
-		case e_value.IK_TARGET_ANGLE: return null
+		case e_value.COPY_SCALE_MULT: return null
 		case e_value.COPY_POS_X:
 		case e_value.COPY_POS_Y:
 		case e_value.COPY_POS_Z:

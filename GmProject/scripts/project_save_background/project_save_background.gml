@@ -49,6 +49,8 @@ function project_save_background()
 		json_save_var_color("sunlight_color", background_sunlight_color)
 		json_save_var_color("ambient_color", background_ambient_color)
 		json_save_var_color("night_sky_color", background_night_sky_color)
+		json_save_var_color("night_sky_clouds_color", background_night_sky_clouds_color)
+		json_save_var_color("night_sky_stars_color", background_night_sky_stars_color)
 		json_save_var_color("night_color", background_night_color)
 		
 		json_save_var_color("foliage_color", background_foliage_color)

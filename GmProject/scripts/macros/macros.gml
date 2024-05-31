@@ -23,7 +23,7 @@ function macros()
 	#macro mineimator_version_sub		"Community Build 1.0.0"		// Mod name and version (e.g. "Community Build 1.0.0")
 	#macro mineimator_version_extra		"Alpha 7"					// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2024.05.27"
+	#macro mineimator_version_date		"2024.05.31"
 	#macro minecraft_version			"1.20.5"
 	#macro gm_runtime					GM_runtime_version
 	
@@ -121,11 +121,13 @@ function macros()
 	#macro c_sunlight					make_color_rgb(255, 247, 228)
 	#macro c_ambient					make_color_rgb(102, 112, 140)
 	#macro c_night_sky					make_color_rgb(2, 2, 4)
+	#macro c_night_clouds				make_color_rgb(25, 25, 38)
+	#macro c_stars						make_color_rgb(63, 63, 63)
 	#macro c_night						make_color_rgb(14, 14, 24)
-	#macro c_clouds_bottom				make_color_rgb(174, 181, 193)
 	#macro c_clouds_top					make_color_rgb(255, 255, 255)
-	#macro c_clouds_sideslight			make_color_rgb(215, 222, 234)
-	#macro c_clouds_sidesdark			make_color_rgb(194, 201, 215)
+	#macro c_clouds_sideslight			make_color_rgb(229, 229, 229) //(215, 222, 234)
+	#macro c_clouds_sidesdark			make_color_rgb(204, 204, 204) //(194, 201, 215)
+	#macro c_clouds_bottom				make_color_rgb(178, 178, 178) //(174, 181, 193)
 	#macro c_plains_biome_foliage		make_color_rgb(119, 171, 47)
 	#macro c_plains_biome_foliage_2		make_color_rgb(98, 168, 87)
 	#macro c_plains_biome_grass			make_color_rgb(145, 189, 89)
@@ -169,6 +171,7 @@ function macros()
 	// World
 	#macro block_size					16
 	#macro item_size					16
+	#macro clip_near					1
 	
 	// Vectors and matrices
 	#macro X							0

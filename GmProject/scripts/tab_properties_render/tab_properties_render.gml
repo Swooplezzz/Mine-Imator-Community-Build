@@ -230,6 +230,26 @@ function tab_properties_render()
 		
 		tab_collapse_end()
 	}
+
+	//// Open image denoise
+	//tab_control_switch()
+	//draw_button_collapse("openimagedenoise", collapse_map[?"openimagedenoise"], action_project_render_open_image_denoise, project_render_open_image_denoise, "renderopenimagedenoise")
+	//tab_next()
+	
+	//if (project_render_open_image_denoise && collapse_map[?"openimagedenoise"]);
+	//{
+	//	tab_collapse_start()
+		
+	//	// Transparent block texture filtering
+	//	tab_control_switch()
+	//	draw_switch("renderopenimagedenoiseusediffuse", dx, dy, project_render_open_image_denoise_usediffuse, action_project_render_open_image_denoise_usediffuse)
+	//	tab_next()
+		
+	//	tab_control_switch()
+	//	draw_switch("renderopenimagedenoiseusenormals", dx, dy, project_render_open_image_denoise_usenormals, action_project_render_open_image_denoise_usenormals)
+	//	tab_next()
+	//	tab_collapse_end()
+	//}
 	
 	// Light management
 	tab_control_switch()
@@ -318,26 +338,6 @@ function tab_properties_render()
 		
 		tab_collapse_end()
 	}
-
-	//// Open image denoise
-	//tab_control_switch()
-	//draw_button_collapse("openimagedenoise", collapse_map[?"openimagedenoise"], action_project_render_open_image_denoise, project_render_open_image_denoise, "renderopenimagedenoise")
-	//tab_next()
-	
-	//if (project_render_open_image_denoise && collapse_map[?"openimagedenoise"]);
-	//{
-	//	tab_collapse_start()
-		
-	//	// Transparent block texture filtering
-	//	tab_control_switch()
-	//	draw_switch("renderopenimagedenoiseusediffuse", dx, dy, project_render_open_image_denoise_usediffuse, action_project_render_open_image_denoise_usediffuse)
-	//	tab_next()
-		
-	//	tab_control_switch()
-	//	draw_switch("renderopenimagedenoiseusenormals", dx, dy, project_render_open_image_denoise_usenormals, action_project_render_open_image_denoise_usenormals)
-	//	tab_next()
-	//	tab_collapse_end()
-	//}
 	
 	// Default emissive
 	tab_control_dragger()

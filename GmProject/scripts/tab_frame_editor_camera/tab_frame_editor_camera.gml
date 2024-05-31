@@ -60,17 +60,6 @@ function tab_frame_editor_camera()
 		draw_dragger("frameeditorcameraaspect", dx, dy, dragger_width, tl_edit.value[e_value.CAM_ASPECT], 0.01, 0.0001, 360, 1, 0.0001, tab.camera.tbx_aspect, action_tl_frame_cam_aspect)
 		tab_next()
 		
-		/* Uncomment these if you wanna try fixing camera clipping -mb
-		// Clip
-		textfield_group_add("frameeditorcameraclipnear", tl_edit.value[e_value.CAM_CLIP_NEAR], tl_edit.value_default[e_value.CAM_CLIP_NEAR], action_tl_frame_cam_clip_near, axis_edit, tab.camera.tbx_clip_near, null, 1, 1, tl_edit.value[e_value.CAM_CLIP_FAR])
-		
-		textfield_group_add("frameeditorcameraclipfar", tl_edit.value[e_value.CAM_CLIP_FAR], tl_edit.value_default[e_value.CAM_CLIP_FAR], action_tl_frame_cam_clip_far, axis_edit, tab.camera.tbx_clip_far, null, 1, tl_edit.value[e_value.CAM_CLIP_NEAR], app.project_render_distance)
-		
-		tab_control_textfield(true)
-		draw_textfield_group("frameeditorcameraclip", dx, dy, dw, 1, 1, app.project_render_distance, 1, true)
-		tab_next()
-		*/
-		
 		// Aperture
 		tab_control_switch()
 		draw_button_collapse("aperture", collapse_map[?"aperture"], null, true, "frameeditorcameraaperture", "frameeditorcameraaperturetip")
