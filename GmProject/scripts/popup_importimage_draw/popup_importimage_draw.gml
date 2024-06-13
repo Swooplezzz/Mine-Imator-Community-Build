@@ -62,7 +62,7 @@ function popup_importimage_draw()
 		if (ds_list_size(popup.filenames) > 1)
 		{
 			ds_list_delete(popup.filenames, 0)
-			popup_switch(popup)
+			popup_importimage_show(popup.filenames[|0])
 			show_debug_message("New popup")
 		}
 	}

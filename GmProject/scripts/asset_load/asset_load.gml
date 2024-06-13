@@ -29,7 +29,7 @@ function asset_load()
 			fn = file_dialog_open_asset()
 	}
 	
-	ds_list_clear(popup_importimage.filenames)
+	//ds_list_clear(popup_importimage.filenames)
 	
 	if (fn = "" || !file_exists_lib(fn))
 		return false

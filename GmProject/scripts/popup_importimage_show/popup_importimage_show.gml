@@ -9,7 +9,7 @@ function popup_importimage_show(fn)
 		if (texture != null)
 			texture_free(texture)
 		
-		texture = texture_create(fn)
+		texture = texture_create(filename)
 	}
 	
 	popup_show(popup_importimage)
