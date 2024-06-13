@@ -6,9 +6,6 @@ function tl_update_model_shape_bend()
 	var bend = vec3(value_inherit[e_value.BEND_ANGLE_X],
 					value_inherit[e_value.BEND_ANGLE_Y],
 					value_inherit[e_value.BEND_ANGLE_Z]);
-
-			
-
 	
 	// No change
 	if (vec3_equals(bend_rot_last, bend) && bend_model_part_last = model_part)

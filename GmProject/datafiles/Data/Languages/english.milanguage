@@ -3285,6 +3285,7 @@
 		},
 		"hierarchy": "HIERARCHY",
 		"parent": "Parent",
+		"light": "Light",
 		"lockbendright": "Right half",
 		"lockbendleft": "Left half",
 		"lockbendfront": "Front half",

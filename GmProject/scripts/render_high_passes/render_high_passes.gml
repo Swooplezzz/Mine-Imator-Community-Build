@@ -81,7 +81,7 @@ function render_high_passes()
 	surface_reset_target()
 	
 	// Noise
-	render_sample_noise_texture = render_get_noise_texture(render_sample_current)
+	render_sample_noise_texture = render_get_noise_texture(render_sample_current + timeline_marker);
 	
 	if (render_pass = e_render_pass.DIFFUSE)
 		render_pass_surf = surface_duplicate(render_surface_diffuse)

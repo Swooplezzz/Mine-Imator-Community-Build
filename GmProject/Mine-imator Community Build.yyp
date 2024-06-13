@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"new_minecraft_map","path":"scripts/new_minecraft_map/new_minecraft_map.yy",},"order":21,},
     {"id":{"name":"spr_colorpicker","path":"sprites/spr_colorpicker/spr_colorpicker.yy",},"order":1,},
+    {"id":{"name":"tab_timeline_editor_light","path":"scripts/tab_timeline_editor_light/tab_timeline_editor_light.yy",},"order":9,},
     {"id":{"name":"spr_colorpicker_hue","path":"sprites/spr_colorpicker_hue/spr_colorpicker_hue.yy",},"order":3,},
     {"id":{"name":"spr_colorpicker_cursor","path":"sprites/spr_colorpicker_cursor/spr_colorpicker_cursor.yy",},"order":5,},
     {"id":{"name":"spr_marker_playback","path":"sprites/spr_marker_playback/spr_marker_playback.yy",},"order":1,},
@@ -2647,6 +2648,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"1.20.5.zip","CopyToMask":-1,"filePath":"datafiles/Data/Minecraft",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.2.51",
+    "IDEVersion": "2022.0.1.31",
   },
 }

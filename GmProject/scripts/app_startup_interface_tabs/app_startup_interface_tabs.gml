@@ -429,6 +429,8 @@ function app_startup_interface_tabs()
 			tbx_rot_point_z = new_textbox_ndecimals()
 		}
 		
+
+		
 		// Hierarchy
 		hierarchy = tab_add_category("timelineeditorhierarchy", icons.HIERARCHY_SMALL, tab_timeline_editor_hierarchy, true)
 		
@@ -447,6 +449,9 @@ function app_startup_interface_tabs()
 		
 		// Audio
 		audio = tab_add_category("timelineeditoraudio", icons.NOTE_SMALL, tab_timeline_editor_audio, true)
+		
+		//Lights
+		light = tab_add_category("timelineeditorlight", icons.LIGHT_POINT_SMALL, tab_timeline_editor_light, true)		
 		
 		// Path
 		path = tab_add_category("timelineeditorpath", icons.PATH_SMALL, tab_timeline_editor_path, true)

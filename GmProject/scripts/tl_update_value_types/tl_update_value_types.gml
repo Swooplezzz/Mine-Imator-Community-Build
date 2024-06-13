@@ -47,8 +47,7 @@ function tl_update_value_types()
 	value_type[e_value_type.TRANSFORM_POS] = true
 	
 	// Rotation
-	if (type != e_tl_type.POINT_LIGHT)
-		value_type[e_value_type.TRANSFORM_ROT] = true
+	value_type[e_value_type.TRANSFORM_ROT] = true
 	
 	// Scale
 	if (type != e_tl_type.PARTICLE_SPAWNER &&
