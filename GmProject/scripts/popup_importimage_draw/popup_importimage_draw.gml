@@ -53,14 +53,13 @@ function popup_importimage_draw()
 			popup_importitemsheet_show(popup.filename, null)
 		else
 		{
-			if(popup.do_all){
-				for(var i = 0; i < ds_list_size(popup.filenames); i++){
+			if (popup.do_all)
+			{
+				for (var i = 0; i < ds_list_size(popup.filenames); i++)
 					action_res_image_load(popup.filenames[i], popup.type)
-				}
 			}
-			else{
-			action_res_image_load(popup.filename, popup.type)
-			}
+			else
+				action_res_image_load(popup.filename, popup.type)
 			
 			if (ds_list_size(popup.filenames) <= 1)
 				popup_close()
