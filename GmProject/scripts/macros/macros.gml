@@ -4,7 +4,7 @@
 function macros()
 {
 	// Debug
-	#macro dev_mode						true
+	#macro dev_mode						false
 	#macro dev_mode_skip_blocks			dev_mode && true
 	#macro dev_mode_debug_schematics	dev_mode && true
 	#macro dev_mode_debug_names			dev_mode && true
@@ -14,7 +14,7 @@ function macros()
 	#macro dev_mode_full				dev_mode && true
 	#macro dev_mode_advanced			dev_mode && true
 	#macro dev_mode_show_bones			dev_mode && true
-	#macro dev_mode_skip_tangents		dev_mode && true
+	#macro dev_mode_skip_tangents		dev_mode && false
 	#macro dev_mode_check_assets		dev_mode && true
 	#macro dev_mode_name_translation_message " is not defined in the translation, the key will be formatted"
 	
@@ -23,7 +23,7 @@ function macros()
 	#macro mineimator_version_sub		"Community Build 1.0.0"		// Mod name and version (e.g. "Community Build 1.0.0")
 	#macro mineimator_version_extra		"Alpha 7"					// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2024.06.20"
+	#macro mineimator_version_date		"2024.06.21"
 	#macro minecraft_version			"1.21"
 	#macro gm_runtime					GM_runtime_version
 	

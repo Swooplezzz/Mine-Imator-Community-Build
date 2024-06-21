@@ -12,7 +12,23 @@ function render_world_ground()
 	// Blend
 	var blend = block_texture_get_blend(background_ground_name, background_ground_tex);
 	var iswater = (background_ground_name = "block/water_flow" || background_ground_name = "block/water_still");
+	//Lightlinking figuring it out !!
+	if(render_light_group != null &&
+	              (render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+	               render_mode = e_render_mode.HIGH_LIGHT_POINT||
+	               render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS)){
+			render_set_uniform("uRenderLight", 0)
+	}
+	else{
+			render_set_uniform("uRenderLight", 1)
+	}
 	
+	//Lightlinking figuring it out !!
+	if(render_light_group != null &&
+	(render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
+	               render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
+	   return 0;
+
 	// Shading
 	render_set_uniform_int("uIsGround", 1)
 	render_set_uniform_color("uBlendColor", blend, 1)

@@ -10,7 +10,6 @@ attribute vec3 in_Tangent;
 uniform mat4 uLightMatrix; // static
 uniform mat4 uShadowMatrix; // static
 
-
 varying vec3 vPosition;
 varying vec3 vNormal;
 varying vec3 vTangent;
@@ -34,6 +33,9 @@ uniform float uWindSpeed; // static
 uniform float uWindStrength;
 uniform vec2 uWindDirection; // static
 uniform float uWindDirectionalSpeed; // static
+
+
+
 uniform float uWindDirectionalStrength;
 
 // TAA

@@ -51,6 +51,8 @@
 		"downloadskin": "Download skin",
 		"pastekey": "Paste key",
 		"filterlist": "Filter list",
+		"lightgroupnew": "Add new light group",
+		"lightgroupremove": "Delete light group",
 		"template/": {
 			"new": "New template",
 			"animate": "Create timeline from template",
@@ -929,6 +931,7 @@
 		"printscreen": "Printscreen"
 	},
 	"column/": {
+		"lgname": "Name",
 		"libname": "Name",
 		"libtype": "Type",
 		"libinstances": "Instances",
@@ -2653,6 +2656,10 @@
 		"materialmaps": "Object material maps",
 		"materialmapstip": "Enable material and normal map texture settings for objects."
 	},
+	"lightgroups": "LIGHT GROUPS",
+	"lightgroup/":{
+		"name" : "Name"
+	},
 	"library": "LIBRARY",
 	"library/": {
 		"name": "Name",
@@ -3293,6 +3300,7 @@
 		"lockbendback": "Back half",
 		"lockbendlower": "Lower half",
 		"lockbendupper": "Upper half",
+		"lightgroup": "Light group",
 		"inherit": "Inherit",
 		"inherit/": {
 			"transform": "TRANSFORM",
@@ -3518,6 +3526,12 @@
 		"itemtexmaterial": "Material map",
 		"itemtexnormal": "Normal map",
 		"lightgobotexture": "Gobo",
+		"lightgobooffset": "Offset",
+		"lightgobooffsetx": "X",
+		"lightgobooffsety": "Y",
+		"lightgoborepeat": "Repeat",
+		"lightgoborepeatx": "X",
+		"lightgoborepeaty": "Y",
 		"particles": "PARTICLES",
 		"particles/": {
 			"spawn": "Spawn particles",

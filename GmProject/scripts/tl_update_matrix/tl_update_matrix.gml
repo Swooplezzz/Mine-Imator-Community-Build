@@ -228,7 +228,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				target_rotation[X] = (value[e_value.COPY_ROT_X] ? target_rotation[X] : 0);
 				target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : 0);
 				target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0);
-				//show_debug_message(target_rotation);
+
 				matrix_remove_scale(target_rot_mat)
 				matrix = matrix_multiply(matrix_create(vec3(0), target_rotation, vec3(1)), matrix);
 			}
@@ -344,7 +344,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 
 				//ISSUE X ROTATIONS MORE THAN 90 RESULT IN Y AND Z MIRRORING AXIS
 
-				//show_debug_message(string(bend));
 				bend[X] *= (model_part.bend_invert[X] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
 				bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
 				bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]

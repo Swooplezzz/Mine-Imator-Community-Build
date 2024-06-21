@@ -17,7 +17,7 @@ uniform float uSSS;
 uniform float uDefaultSubsurface;
 uniform float uDefaultEmissive;
 uniform float uLightSpecular;
-uniform float uRenderLight;
+uniform float uRenderLight; // static
 
 varying vec3 vPosition;
 varying vec3 vNormal;
