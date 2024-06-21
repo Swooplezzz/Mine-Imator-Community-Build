@@ -17,6 +17,10 @@ uniform float uLightSpotSharpness; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 
+// Texture
+uniform vec2 uGoboOffset;
+uniform vec2 uGoboRepeat;
+
 uniform sampler2D uLightGobo; // static
 uniform sampler2D uDepthBuffer; // static
 
@@ -28,6 +32,7 @@ uniform float uDefaultSubsurface;
 uniform float uRoughness;
 uniform float uMetallic;
 uniform float uEmissive;
+uniform float uTime;
 
 uniform float uSSS;
 uniform vec3 uSSSRadius;
@@ -229,7 +234,7 @@ void main()
 						if ((fragDepth - (bias * 0.01)) <= sampleDepth)
 							dis = vec3(0.0);
 					    // Broken needs a fix
-						fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / (vShadowCoord.z) + 1.0) * 0.5;
+						fragCoord = ((vec2(vShadowCoord.x, -vShadowCoord.y )) / (vShadowCoord.z) + 1.0+ uGoboOffset) * 0.5 * uGoboRepeat;
 						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * texture2D(uLightGobo, fragCoord).rgb;
 					}
 				}
@@ -237,7 +242,7 @@ void main()
 		}
 
 		// Diffuse light
-		vec2 fragCoord = (vec2(vShadowCoord.x, -vShadowCoord.y) / vShadowCoord.z + 1.0) * 0.5;
+		vec2 fragCoord = ((vec2(vShadowCoord.x, -vShadowCoord.y ) ) / vShadowCoord.z + 1.0  + uGoboOffset) * 0.5 * uGoboRepeat;
 
 		light = uLightColor.rgb * uLightStrength * dif * shadow;
 		light *= texture2D(uLightGobo, fragCoord).rgb;

@@ -356,6 +356,10 @@ function enums()
 		EASE_IN_Y,
 		EASE_OUT_X,
 		EASE_OUT_Y,
+		SPOT_GOBO_OFFSET_X,
+		SPOT_GOBO_OFFSET_Y,
+		SPOT_GOBO_REPEAT_X,
+		SPOT_GOBO_REPEAT_Y,
 		amount
 	} // Update app_startup_lists() when adding values
 	

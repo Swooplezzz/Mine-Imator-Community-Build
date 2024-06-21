@@ -107,6 +107,10 @@ function tl_value_clamp(vid, val)
 		case e_value.TEXT_VALIGN:
 		case e_value.BG_BIOME:
 		case e_value.TRANSITION: return val
+		case e_value.SPOT_GOBO_REPEAT_X: return max(val, 0)
+		case e_value.SPOT_GOBO_REPEAT_Y: return max(val, 0)
+		case e_value.SPOT_GOBO_OFFSET_X: return val
+		case e_value.SPOT_GOBO_OFFSET_Y: return val
 	}
 	
 	return clamp(val, -no_limit, no_limit)

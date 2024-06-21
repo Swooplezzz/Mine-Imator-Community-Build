@@ -191,6 +191,10 @@ function tl_value_default(valueid)
 		case e_value.EASE_OUT_X: return 0
 		case e_value.EASE_IN_X:
 		case e_value.EASE_OUT_Y: return 1
+		case e_value.SPOT_GOBO_REPEAT_X: return 1
+		case e_value.SPOT_GOBO_REPEAT_Y: return 1
+		case e_value.SPOT_GOBO_OFFSET_X: return 0
+		case e_value.SPOT_GOBO_OFFSET_Y: return 0
 	}
 	
 	return 0
