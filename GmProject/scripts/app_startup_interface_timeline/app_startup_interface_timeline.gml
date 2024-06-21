@@ -63,6 +63,7 @@ function app_startup_interface_timeline()
 	tree_update_color = null
 	
 	project_model_list = ds_list_create()
+	light_groups = ds_list_create()
 	project_timeline_list = ds_list_create()
 	
 	timeline_settings_w = 0

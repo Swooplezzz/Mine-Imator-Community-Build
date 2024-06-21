@@ -17,6 +17,7 @@ uniform float uLightFadeSize; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 uniform float uLightSize;
+uniform float uRenderLight;
 
 uniform sampler2D uDepthBuffer; // static
 uniform float uDepthBufferSize; // static
@@ -355,12 +356,12 @@ void main()
 				if ((fragDepth - (bias * 0.01)) <= sampleDepth)
 					dis = vec3(0.0);
 				
-				subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att;
+				subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * uRenderLight;
 			}
 		}
 		
 		// Diffuse light
-		light = uLightColor.rgb * uLightStrength * dif * shadow;
+		light = uLightColor.rgb * uLightStrength * dif * shadow * uRenderLight;
 		
 		// Subsurface translucency
 		if (sss > 0.0)
@@ -387,7 +388,7 @@ void main()
 			float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
 			float specular = numerator / denominator;
 		
-			spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
+			spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic)) * uRenderLight;
 		}
 	}
 	

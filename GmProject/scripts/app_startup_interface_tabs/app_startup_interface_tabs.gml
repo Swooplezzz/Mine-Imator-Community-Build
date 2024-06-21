@@ -110,7 +110,17 @@ function app_startup_interface_tabs()
 			tbx_shape_tex_hrepeat = new_textbox_decimals()
 			tbx_shape_tex_vrepeat = new_textbox_decimals()
 		}
-		
+		// Light Groups
+		lightgroups = tab_add_category("lightgroups", icons.LIGHT_SPOT, tab_properties_light_groups, false)
+		with (lightgroups)
+		{
+			list = new_obj(obj_sortlist)
+			list.can_deselect = true
+			list.script = action_light_group_list
+			sortlist_column_add(list, "lgname", 0)
+			//sortlist_column_add(list, "lgusecount", 0.65)
+			tbx_name = new_textbox(1, 0, "")
+		}
 		// Background
 		background = tab_add_category("background", icons.WORLD_SMALL, tab_properties_background, false)
 		with (background)
@@ -178,6 +188,7 @@ function app_startup_interface_tabs()
 	
 	lib_preview = properties.library.preview
 	lib_list = properties.library.list
+	light_group_list = properties.lightgroups.list
 	res_preview = properties.resources.preview
 	res_list = properties.resources.list
 	

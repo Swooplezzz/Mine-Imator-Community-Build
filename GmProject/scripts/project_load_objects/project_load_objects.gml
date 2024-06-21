@@ -9,11 +9,19 @@ function project_load_objects(map)
 		for (var i = 0; i < ds_list_size(templist); i++)
 			project_load_template(templist[|i])
 	
+	// Light groups
+	var lglist = map[?"lightgroups"];
+	if (ds_list_valid(lglist))
+		for (var i = 0; i < ds_list_size(lglist); i++)
+			project_load_lightgroups(lglist[|i])
+			
 	// Timelines
 	var tllist = map[?"timelines"];
 	if (ds_list_valid(tllist))
 		for (var i = 0; i < ds_list_size(tllist); i++)
 			project_load_timeline(tllist[|i])
+			
+
 	
 	// Resources
 	var reslist = map[?"resources"];

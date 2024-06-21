@@ -15,6 +15,9 @@ function project_save_timeline()
 		json_save_var_bool("ghost", ghost)
 		json_save_var("depth", depth)
 		
+
+		json_save_var_save_id("lightgroup", light_group)
+		
 		if (type = e_temp_type.BODYPART)
 			json_save_var("model_part_name", json_string_encode(model_part_name))
 		

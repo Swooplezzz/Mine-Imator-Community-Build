@@ -214,6 +214,7 @@ function project_load_timeline(map)
 			wind = value_get_real(map[?"wind"], wind)
 			wind_terrain = value_get_real(map[?"wind_terrain"], wind_terrain)
 		}
+		light_group = value_get_save_id(map[?"lightgroup"], light_group);
 		
 		hq_hiding = value_get_real(map[?"hq_hiding"], hq_hiding)
 		lq_hiding = value_get_real(map[?"lq_hiding"], lq_hiding)

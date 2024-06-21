@@ -19,6 +19,7 @@ function shader_high_light_spot_set()
 	render_set_uniform("uLightStrength", render_light_strength)
 	render_set_uniform("uLightSpecular", render_light_specular_strength)
 	render_set_uniform("uLightSize", render_light_size)
+	render_set_uniform("uRenderLight", 1)
 	
 	render_set_uniform("uLightNear", render_light_near)
 	render_set_uniform("uLightFar", render_light_far)

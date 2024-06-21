@@ -21,6 +21,10 @@ function save_id_find(saveid)
 	with (obj_timeline)
 		if (save_id = saveid)
 			return id
+			
+	with (obj_lightgroup)
+		if (save_id = saveid)
+			return id
 	
 	with (obj_resource)
 		if (save_id = saveid)

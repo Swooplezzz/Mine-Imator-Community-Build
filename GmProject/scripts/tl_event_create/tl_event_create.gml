@@ -21,6 +21,8 @@ function tl_event_create()
 	delete_ready = false
 	depth = 0
 	
+	light_group = null
+	
 	model_part = null
 	model_part_name = ""
 	model_shape_vbuffer_map = null

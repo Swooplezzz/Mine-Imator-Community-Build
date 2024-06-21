@@ -28,6 +28,7 @@ function render_high_shadows()
 		}
 		
 		lightlist = array_add(lightlist, id)
+		render_light_group = light_group;
 	}
 	
 	// Initialize targets

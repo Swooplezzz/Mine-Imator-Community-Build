@@ -17,6 +17,14 @@ function project_save_objects()
 			project_save_timeline()
 	json_save_array_done()
 	
+	//Light Groups
+	json_save_array_start("lightgroups")
+	for (var i = 0; i < ds_list_size(light_group_list.list); i++)
+		with (light_group_list.list[|i])
+			if (save)
+				 project_save_lightgroup()
+	json_save_array_done()
+	
 	// Resources
 	json_save_array_start("resources")
 	for (var i = 0; i < ds_list_size(res_list.list); i++)

@@ -1159,7 +1159,21 @@ function list_init(name)
 			
 			break
 		}
-		
+		// Light group
+		case "timelineeditorlightgroup":
+		{
+			menu_add_item(null, text_get("listdefault", text_get("listnone")))
+			
+			// Add existing resources
+			for (var i = 0; i < ds_list_size(light_group_list.display_list); i++)
+			{
+				var group = light_group_list.display_list[|i];
+				
+				menu_add_item(group, group.name)
+			}
+			
+			break
+		}
 		// Sound
 		case "frameeditorsoundfile":
 		{

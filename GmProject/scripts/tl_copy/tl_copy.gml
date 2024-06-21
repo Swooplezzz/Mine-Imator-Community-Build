@@ -60,6 +60,7 @@ function tl_copy(to)
 	to.glint_tex = glint_tex
 	to.fog = fog
 	to.wind = wind
+	to.light_group = light_group
 	to.wind_terrain = wind_terrain
 	to.hq_hiding = hq_hiding
 	to.lq_hiding = lq_hiding

@@ -62,6 +62,10 @@ function project_load_find_save_ids()
 	with (obj_timeline)
 		if (loaded && !is_undefined(save_id_map[?load_id]))
 			save_id = save_id_map[?load_id]
+			
+	with (obj_lightgroup)
+		if (loaded && !is_undefined(save_id_map[?load_id]))
+			save_id = save_id_map[?load_id]
 	
 	// Set template IDs and references
 	with (obj_template)
@@ -202,6 +206,9 @@ function project_load_find_save_ids()
 		if (part_list != null)
 			for (var i = 0; i < ds_list_size(part_list); i++)
 				part_list[|i] = save_id_find(save_id_map[?part_list[|i]])
+		
+		//light groups
+		light_group = save_id_find(save_id_map[?light_group])
 		
 		// Set parent
 		parent = save_id_find(save_id_map[?parent])

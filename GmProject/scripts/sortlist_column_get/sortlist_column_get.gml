@@ -8,6 +8,8 @@ function sortlist_column_get(slist, value, col)
 {
 	switch (slist.column_name[col])
 	{
+		case "lgname":
+		   return value.name + " [" + string(value.save_id) + "]"
 		case "libname":
 			if (dev_mode_debug_saveid)
 				return string_remove_newline(value.display_name) + " [" + string(value.save_id) + "]"

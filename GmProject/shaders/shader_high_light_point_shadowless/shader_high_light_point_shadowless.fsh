@@ -17,6 +17,7 @@ uniform float uSSS;
 uniform float uDefaultSubsurface;
 uniform float uDefaultEmissive;
 uniform float uLightSpecular;
+uniform float uRenderLight;
 
 varying vec3 vPosition;
 varying vec3 vNormal;
@@ -152,7 +153,7 @@ void main()
 			vec3 spec = vec3(0.0);
 			
 			// Diffuse light
-			light = data2.rgb * data3.r * dif;
+			light = data2.rgb * data3.r * dif * uRenderLight;
 			
 			lightResult.rgb += light;
 			
@@ -170,7 +171,7 @@ void main()
 			float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
 			float specular = numerator / denominator;
 			
-			spec = data2.rgb * specular * mix(vec3(1.0), baseColor.rgb * vColor.rgb, metallic) * data3.g * uLightSpecular * dif;
+			spec = data2.rgb * specular * mix(vec3(1.0), baseColor.rgb * vColor.rgb, metallic) * data3.g * uLightSpecular * dif * uRenderLight;
 			specResult.rgb += spec;
 		}
 	}

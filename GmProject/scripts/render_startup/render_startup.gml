@@ -23,6 +23,8 @@ function render_startup()
 	
 	globalvar render_blend_prev, render_alpha_prev;
 	
+	globalvar render_light_group;
+
 	// Update shader_reset_uniforms()
 	globalvar shader_uniform_color_ext, shader_uniform_rgb_add, shader_uniform_rgb_sub, shader_uniform_hsb_add,
 			  shader_uniform_hsb_sub, shader_uniform_hsb_mul, shader_uniform_mix_color, shader_uniform_mix_percent,
@@ -62,6 +64,8 @@ function render_startup()
 	render_effects_progress = 0
 	render_quality = e_view_mode.FLAT
 	
+	render_light_group = null;
+
 	render_camera_bloom = false
 	render_camera_dof = false
 	render_glow = false

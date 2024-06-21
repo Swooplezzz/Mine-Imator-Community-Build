@@ -25,7 +25,6 @@ function app_update_tl_edit_select()
 		appearance.enabled = false
 		audio.enabled = false
 		path.enabled = false
-		light.enabled = false
 	}
 	
 	select_kf_amount = 0
@@ -51,7 +50,7 @@ function app_update_tl_edit_select()
 	{
 		if (!selected)
 			continue
-		
+	
 		// Show duplicate & remove settings?
 		if (part_of = null)
 			app.timeline_settings = true
@@ -110,11 +109,9 @@ function app_update_tl_edit_select()
 		if (value_type[e_value_type.PARTICLES])
 			app.frame_editor.particles.enabled = true
 		
-		if (value_type[e_value_type.LIGHT]){
+		if (value_type[e_value_type.LIGHT])
 			app.frame_editor.light.enabled = true
-			app.timeline_editor.light.enabled = true
-		}
-		
+
 		if (value_type[e_value_type.SPOTLIGHT]){
 			app.frame_editor.light.has_spotlight = true
 		    app.timeline_editor.light.enabled = true
@@ -148,6 +145,10 @@ function app_update_tl_edit_select()
 		
 		if (value_type_show[e_value_type.CAMERA])
 			app.frame_editor.camera.show = true
+			
+		if (value_type[e_value_type.CAMERA] || value_type[e_value_type.AUDIO] || value_type[e_value_type.SOUND]){
+			app.timeline_editor.light.enabled = false	
+		}
 	}
 	
 	if (timeline_settings_import_loop_tl != null)

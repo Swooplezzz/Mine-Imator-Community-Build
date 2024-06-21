@@ -16,6 +16,7 @@ uniform float uLightFadeSize; // static
 uniform float uLightSpotSharpness; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
+uniform float uRenderLight;
 
 // Texture
 uniform vec2 uGoboOffset;
@@ -235,7 +236,7 @@ void main()
 							dis = vec3(0.0);
 					    // Broken needs a fix
 						fragCoord = ((vec2(vShadowCoord.x, -vShadowCoord.y )) / (vShadowCoord.z) + 1.0+ uGoboOffset) * 0.5 * uGoboRepeat;
-						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * texture2D(uLightGobo, fragCoord).rgb;
+						subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att * texture2D(uLightGobo, fragCoord).rgb * uRenderLight;;
 					}
 				}
 			}
@@ -244,7 +245,7 @@ void main()
 		// Diffuse light
 		vec2 fragCoord = ((vec2(vShadowCoord.x, -vShadowCoord.y ) ) / vShadowCoord.z + 1.0  + uGoboOffset) * 0.5 * uGoboRepeat;
 
-		light = uLightColor.rgb * uLightStrength * dif * shadow;
+		light = uLightColor.rgb * uLightStrength * dif * shadow * uRenderLight;
 		light *= texture2D(uLightGobo, fragCoord).rgb;
 
 		// Subsurface translucency
@@ -272,7 +273,7 @@ void main()
 			float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
 			float specular = numerator / denominator;
 		
-			spec = uLightColor.rgb * shadow * difMask * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
+			spec = uLightColor.rgb * shadow * difMask * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic)) * uRenderLight;
 			spec *= texture2D(uLightGobo, fragCoord).rgb;
 		}
 	}

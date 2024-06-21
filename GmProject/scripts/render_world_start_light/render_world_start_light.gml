@@ -17,6 +17,7 @@ function render_world_start_light(from, to, offset, tl, up)
 	render_light_specular_strength = tl.value[e_value.LIGHT_SPECULAR_STRENGTH]
 	render_light_size = tl.value[e_value.LIGHT_SIZE]
 	render_light_fade_size = tl.value[e_value.LIGHT_FADE_SIZE]
+	render_light_group = tl.light_group
 	
 	if (tl.type = e_tl_type.POINT_LIGHT)
 		render_light_fov = 90
