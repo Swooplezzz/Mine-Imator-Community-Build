@@ -112,6 +112,7 @@ function app_startup_interface_tabs()
 		}
 		// Light Groups
 		lightgroups = tab_add_category("lightgroups", icons.LIGHT_SPOT, tab_properties_light_groups, false)
+		lightgroups.enabled = app.setting_advanced_mode;
 		with (lightgroups)
 		{
 			list = new_obj(obj_sortlist)

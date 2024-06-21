@@ -4,7 +4,7 @@ function tab_properties_light_groups()
 {
 
 	tab_control_sortlist(6)
-	sortlist_draw(tab.lightgroups.list, dx, dy, dw, tab_control_h, light_group_edit)
+	sortlist_draw(tab.lightgroups.list, dx, dy, dw, tab_control_h, light_group_edit, false)
 	tab_next()
 	
 	// Tools

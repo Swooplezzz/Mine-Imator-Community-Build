@@ -33,6 +33,11 @@ function action_light_group_remove(){
 				temp_save_obj = history_save_lightgroup(light_group_edit);
 			}
 		}
+		
+		with(obj_timeline)
+		if (light_group = light_group_edit)
+			light_group = null;
+
 		ds_list_delete_value(light_groups, light_group_edit);
 	    sortlist_remove(tab.lightgroups.list, light_group_edit);
 		

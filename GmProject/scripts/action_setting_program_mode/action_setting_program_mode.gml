@@ -13,4 +13,6 @@ function action_setting_program_mode(advanced)
 	}
 	
 	setting_advanced_mode = advanced
+	
+	properties.lightgroups.enabled = setting_advanced_mode;
 }

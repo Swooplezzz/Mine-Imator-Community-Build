@@ -6,8 +6,8 @@ function action_light_group_add(){
 		with (history_data)
 		{
 			
-			light_group_edit = temp_save_obj
-			history_data.temp_save_obj = history_save_lightgroup(temp_save_obj)
+			light_group_edit = save_id_find(temp_save_id);
+			history_data.temp_save_obj = history_save_lightgroup(light_group_edit)
 			ds_list_delete_value(app.light_groups, light_group_edit);
 		    sortlist_remove(app.tab.lightgroups.list, light_group_edit);
 			
@@ -35,6 +35,7 @@ function action_light_group_add(){
 		    sortlist_add(tab.lightgroups.list, obj);
 			hobj = history_set(action_light_group_add)
 			hobj.temp_save_obj = obj;
+			hobj.temp_save_id = obj.save_id;
 		}
     }
 
