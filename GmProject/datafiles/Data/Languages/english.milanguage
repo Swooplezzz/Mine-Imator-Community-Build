@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.06.18"
+		"lastchange": "2024.06.25"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -51,8 +51,10 @@
 		"downloadskin": "Download skin",
 		"pastekey": "Paste key",
 		"filterlist": "Filter list",
-		"lightgroupnew": "Add new light group",
-		"lightgroupremove": "Delete light group",
+		"lightgroup/": {
+			"new": "New light group",
+			"remove": "Remove light group"
+		},
 		"template/": {
 			"new": "New template",
 			"animate": "Create timeline from template",
@@ -379,7 +381,7 @@
 		"save": "Save",
  		"dontsave": "Don't save",
 		"cancel": "Cancel",
-		"replace": "A resource with this filename has already been added into the project. Do you want to replace it with the selected file?",
+		"replace": "A resource with the name '%1' has already been added into the project. Do you want to replace it with the selected file?",
 		"buffersizewarning": "WARNING: This setting may or may not crash the program when rendering. Only proceed if you think your graphics card and RAM can handle it.\nContinue?",
 		"qualitywarning": "WARNING: This setting may or may not slow down Mine-imator to an unusable state. Only proceed if you think your graphics card can handle it.\nContinue?",
 		"stoprender": "Are you sure you want to stop rendering?",
@@ -2657,8 +2659,9 @@
 		"materialmapstip": "Enable material and normal map texture settings for objects."
 	},
 	"lightgroups": "LIGHT GROUPS",
-	"lightgroup/":{
-		"name" : "Name"
+	"lightgroup/": {
+		"name" : "Name",
+		"new" : "New group"
 	},
 	"library": "LIBRARY",
 	"library/": {
@@ -3235,6 +3238,10 @@
 		"blocksheet": "Block sheet",
 		"particlesheet": "Particle sheet",
 		"texture": "Texture",
+		"issheet": "Item sheet",
+		"grid": "Grid",
+		"rows": "Rows",
+		"columns": "Columns",
 		"ok": "OK",
 		"doall": "Do this for all images"
 	},
@@ -3378,18 +3385,21 @@
 			"smooth": "Smooth path",
 			"detail": "Detail",
 			"detailtip": "Higher values will result in better path accuracy, but are more performance intense.",
-			"shape": "Generate shape",
+			"shape": "Shape",
 			"shape/": {
+				"none": "None",
+				"flat": "Flat",
+				"tube": "Tube",
 				"radius": "Radius",
-				"texlength": "Texture length",
-				"texlengthtip": "The length the path texture should stretch for before repeating.",
 				"invert": "Invert",
-				"tube": "Tube shape",
-				"detail": "Shape detail",
 				"smoothsegments": "Smooth segments",
 				"smoothsegmentstip": "Enable smooth lighting along the direction of the path.",
 				"smoothring": "Smooth ring",
 				"smoothringtip": "Enable smooth lighting on the ring shape around the path.",
+				"detail": "Shape detail",
+				"texmapped": "Mapped texture",
+				"texlength": "Texture length",
+				"texlengthtip": "The length the path texture should stretch for before repeating.",
 				"savemap": "Export map"
 			}
 		}

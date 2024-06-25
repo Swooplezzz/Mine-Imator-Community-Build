@@ -101,16 +101,16 @@ function tl_value_clamp(vid, val)
 		case e_value.BG_TEXTURE_ANI_SPEED: return max(val, 0)
 		case e_value.SOUND_VOLUME: return clamp(val, 0, 1)
 		case e_value.SOUND_PITCH: return clamp(val, 0.5, 2)
-		case e_value.SOUND_START: return max(val, 0)
+		case e_value.SOUND_START:
+		case e_value.LIGHT_SPOT_GOBO_REPEAT_X:
+		case e_value.LIGHT_SPOT_GOBO_REPEAT_Y: return max(val, 0)
+		case e_value.LIGHT_SPOT_GOBO_OFFSET_X:
+		case e_value.LIGHT_SPOT_GOBO_OFFSET_Y:
 		case e_value.TEXT:
 		case e_value.TEXT_HALIGN:
 		case e_value.TEXT_VALIGN:
 		case e_value.BG_BIOME:
 		case e_value.TRANSITION: return val
-		case e_value.SPOT_GOBO_REPEAT_X: return max(val, 0)
-		case e_value.SPOT_GOBO_REPEAT_Y: return max(val, 0)
-		case e_value.SPOT_GOBO_OFFSET_X: return val
-		case e_value.SPOT_GOBO_OFFSET_Y: return val
 	}
 	
 	return clamp(val, -no_limit, no_limit)

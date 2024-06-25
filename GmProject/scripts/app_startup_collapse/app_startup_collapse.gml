@@ -53,9 +53,6 @@ function app_startup_collapse()
 	collapse_register("copyscale")
 	collapse_register("bendik")
 	
-	collapse_register("path_shape")
-	collapse_register("path_shape_tube")
-	
 	collapse_register("light_management_cam")
 	collapse_register("aperture")
 	collapse_register("camshake")

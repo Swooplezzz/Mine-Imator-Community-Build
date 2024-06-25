@@ -4,8 +4,6 @@ function tab_frame_editor_light()
 {
 	context_menu_group_temp = e_context_group.LIGHT
 	
-
-	
 	tab_control_color()
 	draw_button_color("frameeditorlightcolor", dx, dy, dw, tl_edit.value[e_value.LIGHT_COLOR], c_white, false, action_tl_frame_light_color)
 	tab_next()
@@ -62,17 +60,20 @@ function tab_frame_editor_light()
 		draw_button_menu("frameeditorlightgobotexture", e_menu.LIST, dx, dy, dw, ui_large_height, tl_edit.value[e_value.TEXTURE_OBJ], text, action_tl_frame_texture_light_gobo, false, tex)
 		tab_next()
 		
-		tab_control_textfield_group()
-		textfield_group_add("frameeditorlightgobooffsetx",tl_edit.value[e_value.SPOT_GOBO_OFFSET_X], 0, action_tl_frame_spot_gobo_offset_x, X, tab.light.tbx_spot_gobo_offset_x, null, 0.1, -no_limit, no_limit)
-		textfield_group_add("frameeditorlightgobooffsety",tl_edit.value[e_value.SPOT_GOBO_OFFSET_Y], 0, action_tl_frame_spot_gobo_offset_y, Y, tab.light.tbx_spot_gobo_offset_y, null, 0.1, -no_limit, no_limit)
-		draw_textfield_group("frameeditorlightgobooffset", dx, dy, dw, null, null, null, snap_min, true, 1)
-		tab_next()																																   
+		if (tl_edit.value[e_value.TEXTURE_OBJ] != null)
+		{
+			tab_control_textfield_group()
+			textfield_group_add("frameeditorlightgobooffsetx", tl_edit.value[e_value.LIGHT_SPOT_GOBO_OFFSET_X], 0, action_tl_frame_light_spot_gobo_offset_x, X, tab.light.tbx_spot_gobo_offset_x, null, 0.1, -no_limit, no_limit)
+			textfield_group_add("frameeditorlightgobooffsety", tl_edit.value[e_value.LIGHT_SPOT_GOBO_OFFSET_Y], 0, action_tl_frame_light_spot_gobo_offset_y, Y, tab.light.tbx_spot_gobo_offset_y, null, 0.1, -no_limit, no_limit)
+			draw_textfield_group("frameeditorlightgobooffset", dx, dy, dw, null, null, null, snap_min, true, 1, 3)
+			tab_next()																																   
 																																				   
-		tab_control_textfield_group()																											 
-		textfield_group_add("frameeditorlightgoborepeatx", tl_edit.value[e_value.SPOT_GOBO_REPEAT_X], 1, action_tl_frame_spot_gobo_repeat_x, X, tab.light.tbx_spot_gobo_repeat_x, null, 0.1, 0, no_limit)
-		textfield_group_add("frameeditorlightgoborepeaty", tl_edit.value[e_value.SPOT_GOBO_REPEAT_Y], 1, action_tl_frame_spot_gobo_repeat_y, Y, tab.light.tbx_spot_gobo_repeat_y, null, 0.1, 0, no_limit)
-				draw_textfield_group("frameeditorlightgoborepeat", dx, dy, dw, null, null, null, snap_min, true, 1)
-		tab_next()
+			tab_control_textfield_group()																											 
+			textfield_group_add("frameeditorlightgoborepeatx", tl_edit.value[e_value.LIGHT_SPOT_GOBO_REPEAT_X], 1, action_tl_frame_light_spot_gobo_repeat_x, X, tab.light.tbx_spot_gobo_repeat_x, null, 0.1, 0, no_limit)
+			textfield_group_add("frameeditorlightgoborepeaty", tl_edit.value[e_value.LIGHT_SPOT_GOBO_REPEAT_Y], 1, action_tl_frame_light_spot_gobo_repeat_y, Y, tab.light.tbx_spot_gobo_repeat_y, null, 0.1, 0, no_limit)
+			draw_textfield_group("frameeditorlightgoborepeat", dx, dy, dw, null, null, null, snap_min, true, 1, 3)
+			tab_next()
+		}
 	}
 	
 	context_menu_group_temp = null

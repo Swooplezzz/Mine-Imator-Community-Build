@@ -67,6 +67,10 @@ function app_startup_lists()
 		"LIGHT_FADE_SIZE",
 		"LIGHT_SPOT_RADIUS",
 		"LIGHT_SPOT_SHARPNESS",
+		"LIGHT_SPOT_GOBO_OFFSET_X",
+		"LIGHT_SPOT_GOBO_OFFSET_Y",
+		"LIGHT_SPOT_GOBO_REPEAT_X",
+		"LIGHT_SPOT_GOBO_REPEAT_Y",
 		"CAM_FOV",
 		"CAM_ASPECT",
 		"CAM_BLADE_AMOUNT",
@@ -247,11 +251,7 @@ function app_startup_lists()
 		"EASE_IN_X",
 		"EASE_IN_Y",
 		"EASE_OUT_X",
-		"EASE_OUT_Y",
-		"SPOT_GOBO_OFFSET_X",
-		"SPOT_GOBO_OFFSET_Y",
-		"SPOT_GOBO_REPEAT_X",
-		"SPOT_GOBO_REPEAT_Y"
+		"EASE_OUT_Y"
 	)
 	
 	// Camera values
