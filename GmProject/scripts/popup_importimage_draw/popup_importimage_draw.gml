@@ -58,7 +58,7 @@ function popup_importimage_draw()
 	draw_radiobutton("importimagetexture", dx, dy, e_res_type.TEXTURE, popup.type = e_res_type.TEXTURE, action_toolbar_importimage_type)
 	tab_next()
 	
-	tab_control(80)
+	tab_control(setting_interface_compact ? 100 : 80)
 	tab_next(false)
 	
 	if (popup.type = e_res_type.ITEM_SHEET)
@@ -97,9 +97,6 @@ function popup_importimage_draw()
 			    script_execute(popup.value_script, e_option.IMPORT_ITEM_SHEET_DONE)
 		    else
 			    action_res_image_load(popup.filename, e_res_type.ITEM_SHEET)
-						
-			if (ds_list_size(popup.filenames) <= 1)
-				popup_close()
 		}
 		else
 		{
@@ -110,9 +107,6 @@ function popup_importimage_draw()
 			}
 			else
 				action_res_image_load(popup.filename, popup.type)
-			
-			if (ds_list_size(popup.filenames) <= 1)
-				popup_close()
 		}
 		
 		if (ds_list_size(popup.filenames) > 1)
@@ -120,6 +114,11 @@ function popup_importimage_draw()
 			ds_list_delete(popup.filenames, 0)
 			popup_importimage_show(popup.filenames[|0])
 			show_debug_message("New popup")
+		}
+		else
+		{
+			ds_list_clear(popup.filenames)
+			popup_close()
 		}
 	}
 	tab_next()
