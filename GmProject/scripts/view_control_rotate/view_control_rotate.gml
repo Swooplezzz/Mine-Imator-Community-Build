@@ -15,14 +15,15 @@ function view_control_rotate(view)
 		zrot[MAT_Y] = matrix[MAT_Y]
 		zrot[MAT_Z] = matrix[MAT_Z]
 		matrix_remove_scale(zrot)
-		if(tl_edit.value[e_value.ROT_TARGET] != null){
-		zrot = array_copy_1d(tl_edit.value[e_value.ROT_TARGET].matrix)
-		zrot[MAT_X] = matrix[MAT_X]
-		zrot[MAT_Y] = matrix[MAT_Y]
-		zrot[MAT_Z] = matrix[MAT_Z]
-		matrix_remove_scale(zrot)	
-		}
 		
+		if (tl_edit.value[e_value.ROT_TARGET] != null)
+		{
+			zrot = array_copy_1d(tl_edit.value[e_value.ROT_TARGET].matrix)
+			zrot[MAT_X] = matrix[MAT_X]
+			zrot[MAT_Y] = matrix[MAT_Y]
+			zrot[MAT_Z] = matrix[MAT_Z]
+			matrix_remove_scale(zrot)	
+		}
 	}
 	
 	xrot = matrix_multiply(matrix_build(0, 0, 0, 0, -90, tl_edit.value[e_value.ROT_Z], 1, 1, 1), zrot)
@@ -42,7 +43,7 @@ function view_control_rotate(view)
 		{
 			var ang, prevang, rot, snapval, axesang, newval;
 			axis_edit = view_control_edit - e_view_control.ROT_X
-
+			
 			// Find rotate amount
 			ang = point_direction(mouse_x - content_x, mouse_y - content_y, view_control_pos[X], view_control_pos[Y])
 			prevang = point_direction(mouse_previous_x - content_x, mouse_previous_y - content_y, view_control_pos[X], view_control_pos[Y])

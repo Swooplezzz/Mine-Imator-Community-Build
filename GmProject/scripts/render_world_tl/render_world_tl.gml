@@ -41,8 +41,7 @@ function render_world_tl()
 	// Lightlinking figuring it out !!
 	if (tl.light_group != render_light_group && render_light_group != null &&
 			(render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
-			render_mode = e_render_mode.HIGH_LIGHT_POINT||
-			render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS))
+			render_mode = e_render_mode.HIGH_LIGHT_POINT))
 		render_set_uniform("uRenderLight", 0)
 	else
 		render_set_uniform("uRenderLight", 1)
@@ -50,7 +49,7 @@ function render_world_tl()
 	// Lightlinking figuring it out !!
 	if (tl.light_group != render_light_group && render_light_group != null &&
 			(render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
-	        render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
+			render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
 	   return 0
 	
 	// Click mode

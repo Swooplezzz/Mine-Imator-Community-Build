@@ -82,13 +82,13 @@ function tl_remove_clean()
 			
 			if (value[e_value.ROT_TARGET] = other.id)
 				value[e_value.ROT_TARGET] = null
-						
+			
 			if (value[e_value.LOOK_AT_TARGET] = other.id)
 				value[e_value.LOOK_AT_TARGET] = null
 			
 			if (value[e_value.POS_TARGET] = other.id)
 				value[e_value.POS_TARGET] = null
-				
+			
 			if (value[e_value.SCALE_TARGET] = other.id)
 				value[e_value.SCALE_TARGET] = null
 			
@@ -109,16 +109,16 @@ function tl_remove_clean()
 			
 			if (value[e_value.ROT_TARGET] = other.id)
 				update_matrix = true
-				
+			
 			if (value[e_value.LOOK_AT_TARGET] = other.id)
 				update_matrix = true
-				
+			
 			if (value[e_value.POS_TARGET] = other.id)
 				update_matrix = true
 			
 			if (value[e_value.SCALE_TARGET] = other.id)
 				update_matrix = true
-				
+			
 			if (value[e_value.BEND_IK_TARGET] = other.id)
 				update_matrix = true
 			
@@ -148,16 +148,16 @@ function tl_remove_clean()
 			
 			if (value[e_value.ROT_TARGET] = other.id)
 				value[e_value.ROT_TARGET] = null
-				
+			
 			if (value[e_value.LOOK_AT_TARGET] = other.id)
 				value[e_value.LOOK_AT_TARGET] = null
-				
+			
 			if (value[e_value.POS_TARGET] = other.id)
 				value[e_value.POS_TARGET] = null
 			
 			if (value[e_value.SCALE_TARGET] = other.id)
 				value[e_value.SCALE_TARGET] = null
-				
+			
 			if (value[e_value.BEND_IK_TARGET] = other.id)
 				value[e_value.BEND_IK_TARGET] = null
 			

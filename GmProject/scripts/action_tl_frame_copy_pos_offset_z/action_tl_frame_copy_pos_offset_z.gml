@@ -1,5 +1,6 @@
-/// action_tl_frame_copy_pos_offset_z(value)
+/// action_tl_frame_copy_pos_offset_z(value, add)
 /// @arg value
+/// @arg add
 
 function action_tl_frame_copy_pos_offset_z(value, add)
 {

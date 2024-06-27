@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.06.25"
+		"lastchange": "2024.06.26"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -321,8 +321,10 @@
 		"projectsaved": "Project saved successfully!",
 		"exportmovie": "Movie exporting finished!",
 		"exportmovieview": "View",
+		"exportmoviefolder": "Open folder",
 		"exportimage": "Render saved successfully!",
 		"exportimageview": "View",
+		"exportimagefolder": "Open folder",
 		"upgraded": "Level up! You are now using the Full version.",
 		"reloadobjects": "Reload affected objects to see setting changes.",
 		"restartprogram": "Restart Mine-imator to apply setting changes.",
@@ -3440,9 +3442,9 @@
 		"followpath": "Follow path",
 		"lookat": "Look at",
 		"lookat/":{
-			"target" : "Target",
-			"influence" : "Influence",
-			"axis":"Look at axis",
+			"target": "Target",
+			"influence": "Influence",
+			"axis": "Look at axis",
 			"xoffset": "X",
 			"yoffset": "Y",
 			"zoffset": "Z",
@@ -3477,7 +3479,7 @@
 			"yoffset": "Y",
 			"zoffset": "Z",
 			"offset": "Offset",
-			"influence" : "Influence"
+			"influence": "Influence"
 		},
         "copyscale": "Copy scale",
 		"copyscale/": {
@@ -3487,7 +3489,7 @@
 			"y": "Y",
 			"z": "Z",
 			"copyaxis": "Axis",
-			"influence" : "Influence"
+			"influence": "Influence"
 		},
 		"path": "Path timeline",
 		"path/": {

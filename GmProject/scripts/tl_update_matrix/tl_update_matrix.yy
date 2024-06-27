@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Mine-imator Community Build",
-    "path": "Mine-imator Community Build.yyp",
+    "name": "Update",
+    "path": "folders/Scripts/Project/Timeline/Update.yy",
   },
 }

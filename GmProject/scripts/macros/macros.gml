@@ -23,7 +23,7 @@ function macros()
 	#macro mineimator_version_sub		"Community Build 1.0.0"		// Mod name and version (e.g. "Community Build 1.0.0")
 	#macro mineimator_version_extra		"Alpha 8"					// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2024.06.25"
+	#macro mineimator_version_date		"2024.06.26"
 	#macro minecraft_version			"1.21"
 	#macro gm_runtime					GM_runtime_version
 	

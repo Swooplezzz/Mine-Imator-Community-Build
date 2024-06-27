@@ -1,5 +1,7 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/// action_tl_frame_look_at_offset_x(value, add)
+/// @arg value
+/// @arg add
+
 function action_tl_frame_look_at_offset_x(value, add)
 {
 	tl_value_set_start(action_tl_frame_look_at_offset_x, false)

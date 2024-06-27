@@ -1,4 +1,4 @@
-//tab_frame_editor_look_at()
+/// tab_frame_editor_look_at()
 
 function tab_frame_editor_look_at()
 {
@@ -8,6 +8,7 @@ function tab_frame_editor_look_at()
 	tab_control_switch()
 	draw_button_collapse("lookat", collapse_map[?"lookat"], null, true, "frameeditorlookat", "frameeditorlookattip")
 	tab_next()
+	
 	var taby = dy
 	if (collapse_map[?"lookat"])
 	{
