@@ -17,8 +17,6 @@ function project_startup()
 	res_edit = null
 	axis_edit = X
 	
-
-	
 	temp_creator = app
 	res_creator = app
 	save_id = "root"

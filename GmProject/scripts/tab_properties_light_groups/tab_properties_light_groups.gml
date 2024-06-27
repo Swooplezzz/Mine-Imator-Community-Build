@@ -2,7 +2,6 @@
 
 function tab_properties_light_groups()
 {
-
 	tab_control_sortlist(6)
 	sortlist_draw(tab.lightgroups.list, dx, dy, dw, tab_control_h, light_group_edit, false)
 	tab_next()
@@ -26,5 +25,4 @@ function tab_properties_light_groups()
 	tab.lightgroups.tbx_name.text = light_group_edit.name
 	draw_textfield("lightgroupname", dx, dy, dw, 24, tab.lightgroups.tbx_name, action_light_group_name, light_group_edit.name, "left")
 	tab_next()
-
 }

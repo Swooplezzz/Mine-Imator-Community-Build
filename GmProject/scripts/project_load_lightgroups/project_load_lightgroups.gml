@@ -1,5 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/// project_load_lightgroups(map)
+/// @arg map
+
 function project_load_lightgroups(map)
 {
 	if (!ds_map_valid(map))
@@ -13,5 +14,4 @@ function project_load_lightgroups(map)
 		name = value_get_string(map[?"name"], name)
 		sortlist_add(app.light_group_list, id)
 	}
-	
 }

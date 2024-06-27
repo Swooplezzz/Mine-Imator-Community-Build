@@ -1,6 +1,8 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function action_tl_light_group(group){
+/// action_tl_light_group(group)
+/// @arg group
+
+function action_tl_light_group(group)
+{
 	if (history_undo)
 	{
 		with (history_data)

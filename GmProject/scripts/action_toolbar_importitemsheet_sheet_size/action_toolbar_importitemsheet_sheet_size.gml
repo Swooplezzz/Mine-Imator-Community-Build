@@ -4,5 +4,5 @@
 
 function action_toolbar_importitemsheet_sheet_size(val, add)
 {
-	popup_importimage.sheet_size[axis_edit] = popup_importimage.sheet_size[axis_edit] * add + val
+	popup_importitemsheet.sheet_size[axis_edit] = popup_importitemsheet.sheet_size[axis_edit] * add + val
 }

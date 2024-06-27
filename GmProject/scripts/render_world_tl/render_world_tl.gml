@@ -38,24 +38,21 @@ function render_world_tl()
 	while (app.setting_select_locked_parent && (tl.parent != app && tl.parent.lock) && render_mode = e_render_mode.CLICK)
 		tl = tl.parent
 	
-	//Lightlinking figuring it out !!
-	if(tl.light_group != render_light_group && render_light_group != null &&
-	              (render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
-	               render_mode = e_render_mode.HIGH_LIGHT_POINT)){
-			render_set_uniform("uRenderLight", 0)
-	}
-	else{
-			render_set_uniform("uRenderLight", 1)
-
-	}
+	// Lightlinking figuring it out !!
+	if (tl.light_group != render_light_group && render_light_group != null &&
+			(render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+			render_mode = e_render_mode.HIGH_LIGHT_POINT||
+			render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS))
+		render_set_uniform("uRenderLight", 0)
+	else
+		render_set_uniform("uRenderLight", 1)
 	
-	//Lightlinking figuring it out !!
-	if(tl.light_group != render_light_group && render_light_group != null &&
-	(render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
-	               render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
-    {
-	   return 0;
-	}
+	// Lightlinking figuring it out !!
+	if (tl.light_group != render_light_group && render_light_group != null &&
+			(render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
+	        render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
+	   return 0
+	
 	// Click mode
 	if (render_mode = e_render_mode.CLICK)
 	{
