@@ -44,6 +44,14 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
+		if (value[e_value.LOOK_AT_TARGET] = tl)
+		{
+			hobj.usage_tl_look_at_target_save_id[hobj.usage_tl_look_at_target_amount] = save_id
+			hobj.usage_tl_look_at_target_part_save_id[hobj.usage_tl_look_at_target_amount] = tl.save_id
+			hobj.usage_tl_look_at_target_amount++
+			
+			used = true
+		}
 		
 		if (value[e_value.POS_TARGET] = tl)
 		{
@@ -115,6 +123,18 @@ function history_save_part_usage_tl(tl, hobj)
 			
 			used = true
 		}
+		
+		if (value[e_value.LOOK_AT_TARGET] = tl)
+		{
+			hobj.usage_kf_look_at_target_tl_save_id[hobj.usage_kf_look_at_target_amount] = save_id_get(timeline)
+			hobj.usage_kf_look_at_target_tl_part_save_id[hobj.usage_kf_look_at_target_amount] = tl.save_id
+			hobj.usage_kf_look_at_target_index[hobj.usage_kf_look_at_target_amount] = ds_list_find_index(timeline.keyframe_list, id)
+			hobj.usage_kf_look_at_target_amount++
+			
+			used = true
+		}
+		
+
 		
 		if (value[e_value.POS_TARGET] = tl)
 		{

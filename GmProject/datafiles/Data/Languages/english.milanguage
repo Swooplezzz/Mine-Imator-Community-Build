@@ -147,6 +147,7 @@
 		"group/": {
 			"copy": "Copy all values",
 			"paste": "Paste all values",
+			"inverse": "Set inverse",
 			"reset": "Reset all values",
 			"copyglobalposition": "Copy global position"
 		},
@@ -3427,6 +3428,16 @@
 		},
 		"constraints": "CONSTRAINTS",
 		"followpath": "Follow path",
+		"lookat": "Look at",
+		"lookat/":{
+			"target" : "Target",
+			"influence" : "Influence",
+			"axis":"Look at axis",
+			"xoffset": "X",
+			"yoffset": "Y",
+			"zoffset": "Z",
+			"offset": "Offset"
+		},
         "copyrot": "Copy rotation",
 		"copyrot/": {
 			"tip": "Allows the object to inherit rotation from a separate object.",
@@ -3434,7 +3445,13 @@
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"copyaxis": "Axis"
+			"copyaxis": "Axis",
+			"xoffset": "X",
+			"yoffset": "Y",
+			"zoffset": "Z",
+			"offset": "Offset",
+			"bend": "Bent half",
+			"influence" : "Influence"
 		},
         "copypos": "Copy position",
 		"copypos/": {
@@ -3444,10 +3461,13 @@
 			"y": "Y",
 			"z": "Z",
 			"copyaxis": "Axis",
+			"child": "Rotate",
+			"bend": "Bent half",
 			"xoffset": "X",
 			"yoffset": "Y",
 			"zoffset": "Z",
-			"offset": "Offset"
+			"offset": "Offset",
+			"influence" : "Influence"
 		},
         "copyscale": "Copy scale",
 		"copyscale/": {
@@ -3456,7 +3476,8 @@
 			"x": "X",
 			"y": "Y",
 			"z": "Z",
-			"copyaxis": "Axis"
+			"copyaxis": "Axis",
+			"influence" : "Influence"
 		},
 		"path": "Path timeline",
 		"path/": {

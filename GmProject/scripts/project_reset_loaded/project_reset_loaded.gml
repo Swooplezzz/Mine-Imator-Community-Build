@@ -20,6 +20,9 @@ function project_reset_loaded()
 	
 	with (obj_resource)
 		loaded = false
+		
+	with (obj_lightgroup)
+		loaded = false
 	
 	with (obj_keyframe)
 		loaded = false

@@ -20,6 +20,14 @@ function view_control_move(view)
 		mat[MAT_Y] = matrix[MAT_Y]
 		mat[MAT_Z] = matrix[MAT_Z]
 		matrix_remove_scale(mat)
+		
+		if(tl_edit.value[e_value.POS_TARGET] != null){
+		mat = array_copy_1d(tl_edit.value[e_value.POS_TARGET].matrix)
+		mat[MAT_X] = matrix[MAT_X]
+		mat[MAT_Y] = matrix[MAT_Y]
+		mat[MAT_Z] = matrix[MAT_Z]
+		matrix_remove_scale(mat)	
+		}
 	}
 	
 	// Draw axis arrows

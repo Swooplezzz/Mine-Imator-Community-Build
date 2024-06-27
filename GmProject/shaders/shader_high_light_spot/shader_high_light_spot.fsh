@@ -16,7 +16,7 @@ uniform float uLightFadeSize; // static
 uniform float uLightSpotSharpness; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
-uniform float uRenderLight; // static
+uniform float uRenderLight;
 
 // Texture
 uniform vec2 uGoboOffset;

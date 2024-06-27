@@ -8,12 +8,12 @@ function tab_frame_editor_copy_pos()
 	tab_control_switch()
 	draw_button_collapse("copypos", collapse_map[?"copypos"], null, true, "frameeditorcopypos", "frameeditorcopypostip")
 	tab_next()
-	
+	var taby = dy
 	if (collapse_map[?"copypos"])
 	{
 		tab_collapse_start()
 		var text;
-		
+
 		// Target object
 		if (tl_edit.value[e_value.POS_TARGET] != null)
 			text = tl_edit.value[e_value.POS_TARGET].display_name
@@ -25,30 +25,46 @@ function tab_frame_editor_copy_pos()
 		tab_next()
 		
 		dy += 12
-		draw_label(text_get("frameeditorcopyposcopyaxis"), dx, dy, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
-		dy += 8
+		tab_control_togglebutton()
+
+	    togglebutton_add("frameeditorcopyposx", null, !tl_edit.value[e_value.COPY_POS_X], tl_edit.value[e_value.COPY_POS_X], action_tl_frame_copy_pos_x)
+	    togglebutton_add("frameeditorcopyposy", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Y] : tl_edit.value[e_value.COPY_POS_Z]), (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Y] : tl_edit.value[e_value.COPY_POS_Z]),(setting_z_is_up ? action_tl_frame_copy_pos_y : action_tl_frame_copy_pos_z))
+	    togglebutton_add("frameeditorcopyposz", null,!(setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Z] : tl_edit.value[e_value.COPY_POS_Y]), (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Z] : tl_edit.value[e_value.COPY_POS_Y]), (setting_z_is_up ? action_tl_frame_copy_pos_z : action_tl_frame_copy_pos_y))
+	   
+	    draw_togglebutton("frameeditorcopyposcopyaxis", dx, dy)
 		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyposx", dx, dy, tl_edit.value[e_value.COPY_POS_X], action_tl_frame_copy_pos_x)
-		tab_next(false)
-		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyposy", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Y] : tl_edit.value[e_value.COPY_POS_Z]), (setting_z_is_up ? action_tl_frame_copy_pos_y : action_tl_frame_copy_pos_z))
-		tab_next(false)
-		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyposz", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_Z] : tl_edit.value[e_value.COPY_POS_Y]), (setting_z_is_up ? action_tl_frame_copy_pos_z : action_tl_frame_copy_pos_y))
 		tab_next()
 		
-		/*
-		textfield_group_add("frameeditorcopyposxoffset", tl_edit.value[e_value.COPY_POS_OFFSET_X], 0, action_tl_frame_copy_pos_offset_x, X, tab.constraints.tbx_copy_pos_offset_x, null, 1, 0, no_limit)
-	    textfield_group_add("frameeditorcopyposyoffset", tl_edit.value[e_value.COPY_POS_OFFSET_Y], 0, action_tl_frame_copy_pos_offset_y, Y, tab.constraints.tbx_copy_pos_offset_y, null, 1, 0, no_limit)
-		textfield_group_add("frameeditorcopyposzoffset", tl_edit.value[e_value.COPY_POS_OFFSET_Z], 0, action_tl_frame_copy_pos_offset_z, Z, tab.constraints.tbx_copy_pos_offset_z, null, 1, 0, no_limit)
-			
-		tab_control_textfield_group()
-		draw_textfield_group("frameeditorcopyposoffset", dx, dy, dw, null, null, null, .01, true, false, 1)
+		tab_control_checkbox()
+		draw_checkbox("frameeditorcopyposchild",dx,dy, tl_edit.value[e_value.COPY_POS_CHILD], action_tl_frame_copy_pos_child)
+		draw_checkbox("frameeditorcopyposbend",dx + dw/2,dy, tl_edit.value[e_value.COPY_POS_BEND], action_tl_frame_copy_pos_bend)
 		tab_next()
-		*/
+
+		var mul = max(1, point3D_distance(tl_edit.world_pos, cam_from)) / 100
+		
+		microani_set("tabcopyposition", null, false, false, false)
+		
+	    textfield_group_add("frameeditorcopyposxoffset", tl_edit.value[e_value.COPY_POS_OFFSET_X], 0, action_tl_frame_copy_pos_offset_x, X, tab.constraints.tbx_copy_pos_offset_x, null, mul, -no_limit, no_limit)
+	    textfield_group_add("frameeditorcopyposyoffset", (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_OFFSET_Y] : tl_edit.value[e_value.COPY_POS_OFFSET_Z]), 0, (setting_z_is_up ? action_tl_frame_copy_pos_offset_y : action_tl_frame_copy_pos_offset_z), Y, tab.constraints.tbx_copy_pos_offset_y, null, mul, -no_limit, no_limit)
+		textfield_group_add("frameeditorcopyposzoffset",  (setting_z_is_up ? tl_edit.value[e_value.COPY_POS_OFFSET_Z] : tl_edit.value[e_value.COPY_POS_OFFSET_Y]), 0, (setting_z_is_up ? action_tl_frame_copy_pos_offset_z : action_tl_frame_copy_pos_offset_y), Z, tab.constraints.tbx_copy_pos_offset_z, null, mul, -no_limit, no_limit)
+
+		var snapval = (dragger_snap ? setting_snap_size_position : snap_min)
+		
+		
+
+		context_menu_group_temp = e_context_group.COPYPOS
+		tab_frame_editor_buttons()
+		
+		draw_label(text_get("frameeditorcopyposoffset"), dx, dy + 12, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
+	    dy += 26
+		
+		tab_control_textfield_group(false)
+
+		draw_textfield_group("frameeditorcopyposoffset", dx, dy, dw, null, null, null, snapval, false, false, 1) 
+		tab_next()
+		
+		microani_set("tabcopyposition", null, false, false, false)
+	    microani_update(app_mouse_box(dx, taby, dw, dy - taby) && content_mouseon, false, false)
 
 		tab_collapse_end()
 	}

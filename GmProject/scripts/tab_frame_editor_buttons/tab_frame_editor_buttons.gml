@@ -35,6 +35,20 @@ function tab_frame_editor_buttons()
 		
 		draw_set_alpha(alpha)
 	}
+	if (context_menu_group_temp = e_context_group.COPYPOS && setting_advanced_mode)
+	{
+		draw_button_icon(name + "inverse", bx, by, 24, 24, false, icons.REPEAT, action_group_inverse_position, tl_edit.value[e_value.POS_TARGET] = null, "contextmenugroupinverse")
+		bx -= 28
+		
+		draw_set_alpha(alpha)
+	}
+	if (context_menu_group_temp = e_context_group.COPYROT && setting_advanced_mode)
+	{
+		draw_button_icon(name + "inverse", bx, by, 24, 24, false, icons.REPEAT, action_group_inverse_rotation, tl_edit.value[e_value.ROT_TARGET] = null, "contextmenugroupinverse")
+		bx -= 28
+		
+		draw_set_alpha(alpha)
+	}
 	
 	draw_button_icon(name + "reset", bx, by, 24, 24, false, icons.RESET, action_group_reset, false, "contextmenugroupreset")
 	bx -= 28

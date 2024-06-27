@@ -17,7 +17,7 @@ uniform float uLightFadeSize; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 uniform float uLightSize;
-uniform float uRenderLight; // static
+uniform float uRenderLight;
 
 uniform sampler2D uDepthBuffer; // static
 uniform float uDepthBufferSize; // static

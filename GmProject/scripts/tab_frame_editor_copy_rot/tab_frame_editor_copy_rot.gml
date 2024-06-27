@@ -8,7 +8,7 @@ function tab_frame_editor_copy_rot()
 	tab_control_switch()
 	draw_button_collapse("copyrot", collapse_map[?"copyrot"], null, true, "frameeditorcopyrot", "frameeditorcopyrottip")
 	tab_next()
-	
+	var taby = dy
 	if (collapse_map[?"copyrot"])
 	{
 		tab_collapse_start()
@@ -25,20 +25,42 @@ function tab_frame_editor_copy_rot()
 		tab_next()
 		
 		dy += 12
-		draw_label(text_get("frameeditorcopyrotcopyaxis"), dx, dy, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
-		dy += 8
+		
+		tab_control_togglebutton()
+		
+
+		
+	    togglebutton_add("frameeditorcopyrotx", null, !tl_edit.value[e_value.COPY_ROT_X], tl_edit.value[e_value.COPY_ROT_X], action_tl_frame_copy_rot_x)
+	    togglebutton_add("frameeditorcopyroty", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]), (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]),  (setting_z_is_up ? action_tl_frame_copy_rot_y : action_tl_frame_copy_rot_z))
+	    togglebutton_add("frameeditorcopyrotz", null,!(setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? action_tl_frame_copy_rot_z : action_tl_frame_copy_rot_y))
+	   
+	    draw_togglebutton("frameeditorcopyrotcopyaxis", dx, dy)
+
+	    tab_next()
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyrotx", dx, dy, tl_edit.value[e_value.COPY_ROT_X], action_tl_frame_copy_rot_x)
-		tab_next(false)
-		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyroty", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]), (setting_z_is_up ? action_tl_frame_copy_rot_y : action_tl_frame_copy_rot_z))
-		tab_next(false)
-		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyrotz", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? action_tl_frame_copy_rot_z : action_tl_frame_copy_rot_y))
+		draw_checkbox("frameeditorcopyrotbend",dx,dy, tl_edit.value[e_value.COPY_ROT_BEND], action_tl_frame_copy_pos_bend)
 		tab_next()
+		
+		microani_set("tabcopyrotation", null, false, false, false)
+		textfield_group_add("frameeditorcopyrotxoffset", tl_edit.value[e_value.COPY_ROT_OFFSET_X], 0, action_tl_frame_copy_rot_offset_x, X, tab.constraints.tbx_copy_rot_offset_x, null, 0.1, -no_limit, no_limit)
+	    textfield_group_add("frameeditorcopyrotyoffset", (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_OFFSET_Y] : tl_edit.value[e_value.COPY_ROT_OFFSET_Z]), 0, (setting_z_is_up ? action_tl_frame_copy_rot_offset_y : action_tl_frame_copy_rot_offset_z), Y, tab.constraints.tbx_copy_rot_offset_y, null, 0.1, -no_limit, no_limit)
+		textfield_group_add("frameeditorcopyrotzoffset",  (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_OFFSET_Z] : tl_edit.value[e_value.COPY_ROT_OFFSET_Y]), 0, (setting_z_is_up ? action_tl_frame_copy_rot_offset_z : action_tl_frame_copy_rot_offset_y), Z,tab.constraints.tbx_copy_rot_offset_z, null, 0.1, -no_limit, no_limit)
+
+		var snapval = (dragger_snap ? setting_snap_size_position : snap_min)
+		
+		context_menu_group_temp = e_context_group.COPYROT
+		tab_frame_editor_buttons()
+		
+		draw_label(text_get("frameeditorcopyrotoffset"), dx, dy + 12, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
+	    dy += 26
+		
+		tab_control_textfield_group(false)
+		draw_textfield_group("frameeditorcopyrotoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, false, 1)
+		tab_next()
+		
+		microani_set("tabcopyrotation", null, false, false, false)
+	    microani_update(app_mouse_box(dx, taby, dw, dy - taby) && content_mouseon, false, false)
 		
 		tab_collapse_end()
 	}

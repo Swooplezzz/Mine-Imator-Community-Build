@@ -25,21 +25,15 @@ function tab_frame_editor_copy_scale()
 		tab_next()
 		
 		dy += 12
-		draw_label(text_get("frameeditorcopyscalecopyaxis"), dx, dy, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
-		dy += 8
 		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyscalex", dx, dy, tl_edit.value[e_value.COPY_SCALE_X], action_tl_frame_copy_scale_x)
-		tab_next(false)
+	   tab_control_togglebutton()
 		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyscaley", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]), (setting_z_is_up ? action_tl_frame_copy_scale_y : action_tl_frame_copy_scale_z))
-		tab_next(false)
-		
-		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyscalez", dx, dy, (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? action_tl_frame_copy_scale_z : action_tl_frame_copy_scale_y))
+	    togglebutton_add("frameeditorcopyscalex", null, !tl_edit.value[e_value.COPY_SCALE_X], tl_edit.value[e_value.COPY_SCALE_X], action_tl_frame_copy_scale_x)
+	    togglebutton_add("frameeditorcopyscaley", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]), (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]),  (setting_z_is_up ? action_tl_frame_copy_scale_y : action_tl_frame_copy_scale_z))
+	    togglebutton_add("frameeditorcopyscalez", null,!(setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? action_tl_frame_copy_scale_z : action_tl_frame_copy_scale_y))
+	   
+	    draw_togglebutton("frameeditorcopyrotcopyaxis", dx, dy)
 		tab_next()
-		
 		tab_collapse_end()
 	}
 }

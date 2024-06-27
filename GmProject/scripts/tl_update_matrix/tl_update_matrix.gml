@@ -29,7 +29,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				if (curtl.tree_list[|t].inherit_pose)
 					array_add(app.project_inherit_pose_array, curtl.tree_list[|t])
 		
-		if (curtl.value[e_value.ROT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
+		if (curtl.value[e_value.ROT_TARGET] != null||curtl.value[e_value.LOOK_AT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
 			curtl.update_matrix = true
 		
 		if (!curtl.update_matrix)
@@ -216,30 +216,115 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			//world_rot = quat_euler(vec3(value[e_value.ROT_X], value[e_value.ROT_Y], value[e_value.ROT_Z]));
 			//if (id.parent != app)
 			//	world_rot = quat_mul(world_rot, id.parent.world_rot);
+
 			
 			if (value[e_value.ROT_TARGET] != null)
 			{
 				var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
-				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value_inherit[e_value.ROT_X], value_inherit[e_value.ROT_Y], value_inherit[e_value.ROT_Z]), vec3(1)), target_rot_mat);
+				var par = value[e_value.ROT_TARGET];
+				//BENT Half
+				if (par.type = e_tl_type.BODYPART && value[e_value.COPY_ROT_BEND] && par.model_part != null && par.model_part.bend_part != null)
+				{
+				var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+				target_rot_mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), target_rot_mat)
+				}
+				
+				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.ROT_X]+ value[e_value.COPY_ROT_OFFSET_X], value[e_value.ROT_Y]  + value[e_value.COPY_ROT_OFFSET_Y], value[e_value.ROT_Z] + value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
 				matrix_remove_rotation(matrix)
+
+		
 				var target_rotation = matrix_rotation(target_rot_mat);
 				//var target_rotation = to_euler(value[e_value.ROT_TARGET].world_rot);
 				
-				target_rotation[X] = (value[e_value.COPY_ROT_X] ? target_rotation[X] : 0);
-				target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : 0);
-				target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0);
+				target_rotation[X] = (value[e_value.COPY_ROT_X]? target_rotation[X] : 0);
+				target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y]: 0);
+				target_rotation[Z] = (value[e_value.COPY_ROT_Z]? target_rotation[Z] : 0);
 
 				matrix_remove_scale(target_rot_mat)
 				matrix = matrix_multiply(matrix_create(vec3(0), target_rotation, vec3(1)), matrix);
 			}
-			
+
 			if (value[e_value.POS_TARGET] != null)
 			{
-			    matrix_remove_rotation(matrix_parent)
+			
+				if(value[e_value.COPY_POS_CHILD]){
+					
+				   var pos = vec3(0);
 	
-				matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value_inherit[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] : matrix[MAT_X]);
-				matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value_inherit[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] : matrix[MAT_Y]);
-				matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value_inherit[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] : matrix[MAT_Z]);
+				   pos[X] = value[e_value.POS_X] + value[e_value.COPY_POS_OFFSET_X]
+				   pos[Y] = value[e_value.POS_Y] + value[e_value.COPY_POS_OFFSET_Y]
+				   pos[Z] = value[e_value.POS_Z] + value[e_value.COPY_POS_OFFSET_Z] 
+				   
+				   var par = value[e_value.POS_TARGET];
+			       var mat = array_copy_1d(par.matrix);
+
+				   //BENT Half
+				   if (par.type = e_tl_type.BODYPART && value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
+				   {
+				   var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+				   mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
+				   }
+				   
+				   mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
+				   
+				   if(value[e_value.COPY_POS_X])
+				   matrix[MAT_X] = mat[MAT_X]
+				   
+				   if(value[e_value.COPY_POS_Y])
+				   matrix[MAT_Y] = mat[MAT_Y]
+				   
+				   if(value[e_value.COPY_POS_Z])
+				   matrix[MAT_Z]= mat[MAT_Z]
+				}
+				else{
+				    // NOT IS CHILD
+				    matrix_remove_rotation(matrix_parent)
+				    
+				    matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X]: matrix[MAT_X]);
+				    matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y]: matrix[MAT_Y]);
+				    matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z] : matrix[MAT_Z]);
+				}
+			}
+			
+			//THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
+			if(value[e_value.LOOK_AT_TARGET] != null){
+				matrix_remove_rotation(matrix)
+				var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
+				if(value[e_value.LOOK_AT_TARGET].value[e_value.POS_TARGET] != null){
+				var target = value[e_value.LOOK_AT_TARGET];
+					if(target.value[e_value.COPY_POS_CHILD]){
+				   var pos = vec3(0.0);
+				   
+				   pos[X] = target.value[e_value.POS_X] + target.value[e_value.COPY_POS_OFFSET_X]
+				   pos[Y] = target.value[e_value.POS_Y] + target.value[e_value.COPY_POS_OFFSET_Y]
+				   pos[Z] = target.value[e_value.POS_Z] + target.value[e_value.COPY_POS_OFFSET_Z] 
+			       var mat = target.value[e_value.POS_TARGET].matrix;
+				   
+				   mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
+				   
+				   if(target.value[e_value.COPY_POS_X])
+				   lookat_position[X] = mat[MAT_X]
+				   
+				   if(target.value[e_value.COPY_POS_Y])
+				  lookat_position[Y] = mat[MAT_Y]
+				   
+				   if(target.value[e_value.COPY_POS_Z])
+				   lookat_position[Z]= mat[MAT_Z]
+				}
+				else{
+				    // NOT IS CHILD
+				    matrix_remove_rotation(matrix_parent)
+				    
+				   lookat_position[X] = (target.value[e_value.COPY_POS_X] ? target.value[e_value.POS_X] + target.value[e_value.POS_TARGET].matrix[MAT_X] + target.value[e_value.COPY_POS_OFFSET_X]: matrix[MAT_X]);
+				    lookat_position[Y] = (target.value[e_value.COPY_POS_Y] ? target.value[e_value.POS_Y] + target.value[e_value.POS_TARGET].matrix[MAT_Y] + target.value[e_value.COPY_POS_OFFSET_Y]: matrix[MAT_Y]);
+				   lookat_position[Z]= (target.value[e_value.COPY_POS_Z] ? target.value[e_value.POS_Z] + target.value[e_value.POS_TARGET].matrix[MAT_Z] + target.value[e_value.COPY_POS_OFFSET_Z] : matrix[MAT_Z]);
+				}
+				}
+				var angle = point_direction_3d(world_pos, lookat_position);
+				var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X],value[e_value.LOOK_AT_OFFSET_Y],value[e_value.LOOK_AT_OFFSET_Z])
+			
+				matrix = matrix_multiply(matrix_create(vec3(0), angle, vec3(1)), matrix);
+				matrix = matrix_multiply(matrix_create(vec3(0), angle2, vec3(1)), matrix);
 			}
 			
 			if (value[e_value.SCALE_TARGET] != null)

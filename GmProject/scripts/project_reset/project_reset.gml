@@ -97,11 +97,9 @@ function project_reset()
 	timeline_interval_offset = 0
 	timeline_hide_color_tag = array_create(9, false)
 	
-	ds_list_destroy(light_groups)
-	light_groups = ds_list_create()
-
-
 	
+	sortlist_clear(app.light_group_list)
+	ds_list_clear(app.light_groups)
 	ds_list_clear(tree_list)
 	ds_list_clear(tree_visible_list)
 	ds_list_clear(project_timeline_list)

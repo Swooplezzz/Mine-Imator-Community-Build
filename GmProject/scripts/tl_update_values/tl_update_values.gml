@@ -72,13 +72,22 @@ function tl_update_values()
 	*/
 	
 	tl_update_values_ease(e_value.ROT_TARGET)
+	tl_update_values_ease(e_value.LOOK_AT_TARGET)
 	tl_update_values_ease(e_value.POS_TARGET)
 	tl_update_values_ease(e_value.SCALE_TARGET)
 	tl_update_values_ease(e_value.BEND_IK_TARGET)
 
+	tl_update_values_ease(e_value.COPY_POS_CHILD)
+	tl_update_values_ease(e_value.COPY_POS_BEND)
+	
+	tl_update_values_ease(e_value.COPY_ROT_BEND)
 	tl_update_values_ease(e_value.COPY_ROT_X)
 	tl_update_values_ease(e_value.COPY_ROT_Y)
 	tl_update_values_ease(e_value.COPY_ROT_Z)
+	
+	tl_update_values_ease(e_value.LOOK_AT_OFFSET_X)
+	tl_update_values_ease(e_value.LOOK_AT_OFFSET_Y)
+	tl_update_values_ease(e_value.LOOK_AT_OFFSET_Z)
 	
 	tl_update_values_ease(e_value.COPY_POS_X)
 	tl_update_values_ease(e_value.COPY_POS_Y)
@@ -88,9 +97,13 @@ function tl_update_values()
 	tl_update_values_ease(e_value.COPY_SCALE_Y)
 	tl_update_values_ease(e_value.COPY_SCALE_Z)
 	
-	//tl_update_values_ease(e_value.COPY_POS_OFFSET_X)
-	//tl_update_values_ease(e_value.COPY_POS_OFFSET_Y)
-	//tl_update_values_ease(e_value.COPY_POS_OFFSET_Z)
+	tl_update_values_ease(e_value.COPY_POS_OFFSET_X)
+	tl_update_values_ease(e_value.COPY_POS_OFFSET_Y)
+	tl_update_values_ease(e_value.COPY_POS_OFFSET_Z)
+	
+	tl_update_values_ease(e_value.COPY_ROT_OFFSET_X)
+	tl_update_values_ease(e_value.COPY_ROT_OFFSET_Y)
+	tl_update_values_ease(e_value.COPY_ROT_OFFSET_Z)
 
 	// Rotation
 	if (value_type[e_value_type.TRANSFORM_ROT])

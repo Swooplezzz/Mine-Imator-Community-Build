@@ -526,9 +526,18 @@ function app_startup_interface_tabs()
 			tbx_path_offset = new_textbox_ndecimals()
 			
 			//// Follow position offset
-			//tbx_copy_pos_offset_x = new_textbox_decimals()
-			//tbx_copy_pos_offset_y = new_textbox_decimals()
-			//tbx_copy_pos_offset_z = new_textbox_decimals()
+			tbx_copy_pos_offset_x = new_textbox_decimals()
+			tbx_copy_pos_offset_y = new_textbox_decimals()
+			tbx_copy_pos_offset_z = new_textbox_decimals()
+			
+			// Follow Rot offset
+			tbx_copy_rot_offset_x = new_textbox_decimals()
+			tbx_copy_rot_offset_y = new_textbox_decimals()
+			tbx_copy_rot_offset_z = new_textbox_decimals()
+			
+			tbx_look_at_offset_x = new_textbox_decimals()
+			tbx_look_at_offset_y = new_textbox_decimals()
+			tbx_look_at_offset_z = new_textbox_decimals()
 			
 			// IK
 			tbx_ik_blend = new_textbox_integer()

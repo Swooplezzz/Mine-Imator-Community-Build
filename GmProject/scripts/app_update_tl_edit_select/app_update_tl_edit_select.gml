@@ -25,6 +25,7 @@ function app_update_tl_edit_select()
 		appearance.enabled = false
 		audio.enabled = false
 		path.enabled = false
+		light.enabled = true	
 	}
 	
 	select_kf_amount = 0

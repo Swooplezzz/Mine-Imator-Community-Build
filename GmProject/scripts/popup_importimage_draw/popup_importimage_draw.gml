@@ -45,8 +45,7 @@ function popup_importimage_draw()
 
 		
 		// Preview
-	var previewsize, previewx, previewy, previewwid, previewhei;
-	var texwid, texhei, scale;
+	var previewwid, previewhei;
 
 	// Too big for preview, scale down
 	if (texhei > texwid)
@@ -126,8 +125,10 @@ function popup_importimage_draw()
 			else
 				action_res_image_load(popup.filename, popup.type)
 			
-			if (ds_list_size(popup.filenames) <= 1)
+			if (ds_list_size(popup.filenames) <= 1){
+				ds_list_delete(popup.filenames, 0)
 				popup_close()
+			}
 		}
 		
 		if (ds_list_size(popup.filenames) > 1)

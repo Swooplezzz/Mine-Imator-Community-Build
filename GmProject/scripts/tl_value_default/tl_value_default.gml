@@ -154,14 +154,21 @@ function tl_value_default(valueid)
 		case e_value.IK_TARGET:
 		case e_value.IK_TARGET_ANGLE:
 		case e_value.ROT_TARGET:
+		case e_value.LOOK_AT_TARGET: return null
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
 		case e_value.BEND_IK_TARGET: return null
 		case e_value.BEND_IK_MULTIPLIER: return 1
-		case e_value.COPY_POS_OFFSET_X:
-		case e_value.COPY_POS_OFFSET_Y:
-		case e_value.COPY_POS_OFFSET_Z:
+		case e_value.COPY_POS_OFFSET_X: return 0
+		case e_value.COPY_POS_OFFSET_Y: return 0
+		case e_value.COPY_POS_OFFSET_Z: return 0
+		case e_value.COPY_ROT_OFFSET_X: return 0
+		case e_value.COPY_ROT_OFFSET_Y: return 0
+		case e_value.COPY_ROT_OFFSET_Z: return 0
 		case e_value.COPY_SCALE_MULT: return null
+		case e_value.COPY_POS_CHILD:
+		case e_value.COPY_POS_BEND:
+		case e_value.COPY_ROT_BEND:
 		case e_value.COPY_POS_X:
 		case e_value.COPY_POS_Y:
 		case e_value.COPY_POS_Z:

@@ -57,7 +57,7 @@ function app_update_animate()
 		if (tl_supports_ik())
 			array_add(app.project_ik_part_array, id)
 			
-		if (value[e_value.ROT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null || value[e_value.BEND_IK_TARGET] != null)
+		if (value[e_value.ROT_TARGET] != null || value[e_value.LOOK_AT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null || value[e_value.BEND_IK_TARGET] != null)
 			array_add(app.project_copy_obj_array, id)
 		
 		// Get cameras
