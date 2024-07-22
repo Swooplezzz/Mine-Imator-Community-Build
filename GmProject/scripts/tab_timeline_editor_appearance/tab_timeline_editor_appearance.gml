@@ -52,13 +52,28 @@ function tab_timeline_editor_appearance()
 		}
 		dy += 8
 		
+		// Light group
+		var group, text;
+		group = tl_edit.light_group
+		
+		if (group != null)
+			text = group.name
+		else
+			text = text_get("listnone")
+		
+		if (group = null)
+			text = text_get("listdefault", text)
+		
+		tab_control_menu()
+		draw_button_menu("timelineeditorlightgroup", e_menu.LIST, dx, dy, dw, 24, tl_edit.light_group, text, action_tl_light_group)
+		tab_next()
+		
 		// Blend mode
 		tab_control_menu()
 		draw_button_menu("timelineeditorblendmode", e_menu.LIST, dx, dy, dw, 24, tl_edit.blend_mode, text_get("timelineeditorblendmode" + tl_edit.blend_mode), action_tl_blend_mode)
 		tab_next()
 		
 		// Alpha mode
-		var text;
 		if (tl_edit.alpha_mode = e_alpha_mode.BLEND)
 			text = text_get("renderalphamodeblend")
 		else if (tl_edit.alpha_mode = e_alpha_mode.HASHED)
@@ -150,6 +165,22 @@ function tab_timeline_editor_appearance()
 	}
 	else
 	{
+		// Light group
+		var group, text;
+		group = tl_edit.light_group
+		
+		if (group != null)
+			text = group.name
+		else
+			text = text_get("listnone")
+		
+		if (group = null)
+			text = text_get("listdefault", text)
+		
+		tab_control_menu()
+		draw_button_menu("timelineeditorlightgroup", e_menu.LIST, dx, dy, dw, 24, tl_edit.light_group, text, action_tl_light_group)
+		tab_next()
+		
 		// Shadows
 		tab_control_checkbox()
 		draw_checkbox("timelineeditorrendershadows", dx, dy, tl_edit.shadows, action_tl_shadows)

@@ -6,7 +6,7 @@ function tab_frame_editor_look_at()
 		return 0
 	
 	tab_control_switch()
-	draw_button_collapse("lookat", collapse_map[?"lookat"], null, true, "frameeditorlookat", "frameeditorlookattip")
+	draw_button_collapse("lookat", collapse_map[?"lookat"], null, true, "frameeditorlookat")
 	tab_next()
 	
 	var taby = dy

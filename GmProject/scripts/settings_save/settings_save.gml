@@ -158,7 +158,7 @@ function settings_save()
 		
 		json_save_var("overlay_view_controls", setting_overlay_view_controls)
 		json_save_var("overlay_view_shapes", setting_overlay_view_shapes)
-		json_save_var("overlay_camera_frustum", setting_overlay_camera_frustum)
+		json_save_var("overlay_timeline_guides", setting_overlay_timeline_guides)
 		
 		json_save_var_bool("snap", setting_snap)
 		json_save_var_bool("snap_absolute", setting_snap_absolute)

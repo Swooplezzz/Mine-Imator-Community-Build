@@ -429,9 +429,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 
 				//ISSUE X ROTATIONS MORE THAN 90 RESULT IN Y AND Z MIRRORING AXIS
 
-				bend[X] *= (model_part.bend_invert[X] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
-				bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
-				bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_MULTIPLIER]
+				bend[X] *= (model_part.bend_invert[X] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
+				bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
+				bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
 		
 			    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
 				value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]

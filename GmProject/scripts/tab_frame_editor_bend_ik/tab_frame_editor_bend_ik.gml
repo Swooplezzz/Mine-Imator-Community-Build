@@ -24,9 +24,9 @@ function tab_frame_editor_bend_ik()
 		draw_button_menu("frameeditorbendiktarget", e_menu.TIMELINE, dx, dy, dw, 24, tl_edit.value[e_value.BEND_IK_TARGET], text, action_tl_frame_bend_ik_target)
 		tab_next()
 		
-		// Multiplier
+		// Influence
 		tab_control_dragger()
-		draw_dragger("frameeditorbendikmultiplier", dx, dy, dragger_width, tl_edit.value[e_value.BEND_IK_MULTIPLIER], 0.1, -no_limit, no_limit, 0, snap_min, tab.constraints.tbx_bend_ik_multiplier, action_tl_frame_bend_ik_multiplier, null, true, tl_edit.value[e_value.BEND_IK_TARGET] = null)
+		draw_dragger("frameeditorbendikinfluence", dx, dy, dragger_width, round(tl_edit.value[e_value.BEND_IK_INFLUENCE] * 100), 1, -no_limit, no_limit, 100, 1, tab.constraints.tbx_bend_ik_influence, action_tl_frame_bend_ik_influence, null, true, tl_edit.value[e_value.BEND_IK_TARGET] = null)
 		tab_next()
 		
 		tab_collapse_end()

@@ -5,7 +5,7 @@
 		"locale": "en-US",
 		"translator": "David, Nimi, mbanders, Swooplezz",
 		"forversion": "2.0.2 Community Build 1.0.0",
-		"lastchange": "2024.06.26"
+		"lastchange": "2024.07.16"
 	},
 	"particle/": {
 		"default": "Default spawner",
@@ -861,7 +861,8 @@
 		"overlay/": {
 			"controls": "View controls",
 			"shapes": "Timeline shapes",
-			"frustum": "Camera frustums"
+			"guides": "Timeline guides",
+			"guidestip": "Enable visual representations of camera frustums, spotlight cones, etc. upon selection."
 		},
 		"snap/": {
 			"move": "Move",
@@ -3507,7 +3508,7 @@
 		"bendik/": {
 			"tip": "Allows the part to bend parallel to the rotation of another timeline.",
 			"target": "Target",
-			"multiplier": "Multiplier"
+			"influence": "Influence"
 		},
 		"material": "MATERIAL",
 		"opacity": "Opacity",
@@ -3558,13 +3559,6 @@
 		"itemtex": "Image",
 		"itemtexmaterial": "Material map",
 		"itemtexnormal": "Normal map",
-		"lightgobotexture": "Gobo",
-		"lightgobooffset": "Offset",
-		"lightgobooffsetx": "X",
-		"lightgobooffsety": "Y",
-		"lightgoborepeat": "Repeat",
-		"lightgoborepeatx": "X",
-		"lightgoborepeaty": "Y",
 		"particles": "PARTICLES",
 		"particles/": {
 			"spawn": "Spawn particles",
@@ -3586,7 +3580,14 @@
 			"range": "Range",
 			"fadesize": "Fade size",
 			"spotsharpness": "Spot sharpness",
-			"spotradius": "Spot radius"
+			"spotradius": "Spot radius",
+			"gobotexture": "Gobo",
+			"gobooffset": "Offset",
+			"gobohoffset": "H",
+			"gobovoffset": "V",
+			"goborepeat": "Repeat",
+			"gobohrepeat": "H",
+			"gobovrepeat": "V"
 		},
 		"camera": "CAMERA",
 		"camera/": {

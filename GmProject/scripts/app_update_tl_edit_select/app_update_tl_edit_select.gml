@@ -25,7 +25,7 @@ function app_update_tl_edit_select()
 		appearance.enabled = false
 		audio.enabled = false
 		path.enabled = false
-		light.enabled = true	
+		light.enabled = false	
 	}
 	
 	select_kf_amount = 0
@@ -111,12 +111,14 @@ function app_update_tl_edit_select()
 			app.frame_editor.particles.enabled = true
 		
 		if (value_type[e_value_type.LIGHT])
+		{
 			app.frame_editor.light.enabled = true
-
-		if (value_type[e_value_type.SPOTLIGHT]){
-			app.frame_editor.light.has_spotlight = true
 		    app.timeline_editor.light.enabled = true
 		}
+		
+		if (value_type[e_value_type.SPOTLIGHT])
+			app.frame_editor.light.has_spotlight = true
+		
 		if (value_type[e_value_type.CAMERA])
 			app.frame_editor.camera.enabled = true
 		

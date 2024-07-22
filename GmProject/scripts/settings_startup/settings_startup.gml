@@ -96,7 +96,7 @@ function settings_startup()
 	
 	setting_overlay_view_controls = true
 	setting_overlay_view_shapes = true
-	setting_overlay_camera_frustum = false
+	setting_overlay_timeline_guides = false
 	
 	setting_modelbench_popup_hidden = false
 	

@@ -459,13 +459,13 @@ function app_startup_interface_tabs()
 			tbx_depth = new_textbox_ninteger()
 		}
 		
-		// Audio
+		// Audio tracks
 		audio = tab_add_category("timelineeditoraudio", icons.NOTE_SMALL, tab_timeline_editor_audio, true)
 		
-		//Lights
+		// Lights
 		light = tab_add_category("timelineeditorlight", icons.LIGHT_POINT_SMALL, tab_timeline_editor_light, true)		
 		
-		// Path
+		// Paths
 		path = tab_add_category("timelineeditorpath", icons.PATH_SMALL, tab_timeline_editor_path, true)
 		with (path)
 		{
@@ -547,7 +547,8 @@ function app_startup_interface_tabs()
 			tbx_ik_angle_offset.suffix = "°"
 			
 			// Bend IK
-			tbx_bend_ik_multiplier = new_textbox_ndecimals()
+			tbx_bend_ik_influence = new_textbox_ninteger()
+			tbx_bend_ik_influence.suffix = "%"
 		}
 		
 		// Material
