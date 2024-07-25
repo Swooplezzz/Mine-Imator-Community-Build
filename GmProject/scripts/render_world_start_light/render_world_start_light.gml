@@ -31,10 +31,10 @@ function render_world_start_light(from, to, offset, tl, up)
 		else
 			render_gobo_texture = spr_shape
 	}
-	render_gobo_offset[X] = tl.value[e_value.LIGHT_SPOT_GOBO_OFFSET_X];
-	render_gobo_offset[Y] = tl.value[e_value.LIGHT_SPOT_GOBO_OFFSET_Y];
-	render_gobo_repeat[X] = tl.value[e_value.LIGHT_SPOT_GOBO_REPEAT_X];
-	render_gobo_repeat[Y] = tl.value[e_value.LIGHT_SPOT_GOBO_REPEAT_Y];
+	render_gobo_offset[X] = tl.value[e_value.LIGHT_SPOT_GOBO_H_OFFSET];
+	render_gobo_offset[Y] = tl.value[e_value.LIGHT_SPOT_GOBO_V_OFFSET];
+	render_gobo_repeat[X] = tl.value[e_value.LIGHT_SPOT_GOBO_H_REPEAT];
+	render_gobo_repeat[Y] = tl.value[e_value.LIGHT_SPOT_GOBO_V_REPEAT];
 
 	gpu_set_ztestenable(true)
 	

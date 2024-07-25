@@ -193,7 +193,7 @@ function settings_load()
 			
 			setting_overlay_view_controls = value_get_real(interfacemap[?"overlay_view_controls"], setting_overlay_view_controls)
 			setting_overlay_view_shapes = value_get_real(interfacemap[?"overlay_view_shapes"], setting_overlay_view_shapes)
-			setting_overlay_camera_frustum = value_get_real(interfacemap[?"overlay_camera_frustum"], setting_overlay_camera_frustum)
+			setting_overlay_timeline_guides = value_get_real(interfacemap[?"overlay_timeline_guides"], setting_overlay_timeline_guides)
 			
 			setting_snap = value_get_real(interfacemap[?"snap"], setting_snap)
 			setting_snap_absolute = value_get_real(interfacemap[?"snap_absolute"], setting_snap_absolute)

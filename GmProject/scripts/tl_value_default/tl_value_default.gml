@@ -36,10 +36,10 @@ function tl_value_default(valueid)
 		case e_value.LIGHT_FADE_SIZE: return 0.5
 		case e_value.LIGHT_SPOT_RADIUS: return 50
 		case e_value.LIGHT_SPOT_SHARPNESS: return 0.5
-		case e_value.LIGHT_SPOT_GOBO_REPEAT_X:
-		case e_value.LIGHT_SPOT_GOBO_REPEAT_Y: return 1
-		case e_value.LIGHT_SPOT_GOBO_OFFSET_X:
-		case e_value.LIGHT_SPOT_GOBO_OFFSET_Y: return 0
+		case e_value.LIGHT_SPOT_GOBO_H_REPEAT:
+		case e_value.LIGHT_SPOT_GOBO_V_REPEAT: return 1
+		case e_value.LIGHT_SPOT_GOBO_H_OFFSET:
+		case e_value.LIGHT_SPOT_GOBO_V_OFFSET: return 0
 		case e_value.CAM_FOV: return 45
 		case e_value.CAM_ASPECT: return 1
 		case e_value.CAM_EXPOSURE: return 1
@@ -162,7 +162,7 @@ function tl_value_default(valueid)
 		case e_value.POS_TARGET:
 		case e_value.SCALE_TARGET:
 		case e_value.BEND_IK_TARGET: return null
-		case e_value.BEND_IK_MULTIPLIER: return 1
+		case e_value.BEND_IK_INFLUENCE: return 1
 		case e_value.COPY_POS_OFFSET_X:
 		case e_value.COPY_POS_OFFSET_Y:
 		case e_value.COPY_POS_OFFSET_Z:

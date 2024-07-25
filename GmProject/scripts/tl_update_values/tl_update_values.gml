@@ -136,7 +136,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.IK_TARGET_ANGLE)
 		tl_update_values_ease(e_value.IK_ANGLE_OFFSET)
 		
-		tl_update_values_ease(e_value.BEND_IK_MULTIPLIER)
+		tl_update_values_ease(e_value.BEND_IK_INFLUENCE)
 	}
 	
 	// Path point
@@ -198,13 +198,13 @@ function tl_update_values()
 		// Spotlight
 		if (value_type[e_value_type.SPOTLIGHT])
 		{
-			tl_update_values_ease(e_value.TEXTURE_OBJ)
-			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_REPEAT_X)
-			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_REPEAT_Y)
-			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_OFFSET_X)
-			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_OFFSET_Y)
 			tl_update_values_ease(e_value.LIGHT_SPOT_RADIUS)
 			tl_update_values_ease(e_value.LIGHT_SPOT_SHARPNESS)
+			tl_update_values_ease(e_value.TEXTURE_OBJ)
+			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_H_OFFSET)
+			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_V_OFFSET)
+			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_H_REPEAT)
+			tl_update_values_ease(e_value.LIGHT_SPOT_GOBO_V_REPEAT)
 		}
 	}
 	

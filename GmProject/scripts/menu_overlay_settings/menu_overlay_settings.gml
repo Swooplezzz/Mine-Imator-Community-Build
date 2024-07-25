@@ -14,7 +14,7 @@ function menu_overlay_settings()
 	tab_next()
 	
 	tab_control_switch()
-	draw_switch("viewoverlayfrustum", dx, dy, setting_overlay_camera_frustum, action_setting_overlay_camera_frustum)
+	draw_switch("viewoverlayguides", dx, dy, setting_overlay_timeline_guides, action_setting_overlay_timeline_guides, "viewoverlayguidestip")
 	tab_next()
 	
 	settings_menu_w = (switchwid + 24)

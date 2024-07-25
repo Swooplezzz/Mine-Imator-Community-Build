@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_tl_frame_light_spot_gobo_offset_x",
+  "name": "action_tl_frame_light_spot_gobo_vrepeat",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

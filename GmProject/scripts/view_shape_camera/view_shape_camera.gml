@@ -25,8 +25,14 @@ function view_shape_camera(tl)
 	view_shape_circle(point3D(0, -3, 6.5), 2.5, tl.matrix)
 	
 	// Frustum (only visible on selected cameras)
-	if (tl.selected && setting_overlay_camera_frustum && tl.value[e_value.CAM_FOV] % 180 != 0)
+	if (tl.selected && setting_overlay_timeline_guides && tl.value[e_value.CAM_FOV] % 180 != 0)
+	{
+		// DOF visualizer
+		if (tl.value[e_value.CAM_DOF])
+			view_shape_camera_frustum_dof(tl)
+		
 		view_shape_camera_frustum(tl)
+	}
 }
 
 function view_shape_camera_frustum(tl)
@@ -45,10 +51,6 @@ function view_shape_camera_frustum(tl)
 		point3D(((sizemath * cam_far) * ratio), cam_far, -sizemath * cam_far), //fbl
 		point3D(((sizemath * cam_far) * ratio), cam_far, sizemath * cam_far) //ftl
 	)
-	
-	// DOF visualizer
-	if (tl.value[e_value.CAM_DOF])
-		view_shape_camera_frustum_dof(tl)
 	
 	/*
 	var viewfrustum = array(
@@ -125,7 +127,10 @@ function view_shape_camera_frustum(tl)
 	// Frustum outline
 	draw_set_color(c_control_red)
 	draw_set_alpha(.5)
+	
 	view_shape_draw(viewfrustumpoints, tl.matrix)
+	
+	draw_set_color(c_white)
 	draw_set_alpha(1)
 }
 
@@ -208,14 +213,31 @@ function view_shape_camera_frustum_dof(tl)
 	*/
 	
 	// DOF outlines
-	draw_set_alpha(.375)
+	draw_set_alpha(.5)
 	draw_set_color(c_control_blue)
 	
-	view_shape_draw(viewfrustumdofpoints, tl.matrix)
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[0], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[1], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[1], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[3], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[3], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[2], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[2], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[0], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[4], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[5], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[5], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[7], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[7], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[6], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofpoints[6], tl.matrix), point3D_mul_matrix(viewfrustumdofpoints[4], tl.matrix))
+	//view_shape_draw(viewfrustumdofpoints, tl.matrix)
 	
 	draw_set_color(c_control_cyan)
 	
-	view_shape_draw(viewfrustumdofblurpoints, tl.matrix)
-		
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[0], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[1], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[1], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[3], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[3], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[2], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[2], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[0], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[4], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[5], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[5], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[7], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[7], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[6], tl.matrix))
+	view_shape_line(point3D_mul_matrix(viewfrustumdofblurpoints[6], tl.matrix), point3D_mul_matrix(viewfrustumdofblurpoints[4], tl.matrix))
+	//view_shape_draw(viewfrustumdofblurpoints, tl.matrix)
+	
+	draw_set_color(c_white)
 	draw_set_alpha(1)
 }

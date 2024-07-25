@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_setting_overlay_camera_frustum",
+  "name": "action_setting_overlay_timeline_guides",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_tl_frame_light_spot_gobo_repeat_y",
+  "name": "action_tl_frame_light_spot_gobo_voffset",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
