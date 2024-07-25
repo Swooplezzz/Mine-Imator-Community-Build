@@ -96,7 +96,7 @@ function tab_timeline_editor_appearance()
 		tab_next()
 		
 		// Wind
-		if (type_has_wind(tl_edit.type))
+		if (type_has_wind(tl_edit.type) || tl_edit.type = e_tl_type.PATH)
 		{
 			tab_control_checkbox()
 			draw_checkbox("timelineeditorwind", dx, dy, tl_edit.wind, action_tl_wind)

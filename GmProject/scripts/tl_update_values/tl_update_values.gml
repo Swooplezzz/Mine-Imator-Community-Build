@@ -74,6 +74,7 @@ function tl_update_values()
 	tl_update_values_ease(e_value.ROT_TARGET)
 	tl_update_values_ease(e_value.LOOK_AT_TARGET)
 	tl_update_values_ease(e_value.POS_TARGET)
+	tl_update_values_ease(e_value.COPY_POS_BLEND)
 	tl_update_values_ease(e_value.SCALE_TARGET)
 	tl_update_values_ease(e_value.BEND_IK_TARGET)
 

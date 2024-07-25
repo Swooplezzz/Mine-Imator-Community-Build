@@ -6,13 +6,13 @@ function action_group_inverse_position()
 	{
 		var target = tl_edit.value[e_value.POS_TARGET];
 	
-		with (tl_edit)
-			var unconstrainted_mat = matrix_multiply(matrix_create(point3D(value[e_value.POS_X], value[e_value.POS_Y], value[e_value.POS_Z]), vec3(0), vec3(1)), matrix_parent)
-	
+
+		var unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), vec3(0), vec3(1)), tl_edit.matrix_parent)
+		
 		var world_pos = vec3(0)
 		for (var i = X; i <= Z; i++)
-			world_pos[i] = unconstrainted_mat[MAT_X + i];
-			
+			world_pos[i] = unconstrainted_mat[MAT_X + i]
+		
 		var mat = target.matrix
 		
 		//BENT Half
@@ -23,9 +23,6 @@ function action_group_inverse_position()
 		}
 		
 		var pos = matrix_multiply(matrix_create(world_pos, vec3(0), vec3(1)), matrix_inverse(mat))
-		
-		tl_value_set_start(action_group_inverse_position, true)
-		
 		for (i = X; i <= Z; i++)
 			tl_value_set(e_value.COPY_POS_OFFSET_X + i, pos[MAT_X + i] - world_pos[i], false)
 		

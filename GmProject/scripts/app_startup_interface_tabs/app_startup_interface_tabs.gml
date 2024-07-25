@@ -541,6 +541,9 @@ function app_startup_interface_tabs()
 			tbx_look_at_offset_z = new_textbox_decimals()
 			
 			// IK
+			tbx_copy_pos_blend = new_textbox_integer()
+			tbx_copy_pos_blend.suffix = "%"
+			
 			tbx_ik_blend = new_textbox_integer()
 			tbx_ik_blend.suffix = "%"
 			tbx_ik_angle_offset = new_textbox_ndecimals()

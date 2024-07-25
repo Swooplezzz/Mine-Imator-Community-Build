@@ -189,6 +189,7 @@ function tl_value_default(valueid)
 		case e_value.SOUND_OBJ:
 		case e_value.TEXT_FONT: return null
 		case e_value.IK_BLEND:
+		case e_value.COPY_POS_BLEND:
 		case e_value.SOUND_VOLUME:
 		case e_value.SOUND_PITCH: return 1
 		case e_value.VISIBLE: return true

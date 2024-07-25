@@ -2,9 +2,6 @@
 
 function tab_frame_editor_copy_pos()
 {
-	if (tl_edit.type = e_tl_type.PATH_POINT)
-		return 0
-	
 	tab_control_switch()
 	draw_button_collapse("copypos", collapse_map[?"copypos"], null, true, "frameeditorcopypos", "frameeditorcopypostip")
 	tab_next()
@@ -63,8 +60,15 @@ function tab_frame_editor_copy_pos()
 		draw_textfield_group("frameeditorcopyposoffset", dx, dy, dw, null, null, null, snapval, false, false, 1) 
 		tab_next()
 		
+		// Blend
+		tab_control_meter()
+		draw_meter("frameeditorcopyposblend", dx, dy, dw, round(tl_edit.value[e_value.COPY_POS_BLEND] * 100), 0, 100, 100, 1, tab.constraints.tbx_copy_pos_blend, action_tl_frame_copy_pos_blend)
+		tab_next()
+		
+		
 		microani_set("tabcopyposition", null, false, false, false)
 	    microani_update(app_mouse_box(dx, taby, dw, dy - taby) && content_mouseon, false, false)
+
 
 		tab_collapse_end()
 	}

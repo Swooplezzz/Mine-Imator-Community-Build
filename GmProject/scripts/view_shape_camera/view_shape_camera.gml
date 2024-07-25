@@ -103,6 +103,25 @@ function view_shape_camera_frustum(tl)
 	draw_set_alpha(1)
 	*/
 	
+	//		var mat = tl.matrix;
+	//	var pos = tl.world_pos;
+	//	var tl_cam_up = vec3(0);
+		
+	//	var pos_lookat = point3D_mul_matrix(point3D(0, 1, 0), mat);
+	//	var tl_cam_from = point3D_copy(pos)
+	//	var tl_cam_to = point3D_copy(pos_lookat)
+	//	tl_cam_up[X] = mat[8]
+	//	tl_cam_up[Y] = mat[9]
+	//	tl_cam_up[Z] = mat[10]
+	//	var tl_cam_fov = max(1, tl.value[e_value.CAM_FOV])
+	//	var tl_cam_aspect = max(0, tl.value[e_value.CAM_ASPECT] * render_width / render_height)
+		
+	//var mV = matrix_create_lookat(tl_cam_from, tl_cam_to, tl_cam_up);
+	//var mP = matrix_build_projection_perspective_fov(-tl_cam_fov, -tl_cam_aspect, cam_near, cam_far_prev);
+	//cam_frustum.build(matrix_multiply(mV, mP))
+	//cam_frustum.build_vbuffer()
+	//vbuffer_render_matrix(cam_frustum.vbuffer, matrix_multiply(matrix_inverse(matrix_create_lookat(cam_from,cam_to,cam_up)),tl.matrix));
+	
 	// Frustum outline
 	draw_set_color(c_control_red)
 	draw_set_alpha(.5)

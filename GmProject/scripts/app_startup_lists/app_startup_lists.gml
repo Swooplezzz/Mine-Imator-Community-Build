@@ -235,6 +235,7 @@ function app_startup_lists()
 		"LOOK_AT_OFFSET_Z",
 		"ROT_TARGET",
 		"POS_TARGET",
+		"COPY_POS_BLEND",
 		"SCALE_TARGET",
 		"BEND_IK_TARGET",
 		"COPY_POS_CHILD",

@@ -75,7 +75,7 @@ function tab_frame_editor_material()
 	}
 	
 	// Wind influence
-	if (type_has_wind(tl_edit.type) && (tl_edit.wind || tl_edit.wind_terrain))
+	if ((type_has_wind(tl_edit.type) || tl_edit.type = e_tl_type.PATH) && (tl_edit.wind || tl_edit.wind_terrain))
 	{
 		tab_control_meter()
 		draw_meter("frameeditorwindinfluence", dx, dy, dw, round(tl_edit.value[e_value.WIND_INFLUENCE] * 100), 0, 100, 100, 1, tab.material.tbx_wind_influence, action_tl_frame_wind_influence)

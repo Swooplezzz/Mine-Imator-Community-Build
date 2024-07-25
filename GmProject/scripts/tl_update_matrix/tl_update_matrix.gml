@@ -4,7 +4,7 @@
 /// @arg updatepose]
 /// @desc Updates matrixes and positions.
 
-function tl_update_matrix(usepaths = false, updateik = true, updatepose = false, updatecopy = true)
+function tl_update_matrix(usepaths = false, updateik = true, updatepose = false, updatecopy = false)
 {
 	var start, curtl, tlamount, bend, pos, rot, sca, par, matrixnoscale, hasik, lasttex, ikblend, posebend;
 	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf;
@@ -24,19 +24,30 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		curtl = app.project_timeline_list[|i]
 		
 		// Update children
-		if (updateik && !updatepose && (curtl.type = e_tl_type.CHARACTER || curtl.type = e_tl_type.SPECIAL_BLOCK || curtl.type = e_tl_type.MODEL))
+		if (updateik && !updatepose && !updatecopy && (curtl.type = e_tl_type.CHARACTER || curtl.type = e_tl_type.SPECIAL_BLOCK || curtl.type = e_tl_type.MODEL))
 			for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
 				if (curtl.tree_list[|t].inherit_pose)
 					array_add(app.project_inherit_pose_array, curtl.tree_list[|t])
 		
-		if (curtl.value[e_value.ROT_TARGET] != null||curtl.value[e_value.LOOK_AT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
-			curtl.update_matrix = true
-		
+		if (curtl.value[e_value.ROT_TARGET] != null|| curtl.value[e_value.LOOK_AT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
+		{	
+			if(updateik && !updatecopy){
+			array_add(app.project_copy_obj_array, curtl)
+			for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
+					array_add(app.project_copy_obj_array, curtl.tree_list[|t])
+			}
+		}
 		if (!curtl.update_matrix)
 			continue
 		
 		// Delay timeline update if we inherit pose
-		if (updateik && !updatepose && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
+		if (updateik && !updatepose  && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
+		{
+			curtl.update_matrix = false
+			continue
+		}
+		// Delay timeline update if we inherit pose
+		if (updateik && !updatecopy && (array_length(app.project_copy_obj_array) > 0) && array_contains(app.project_copy_obj_array, curtl))
 		{
 			curtl.update_matrix = false
 			continue
@@ -217,7 +228,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			//if (id.parent != app)
 			//	world_rot = quat_mul(world_rot, id.parent.world_rot);
 
-			
+			if(updatecopy){
 			if (value[e_value.ROT_TARGET] != null)
 			{
 				var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
@@ -229,7 +240,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				target_rot_mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), target_rot_mat)
 				}
 				
-				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.ROT_X]+ value[e_value.COPY_ROT_OFFSET_X], value[e_value.ROT_Y]  + value[e_value.COPY_ROT_OFFSET_Y], value[e_value.ROT_Z] + value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
+				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.COPY_ROT_OFFSET_X],value[e_value.COPY_ROT_OFFSET_Y],value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
 				matrix_remove_rotation(matrix)
 
 		
@@ -290,36 +301,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			if(value[e_value.LOOK_AT_TARGET] != null){
 				matrix_remove_rotation(matrix)
 				var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
-				if(value[e_value.LOOK_AT_TARGET].value[e_value.POS_TARGET] != null){
-				var target = value[e_value.LOOK_AT_TARGET];
-					if(target.value[e_value.COPY_POS_CHILD]){
-				   var pos = vec3(0.0);
-				   
-				   pos[X] = target.value[e_value.POS_X] + target.value[e_value.COPY_POS_OFFSET_X]
-				   pos[Y] = target.value[e_value.POS_Y] + target.value[e_value.COPY_POS_OFFSET_Y]
-				   pos[Z] = target.value[e_value.POS_Z] + target.value[e_value.COPY_POS_OFFSET_Z] 
-			       var mat = target.value[e_value.POS_TARGET].matrix;
-				   
-				   mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
-				   
-				   if(target.value[e_value.COPY_POS_X])
-				   lookat_position[X] = mat[MAT_X]
-				   
-				   if(target.value[e_value.COPY_POS_Y])
-				  lookat_position[Y] = mat[MAT_Y]
-				   
-				   if(target.value[e_value.COPY_POS_Z])
-				   lookat_position[Z]= mat[MAT_Z]
-				}
-				else{
-				    // NOT IS CHILD
-				    matrix_remove_rotation(matrix_parent)
-				    
-				   lookat_position[X] = (target.value[e_value.COPY_POS_X] ? target.value[e_value.POS_X] + target.value[e_value.POS_TARGET].matrix[MAT_X] + target.value[e_value.COPY_POS_OFFSET_X]: matrix[MAT_X]);
-				    lookat_position[Y] = (target.value[e_value.COPY_POS_Y] ? target.value[e_value.POS_Y] + target.value[e_value.POS_TARGET].matrix[MAT_Y] + target.value[e_value.COPY_POS_OFFSET_Y]: matrix[MAT_Y]);
-				   lookat_position[Z]= (target.value[e_value.COPY_POS_Z] ? target.value[e_value.POS_Z] + target.value[e_value.POS_TARGET].matrix[MAT_Z] + target.value[e_value.COPY_POS_OFFSET_Z] : matrix[MAT_Z]);
-				}
-				}
+
+
 				var angle = point_direction_3d(world_pos, lookat_position);
 				var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X],value[e_value.LOOK_AT_OFFSET_Y],value[e_value.LOOK_AT_OFFSET_Z])
 			
@@ -335,7 +318,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				value[e_value.SCA_Y] = (value[e_value.COPY_SCALE_Y] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Y] : value[e_value.SCA_Y])
 				value[e_value.SCA_Z] = (value[e_value.COPY_SCALE_Z] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Z] : value[e_value.SCA_Z])
 			}
-			
+			}
 			// Create rotation point
 			if (type = e_tl_type.CAMERA && value[e_value.CAM_ROTATE])
 			{
@@ -404,7 +387,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			
 			if (value[e_value.BEND_IK_TARGET] != null)
 			{
-				var mat = matrix_parent;
+				var mat = matrix;
 		
 				// Target rotation matrix
 				var target_rot_mat =  array_copy_1d(value[e_value.BEND_IK_TARGET].matrix)
@@ -630,21 +613,34 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_inherit_pose_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, false, true)
+			tl_update_matrix(false, false, true, false)
 		
 		app.project_inherit_pose_array = []
 	}
 	
-	if (updatecopy)
+	// Update models with "inherit pose"
+	if (updateik && !updatecopy && array_length(app.project_copy_obj_array) > 0)
 	{
-		if (app.project_copy_obj_array = null)
-		{
-			app.project_copy_obj_array = []
-			with (obj_timeline)
-				if (value[e_value.ROT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null  || value[e_value.BEND_IK_TARGET] != null)
-					array_add(app.project_copy_obj_array, id)
-		}
+		for (var i = 0; i < array_length(app.project_copy_obj_array); i++)
+			app.project_copy_obj_array[i].update_matrix = true
 		
-		tl_update_copy(app.project_copy_obj_array)
+		with (app)
+			tl_update_matrix(false, false, false, true)
+		
+		app.project_copy_obj_array = []
 	}
+	
+	
+	//if (updatecopy)
+	//{
+	//	if (app.project_copy_obj_array = null)
+	//	{
+	//		app.project_copy_obj_array = []
+	//		with (obj_timeline)
+	//			if (value[e_value.ROT_TARGET] != null || value[e_value.POS_TARGET] != null || value[e_value.SCALE_TARGET] != null  || value[e_value.BEND_IK_TARGET] != null)
+	//				array_add(app.project_copy_obj_array, id)
+	//	}
+		
+	//	tl_update_copy(app.project_copy_obj_array)
+	//}
 }

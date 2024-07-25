@@ -15,6 +15,8 @@ function view_shape_line(p1, p2)
 	if (p1error && p2error)
 		return 0
 	
+	// If one point is not on the screne clap it to the point position on screen
+	
 	// Clip off-screen point to camera
 	var camdir, dir;
 	if (p1error)
@@ -24,7 +26,7 @@ function view_shape_line(p1, p2)
 		p1 = point3D_plane_intersect(point3D_add(cam_from, vec3_mul(camdir, cam_near)), camdir, p2, dir)
 		p1_2d = view_shape_project(p1)
 		
-		if (array_equals(dir, vec3_direction(p1, p2)))
+
 			p1error = false
 	}
 	else if (p2error)
@@ -33,10 +35,11 @@ function view_shape_line(p1, p2)
 		dir = vec3_direction(p2, p1)
 		p2 = point3D_plane_intersect(point3D_add(cam_from, vec3_mul(camdir, cam_near)), camdir, p1, dir)
 		p2_2d = view_shape_project(p2)
-		
-		if (array_equals(dir, vec3_direction(p2, p1)))
+
 			p2error = false
 	}
+	
+	// both are off screen don't render
 	
 	// Still have an error
 	if (p1error || p2error)

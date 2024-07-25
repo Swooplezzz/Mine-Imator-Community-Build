@@ -10,4 +10,4 @@ function vec3_direction(from, to)
 		return [0, 1, 0]
 	else
 		return v
-}
+} 

@@ -39,6 +39,7 @@ function render_world(mode)
 		render_world_tl_reset()
 		render_world_ground()
 		render_world_sky_clouds()
+		render_world_tl_dof_surfs()
 		render_world_tl_reset()
 	}
 	

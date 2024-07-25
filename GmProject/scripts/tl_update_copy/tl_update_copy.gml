@@ -18,7 +18,7 @@ function tl_update_copy(parts)
 				if (update_matrix)
 				{
 					update = true
-					tl_update_matrix(false, false, false)
+					tl_update_matrix(false, false, false, true)
 				}
 			}
 		}
