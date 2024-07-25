@@ -31,9 +31,10 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		
 		if (curtl.value[e_value.ROT_TARGET] != null|| curtl.value[e_value.LOOK_AT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null|| curtl.value[e_value.BEND_IK_TARGET] != null)
 		{	
-			if(updateik && !updatecopy){
-			array_add(app.project_copy_obj_array, curtl)
-			for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
+			if (updateik && !updatecopy)
+			{
+				array_add(app.project_copy_obj_array, curtl)
+				for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
 					array_add(app.project_copy_obj_array, curtl.tree_list[|t])
 			}
 		}
@@ -41,12 +42,12 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			continue
 		
 		// Delay timeline update if we inherit pose
-		if (updateik && !updatepose  && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
+		if (updateik && !updatepose && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
 		{
 			curtl.update_matrix = false
 			continue
 		}
-		// Delay timeline update if we inherit pose
+		// Delay timeline update if we copy position
 		if (updateik && !updatecopy && (array_length(app.project_copy_obj_array) > 0) && array_contains(app.project_copy_obj_array, curtl))
 		{
 			curtl.update_matrix = false
@@ -88,17 +89,17 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					var offset, angle, curpos, mat;
 					offset = value[e_value.PATH_OFFSET]
 					angle = 0
-				
+					
 					// Get current position
 					curpos = tl_path_offset_get_position(path, offset)
-				
+					
 					// Make rotation matrix and add path position
 					var n, t;
 					n = vec3_normalize([curpos[PATH_NORMAL_X], curpos[PATH_NORMAL_Y], curpos[PATH_NORMAL_Z]])
 					t = vec3_normalize([curpos[PATH_TANGENT_X], curpos[PATH_TANGENT_Y], curpos[PATH_TANGENT_Z]])
-				
+					
 					mat = matrix_create_rotate_to(t, n)
-				
+					
 					// If path is closed, check if object is before/after ends
 					if (!path.path_closed)
 					{
@@ -107,11 +108,11 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 						else if (value[e_value.PATH_OFFSET] >= path.path_length)
 							curpos = tl_path_offset_get_position(path, path.path_length)
 					}
-				
+					
 					mat = matrix_multiply(mat, matrix_create(curpos, vec3(0), vec3(1)))
-				
+					
 					matrix_parent = matrix_multiply(matrix_parent, mat)
-				
+					
 					if (is_array(path.matrix))
 						matrix_parent = matrix_multiply(matrix_parent, path.matrix)
 				}
@@ -228,96 +229,97 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			//if (id.parent != app)
 			//	world_rot = quat_mul(world_rot, id.parent.world_rot);
 
-			if(updatecopy){
-			if (value[e_value.ROT_TARGET] != null)
+			if (updatecopy)
 			{
-				var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
-				var par = value[e_value.ROT_TARGET];
-				//BENT Half
-				if (par.type = e_tl_type.BODYPART && value[e_value.COPY_ROT_BEND] && par.model_part != null && par.model_part.bend_part != null)
+				if (value[e_value.ROT_TARGET] != null)
 				{
-				var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
-				target_rot_mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), target_rot_mat)
-				}
-				
-				target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.COPY_ROT_OFFSET_X],value[e_value.COPY_ROT_OFFSET_Y],value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
-				matrix_remove_rotation(matrix)
-
-		
-				var target_rotation = matrix_rotation(target_rot_mat);
-				//var target_rotation = to_euler(value[e_value.ROT_TARGET].world_rot);
-				
-				target_rotation[X] = (value[e_value.COPY_ROT_X]? target_rotation[X] : 0);
-				target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y]: 0);
-				target_rotation[Z] = (value[e_value.COPY_ROT_Z]? target_rotation[Z] : 0);
-
-				matrix_remove_scale(target_rot_mat)
-				matrix = matrix_multiply(matrix_create(vec3(0), target_rotation, vec3(1)), matrix);
-			}
-
-			if (value[e_value.POS_TARGET] != null)
-			{
-			
-				if(value[e_value.COPY_POS_CHILD]){
+					var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
+					var par = value[e_value.ROT_TARGET];
 					
-				   var pos = vec3(0);
-	
-				   pos[X] = value[e_value.POS_X] + value[e_value.COPY_POS_OFFSET_X]
-				   pos[Y] = value[e_value.POS_Y] + value[e_value.COPY_POS_OFFSET_Y]
-				   pos[Z] = value[e_value.POS_Z] + value[e_value.COPY_POS_OFFSET_Z] 
-				   
-				   var par = value[e_value.POS_TARGET];
-			       var mat = array_copy_1d(par.matrix);
-
-				   //BENT Half
-				   if (par.type = e_tl_type.BODYPART && value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
-				   {
-				   var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
-				   mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
-				   }
-				   
-				   mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
-				   
-				   if(value[e_value.COPY_POS_X])
-				   matrix[MAT_X] = mat[MAT_X]
-				   
-				   if(value[e_value.COPY_POS_Y])
-				   matrix[MAT_Y] = mat[MAT_Y]
-				   
-				   if(value[e_value.COPY_POS_Z])
-				   matrix[MAT_Z]= mat[MAT_Z]
+					//BENT Half
+					if (par.type = e_tl_type.BODYPART && value[e_value.COPY_ROT_BEND] && par.model_part != null && par.model_part.bend_part != null)
+					{
+						var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+						target_rot_mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), target_rot_mat)
+					}
+					
+					target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.COPY_ROT_OFFSET_X], value[e_value.COPY_ROT_OFFSET_Y], value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
+					matrix_remove_rotation(matrix)
+					
+					var target_rotation = matrix_rotation(target_rot_mat);
+					//var target_rotation = to_euler(value[e_value.ROT_TARGET].world_rot);
+					
+					target_rotation[X] = (value[e_value.COPY_ROT_X] ? target_rotation[X] : 0)
+					target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : 0)
+					target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0)
+					
+					matrix_remove_scale(target_rot_mat)
+					matrix = matrix_multiply(matrix_create(vec3(0), target_rotation, vec3(1)), matrix)
 				}
-				else{
-				    // NOT IS CHILD
-				    matrix_remove_rotation(matrix_parent)
-				    
-				    matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X]: matrix[MAT_X]);
-				    matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y]: matrix[MAT_Y]);
-				    matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z] : matrix[MAT_Z]);
-				}
-			}
-			
-			//THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
-			if(value[e_value.LOOK_AT_TARGET] != null){
-				matrix_remove_rotation(matrix)
-				var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
-
-
-				var angle = point_direction_3d(world_pos, lookat_position);
-				var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X],value[e_value.LOOK_AT_OFFSET_Y],value[e_value.LOOK_AT_OFFSET_Z])
-			
-				matrix = matrix_multiply(matrix_create(vec3(0), angle, vec3(1)), matrix);
-				matrix = matrix_multiply(matrix_create(vec3(0), angle2, vec3(1)), matrix);
-			}
-			
-			if (value[e_value.SCALE_TARGET] != null)
-			{
-				matrix_remove_scale(matrix_parent)
 				
-				value[e_value.SCA_X] = (value[e_value.COPY_SCALE_X] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_X] : value[e_value.SCA_X])
-				value[e_value.SCA_Y] = (value[e_value.COPY_SCALE_Y] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Y] : value[e_value.SCA_Y])
-				value[e_value.SCA_Z] = (value[e_value.COPY_SCALE_Z] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Z] : value[e_value.SCA_Z])
-			}
+				if (value[e_value.POS_TARGET] != null)
+				{
+					if (value[e_value.COPY_POS_CHILD])
+					{
+						var pos = vec3(0);
+						
+						pos[X] = value[e_value.POS_X] + value[e_value.COPY_POS_OFFSET_X]
+						pos[Y] = value[e_value.POS_Y] + value[e_value.COPY_POS_OFFSET_Y]
+						pos[Z] = value[e_value.POS_Z] + value[e_value.COPY_POS_OFFSET_Z] 
+						
+						var par = value[e_value.POS_TARGET];
+						var mat = array_copy_1d(par.matrix);
+						
+						//BENT Half
+						if (par.type = e_tl_type.BODYPART && value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
+						{
+							var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+							mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
+						}
+						
+						mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
+						
+						if(value[e_value.COPY_POS_X])
+						matrix[MAT_X] = mat[MAT_X]
+						
+						if(value[e_value.COPY_POS_Y])
+						matrix[MAT_Y] = mat[MAT_Y]
+						
+						if(value[e_value.COPY_POS_Z])
+						matrix[MAT_Z]= mat[MAT_Z]
+					}
+					else
+					{
+						// NOT IS CHILD
+						matrix_remove_rotation(matrix_parent)
+				    
+						matrix[MAT_X] = (value[e_value.COPY_POS_X] ? value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X]: matrix[MAT_X]);
+						matrix[MAT_Y] = (value[e_value.COPY_POS_Y] ? value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y]: matrix[MAT_Y]);
+						matrix[MAT_Z] = (value[e_value.COPY_POS_Z] ? value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z] : matrix[MAT_Z]);
+					}
+				}
+				
+				//THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
+				if (value[e_value.LOOK_AT_TARGET] != null)
+				{
+					matrix_remove_rotation(matrix)
+					var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
+					
+					var angle = point_direction_3d(world_pos, lookat_position);
+					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X],value[e_value.LOOK_AT_OFFSET_Y],value[e_value.LOOK_AT_OFFSET_Z])
+					
+					matrix = matrix_multiply(matrix_create(vec3(0), angle, vec3(1)), matrix);
+					matrix = matrix_multiply(matrix_create(vec3(0), angle2, vec3(1)), matrix);
+				}
+			
+				if (value[e_value.SCALE_TARGET] != null)
+				{
+					matrix_remove_scale(matrix_parent)
+					
+					value[e_value.SCA_X] = (value[e_value.COPY_SCALE_X] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_X] : value[e_value.SCA_X])
+					value[e_value.SCA_Y] = (value[e_value.COPY_SCALE_Y] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Y] : value[e_value.SCA_Y])
+					value[e_value.SCA_Z] = (value[e_value.COPY_SCALE_Z] ? value_inherit[e_value.SCALE_TARGET].value[e_value.SCA_Z] : value[e_value.SCA_Z])
+				}
 			}
 			// Create rotation point
 			if (type = e_tl_type.CAMERA && value[e_value.CAM_ROTATE])
@@ -618,7 +620,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		app.project_inherit_pose_array = []
 	}
 	
-	// Update models with "inherit pose"
+	// Update models with copy position
 	if (updateik && !updatecopy && array_length(app.project_copy_obj_array) > 0)
 	{
 		for (var i = 0; i < array_length(app.project_copy_obj_array); i++)
@@ -629,7 +631,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		
 		app.project_copy_obj_array = []
 	}
-	
 	
 	//if (updatecopy)
 	//{

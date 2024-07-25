@@ -9,7 +9,7 @@ function action_tl_frame_copy_rot_target(target)
 	if (target != null)
 	{
 		var unconstrainted_mat, rot, rot2, mat;
-		unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]),point3D(tl_edit.value[e_value.ROT_X], tl_edit.value[e_value.ROT_Y], tl_edit.value[e_value.ROT_Z]), vec3(1)), tl_edit.matrix_parent)
+		unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), point3D(tl_edit.value[e_value.ROT_X], tl_edit.value[e_value.ROT_Y], tl_edit.value[e_value.ROT_Z]), vec3(1)), tl_edit.matrix_parent)
 		rot = matrix_rotation(unconstrainted_mat)
 		mat = matrix_multiply(target.matrix, matrix_inverse(unconstrainted_mat))
 		
@@ -19,8 +19,6 @@ function action_tl_frame_copy_rot_target(target)
 			var bendangle = vec3(target.value_inherit[e_value.BEND_ANGLE_X], target.value_inherit[e_value.BEND_ANGLE_Y], target.value_inherit[e_value.BEND_ANGLE_Z]);
 			mat = matrix_multiply(model_part_get_bend_matrix(target.model_part, bendangle, point3D(0, 0, 0), vec3(1), target.id), mat)
 		}
-		
-
 		
 		rot2 = matrix_rotation(matrix_inverse(mat))
 		for (var i = X; i <= Z; i++)

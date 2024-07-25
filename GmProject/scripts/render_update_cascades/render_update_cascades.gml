@@ -10,7 +10,6 @@ function render_update_cascades(dir)
 	cam_frustum.build(matrix_multiply(mV, mP))
 	cam_frustum.build_vbuffer()
 	
-	
 	var startz, endz, disz, sunmatV;
 	startz = cam_near
 	endz = min(cam_far_prev, 7500)

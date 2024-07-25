@@ -13,9 +13,9 @@ function tab_frame_editor_look_at()
 	if (collapse_map[?"lookat"])
 	{
 		tab_collapse_start()
-		var text;
 		
 		// Target object
+		var text;
 		if (tl_edit.value[e_value.LOOK_AT_TARGET] != null)
 			text = tl_edit.value[e_value.LOOK_AT_TARGET].display_name
 		else
@@ -26,17 +26,20 @@ function tab_frame_editor_look_at()
 		tab_next()
 		
 		microani_set("tablookat", null, false, false, false)
-		textfield_group_add("frameeditorlookatxoffset", tl_edit.value[e_value.LOOK_AT_OFFSET_X], 0, action_tl_frame_look_at_offset_x, X, tab.constraints.tbx_look_at_offset_x, null, 0.1, -no_limit, no_limit)
-	    textfield_group_add("frameeditorlookatyoffset", (setting_z_is_up ? tl_edit.value[e_value.LOOK_AT_OFFSET_Y] : tl_edit.value[e_value.LOOK_AT_OFFSET_Z]), 0, (setting_z_is_up ? action_tl_frame_look_at_offset_y : action_tl_frame_look_at_offset_z), Y,tab.constraints.tbx_look_at_offset_y, null, 0.1, -no_limit, no_limit)
-		textfield_group_add("frameeditorlookatzoffset",  (setting_z_is_up ? tl_edit.value[e_value.LOOK_AT_OFFSET_Z] :tl_edit.value[e_value.LOOK_AT_OFFSET_Y]), 0, (setting_z_is_up ? action_tl_frame_look_at_offset_z : action_tl_frame_look_at_offset_y), Z,tab.constraints.tbx_look_at_offset_z, null, 0.1, -no_limit, no_limit)
-
-		var snapval = (dragger_snap ? setting_snap_size_position : snap_min)
 		
 		context_menu_group_temp = e_context_group.COPYROT
-		tab_frame_editor_buttons()
 		
+		tab_frame_editor_buttons()
 		draw_label(text_get("frameeditorlookatoffset"), dx, dy + 12, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)
 	    dy += 26
+		
+		var snapval = (dragger_snap ? setting_snap_size_position : snap_min)
+		axis_edit = X
+		textfield_group_add("frameeditorlookatxoffset", tl_edit.value[e_value.LOOK_AT_OFFSET_X], 0, action_tl_frame_look_at_offset_x, axis_edit, tab.constraints.tbx_look_at_offset_x, null, 0.1, -no_limit, no_limit)
+	    axis_edit = (setting_z_is_up ? Y : Z)
+		textfield_group_add("frameeditorlookatyoffset", (setting_z_is_up ? tl_edit.value[e_value.LOOK_AT_OFFSET_Y] : tl_edit.value[e_value.LOOK_AT_OFFSET_Z]), 0, (setting_z_is_up ? action_tl_frame_look_at_offset_y : action_tl_frame_look_at_offset_z), axis_edit, tab.constraints.tbx_look_at_offset_y, null, 0.1, -no_limit, no_limit)
+		axis_edit = (setting_z_is_up ? Z : Y)
+		textfield_group_add("frameeditorlookatzoffset", (setting_z_is_up ? tl_edit.value[e_value.LOOK_AT_OFFSET_Z] : tl_edit.value[e_value.LOOK_AT_OFFSET_Y]), 0, (setting_z_is_up ? action_tl_frame_look_at_offset_z : action_tl_frame_look_at_offset_y), axis_edit, tab.constraints.tbx_look_at_offset_z, null, 0.1, -no_limit, no_limit)
 		
 		tab_control_textfield_group(false)
 		draw_textfield_group("frameeditorlookatoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, false, 1)

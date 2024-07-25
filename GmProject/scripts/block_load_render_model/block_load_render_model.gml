@@ -514,12 +514,13 @@ function block_load_render_model(model, rot, uvlock, opaque, wei, res = null)
 												case e_block_vbuffer.GRASS:				colstr = "grass";						break;
 												case e_block_vbuffer.FOLIAGE:			colstr = "foliage";						break;
 												case e_block_vbuffer.WATER:				colstr = "water";						break;
+												
 												case e_block_vbuffer.LEAVES_OAK:		colstr = "foliage";						break;
 												case e_block_vbuffer.LEAVES_SPRUCE:		rescol = mc_res.color_leaves_spruce;	break;
 												case e_block_vbuffer.LEAVES_BIRCH:		rescol = mc_res.color_leaves_birch;		break;
-												case e_block_vbuffer.LEAVES_JUNGLE:		colstr = "foliage";						break;
-												case e_block_vbuffer.LEAVES_ACACIA:		colstr = "foliage";						break;
-												case e_block_vbuffer.LEAVES_DARK_OAK:	colstr = "foliage";						break;
+												case e_block_vbuffer.LEAVES_JUNGLE:
+												case e_block_vbuffer.LEAVES_ACACIA:
+												case e_block_vbuffer.LEAVES_DARK_OAK:
 												case e_block_vbuffer.LEAVES_MANGROVE:	colstr = "foliage";						break;
 											}
 											

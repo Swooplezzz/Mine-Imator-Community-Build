@@ -525,25 +525,27 @@ function app_startup_interface_tabs()
 			// Path
 			tbx_path_offset = new_textbox_ndecimals()
 			
-			// Follow position offset
-			tbx_copy_pos_offset_x = new_textbox_decimals()
-			tbx_copy_pos_offset_y = new_textbox_decimals()
-			tbx_copy_pos_offset_z = new_textbox_decimals()
-			
-			// Follow rotation offset
-			tbx_copy_rot_offset_x = new_textbox_decimals()
-			tbx_copy_rot_offset_y = new_textbox_decimals()
-			tbx_copy_rot_offset_z = new_textbox_decimals()
-			
-			// Look at offset
-			tbx_look_at_offset_x = new_textbox_decimals()
-			tbx_look_at_offset_y = new_textbox_decimals()
-			tbx_look_at_offset_z = new_textbox_decimals()
-			
-			// IK
+			// Copy position
+			tbx_copy_pos_offset_x = new_textbox_ndecimals()
+			tbx_copy_pos_offset_y = new_textbox_ndecimals()
+			tbx_copy_pos_offset_z = new_textbox_ndecimals()
 			tbx_copy_pos_blend = new_textbox_integer()
 			tbx_copy_pos_blend.suffix = "%"
 			
+			// Copy rotation
+			tbx_copy_rot_offset_x = new_textbox_ndecimals()
+			tbx_copy_rot_offset_x.suffix = "°"
+			tbx_copy_rot_offset_y = new_textbox_ndecimals()
+			tbx_copy_rot_offset_y.suffix = "°"
+			tbx_copy_rot_offset_z = new_textbox_ndecimals()
+			tbx_copy_rot_offset_z.suffix = "°"
+			
+			// Look at
+			tbx_look_at_offset_x = new_textbox_ndecimals()
+			tbx_look_at_offset_y = new_textbox_ndecimals()
+			tbx_look_at_offset_z = new_textbox_ndecimals()
+			
+			// IK
 			tbx_ik_blend = new_textbox_integer()
 			tbx_ik_blend.suffix = "%"
 			tbx_ik_angle_offset = new_textbox_ndecimals()

@@ -5,8 +5,7 @@ function action_group_inverse_position()
 	if (tl_edit.value[e_value.POS_TARGET] != null)
 	{
 		var target = tl_edit.value[e_value.POS_TARGET];
-	
-
+		
 		var unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), vec3(0), vec3(1)), tl_edit.matrix_parent)
 		
 		var world_pos = vec3(0)
