@@ -18,4 +18,8 @@ function background_sky_update_sun()
 	background_light_data[5] = (color_get_green(background_sunlight_color_final) / 255) * background_sunlight_strength
 	background_light_data[6] = (color_get_blue(background_sunlight_color_final) / 255) * background_sunlight_strength
 	background_light_data[7] = range * 2
+	background_light_data[8] = -4
+	background_light_data[9] = 1
+	background_light_data[10] = 1
+	background_light_data[11] = 1
 }

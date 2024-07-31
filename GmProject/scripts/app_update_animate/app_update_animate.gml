@@ -97,14 +97,18 @@ function app_update_animate()
 			if ((hide && !render_hidden) || (!app.view_render && lq_hiding))
 				continue
 			
-			app.background_light_data[app.background_light_amount * 8 + 0] = world_pos[X]
-			app.background_light_data[app.background_light_amount * 8 + 1] = world_pos[Y]
-			app.background_light_data[app.background_light_amount * 8 + 2] = world_pos[Z]
-			app.background_light_data[app.background_light_amount * 8 + 3] = value[e_value.LIGHT_RANGE]
-			app.background_light_data[app.background_light_amount * 8 + 4] = (color_get_red(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
-			app.background_light_data[app.background_light_amount * 8 + 5] = (color_get_green(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
-			app.background_light_data[app.background_light_amount * 8 + 6] = (color_get_blue(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
-			app.background_light_data[app.background_light_amount * 8 + 7] = light_group
+			app.background_light_data[app.background_light_amount * 12 + 0] = world_pos[X]
+			app.background_light_data[app.background_light_amount * 12 + 1] = world_pos[Y]
+			app.background_light_data[app.background_light_amount * 12 + 2] = world_pos[Z]
+			app.background_light_data[app.background_light_amount * 12 + 3] = value[e_value.LIGHT_RANGE]
+			app.background_light_data[app.background_light_amount * 12 + 4] = (color_get_red(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
+			app.background_light_data[app.background_light_amount * 12 + 5] = (color_get_green(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
+			app.background_light_data[app.background_light_amount * 12 + 6] = (color_get_blue(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
+			app.background_light_data[app.background_light_amount * 12 + 7] = 1
+			app.background_light_data[app.background_light_amount * 12 + 8] = light_group
+			app.background_light_data[app.background_light_amount * 12 + 9] = 1
+			app.background_light_data[app.background_light_amount * 12 + 10] = 1
+			app.background_light_data[app.background_light_amount * 12 + 11] = 1
 			app.background_light_amount++
 		}
 	}

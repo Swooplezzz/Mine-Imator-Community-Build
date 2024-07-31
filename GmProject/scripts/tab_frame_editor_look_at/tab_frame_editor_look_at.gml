@@ -27,7 +27,7 @@ function tab_frame_editor_look_at()
 		
 		microani_set("tablookat", null, false, false, false)
 		
-		context_menu_group_temp = e_context_group.COPYROT
+		context_menu_group_temp = e_context_group.LOOKAT
 		
 		tab_frame_editor_buttons()
 		draw_label(text_get("frameeditorlookatoffset"), dx, dy + 12, fa_left, fa_middle, c_text_secondary, a_text_secondary, font_label)

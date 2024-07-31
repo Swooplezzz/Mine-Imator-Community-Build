@@ -3462,7 +3462,7 @@
 		"lookat": "Look at",
 		"lookat/": {
 			"target": "Target",
-			"influence": "Influence",
+			"blend": "Blend",
 			"axis": "Look at axis",
 			"xoffset": "X",
 			"yoffset": "Y",

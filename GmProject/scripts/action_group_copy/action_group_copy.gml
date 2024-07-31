@@ -18,6 +18,21 @@ function action_group_copy()
 			context_group_copy_list[|group] = array(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z])
 			return;
 		}
+		case e_context_group.COPYPOS:
+		{
+			context_group_copy_list[|group] = array(tl_edit.value[e_value.COPY_POS_OFFSET_X], tl_edit.value[e_value.COPY_POS_OFFSET_Y], tl_edit.value[e_value.COPY_POS_OFFSET_Z])
+			return;
+		}
+		case e_context_group.COPYROT:
+		{
+			context_group_copy_list[|group] = array(tl_edit.value[e_value.COPY_ROT_OFFSET_X], tl_edit.value[e_value.COPY_ROT_OFFSET_Y], tl_edit.value[e_value.COPY_ROT_OFFSET_Z])
+			return;
+		}
+		case e_context_group.LOOKAT:
+		{
+			context_group_copy_list[|group] = array(tl_edit.value[e_value.LOOK_AT_OFFSET_X], tl_edit.value[e_value.LOOK_AT_OFFSET_Y], tl_edit.value[e_value.LOOK_AT_OFFSET_Z])
+			return;
+		}
 		
 		case e_context_group.ROTATION:
 		{

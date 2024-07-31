@@ -89,13 +89,14 @@ void main()
 		int lights = (uIsGround > 0 ? 1 : uLightAmount);
 		for (int i = 0; i < lights; i++)
 		{
-			vec4 data1 = uLightData[i * 2];
-			vec4 data2 = uLightData[i * 2 + 1];
+			vec4 data1 = uLightData[i * 3];
+			vec4 data2 = uLightData[i * 3 + 1];
+			vec4 data3 = uLightData[i * 3 + 2];
 			vec3 lightPosition = data1.xyz;
 			float lightRange = data1.w, dis, att;
 			float addlight = 0.0;
 			
-			if(data2.a == uLightGroup || data2.a < -1.0){
+			if(data3.r == uLightGroup || data3.r < -1.0){
 			   addlight = 1.0;
 			}
 			dis = distance(vPosition, lightPosition);

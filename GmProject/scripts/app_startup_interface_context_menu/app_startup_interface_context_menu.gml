@@ -30,6 +30,7 @@ function app_startup_interface_context_menu()
 		EASE,
 		COPYPOS,
 		COPYROT,
+		LOOKAT,
 		COPYSCA,
 		amount
 	}

@@ -91,6 +91,10 @@ function window_get_current()
 	return window_debug_current;
 }
 
+/// CppSeparate void get_open_filenames_ext(StringType,StringType,StringType,StringType)
+function get_open_filenames_ext(filter, filename,directory, title){
+	return string(get_open_filename_ext(filter, filename, directory, title))
+}
 /// CppSeparate void window_create(IntType, IntType, IntType, IntType, IntType)
 /// Creates a new window from a rectangle relative to the current window.
 function window_create(window, xx, yy, width, height)
