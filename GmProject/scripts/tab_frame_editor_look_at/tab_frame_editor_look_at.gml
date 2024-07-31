@@ -45,6 +45,11 @@ function tab_frame_editor_look_at()
 		draw_textfield_group("frameeditorlookatoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, false, 1)
 		tab_next()
 		
+		// Blend
+		tab_control_meter()
+		draw_meter("frameeditorlookatblend", dx, dy, dw, round(tl_edit.value[e_value.LOOK_AT_BLEND] * 100), 0, 100, 100, 1, tab.constraints.tbx_look_at_blend, action_tl_frame_look_at_blend)
+		tab_next()
+		
 		microani_set("tablookat", null, false, false, false)
 	    microani_update(app_mouse_box(dx, taby, dw, dy - taby) && content_mouseon, false, false)
 		

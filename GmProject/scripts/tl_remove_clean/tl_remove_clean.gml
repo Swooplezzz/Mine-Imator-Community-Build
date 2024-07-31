@@ -10,7 +10,7 @@ function tl_remove_clean()
 	{
 		// Deselect
 		tl_deselect()
-		
+		light_group = null
 		// Remove from render list
 		ds_list_delete_value(render_list, id)
 		

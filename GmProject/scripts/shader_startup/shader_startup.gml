@@ -179,6 +179,7 @@ function shader_startup()
 		new_shader_uniform("uTonemapper")
 		new_shader_uniform("uExposure")
 		new_shader_uniform("uGamma")
+		new_shader_uniform("uLightGroup")
 	}
 	
 	with (shader_map[?shader_depth])
@@ -273,7 +274,7 @@ function shader_startup()
 		new_shader_uniform("uLightAmount")
 		new_shader_uniform("uLightData")
 		new_shader_uniform("uLightSpecular")
-	    new_shader_uniform("uRenderLight")
+	    new_shader_uniform("uLightGroup")
 	}
 	
 	with (shader_map[?shader_high_light_spot])

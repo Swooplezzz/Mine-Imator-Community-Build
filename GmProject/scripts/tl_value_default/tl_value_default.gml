@@ -169,7 +169,6 @@ function tl_value_default(valueid)
 		case e_value.COPY_ROT_OFFSET_X:
 		case e_value.COPY_ROT_OFFSET_Y:
 		case e_value.COPY_ROT_OFFSET_Z: return 0
-		case e_value.COPY_SCALE_MULT: return null
 		case e_value.COPY_POS_CHILD:
 		case e_value.COPY_POS_BEND:
 		case e_value.COPY_ROT_BEND:
@@ -189,7 +188,10 @@ function tl_value_default(valueid)
 		case e_value.SOUND_OBJ:
 		case e_value.TEXT_FONT: return null
 		case e_value.IK_BLEND:
-		case e_value.COPY_POS_BLEND:
+		case e_value.COPY_POS_BLEND: return 1;
+		case e_value.COPY_ROT_BLEND: return 1;
+		case e_value.COPY_SCALE_BLEND: return 1;
+		case e_value.LOOK_AT_BLEND: return 1;
 		case e_value.SOUND_VOLUME:
 		case e_value.SOUND_PITCH: return 1
 		case e_value.VISIBLE: return true

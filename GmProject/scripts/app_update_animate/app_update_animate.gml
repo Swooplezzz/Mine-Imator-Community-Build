@@ -104,7 +104,7 @@ function app_update_animate()
 			app.background_light_data[app.background_light_amount * 8 + 4] = (color_get_red(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
 			app.background_light_data[app.background_light_amount * 8 + 5] = (color_get_green(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
 			app.background_light_data[app.background_light_amount * 8 + 6] = (color_get_blue(value[e_value.LIGHT_COLOR]) / 255) * value[e_value.LIGHT_STRENGTH]
-			app.background_light_data[app.background_light_amount * 8 + 7] = 1
+			app.background_light_data[app.background_light_amount * 8 + 7] = light_group
 			app.background_light_amount++
 		}
 	}

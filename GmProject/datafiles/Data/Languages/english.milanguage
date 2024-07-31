@@ -3497,7 +3497,8 @@
 			"yoffset": "Y",
 			"zoffset": "Z",
 			"bend": "Bent half",
-			"offset": "Offset"
+			"offset": "Offset",
+			"blend": "Blend"
 		},
         "copyscale": "Copy scale",
 		"copyscale/": {
@@ -3506,7 +3507,8 @@
 			"copyaxis": "Axis",
 			"x": "X",
 			"y": "Y",
-			"z": "Z"
+			"z": "Z",
+			"blend": "Blend"
 		},
 		"material": "MATERIAL",
 		"opacity": "Opacity",

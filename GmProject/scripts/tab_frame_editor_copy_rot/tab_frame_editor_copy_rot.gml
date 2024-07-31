@@ -57,6 +57,11 @@ function tab_frame_editor_copy_rot()
 		draw_textfield_group("frameeditorcopyrotoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, false, 1)
 		tab_next()
 		
+		// Blend
+		tab_control_meter()
+		draw_meter("frameeditorcopyrotblend", dx, dy, dw, round(tl_edit.value[e_value.COPY_ROT_BLEND] * 100), 0, 100, 100, 1, tab.constraints.tbx_copy_rot_blend, action_tl_frame_copy_rot_blend)
+		tab_next()
+		
 		microani_set("tabcopyrotation", null, false, false, false)
 		microani_update(app_mouse_box(dx, taby, dw, dy - taby) && content_mouseon, false, false)
 		

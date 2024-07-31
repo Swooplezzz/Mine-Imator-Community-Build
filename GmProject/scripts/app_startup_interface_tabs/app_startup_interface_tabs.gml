@@ -532,6 +532,14 @@ function app_startup_interface_tabs()
 			tbx_copy_pos_blend = new_textbox_integer()
 			tbx_copy_pos_blend.suffix = "%"
 			
+			tbx_copy_rot_blend = new_textbox_integer()
+			tbx_copy_rot_blend.suffix = "%"
+			tbx_copy_scale_blend = new_textbox_integer()
+			tbx_copy_scale_blend.suffix = "%"
+			tbx_look_at_blend = new_textbox_integer()
+			tbx_look_at_blend.suffix = "%"
+
+			
 			// Copy rotation
 			tbx_copy_rot_offset_x = new_textbox_ndecimals()
 			tbx_copy_rot_offset_x.suffix = "°"

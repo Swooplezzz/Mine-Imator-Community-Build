@@ -17,6 +17,7 @@ uniform float uSSS;
 uniform float uDefaultSubsurface;
 uniform float uDefaultEmissive;
 uniform float uLightSpecular;
+uniform float uLightGroup;
 
 varying vec3 vPosition;
 varying vec3 vNormal;
@@ -150,9 +151,13 @@ void main()
 			
 			vec3 light = vec3(0.0);
 			vec3 spec = vec3(0.0);
+			float addlight = 0.0;
 			
+			if(data3.a == uLightGroup || data3.a < -1.0){
+			   addlight = 1.0;
+			}
 			// Diffuse light
-			light = data2.rgb * data3.r * dif ;
+			light = data2.rgb * data3.r * dif * addlight;
 			
 			lightResult.rgb += light;
 			

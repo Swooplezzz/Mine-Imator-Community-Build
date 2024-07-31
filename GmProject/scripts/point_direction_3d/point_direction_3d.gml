@@ -24,5 +24,5 @@ function point_direction_3d(pos1, pos2)
 	var pitch = arcsin(normal_z);
 	pitch *= 180 / pi
 	
-	return vec3(-pitch, 0, yaw + 90)
+	return vec3(-pitch, 0, yaw - 270)
 }

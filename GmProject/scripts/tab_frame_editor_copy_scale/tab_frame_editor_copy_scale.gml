@@ -31,9 +31,17 @@ function tab_frame_editor_copy_scale()
 	    togglebutton_add("frameeditorcopyscalex", null, !tl_edit.value[e_value.COPY_SCALE_X], tl_edit.value[e_value.COPY_SCALE_X], action_tl_frame_copy_scale_x)
 	    togglebutton_add("frameeditorcopyscaley", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]), (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Y] : tl_edit.value[e_value.COPY_SCALE_Z]),  (setting_z_is_up ? action_tl_frame_copy_scale_y : action_tl_frame_copy_scale_z))
 	    togglebutton_add("frameeditorcopyscalez", null,!(setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? tl_edit.value[e_value.COPY_SCALE_Z] : tl_edit.value[e_value.COPY_SCALE_Y]), (setting_z_is_up ? action_tl_frame_copy_scale_z : action_tl_frame_copy_scale_y))
-	   
+	    
 	    draw_togglebutton("frameeditorcopyrotcopyaxis", dx, dy)
 		tab_next()
+		
+				
+		// Blend
+		tab_control_meter()
+		draw_meter("frameeditorcopyscaleblend", dx, dy, dw, round(tl_edit.value[e_value.COPY_SCALE_BLEND] * 100), 0, 100, 100, 1, tab.constraints.tbx_copy_scale_blend, action_tl_frame_copy_scale_blend)
+		tab_next()
+		
 		tab_collapse_end()
+		
 	}
 }

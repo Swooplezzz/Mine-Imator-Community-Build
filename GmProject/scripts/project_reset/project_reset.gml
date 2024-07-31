@@ -10,6 +10,7 @@ function project_reset()
 	temp_edit = null
 	res_edit = null
 	tl_edit = null
+	light_group_edit = null
 	tl_edit_amount = 0
 	
 	render_free()

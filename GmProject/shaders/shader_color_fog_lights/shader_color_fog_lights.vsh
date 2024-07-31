@@ -11,6 +11,7 @@ uniform vec4 uBlendColor;
 
 uniform int uIsSky;
 uniform int uIsGround;
+uniform float uLightGroup;
 
 uniform int uLightAmount; // static
 uniform vec3 uSunDirection; // static
@@ -92,13 +93,17 @@ void main()
 			vec4 data2 = uLightData[i * 2 + 1];
 			vec3 lightPosition = data1.xyz;
 			float lightRange = data1.w, dis, att;
+			float addlight = 0.0;
 			
+			if(data2.a == uLightGroup || data2.a < -1.0){
+			   addlight = 1.0;
+			}
 			dis = distance(vPosition, lightPosition);
 			att = (i > 0) ? max(0.0, 1.0 - dis / lightRange) : 1.0; // Attenuation factor
 			
 			vec3 toLight = (i > 0) ? normalize(lightPosition - vPosition) : uSunDirection;
 			float dif = max(0.0, dot(vNormal, toLight)) * att; // Diffuse factor
-			vDiffuse += data2.rgb * dif;
+			vDiffuse += data2.rgb * dif * addlight;
 		}
 	}
 	

@@ -51,6 +51,10 @@ function render_world_tl()
 			(render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
 			render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
 	   return 0
+	   
+	if (render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS ||
+        render_mode = e_render_mode.COLOR_FOG_LIGHTS)
+	   	render_set_uniform("uLightGroup", tl.light_group)
 	
 	// Click mode
 	if (render_mode = e_render_mode.CLICK)
