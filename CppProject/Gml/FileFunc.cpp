@@ -182,31 +182,7 @@ namespace CppProject
 		}
 		return list;
 	}
-
-	StringType get_open_filenames_ext(StringType filter, StringType file, StringType dir, StringType caption)
-	{
-		QFileDialog fd;
-		fd.setModal(true);
-		fd.setAcceptMode(QFileDialog::AcceptOpen);
-		fd.setFileMode(QFileDialog::ExistingFiles);
-		fd.setNameFilters(GetFilenameFilterList(filter));
-		if (file != "")
-		{
-			if (!file.Contains("/") && !dir.IsEmpty())
-				file = dir + "/" + file;
-			fd.selectFile(file);
-		}
-		else if (!dir.IsEmpty())
-			fd.setDirectory(dir);
-		fd.setWindowTitle(caption);
-		if (!App->ExecDialog(&fd))
-			return "";
-		QStringList files = fd.selectedFiles();
-		
-		if (files.size() > 0)
-			return files.join("\n");
-		return "";
-	}
+	
 	StringType get_open_filename_ext(StringType filter, StringType file, StringType dir, StringType caption)
 	{
 		QFileDialog fd;
@@ -231,9 +207,33 @@ namespace CppProject
 			return files[0];
 		return "";
 	}
-
-
-	StringType get_save_filenames_ext(StringType filter, StringType file, StringType dir, StringType caption)
+	
+	StringType get_open_filenames_ext(StringType filter, StringType file, StringType dir, StringType caption)
+	{
+		QFileDialog fd;
+		fd.setModal(true);
+		fd.setAcceptMode(QFileDialog::AcceptOpen);
+		fd.setFileMode(QFileDialog::ExistingFiles);
+		fd.setNameFilters(GetFilenameFilterList(filter));
+		if (file != "")
+		{
+			if (!file.Contains("/") && !dir.IsEmpty())
+				file = dir + "/" + file;
+			fd.selectFile(file);
+		}
+		else if (!dir.IsEmpty())
+			fd.setDirectory(dir);
+		fd.setWindowTitle(caption);
+		if (!App->ExecDialog(&fd))
+			return "";
+		QStringList files = fd.selectedFiles();
+		
+		if (files.size() > 0)
+			return files.join("\n");
+		return "";
+	}
+	
+	StringType get_save_filename_ext(StringType filter, StringType file, StringType dir, StringType caption)
 	{
 		QFileDialog fd;
 		fd.setModal(true);

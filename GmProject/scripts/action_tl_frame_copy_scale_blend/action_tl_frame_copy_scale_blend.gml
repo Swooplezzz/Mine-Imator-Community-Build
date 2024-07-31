@@ -1,5 +1,5 @@
-/// action_tl_frame_copy_scale_blend(val, add)
-/// @arg val
+/// action_tl_frame_copy_scale_blend(value, add)
+/// @arg value
 /// @arg add
 
 function action_tl_frame_copy_scale_blend(val, add)

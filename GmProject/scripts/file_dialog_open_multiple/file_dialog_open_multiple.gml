@@ -1,4 +1,4 @@
-/// file_dialog_open(filter, filename, directory, title)
+/// file_dialog_open_multiple(filter, filename, directory, title)
 /// @arg filter
 /// @arg filename
 /// @arg directory

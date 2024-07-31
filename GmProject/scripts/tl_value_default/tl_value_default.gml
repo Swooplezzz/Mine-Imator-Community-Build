@@ -41,7 +41,7 @@ function tl_value_default(valueid)
 		case e_value.LIGHT_SPOT_GOBO_H_OFFSET:
 		case e_value.LIGHT_SPOT_GOBO_V_OFFSET: return 0
 		case e_value.CAM_FOV: return 45
-		case e_value.CAM_ASPECT: return 1
+		case e_value.CAM_ASPECT:
 		case e_value.CAM_EXPOSURE: return 1
 		case e_value.CAM_GAMMA: return 2.2
 		case e_value.CAM_BLADE_AMOUNT:
@@ -84,7 +84,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_VIBRANCE: return 0
 		case e_value.CAM_COLOR_BURN: return c_white
 		case e_value.CAM_GRAIN_STRENGTH:
-		case e_value.CAM_GRAIN_SATURATION: return .10
+		case e_value.CAM_GRAIN_SATURATION: return .1
 		case e_value.CAM_GRAIN_SIZE:
 		case e_value.CAM_VIGNETTE_RADIUS: return 1
 		case e_value.CAM_VIGNETTE_SOFTNESS: return 0.5
@@ -188,10 +188,10 @@ function tl_value_default(valueid)
 		case e_value.SOUND_OBJ:
 		case e_value.TEXT_FONT: return null
 		case e_value.IK_BLEND:
-		case e_value.COPY_POS_BLEND: return 1;
-		case e_value.COPY_ROT_BLEND: return 1;
-		case e_value.COPY_SCALE_BLEND: return 1;
-		case e_value.LOOK_AT_BLEND: return 1;
+		case e_value.COPY_POS_BLEND:
+		case e_value.COPY_ROT_BLEND:
+		case e_value.COPY_SCALE_BLEND:
+		case e_value.LOOK_AT_BLEND:
 		case e_value.SOUND_VOLUME:
 		case e_value.SOUND_PITCH: return 1
 		case e_value.VISIBLE: return true

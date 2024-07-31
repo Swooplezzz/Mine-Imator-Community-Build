@@ -532,14 +532,6 @@ function app_startup_interface_tabs()
 			tbx_copy_pos_blend = new_textbox_integer()
 			tbx_copy_pos_blend.suffix = "%"
 			
-			tbx_copy_rot_blend = new_textbox_integer()
-			tbx_copy_rot_blend.suffix = "%"
-			tbx_copy_scale_blend = new_textbox_integer()
-			tbx_copy_scale_blend.suffix = "%"
-			tbx_look_at_blend = new_textbox_integer()
-			tbx_look_at_blend.suffix = "%"
-
-			
 			// Copy rotation
 			tbx_copy_rot_offset_x = new_textbox_ndecimals()
 			tbx_copy_rot_offset_x.suffix = "°"
@@ -547,11 +539,19 @@ function app_startup_interface_tabs()
 			tbx_copy_rot_offset_y.suffix = "°"
 			tbx_copy_rot_offset_z = new_textbox_ndecimals()
 			tbx_copy_rot_offset_z.suffix = "°"
+			tbx_copy_rot_blend = new_textbox_integer()
+			tbx_copy_rot_blend.suffix = "%"
+			
+			// Copy scale
+			tbx_copy_scale_blend = new_textbox_integer()
+			tbx_copy_scale_blend.suffix = "%"
 			
 			// Look at
 			tbx_look_at_offset_x = new_textbox_ndecimals()
 			tbx_look_at_offset_y = new_textbox_ndecimals()
 			tbx_look_at_offset_z = new_textbox_ndecimals()
+			tbx_look_at_blend = new_textbox_integer()
+			tbx_look_at_blend.suffix = "%"
 			
 			// IK
 			tbx_ik_blend = new_textbox_integer()

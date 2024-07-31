@@ -96,9 +96,9 @@ void main()
 			float lightRange = data1.w, dis, att;
 			float addlight = 0.0;
 			
-			if(data3.r == uLightGroup || data3.r < -1.0){
+			if (data3.r == uLightGroup || data3.r < -1.0)
 			   addlight = 1.0;
-			}
+			
 			dis = distance(vPosition, lightPosition);
 			att = (i > 0) ? max(0.0, 1.0 - dis / lightRange) : 1.0; // Attenuation factor
 			

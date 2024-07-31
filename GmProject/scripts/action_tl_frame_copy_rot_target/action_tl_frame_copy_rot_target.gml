@@ -11,9 +11,10 @@ function action_tl_frame_copy_rot_target(target)
 	{
 		var unconstrainted_mat, rot, rot2, mat;
 		unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), point3D(tl_edit.value[e_value.ROT_X], tl_edit.value[e_value.ROT_Y], tl_edit.value[e_value.ROT_Z]), vec3(1)), tl_edit.matrix_parent)
-		 if(is_new_target){
-		   unconstrainted_mat = tl_edit.matrix;	
-		}
+		
+		if (is_new_target)
+			unconstrainted_mat = tl_edit.matrix;	
+		
 		rot = matrix_rotation(unconstrainted_mat)
 		mat = matrix_multiply(target.matrix, matrix_inverse(unconstrainted_mat))
 		

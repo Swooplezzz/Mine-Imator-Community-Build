@@ -11,9 +11,10 @@ function action_tl_frame_copy_pos_target(target)
 	if (target != null)
 	{
 		var unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), vec3(0), vec3(1)), tl_edit.matrix_parent)
-	    if(is_new_target){
-		   unconstrainted_mat = tl_edit.matrix;	
-		}
+	    
+		if (is_new_target)
+			unconstrainted_mat = tl_edit.matrix;	
+		
 		var world_pos = vec3(0)
 		for (var i = X; i <= Z; i++)
 			world_pos[i] = unconstrainted_mat[MAT_X + i]
