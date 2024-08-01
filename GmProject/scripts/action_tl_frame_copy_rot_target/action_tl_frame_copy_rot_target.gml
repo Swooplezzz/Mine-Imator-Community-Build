@@ -3,6 +3,7 @@
 
 function action_tl_frame_copy_rot_target(target)
 {
+	if(target = tl_edit) return;
 	var is_new_target = (target = tl_edit.value[e_value.ROT_TARGET] && tl_edit.value[e_value.ROT_TARGET] != null);
 	tl_value_set_start(action_tl_frame_copy_rot_target, true)
 	tl_value_set(e_value.ROT_TARGET, target, false)
