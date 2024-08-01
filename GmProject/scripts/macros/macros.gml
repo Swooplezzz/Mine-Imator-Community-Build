@@ -23,7 +23,7 @@ function macros()
 	#macro mineimator_version_sub		"Community Build 1.0.0"		// Mod name and version (e.g. "Community Build 1.0.0")
 	#macro mineimator_version_extra		"Alpha 8"					// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2024.07.31"
+	#macro mineimator_version_date		"2024.08.01"
 	#macro minecraft_version			"1.21"
 	#macro gm_runtime					GM_runtime_version
 	
@@ -182,21 +182,21 @@ function macros()
 	#macro MAT_Y						13
 	#macro MAT_Z						14
 	#macro MAT_00						0
-    #macro MAT_01						1
-    #macro MAT_02						2
-    #macro MAT_03						3
-    #macro MAT_10						4
-    #macro MAT_11						5
-    #macro MAT_12						6
-    #macro MAT_13						7
-    #macro MAT_20						8
-    #macro MAT_21						9
-    #macro MAT_22						10
-    #macro MAT_23						11
-    #macro MAT_30						12
-    #macro MAT_31						13
-    #macro MAT_32						14
-    #macro MAT_33						15
+	#macro MAT_01						1
+	#macro MAT_02						2
+	#macro MAT_03						3
+	#macro MAT_10						4
+	#macro MAT_11						5
+	#macro MAT_12						6
+	#macro MAT_13						7
+	#macro MAT_20						8
+	#macro MAT_21						9
+	#macro MAT_22						10
+	#macro MAT_23						11
+	#macro MAT_30						12
+	#macro MAT_31						13
+	#macro MAT_32						14
+	#macro MAT_33						15
 
 	#macro PATH_SCALE					4
 	#macro PATH_TANGENT_X				5

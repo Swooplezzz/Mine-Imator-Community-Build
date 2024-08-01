@@ -6,7 +6,7 @@ function shader_high_light_spot_set()
 	
 	render_set_uniform_int("uIsSky", 0)
 	render_set_uniform_int("uIsWater", 0)
-    render_set_uniform_vec2("uGoboOffset",
+	render_set_uniform_vec2("uGoboOffset",
 							render_gobo_offset[X],
 							render_gobo_offset[Y])
 	render_set_uniform_vec2("uGoboRepeat",

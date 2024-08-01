@@ -101,9 +101,9 @@ function render_update_cascades(dir)
 		cascade.matProj = matrix_create_ortho(orthoMin[X], orthoMax[X], orthoMax[Y], orthoMin[Y], -orthoMin[Z], -orthoMax[Z]);
 		
 		// Matrix for converting -1->1 to 0->1 in shader
-		var matBias = [ 0.5,     0,   0, 0,
-						  0,   0.5,   0, 0,
-						  0,     0, 0.5, 0,
+		var matBias = [ 0.5,	 0,	  0, 0,
+						  0,   0.5,	  0, 0,
+						  0,	 0, 0.5, 0,
 						  0.5, 0.5, 0.5, 1 ];
 		
 		cascade.matBias = matrix_multiply(matrix_multiply(cascade.matView, cascade.matProj), matBias)

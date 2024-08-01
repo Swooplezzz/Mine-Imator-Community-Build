@@ -25,10 +25,14 @@ function tab_frame_editor_copy_rot()
 		draw_button_menu("frameeditorcopyrottarget", e_menu.TIMELINE, dx, dy, dw, 24, tl_edit.value[e_value.ROT_TARGET], text, action_tl_frame_copy_rot_target)
 		tab_next()
 		
-		dy += 12
-		togglebutton_add("frameeditorcopyrotx", null, !tl_edit.value[e_value.COPY_ROT_X], tl_edit.value[e_value.COPY_ROT_X], action_tl_frame_copy_rot_x)
-		togglebutton_add("frameeditorcopyroty", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]), (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Y] : tl_edit.value[e_value.COPY_ROT_Z]), (setting_z_is_up ? action_tl_frame_copy_rot_y : action_tl_frame_copy_rot_z))
-		togglebutton_add("frameeditorcopyrotz", null, !(setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_Z] : tl_edit.value[e_value.COPY_ROT_Y]), (setting_z_is_up ? action_tl_frame_copy_rot_z : action_tl_frame_copy_rot_y))
+		axis_edit = X
+		togglebutton_add("frameeditorcopyrotx", null, !tl_edit.value[e_value.COPY_ROT_X], tl_edit.value[e_value.COPY_ROT_X], action_tl_frame_copy_rot, axis_edit)
+		
+		axis_edit = (setting_z_is_up ? Y : Z)
+		togglebutton_add("frameeditorcopyroty", null, !tl_edit.value[e_value.COPY_ROT_X + axis_edit], tl_edit.value[e_value.COPY_ROT_X + axis_edit], action_tl_frame_copy_rot, axis_edit)
+		
+		axis_edit = (setting_z_is_up ? Z : Y)
+		togglebutton_add("frameeditorcopyrotz", null, !tl_edit.value[e_value.COPY_ROT_X + axis_edit], tl_edit.value[e_value.COPY_ROT_X + axis_edit], action_tl_frame_copy_rot, axis_edit)
 		
 		tab_control_togglebutton()
 		draw_togglebutton("frameeditorcopyrotcopyaxis", dx, dy)
@@ -46,15 +50,35 @@ function tab_frame_editor_copy_rot()
 		dy += 26
 		
 		var snapval = (dragger_snap ? setting_snap_size_position : snap_min)
-		axis_edit = X
-		textfield_group_add("frameeditorcopyrotxoffset", tl_edit.value[e_value.COPY_ROT_OFFSET_X], 0, action_tl_frame_copy_rot_offset_x, axis_edit, tab.constraints.tbx_copy_rot_offset_x, null, 0.1, -no_limit, no_limit)
-		axis_edit = (setting_z_is_up ? Y : Z)
-		textfield_group_add("frameeditorcopyrotyoffset", (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_OFFSET_Y] : tl_edit.value[e_value.COPY_ROT_OFFSET_Z]), 0, (setting_z_is_up ? action_tl_frame_copy_rot_offset_y : action_tl_frame_copy_rot_offset_z), axis_edit, tab.constraints.tbx_copy_rot_offset_y, null, 0.1, -no_limit, no_limit)
-		axis_edit = (setting_z_is_up ? Z : Y)
-		textfield_group_add("frameeditorcopyrotzoffset", (setting_z_is_up ? tl_edit.value[e_value.COPY_ROT_OFFSET_Z] : tl_edit.value[e_value.COPY_ROT_OFFSET_Y]), 0, (setting_z_is_up ? action_tl_frame_copy_rot_offset_z : action_tl_frame_copy_rot_offset_y), axis_edit, tab.constraints.tbx_copy_rot_offset_z, null, 0.1, -no_limit, no_limit)
+		var def = point3D(0, 0, 0)
 		
+		// Wheels
+		if (!app.panel_compact)
+		{
+			tab_control_wheel()
+			axis_edit = X
+			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw/6), dy + 24, c_axisred, tl_edit.value[e_value.COPY_ROT_OFFSET_X], -no_limit, no_limit, def[X], snapval, tab.constraints.tbx_copy_rot_offset_x, action_tl_frame_copy_rot_offset)
+	
+			axis_edit = (setting_z_is_up ? Y : Z)
+			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw/2), dy + 24, c_axisgreen, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_y, action_tl_frame_copy_rot_offset)
+	
+			axis_edit = (setting_z_is_up ? Z : Y)
+			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw - dw/6), dy + 24, c_axisblue, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_z, action_tl_frame_copy_rot_offset)
+			tab_next()
+		}
+		
+		// Textboxes
+		axis_edit = X
+		textfield_group_add("frameeditorcopyrotxoffset", tl_edit.value[e_value.COPY_ROT_OFFSET_X], def[X], action_tl_frame_copy_rot_offset, axis_edit, tab.constraints.tbx_copy_rot_offset_x)
+	
+		axis_edit = (setting_z_is_up ? Y : Z)
+		textfield_group_add("frameeditorcopyrotyoffset", tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], def[X + axis_edit], action_tl_frame_copy_rot_offset, axis_edit, tab.constraints.tbx_copy_rot_offset_y)
+	
+		axis_edit = (setting_z_is_up ? Z : Y)
+		textfield_group_add("frameeditorcopyrotzoffset", tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], def[X + axis_edit], action_tl_frame_copy_rot_offset, axis_edit, tab.constraints.tbx_copy_rot_offset_z)
+	
 		tab_control_textfield_group(false)
-		draw_textfield_group("frameeditorcopyrotoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, false, 1)
+		draw_textfield_group("frameeditorcopyrotoffset", dx, dy, dw, 0.1, -no_limit, no_limit, snapval, false, true, 1)
 		tab_next()
 		
 		// Blend

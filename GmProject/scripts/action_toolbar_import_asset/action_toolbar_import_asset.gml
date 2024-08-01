@@ -14,6 +14,6 @@ function action_toolbar_import_asset()
 	{
 		show_debug_message("Starting import: " + string(path_array[i]))
 
-	    asset_load(path_array[i])
+		asset_load(path_array[i])
 	}
 }

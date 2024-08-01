@@ -254,7 +254,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0)
 					
 					matrix_remove_scale(target_rot_mat)
-					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat),target_rotation, value[e_value.COPY_ROT_BLEND]), vec3(1)), matrix)
+					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat), target_rotation, value[e_value.COPY_ROT_BLEND]), vec3(1)), matrix)
 				}
 				
 				if (value[e_value.POS_TARGET] != null)
@@ -279,42 +279,42 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 						
 						mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
 						
-						if(value[e_value.COPY_POS_X])
-						matrix[MAT_X] = lerp(matrix[MAT_X],mat[MAT_X], value[e_value.COPY_POS_BLEND]);
+						if (value[e_value.COPY_POS_X])
+							matrix[MAT_X] = lerp(matrix[MAT_X], mat[MAT_X], value[e_value.COPY_POS_BLEND])
 						
-						if(value[e_value.COPY_POS_Y])
-						matrix[MAT_Y] = lerp(matrix[MAT_Y],mat[MAT_Y], value[e_value.COPY_POS_BLEND]);
+						if (value[e_value.COPY_POS_Y])
+							matrix[MAT_Y] = lerp(matrix[MAT_Y], mat[MAT_Y], value[e_value.COPY_POS_BLEND])
 						
-						if(value[e_value.COPY_POS_Z])
-						matrix[MAT_Z] = lerp(matrix[MAT_Z],mat[MAT_Z], value[e_value.COPY_POS_BLEND]);
+						if (value[e_value.COPY_POS_Z])
+							matrix[MAT_Z] = lerp(matrix[MAT_Z], mat[MAT_Z], value[e_value.COPY_POS_BLEND])
 					}
 					else
 					{
 						// NOT IS CHILD
 						matrix_remove_rotation(matrix_parent)
-				    
-						matrix[MAT_X] =  lerp(matrix[MAT_X],value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_X]);
-						matrix[MAT_Y] =  lerp(matrix[MAT_Y],value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Y]);
-						matrix[MAT_Z] =  lerp(matrix[MAT_Z],value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Z]);
+						
+						matrix[MAT_X] = lerp(matrix[MAT_X], value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_X]);
+						matrix[MAT_Y] = lerp(matrix[MAT_Y], value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Y]);
+						matrix[MAT_Z] = lerp(matrix[MAT_Z], value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Z]);
 					}
 				}
 				
-				//THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
+				// THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
 				if (value[e_value.LOOK_AT_TARGET] != null)
 				{
 					var mat = array_copy_1d(matrix);
-					var mat2 = matrix_create(vec3(0),vec3(0),vec3(1));
+					var mat2 = matrix_create(vec3(0), vec3(0), vec3(1));
 		
 					var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
 					
-					var angle = point_direction_3d(vec3(matrix[MAT_X],matrix[MAT_Y],matrix[MAT_Z]), lookat_position);
-					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X],value[e_value.LOOK_AT_OFFSET_Y],value[e_value.LOOK_AT_OFFSET_Z])
+					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position);
+					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X], value[e_value.LOOK_AT_OFFSET_Y], value[e_value.LOOK_AT_OFFSET_Z])
 					
-					mat2 = matrix_multiply(matrix_create(vec3(0), point_lerp(vec3(0),angle, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
-					mat2 = matrix_multiply(matrix_create(vec3(0),  point_lerp(vec3(0),angle2, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
+					mat2 = matrix_multiply(matrix_create(vec3(0), point_lerp(vec3(0), angle, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
+					mat2 = matrix_multiply(matrix_create(vec3(0), point_lerp(vec3(0), angle2, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
 					
 					matrix_remove_rotation(matrix);
-					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat),matrix_rotation(mat2), value[e_value.LOOK_AT_BLEND]), vec3(1)), matrix)
+					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat), matrix_rotation(mat2), value[e_value.LOOK_AT_BLEND]), vec3(1)), matrix)
 					
 				}
 			
@@ -425,7 +425,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				bend[Y] *= (model_part.bend_invert[Y] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
 				bend[Z] *= (model_part.bend_invert[Z] ? -1: 1) * value[e_value.BEND_IK_INFLUENCE]
 		
-			    value_inherit[e_value.BEND_ANGLE_X] = bend[X]
+				value_inherit[e_value.BEND_ANGLE_X] = bend[X]
 				value_inherit[e_value.BEND_ANGLE_Y] = bend[Y]
 				value_inherit[e_value.BEND_ANGLE_Z] = bend[Z]
 			}

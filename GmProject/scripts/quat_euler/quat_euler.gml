@@ -2,17 +2,17 @@ function to_euler(q)
 {
 	var QX=q[X], QY=q[Y], QZ=q[Z], QW=q[W];
 
-	var t0 = (QX+QZ)*(QX-QZ);        // QX^2-QZ^2
-	var t1 = (QW+QY)*(QW-QY);        // QW^2-QY^2
-	var QXQX = 0.5*(t0+t1);        // 1/2 QX of QX'
-	var QXQY = QX*QY+QW*QZ;            // 1/2 QY of QX'
-	var QXQZ = QW*QY-QX*QZ;            // 1/2 QZ of QX'
-	var t  = QXQX*QXQX+QXQY*QXQY;        // cos(theta)^2
-	var QYQZ = 2.0*(QY*QZ+QW*QX);      // QZ of QY'
+	var t0 = (QX+QZ)*(QX-QZ);		// QX^2-QZ^2
+	var t1 = (QW+QY)*(QW-QY);		// QW^2-QY^2
+	var QXQX = 0.5*(t0+t1);			// 1/2 QX of QX'
+	var QXQY = QX*QY+QW*QZ;			// 1/2 QY of QX'
+	var QXQZ = QW*QY-QX*QZ;			// 1/2 QZ of QX'
+	var t  = QXQX*QXQX+QXQY*QXQY;	// cos(theta)^2
+	var QYQZ = 2.0*(QY*QZ+QW*QX);	// QZ of QY'
 	
 	var v;
-	v[Z] = arctan2(QXQY, QXQX);    // QYaQW   (psi)
-	v[Y] = arctan(QXQZ/sqrt(t)); // pitch (theta)
+	v[Z] = arctan2(QXQY, QXQX);		// QYaQW   (psi)
+	v[Y] = arctan(QXQZ/sqrt(t));	// pitch (theta)
 
 	if (t != 0) 
 		v[X] = arctan2(QYQZ, t1-t0);
@@ -26,10 +26,10 @@ function to_euler(q)
 
 function NormalizeAngles(angles)
 {
-    angles[X] = NormalizeAngle(angles[X]);
-    angles[Y] = NormalizeAngle(angles[Y]);
-    angles[Z] = NormalizeAngle(angles[Z]);
-    return angles;
+	angles[X] = NormalizeAngle(angles[X]);
+	angles[Y] = NormalizeAngle(angles[Y]);
+	angles[Z] = NormalizeAngle(angles[Z]);
+	return angles;
 }
 	
 function NormalizeAngle(angle)
@@ -68,25 +68,25 @@ function quat_euler(euler)
 	//	var qz = t1 * t2 * t4 - t0 * t3 * t5;
 		
 	//	return vec4(qx, qy, qz, qw);
-	    //    var yaw = -euler[X];
-        //var pitch = -euler[Y];
-        //var roll = euler[Z];
-        //var rollOver2 = roll * 0.5;
-        //var sinRollOver2 = dsin(rollOver2);
-        //var cosRollOver2 = dcos(rollOver2);
-        //var pitchOver2 = pitch * 0.5;
-        //var sinPitchOver2 = dsin(pitchOver2);
-        //var cosPitchOver2 = dcos(pitchOver2);
-        //var yawOver2 = yaw * 0.5;
-        //var sinYawOver2 = dsin(yawOver2);
-        //var cosYawOver2 = dcos(yawOver2);
-        //var result;
-        //result[X] = cosYawOver2 * cosPitchOver2 * cosRollOver2 + sinYawOver2 * sinPitchOver2 * sinRollOver2;
-        //result[Y] = cosYawOver2 * cosPitchOver2 * sinRollOver2 - sinYawOver2 * sinPitchOver2 * cosRollOver2;
-        //result[Z] = cosYawOver2 * sinPitchOver2 * cosRollOver2 + sinYawOver2 * cosPitchOver2 * sinRollOver2;
-        //result[W] = sinYawOver2 * cosPitchOver2 * cosRollOver2 - cosYawOver2 * sinPitchOver2 * sinRollOver2;
-        //return result;
-
+	//	var yaw = -euler[X];
+	//var pitch = -euler[Y];
+	//var roll = euler[Z];
+	//var rollOver2 = roll * 0.5;
+	//var sinRollOver2 = dsin(rollOver2);
+	//var cosRollOver2 = dcos(rollOver2);
+	//var pitchOver2 = pitch * 0.5;
+	//var sinPitchOver2 = dsin(pitchOver2);
+	//var cosPitchOver2 = dcos(pitchOver2);
+	//var yawOver2 = yaw * 0.5;
+	//var sinYawOver2 = dsin(yawOver2);
+	//var cosYawOver2 = dcos(yawOver2);
+	//var result;
+	//result[X] = cosYawOver2 * cosPitchOver2 * cosRollOver2 + sinYawOver2 * sinPitchOver2 * sinRollOver2;
+	//result[Y] = cosYawOver2 * cosPitchOver2 * sinRollOver2 - sinYawOver2 * sinPitchOver2 * cosRollOver2;
+	//result[Z] = cosYawOver2 * sinPitchOver2 * cosRollOver2 + sinYawOver2 * cosPitchOver2 * sinRollOver2;
+	//result[W] = sinYawOver2 * cosPitchOver2 * cosRollOver2 - cosYawOver2 * sinPitchOver2 * sinRollOver2;
+	//return result;
+	
 	var q, c1, c2, c3, s1, s2, s3;
 	q = vec4(0.0);
 	
@@ -100,23 +100,23 @@ function quat_euler(euler)
 
 function QuatInvert(_quat)
 {
-    return vec4_mul([-_quat[0], -_quat[1], -_quat[2], _quat[3]], 1/(_quat[0]*_quat[0]+_quat[1]*_quat[1]+_quat[2]*_quat[2]+_quat[3]*_quat[3]));
+	return vec4_mul([-_quat[0], -_quat[1], -_quat[2], _quat[3]], 1/(_quat[0]*_quat[0]+_quat[1]*_quat[1]+_quat[2]*_quat[2]+_quat[3]*_quat[3]));
 }
 
 function quat_mul(_a, _b)
 {
-    var _ax = _a[0];
-    var _ay = _a[1];
-    var _az = _a[2];
-    var _aw = _a[3];
-    
-    var _bx = _b[0];
-    var _by = _b[1];
-    var _bz = _b[2];
-    var _bw = _b[3];
-    
-    return [    _aw * _bx + _ax * _bw + _ay * _bz - _az * _by,
-                _aw * _by + _ay * _bw + _az * _bx - _ax * _bz,
-                _aw * _bz + _az * _bw + _ax * _by - _ay * _bx,
-                _aw * _bw - _ax * _bx - _ay * _by - _az * _bz];
+	var _ax = _a[0];
+	var _ay = _a[1];
+	var _az = _a[2];
+	var _aw = _a[3];
+	
+	var _bx = _b[0];
+	var _by = _b[1];
+	var _bz = _b[2];
+	var _bw = _b[3];
+	
+	return [_aw * _bx + _ax * _bw + _ay * _bz - _az * _by,
+			_aw * _by + _ay * _bw + _az * _bx - _ax * _bz,
+			_aw * _bz + _az * _bw + _ax * _by - _ay * _bx,
+			_aw * _bw - _ax * _bx - _ay * _by - _az * _bz];
 }

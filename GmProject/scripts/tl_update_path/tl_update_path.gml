@@ -37,7 +37,7 @@ function tl_update_path()
 				var target = tl.value[e_value.POS_TARGET];
 				var mat = matrix_multiply(target.matrix, matrix_inverse(tl.matrix_parent))
 				pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] + tl.value[e_value.POS_X],(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] + tl.value[e_value.POS_Y], (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] + tl.value[e_value.POS_Z])
-		    }
+			}
 			
 			ds_list_add(path_points_list, [pos[X], pos[Y], pos[Z], tl.value[e_value.PATH_POINT_ANGLE], tl.value[e_value.PATH_POINT_SCALE], 0, 0, 0, 0, 0, 0])
 		}

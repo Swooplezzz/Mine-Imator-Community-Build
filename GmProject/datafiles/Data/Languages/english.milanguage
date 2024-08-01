@@ -149,9 +149,9 @@
 		"group/": {
 			"copy": "Copy all values",
 			"paste": "Paste all values",
-			"inverse": "Set inverse",
 			"reset": "Reset all values",
-			"copyglobalposition": "Copy global position"
+			"copyglobalposition": "Copy global position",
+			"inverse": "Set inverse"
 		},
 		"tl/": {
 			"addfolder": "Add folder",
@@ -703,9 +703,9 @@
 		"notnow": "Not now"
 	},
 	"modelbench/": {
-		"caption": "Try out Modelbench!",
-		"info": "Create custom models for your projects with Modelbench, the free and easy to use modeling tool for Mine-imator!",
-		"download": "Get Modelbench",
+		"caption": "Try out Modelbench Community Build!",
+		"info": "Create custom models for your projects with Modelbench CB, the free and easy to use modeling tool for Mine-imator CB!",
+		"download": "Get Modelbench CB",
 		"notnow": "Not now",
 		"dontshow": "Don't show again"
 	},
@@ -2620,12 +2620,6 @@
 			"level": "Texture filtering level",
 			"transparentblocks": "Transparent block texture filtering"
 		},
-		"openimagedenoise": "Open image denoising",
-		"openimagedenoisetip": "Remove noise from rendered frames.",
-		"openimagedenoise/": {
-			"usediffuse": "Use diffuse",
-			"usenormals": "Use normals"
-		},
 		"aa": "Anti-aliasing",
 		"aatip": "Smoothen the edges of objects in the final render.",
 		"aapower": "Strength",
@@ -3311,7 +3305,6 @@
 		"lockbendback": "Back half",
 		"lockbendlower": "Lower half",
 		"lockbendupper": "Upper half",
-		"lightgroup": "Light group",
 		"inherit": "Inherit",
 		"inherit/": {
 			"transform": "TRANSFORM",
@@ -3352,6 +3345,7 @@
 		"hqhiding": "HQ hiding",
 		"lqhiding": "LQ hiding",
 		"foliagetint": "Foliage tint",
+		"lightgroup": "Light group",
 		"blendmode": "Blend mode",
 		"blendmode/": {
 			"normal": "Normal",

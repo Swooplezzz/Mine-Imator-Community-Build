@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_tl_frame_copy_rot_x",
+  "name": "action_tl_frame_copy_rot_offset",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

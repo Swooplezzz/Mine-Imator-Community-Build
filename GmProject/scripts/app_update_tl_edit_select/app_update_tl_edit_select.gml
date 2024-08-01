@@ -113,7 +113,7 @@ function app_update_tl_edit_select()
 		if (value_type[e_value_type.LIGHT])
 		{
 			app.frame_editor.light.enabled = true
-		    app.timeline_editor.light.enabled = true
+			app.timeline_editor.light.enabled = true
 		}
 		
 		if (value_type[e_value_type.SPOTLIGHT])

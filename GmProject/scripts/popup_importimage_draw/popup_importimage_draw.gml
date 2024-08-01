@@ -17,7 +17,8 @@ function popup_importimage_draw()
 	previewx = boxx + ((boxsize / 2) - (previewwid / 2))
 	previewy = boxy + ((boxsize / 2) - (previewhei / 2))
 	
-	draw_box(boxx, boxy, boxsize, boxsize, false, c_level_bottom, 1)
+	draw_box(boxx, boxy, boxsize, boxsize, false, c_level_middle, 1)
+	draw_box(previewx, previewy, previewwid, previewhei, false, c_level_bottom, 1)
 	draw_texture(popup.texture, previewx, previewy, 1 / scale, 1 / scale)
 	
 	if (popup.type = e_res_type.ITEM_SHEET && popup.is_sheet)
@@ -93,10 +94,10 @@ function popup_importimage_draw()
 	{
 		if (popup.type = e_res_type.ITEM_SHEET)
 		{
-		    if (popup.value_script != null)
-			    script_execute(popup.value_script, e_option.IMPORT_ITEM_SHEET_DONE)
-		    else
-			    action_res_image_load(popup.filename, e_res_type.ITEM_SHEET)
+			if (popup.value_script != null)
+				script_execute(popup.value_script, e_option.IMPORT_ITEM_SHEET_DONE)
+			else
+				action_res_image_load(popup.filename, e_res_type.ITEM_SHEET)
 		}
 		else
 		{

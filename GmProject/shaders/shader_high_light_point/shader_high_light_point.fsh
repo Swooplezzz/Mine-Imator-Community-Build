@@ -109,7 +109,7 @@ vec2 getShadowMapCoord(vec3 look)
 	v = vec3(u.y * look.z - look.y * u.z, u.z * look.x - look.z * u.x, u.x * look.y - look.x * u.y);
 	
 	// Convert
-	toPoint /= dot(toPoint,look);
+	toPoint /= dot(toPoint, look);
 	coord.x = (dot(toPoint, v) / (tFOV * tFOV) + 1.0) * 0.5;
 	coord.y = (1.0 - dot(toPoint, u) / (tFOV * tFOV)) * 0.5;
 	

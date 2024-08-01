@@ -15,9 +15,9 @@ function render_world_ground()
 	
 	// Lightlinking figuring it out !!
 	if (render_light_group != null &&
-	        (render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
-	        render_mode = e_render_mode.HIGH_LIGHT_POINT||
-	        render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS))
+			(render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+			render_mode = e_render_mode.HIGH_LIGHT_POINT||
+			render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS))
 		render_set_uniform("uRenderLight", 0)
 	else
 		render_set_uniform("uRenderLight", 1)

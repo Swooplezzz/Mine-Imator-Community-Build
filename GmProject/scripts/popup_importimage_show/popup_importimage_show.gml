@@ -8,7 +8,7 @@ function popup_importimage_show(fn, script = null)
 		if (texture != null)
 			texture_free(texture)
 		
-	    filename = filenames[|0];
+		filename = filenames[|0];
 		value_script = script
 		
 		texture = texture_create(filename)

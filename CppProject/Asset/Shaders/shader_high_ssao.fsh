@@ -68,7 +68,7 @@ void main()
 		discard;
 	
 	// Get view space origin
-	float originDepth = unpackValue(texture2D(uDepthBuffer,vTexCoord));
+	float originDepth = unpackValue(texture2D(uDepthBuffer, vTexCoord));
 	vec3 origin = posFromBuffer(vTexCoord, originDepth);
 	
 	// Get scaled radius

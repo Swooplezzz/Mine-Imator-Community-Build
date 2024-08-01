@@ -548,8 +548,11 @@ function app_startup_interface_tabs()
 			
 			// Look at
 			tbx_look_at_offset_x = new_textbox_ndecimals()
+			tbx_look_at_offset_x.suffix = "°"
 			tbx_look_at_offset_y = new_textbox_ndecimals()
+			tbx_look_at_offset_y.suffix = "°"
 			tbx_look_at_offset_z = new_textbox_ndecimals()
+			tbx_look_at_offset_z.suffix = "°"
 			tbx_look_at_blend = new_textbox_integer()
 			tbx_look_at_blend.suffix = "%"
 			

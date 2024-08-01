@@ -86,21 +86,21 @@ function history_restore_part_usage_tl(hobj)
 			tl.keyframe_list[|kfindex].value[e_value.LOOK_AT_TARGET] = save_id_find(usage_kf_look_at_target_tl_part_save_id[i])
 		}
 		
-	    for (var i = 0; i < usage_kf_copy_pos_target_amount; i++)
+		for (var i = 0; i < usage_kf_copy_pos_target_amount; i++)
 		{
 			tl = save_id_find(usage_kf_copy_pos_target_tl_save_id[i])
 			kfindex = usage_kf_copy_pos_target_index[i]
 			tl.keyframe_list[|kfindex].value[e_value.POS_TARGET] = save_id_find(usage_kf_copy_pos_target_tl_part_save_id[i])
 		}
 		
-	    for (var i = 0; i < usage_kf_copy_scale_target_amount; i++)
+		for (var i = 0; i < usage_kf_copy_scale_target_amount; i++)
 		{
 			tl = save_id_find(usage_kf_copy_scale_target_tl_save_id[i])
 			kfindex = usage_kf_copy_scale_target_index[i]
 			tl.keyframe_list[|kfindex].value[e_value.SCALE_TARGET] = save_id_find(usage_kf_copy_scale_target_tl_part_save_id[i])
 		}
 		
-	    for (var i = 0; i < usage_kf_bnd_ik_target_amount; i++)
+		for (var i = 0; i < usage_kf_bnd_ik_target_amount; i++)
 		{
 			tl = save_id_find(usage_kf_bnd_ik_target_tl_save_id[i])
 			kfindex = usage_kf_bnd_ik_target_index[i]

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_tl_frame_look_at_offset_y",
+  "name": "action_tl_frame_look_at_offset",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

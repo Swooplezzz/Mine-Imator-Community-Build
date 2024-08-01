@@ -104,7 +104,7 @@ function history_save_tl(tl)
 				save.usage_tl_look_at_target_amount++
 			}
 			
-		    if (value[e_value.POS_TARGET] = tl)
+			if (value[e_value.POS_TARGET] = tl)
 			{
 				save.usage_tl_copy_pos_target_save_id[save.usage_tl_copy_pos_target_amount] = save_id
 				save.usage_tl_copy_pos_target_amount++

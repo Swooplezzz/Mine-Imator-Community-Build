@@ -60,7 +60,7 @@ function app_startup_interface_popups()
 		texture = null
 		type = e_res_type.SKIN
 		value_script = null
-	    is_sheet = true
+		is_sheet = true
 		sheet_size = vec2(16, 16)
 		sheet_size_def = sheet_size
 		tbx_sheet_width = new_textbox_integer()

@@ -62,7 +62,7 @@ function app_startup_interface()
 		}
 		else
 		{
-		    project_reset()
+			project_reset()
 		
 			// First start
 			if (!file_exists_lib(settings_file))

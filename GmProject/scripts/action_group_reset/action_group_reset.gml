@@ -41,21 +41,21 @@ function action_group_reset()
 		
 		case e_context_group.COPYROT:
 		{
-		    def = [0, 0, 0]
+			def = [0, 0, 0]
 			action_tl_frame_copy_rot_xyz(def)
 			return;
 		}
 		
 		case e_context_group.COPYPOS:
 		{
-		    def = [0, 0, 0]
+			def = [0, 0, 0]
 			action_tl_frame_copy_pos_xyz(def)
 			return;
 		}
 		
 		case e_context_group.LOOKAT:
 		{
-		    def = [0, 0, 0]
+			def = [0, 0, 0]
 			action_tl_frame_look_at_xyz(def)
 			return;
 		}

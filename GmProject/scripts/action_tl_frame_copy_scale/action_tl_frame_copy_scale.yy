@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "action_tl_frame_copy_scale_x",
+  "name": "action_tl_frame_copy_scale",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
