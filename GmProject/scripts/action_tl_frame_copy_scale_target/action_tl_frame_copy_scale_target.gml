@@ -3,7 +3,6 @@
 
 function action_tl_frame_copy_scale_target(target)
 {
-	if(target = tl_edit) return;
 	tl_value_set_start(action_tl_frame_copy_scale_target, false)
 	tl_value_set(e_value.SCALE_TARGET, target, false)
 	tl_value_set_done()

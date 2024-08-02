@@ -3,14 +3,13 @@
 
 function action_tl_frame_copy_pos_target(target)
 {
-	if(target = tl_edit) return;
-	var is_new_target = (target = tl_edit.value[e_value.POS_TARGET] && tl_edit.value[e_value.POS_TARGET] != null);
 	tl_value_set_start(action_tl_frame_copy_pos_target, true)
 	tl_value_set(e_value.POS_TARGET, target, false)
 	
 	//Equivalent to setting the inverse in blender
 	if (target != null)
 	{
+		var is_new_target = (target = tl_edit.value[e_value.POS_TARGET] && tl_edit.value[e_value.POS_TARGET] != null);
 		var unconstrainted_mat = matrix_multiply(matrix_create(point3D(tl_edit.value[e_value.POS_X], tl_edit.value[e_value.POS_Y], tl_edit.value[e_value.POS_Z]), vec3(0), vec3(1)), tl_edit.matrix_parent)
 		
 		if (is_new_target)

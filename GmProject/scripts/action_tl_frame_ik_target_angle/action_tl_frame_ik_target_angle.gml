@@ -3,7 +3,6 @@
 
 function action_tl_frame_ik_target_angle(target)
 {
-	if(target = tl_edit) return;
 	tl_value_set_start(action_tl_frame_ik_target_angle, false)
 	tl_value_set(e_value.IK_TARGET_ANGLE, target, false)
 	tl_value_set_done()

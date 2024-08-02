@@ -135,6 +135,7 @@ function model_file_load_shape(map, res)
 		
 		// Mirror (optional)
 		texture_mirror = value_get_real(map[?"texture_mirror"], false)
+		texture_mirror_y = value_get_real(map[?"texture_mirror_y"], false)
 		
 		// Invert (optional)
 		invert = value_get_real(map[?"invert"], false)

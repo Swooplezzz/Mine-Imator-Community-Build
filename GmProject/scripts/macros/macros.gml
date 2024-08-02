@@ -5,7 +5,7 @@ function macros()
 {
 	// Debug
 	#macro dev_mode						true
-	#macro dev_mode_skip_blocks			dev_mode && true
+	#macro dev_mode_skip_blocks			dev_mode && false
 	#macro dev_mode_debug_schematics	dev_mode && true
 	#macro dev_mode_debug_names			dev_mode && true
 	#macro dev_mode_debug_saveid		dev_mode && true
@@ -28,7 +28,7 @@ function macros()
 	#macro gm_runtime					GM_runtime_version
 	
 	// File formats
-	#macro project_format				e_project.FORMAT_CB2_100
+	#macro project_format				e_project.FORMAT_CTB_106
 	#macro settings_format				e_settings.FORMAT_200
 	#macro minecraft_assets_format		e_minecraft_assets.FORMAT_201
 	

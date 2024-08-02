@@ -60,10 +60,10 @@ function tab_frame_editor_copy_rot()
 			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw/6), dy + 24, c_axisred, tl_edit.value[e_value.COPY_ROT_OFFSET_X], -no_limit, no_limit, def[X], snapval, tab.constraints.tbx_copy_rot_offset_x, action_tl_frame_copy_rot_offset)
 	
 			axis_edit = (setting_z_is_up ? Y : Z)
-			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw/2), dy + 24, c_axisgreen, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_y, action_tl_frame_copy_rot_offset)
+			draw_wheel("frameeditorcopyrotyoffsetwheel", floor(dx + dw/2), dy + 24, c_axisgreen, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_y, action_tl_frame_copy_rot_offset)
 	
 			axis_edit = (setting_z_is_up ? Z : Y)
-			draw_wheel("frameeditorcopyrotxoffsetwheel", floor(dx + dw - dw/6), dy + 24, c_axisblue, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_z, action_tl_frame_copy_rot_offset)
+			draw_wheel("frameeditorcopyrotzoffsetwheel", floor(dx + dw - dw/6), dy + 24, c_axisblue, tl_edit.value[e_value.COPY_ROT_OFFSET_X + axis_edit], -no_limit, no_limit, def[X + axis_edit], snapval, tab.constraints.tbx_copy_rot_offset_z, action_tl_frame_copy_rot_offset)
 			tab_next()
 		}
 		
