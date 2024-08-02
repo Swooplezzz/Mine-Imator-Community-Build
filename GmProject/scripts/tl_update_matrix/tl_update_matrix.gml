@@ -367,6 +367,13 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			// Inherit
 			lasttex = value_inherit[e_value.TEXTURE_OBJ]
 			ikblend = value[e_value.IK_BLEND] * hasik
+			var parhasik = false
+			var parikblend = false
+			if(parent != app){
+			parhasik = (array_length(parent.part_joints_matrix) > 0 && parent.value[e_value.IK_TARGET] != null)
+			parikblend = parent.value[e_value.IK_BLEND] * parhasik
+			}
+			
 			value_inherit[e_value.ALPHA] = value[e_value.ALPHA] // Multiplied
 			value_inherit[e_value.RGB_ADD] = value[e_value.RGB_ADD] // Added
 			value_inherit[e_value.RGB_SUB] = value[e_value.RGB_SUB] // Added
@@ -443,11 +450,15 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			for (var j = X; j <= Z; j++)
 				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j]
 			
+
+			
 			while (true)
 			{
 				par = tl.parent;
 				if (par = app)
 					break
+				
+
 				
 				if (!tl.inherit_alpha)
 					inhalpha = false
@@ -530,10 +541,14 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				
 				if (inhbend)
 				{
+									// Add bend angle from IK
+			        if (parhasik)
+			        	value_inherit[e_value.BEND_ANGLE_X] += par.part_joint_bend_angle * parikblend
+					else{
 					value_inherit[e_value.BEND_ANGLE_X] += par.value[e_value.BEND_ANGLE_X]
 					value_inherit[e_value.BEND_ANGLE_Y] += par.value[e_value.BEND_ANGLE_Y]
 					value_inherit[e_value.BEND_ANGLE_Z] += par.value[e_value.BEND_ANGLE_Z]
-					
+					}
 					if (par.value[e_value.BEND_IK_TARGET] != null)
 					{
 						value_inherit[e_value.BEND_ANGLE_X] += par.value_inherit[e_value.BEND_ANGLE_X]
@@ -549,7 +564,10 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				
 				tl = par
 			}
-			
+			// Add bend angle from IK
+			if (hasik)
+				value_inherit[e_value.BEND_ANGLE_X] += part_joint_bend_angle * ikblend
+				
 			colors_ext = (value_inherit[e_value.ALPHA] < 1 ||
 						  value_inherit[e_value.RGB_ADD] - value_inherit[e_value.RGB_SUB] != c_black ||
 						  value_inherit[e_value.HSB_ADD] - value_inherit[e_value.HSB_SUB] != c_black ||
@@ -557,9 +575,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 						  value_inherit[e_value.MIX_PERCENT] > 0 ||
 						  part_mixing_shapes)
 			
-			// Add bend angle from IK
-			if (hasik)
-				value_inherit[e_value.BEND_ANGLE_X] += part_joint_bend_angle * ikblend
+
 			
 			if ((value_inherit[e_value.ALPHA] * 1000) != 0)
 			{
@@ -602,7 +618,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 	
 	update_matrix = false
 	
-	if (updateik)
+	if (updateik || !updateik && updatecopy)
 	{
 		if (app.project_ik_part_array = null)
 		{
