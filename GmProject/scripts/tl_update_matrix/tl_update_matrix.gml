@@ -236,6 +236,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
 					var par = value[e_value.ROT_TARGET];
 					var mat = array_copy_1d(matrix)
+					matrix_remove_scale(target_rot_mat)
+					matrix_remove_scale(mat)
 					//BENT Half
 					if (par.type = e_tl_type.BODYPART && value[e_value.COPY_ROT_BEND] && par.model_part != null && par.model_part.bend_part != null)
 					{
@@ -253,8 +255,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : 0)
 					target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : 0)
 					
-					matrix_remove_scale(target_rot_mat)
-					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat), target_rotation, value[e_value.COPY_ROT_BLEND]), vec3(1)), matrix)
+		
+					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat),target_rotation, value[e_value.COPY_ROT_BLEND]), vec3(1)),matrix);
+
 				}
 				
 				if (value[e_value.POS_TARGET] != null)
