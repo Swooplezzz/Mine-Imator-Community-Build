@@ -57,90 +57,127 @@ function popup_about_draw()
 			popup_upgrade.page = 0
 		}
 	}
-	else
-	{
-		if (draw_button_label("aboutdonate", content_x + content_width - 13, content_y + content_height - (12 + 32), null, icons.DONATE, e_button.PRIMARY, null, fa_right))
-			open_url(link_donate)
-	}
+	//else
+	//{
+	//	if (draw_button_label("aboutdonate", content_x + content_width - 13, content_y + content_height - (12 + 32), null, icons.DONATE, e_button.PRIMARY, null, fa_right))
+	//		open_url(link_donate)
+	//}
 	
 	dx = content_x + 64
 	dy += 128 + 48
 	
-	// Development
-	dy += 12
-	draw_label(text_get("aboutdevelopment"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
-	dy += 26
-	draw_button_text("David", dx, dy, popup_open_url, link_david, link_david, font_label)
-	dy += 19
-	draw_label("Nimi", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	dy += 19
-	draw_label("Marvin", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	dy += 19
-	draw_label("mbanders", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	
 	// Mod development
-	dy += 34
+	dy += 12
 	draw_label(text_get("aboutmoddevelopment"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	dy += 26
 	draw_label("Swooplezz", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	dy += 19
 	draw_label("mbanders", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	dy += 19
-	draw_label("SoundsDotZip", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	dy += 19
-	draw_label("Elkav", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
-	
-	dx += 130 + 24
-	dy = content_y + 176
 	
 	// Created by
-	dy += 12
-	draw_label(text_get("aboutcreatedby"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
+	dy += 34
+	draw_label(text_get("aboutmineimatorcreator"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	dy += 26
 	draw_button_text("David Andrei", dx, dy, popup_open_url, link_david, link_david, font_label)
 	
-	dx += 130 + 24
-	dy = content_y + 176
-	
 	// UI/Branding
-	dy += 12
+	dy += 34
 	draw_label(text_get("aboutuibranding"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	dy += 26
 	draw_label("Voxy", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 	
-	dx -= 130 + 24
-	dy += 34
+	dx += 130 + 24
+	dy = content_y + 176
+	//dx -= 130 + 24
+	//dy += 34
 	
 	// Beta testing
+	dy += 12
 	draw_label(text_get("aboutbetatesting"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	dy += 26
 	
-	var list = [
-		"9redwoods",
+	var btlist = [
+		"03Aaron",
+		"AhmedAAK",
 		"Alpha Toostrr",
-		"AnxiousCynic",
+		"AnimaCryses",
+		"beenabun",
+		"BeinBian",
+		"Binky214",
+		"BNMBrandonMI",
 		"Cade [CaZaKoJa]",
-		"Hozq",
+		"Charlojane1",
+		"Chrisation",
+		"DarthLilo",
+		"Elkav",
+		"ExoticBuilder",
+		"FrostyIzHere",
+		"IamPahealCringe",
+		"JacksieBoi",
 		"Jnick",
 		"Jossamations",
-		"KeepOnChucking",
+		"KaylaGT3R",
+		"KJMineImator",
+		"Mello",
+		"myradoesstuff",
+		"Nugcon",
 		"Rollo",
-		"SKIBBZ",
-		"UpgradedMoon",
-		"Vash",
+		"ScarletCassette",
+		"SoundsDotZip",
+		"StarWeevil",
+		"Supah.exe",
+		"TahoeBeatz",
+		"Thaliaphobia",
+		"TME",
 		"__Mine__"
 	]
 	
-	for (var i = 0; i < array_length(list); i++)
+	for (var i = 0; i < array_length(btlist); i++)
 	{
-		draw_label(list[i], dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
+		draw_label(btlist[i], dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
 		
-		if (i % 2 = 1)
+		if (i % 3 = 2)
 		{
-			dx -= 130 + 24
+			dx -= (130 + 24) * 2
 			dy += 19
 		}
 		else
 			dx += 130 + 24
 	}
+	
+	//dx += 130 + 24
+	//dy = content_y + 176
+	
+	// Beta testing
+	dy += 12
+	draw_label(text_get("aboutspecialthanks"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
+	dy += 26
+	
+	var stlist = [
+		"9redwoods",
+		"AnxiousCynic",
+		"David",
+		"Hozq",
+		"KeepOnChucking",
+		"Marvin",
+		"Nimi",
+		"SKIBBZ",
+		"UpgradedMoon",
+		"Vash"
+	]
+	
+	for (var i = 0; i < array_length(stlist); i++)
+	{
+		draw_label(stlist[i], dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
+		
+		if (i % 3 = 2)
+		{
+			dx -= (130 + 24) * 2
+			dy += 19
+		}
+		else
+			dx += 130 + 24
+	}
+	
+	dy += (12 + 32)
 }

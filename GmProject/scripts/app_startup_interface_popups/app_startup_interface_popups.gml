@@ -6,7 +6,7 @@ function app_startup_interface_popups()
 	popup_welcome = new_popup("welcome", popup_welcome_draw, 420, 159, true, false, false, false)
 	
 	// About
-	popup_about = new_popup("about", popup_about_draw, 542, 480, true, true, false, true)
+	popup_about = new_popup("about", popup_about_draw, 696, null, true, true, false, true)
 	
 	// New project
 	popup_newproject = new_popup("newproject", popup_newproject_draw, 380, null, true)
