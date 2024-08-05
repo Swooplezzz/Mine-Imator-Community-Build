@@ -291,12 +291,13 @@ function draw_button_menu()
 		m.menu_value = value
 		m.menu_name = nameid
 		m.menu_include_tl_edit = (m.menu_name != "timelineeditorparent" &&
-								  m.menu_name != "frameeditorcopyrottarget" &&
-								  m.menu_name != "frameeditorcopypostarget" &&
-								  m.menu_name != "frameeditorlookattarget" &&
 								  m.menu_name != "frameeditoriktarget" &&
+								  m.menu_name != "frameeditorikangletarget" &&
 								  m.menu_name != "frameeditorbendiktarget" &&
-								  m.menu_name != "frameeditorikangletarget")
+								  m.menu_name != "frameeditorlookattarget" &&
+								  m.menu_name != "frameeditorcopypostarget" &&
+								  m.menu_name != "frameeditorcopyrottarget" &&
+								  m.menu_name != "frameeditorcopyscaletarget")
 		menu_current = m
 		menu_expose = true
 		
@@ -407,12 +408,13 @@ function draw_button_menu()
 		m.menu_item_w = wid
 		m.menu_item_h = m.menu_button_h
 		m.menu_include_tl_edit = (m.menu_name != "timelineeditorparent" &&
-								  m.menu_name != "frameeditorcopyrottarget" &&
-								  m.menu_name != "frameeditorcopypostarget" &&
-								  m.menu_name != "frameeditorlookattarget" &&
 								  m.menu_name != "frameeditoriktarget" &&
+								  m.menu_name != "frameeditorikangletarget" &&
 								  m.menu_name != "frameeditorbendiktarget" &&
-								  m.menu_name != "frameeditorikangletarget")
+								  m.menu_name != "frameeditorlookattarget" &&
+								  m.menu_name != "frameeditorcopypostarget" &&
+								  m.menu_name != "frameeditorcopyrottarget" &&
+								  m.menu_name != "frameeditorcopyscaletarget")
 		m.menu_margin = 0//8
 		m.menu_transition = null
 		m.menu_steps = 0
