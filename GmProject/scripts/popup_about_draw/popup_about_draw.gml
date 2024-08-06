@@ -97,7 +97,7 @@ function popup_about_draw()
 	dy += 26
 	
 	var btlist = [
-		"03Aaron",
+		"03Aaron_",
 		"AhmedAAK",
 		"Alpha Toostrr",
 		"AnimaCryses",
@@ -106,13 +106,13 @@ function popup_about_draw()
 		"Binky214",
 		"BNMBrandonMI",
 		"Cade [CaZaKoJa]",
-		"Charlojane1",
+		"CharloJane",
 		"Chrisation",
 		"DarthLilo",
 		"Elkav",
 		"ExoticBuilder",
 		"FrostyIzHere",
-		"IamPahealCringe",
+		"Hexical Brine",
 		"JacksieBoi",
 		"Jnick",
 		"Jossamations",

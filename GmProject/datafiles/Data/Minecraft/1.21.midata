@@ -1065,7 +1065,7 @@
 					{ "value": "migrator", "texture": "entity/mineimator/cape_migrator" },
 					{ "value": "vanilla", "texture": "entity/mineimator/cape_vanilla" },
 					{ "value": "cherryblossom", "texture": "entity/mineimator/cape_cherryblossom" },
-					{ "value": "15thanniversary", "texture": "entity/mineimator/cape15th_anniversary" },
+					{ "value": "15thanniversary", "texture": "entity/mineimator/cape_15thanniversary" },
 					{ "value": "minecon_2011", "texture": "entity/mineimator/cape_minecon2011" },
 					{ "value": "minecon_2012", "texture": "entity/mineimator/cape_minecon2012" },
 					{ "value": "minecon_2013", "texture": "entity/mineimator/cape_minecon2013" },
