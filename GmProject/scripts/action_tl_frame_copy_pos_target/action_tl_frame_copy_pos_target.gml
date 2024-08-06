@@ -30,7 +30,7 @@ function action_tl_frame_copy_pos_target(target)
 		
 		var pos = matrix_multiply(matrix_create(world_pos, vec3(0), vec3(1)), matrix_inverse(mat))
 		for (i = X; i <= Z; i++)
-			tl_value_set(e_value.COPY_POS_OFFSET_X + i, pos[MAT_X + i] - world_pos[i], false)
+			tl_value_set(e_value.COPY_POS_OFFSET_X + i, pos[MAT_X + i] - tl_edit.value[e_value.POS_X + i], false)
 	}
 	
 	tl_value_set_done()

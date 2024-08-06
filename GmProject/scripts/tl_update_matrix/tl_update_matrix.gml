@@ -620,7 +620,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 	
 	update_matrix = false
 	
-	if (updateik )
+	if (updateik || updatecopy)
 	{
 		if (app.project_ik_part_array = null)
 		{
@@ -640,7 +640,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_inherit_pose_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, true, true, false)
+			tl_update_matrix(false, false, true, false)
 		
 		app.project_inherit_pose_array = []
 	}
@@ -652,7 +652,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_copy_obj_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, true, false, true)
+			tl_update_matrix(false, false, false, true)
 		
 		app.project_copy_obj_array = []
 	}
