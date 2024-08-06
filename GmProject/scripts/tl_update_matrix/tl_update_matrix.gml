@@ -651,7 +651,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_copy_obj_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, false, false, true)
+			tl_update_matrix(false, true, false, true)
 		
 		app.project_copy_obj_array = []
 	}
