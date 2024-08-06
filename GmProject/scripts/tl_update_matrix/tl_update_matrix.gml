@@ -307,14 +307,15 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				{
 					var mat = array_copy_1d(matrix);
 					var mat2 = matrix_create(vec3(0), vec3(0), vec3(1));
-		
+					matrix_remove_scale(mat)
+					matrix_remove_scale(mat2)
 					var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
 					
-					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position);
+					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position, 1);
 					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X], value[e_value.LOOK_AT_OFFSET_Y], value[e_value.LOOK_AT_OFFSET_Z])
 					
-					mat2 = matrix_multiply(matrix_create(vec3(0), point_lerp(vec3(0), angle, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
-					mat2 = matrix_multiply(matrix_create(vec3(0), point_lerp(vec3(0), angle2, value[e_value.LOOK_AT_BLEND]), vec3(1)), mat2);
+					mat2 = matrix_multiply(matrix_create(vec3(0),angle, vec3(1)), mat2);
+					mat2 = matrix_multiply(matrix_create(vec3(0),angle2, vec3(1)), mat2);
 					
 					matrix_remove_rotation(matrix);
 					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat), matrix_rotation(mat2), value[e_value.LOOK_AT_BLEND]), vec3(1)), matrix)
@@ -619,7 +620,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 	
 	update_matrix = false
 	
-	if (updateik)
+	if (updateik )
 	{
 		if (app.project_ik_part_array = null)
 		{
@@ -639,7 +640,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_inherit_pose_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, false, true, false)
+			tl_update_matrix(false, true, true, false)
 		
 		app.project_inherit_pose_array = []
 	}
