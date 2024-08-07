@@ -311,7 +311,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 					matrix_remove_scale(mat2)
 					var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
 					
-					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position, 1);
+					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position);
 					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X], value[e_value.LOOK_AT_OFFSET_Y], value[e_value.LOOK_AT_OFFSET_Z])
 					
 					mat2 = matrix_multiply(matrix_create(vec3(0),angle, vec3(1)), mat2);
@@ -620,13 +620,13 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 	
 	update_matrix = false
 	
-	if (updateik || updatecopy)
+	if (updateik)
 	{
 		if (app.project_ik_part_array = null)
 		{
 			app.project_ik_part_array = []
 			with (obj_timeline)
-				if (tl_supports_ik())
+				if (tl_supports_ik() && value[e_value.IK_TARGET] != null)
 					array_add(app.project_ik_part_array, id)
 		}
 		
@@ -652,7 +652,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			app.project_copy_obj_array[i].update_matrix = true
 		
 		with (app)
-			tl_update_matrix(false, false, false, true)
+			tl_update_matrix(false, true, false, true)
 		
 		app.project_copy_obj_array = []
 	}
