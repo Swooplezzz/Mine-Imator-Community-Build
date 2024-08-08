@@ -21,7 +21,7 @@ function tl_update_ik(parts)
 				if (update_matrix)
 				{
 					update = true
-					tl_update_matrix(false, false)
+					tl_update_matrix(false, false, false, true)
 				}
 			}
 		}

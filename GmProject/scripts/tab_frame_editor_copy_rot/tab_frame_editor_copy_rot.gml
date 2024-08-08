@@ -39,7 +39,7 @@ function tab_frame_editor_copy_rot()
 		tab_next()
 		
 		tab_control_checkbox()
-		draw_checkbox("frameeditorcopyrotbend", dx, dy, tl_edit.value[e_value.COPY_ROT_BEND], action_tl_frame_copy_pos_bend)
+		draw_checkbox("frameeditorcopyrotbend", dx, dy, tl_edit.value[e_value.COPY_ROT_BEND], action_tl_frame_copy_rot_bend)
 		tab_next()
 		
 		microani_set("tabcopyrotation", null, false, false, false)

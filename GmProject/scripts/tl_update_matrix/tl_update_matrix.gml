@@ -47,12 +47,12 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			curtl.update_matrix = false
 			continue
 		}
-		// Delay timeline update if we copy position
-		if (updateik && !updatecopy && (array_length(app.project_copy_obj_array) > 0) && array_contains(app.project_copy_obj_array, curtl))
-		{
-			curtl.update_matrix = false
-			continue
-		}
+		//// Delay timeline update if we copy position
+		//if (updateik && !updatecopy && (array_length(app.project_copy_obj_array) > 0) && array_contains(app.project_copy_obj_array, curtl))
+		//{
+		//	curtl.update_matrix = false
+		//	continue
+		//}
 		
 		if (usepaths && (curtl.type = e_tl_type.PATH || curtl.type = e_tl_type.PATH_POINT))
 		{
@@ -626,7 +626,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		{
 			app.project_ik_part_array = []
 			with (obj_timeline)
-				if (tl_supports_ik() && value[e_value.IK_TARGET] != null)
+				if (tl_supports_ik())
 					array_add(app.project_ik_part_array, id)
 		}
 		
