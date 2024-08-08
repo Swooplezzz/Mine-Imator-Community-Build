@@ -70,9 +70,9 @@ function popup_about_draw()
 	dy += 12
 	draw_label(text_get("aboutmoddevelopment"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_subheading)
 	dy += 26
-	draw_label("Swooplezz", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
+	draw_button_text("Swooplezz", dx, dy, popup_open_url, "https://x.com/@swooplezz", "https://x.com/@swooplezz", font_label)
 	dy += 19
-	draw_label("mbanders", dx, dy, fa_left, fa_bottom, c_text_secondary, a_text_secondary, font_label)
+	draw_button_text("mbanders", dx, dy, popup_open_url, "https://x.com/@mbandersmc", "https://x.com/@mbandersmc", font_label)
 	
 	// Created by
 	dy += 34
