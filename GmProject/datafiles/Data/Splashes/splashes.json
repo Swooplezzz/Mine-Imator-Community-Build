@@ -1,68 +1,48 @@
 {
     "splashes": [
         {
-            "file": "Thankyounimi.png",
-            "credits": "Swooplezz"
-        },
-        {
-            "file": "Chicken_Champion.png",
-            "credits": "9redwoods"
-        },
-        {
-            "file": "Goodbye_Nimi__David_High.png",
-            "credits": "Em_Z"
-        },
-        {
-            "file": "To_infinity_and_beyond.png",
-            "credits": "Mi_Bits"
-        },
-        {
-            "file": "MI_Splash.png",
+            "file": "DontMineAtNight.png",
             "credits": "BNMBrandonMI"
         },
         {
-            "file": "Steve_Wallpaper.png",
-            "credits": "JaystepherMLG"
-        },
-        {
-            "file": "Village_Landscape.png",
-            "credits": "FrostyIzHere"
-        },
-        {
-            "file": "hween.png",
-            "credits": "David & mbanders"
-        },
-        {
-            "file": "dangerous_temple.png",
+            "file": "Oh no.png",
             "credits": "Jossamations"
         },
         {
-            "file": "dolphins_grace.png",
-            "credits": "Jossamations"
+            "file": "WayDownWeGo.png",
+            "credits": "Mielky"
+        },       
+        {
+            "file": "MinecraftFreeNoVirus.png",
+            "credits": "Melloz"
         },
         {
-            "file": "duality_of_noob.png",
-            "credits": "Jossamations"
+            "file": "Cat.png",
+            "credits": "StarWeevil"
         },
         {
-            "file": "pillage_and_destroy.png",
-            "credits": "Jossamations"
+            "file": "MINECRAFT!!.png",
+            "credits": "EM Z"
         },
         {
-            "file": "stealthy_ocelot.png",
-            "credits": "Jossamations"
+            "file": "MINECRAFT!!.png",
+            "credits": "EM Z"
         },
         {
-            "file": "forest.png",
-            "credits": "KeepOnChucking"
+            "file": "Diamonds.png",
+            "credits": "EM Z"
         },
         {
-            "file": "rain.png",
-            "credits": "KeepOnChucking"
+            "file": "Thank you nimi Splash.png",
+            "credits": "Swooplezz"
         },
         {
-            "file": "desert.png",
-            "credits": "Nimi"
+            "file": "Its the thing.png",
+            "credits": "Nugcon & Swooplezz"
+        },
+        {
+            "file": "Blue_Ocean_Temple.png",
+            "credits": "BeinBian"
         }
     ]
 }

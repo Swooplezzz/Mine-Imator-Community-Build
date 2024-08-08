@@ -305,11 +305,12 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				// THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
 				if (value[e_value.LOOK_AT_TARGET] != null)
 				{
-					var mat = array_copy_1d(matrix);
+ 					var mat = array_copy_1d(matrix);
 					var mat2 = matrix_create(vec3(0), vec3(0), vec3(1));
 					matrix_remove_scale(mat)
 					matrix_remove_scale(mat2)
-					var lookat_position = value[e_value.LOOK_AT_TARGET].world_pos;
+	
+					var lookat_position = vec3(value[e_value.LOOK_AT_TARGET].matrix[MAT_X],value[e_value.LOOK_AT_TARGET].matrix[MAT_Y],value[e_value.LOOK_AT_TARGET].matrix[MAT_Z]);
 					
 					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position);
 					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X], value[e_value.LOOK_AT_OFFSET_Y], value[e_value.LOOK_AT_OFFSET_Z])
