@@ -35,9 +35,8 @@ function tl_update_path()
 			if (tl.value[e_value.POS_TARGET] != null)
 			{
 				
-					if (value[e_value.COPY_POS_CHILD])
+					if (tl.value[e_value.COPY_POS_CHILD])
 					{
-						var pos = vec3(0);
 						
 						pos[X] = tl.value[e_value.POS_X] + tl.value[e_value.COPY_POS_OFFSET_X]
 						pos[Y] = tl.value[e_value.POS_Y] + tl.value[e_value.COPY_POS_OFFSET_Y]
@@ -47,7 +46,7 @@ function tl_update_path()
 						var mat = array_copy_1d(par.matrix);
 						
 						//BENT Half
-						if (par.type = e_tl_type.BODYPART && value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
+						if (par.type = e_tl_type.BODYPART && tl.value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
 						{
 							var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
 							mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
@@ -56,9 +55,9 @@ function tl_update_path()
 						mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
 						
 						mat = matrix_multiply(mat, matrix_inverse(matrix))
-				    	pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* !tl.value[e_value.COPY_POS_X]
-						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* !tl.value[e_value.COPY_POS_Y]
-						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* !tl.value[e_value.COPY_POS_Z]);
+				    	pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X])
+						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y])
+						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z]));
 					
 					}
 					else
@@ -71,9 +70,9 @@ function tl_update_path()
 				        targmat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), targmat);
 				        var mat = matrix_multiply(targmat, matrix_inverse(matrix))
 					
-				    	pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* !tl.value[e_value.COPY_POS_X]
-						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* !tl.value[e_value.COPY_POS_Y]
-						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* !tl.value[e_value.COPY_POS_Z]);
+	                    pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X])
+						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y])
+						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z]));
 					}
 				
 			
