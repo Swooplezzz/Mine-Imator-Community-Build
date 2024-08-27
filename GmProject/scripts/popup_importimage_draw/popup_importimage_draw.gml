@@ -104,7 +104,8 @@ function popup_importimage_draw()
 			if (popup.do_all)
 			{
 				for (var i = 0; i < ds_list_size(popup.filenames); i++)
-					action_res_image_load(popup.filenames[i], popup.type)
+					action_res_image_load(popup.filenames[|i], popup.type)
+				ds_list_clear(popup.filenames)
 			}
 			else
 				action_res_image_load(popup.filename, popup.type)
