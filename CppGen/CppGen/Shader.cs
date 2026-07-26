@@ -31,13 +31,13 @@ namespace CppGen
 			DirectoryInfo dirInfo = new DirectoryInfo(dir);
 			Name = dirInfo.Name;
 
-			FileInfo srcVs = new FileInfo(dir + @"\" + Name + ".vsh");
-			FileInfo srcFs = new FileInfo(dir + @"\" + Name + ".fsh");
+			FileInfo srcVs = new FileInfo(Path.Combine(dir, Name) + ".vsh");
+			FileInfo srcFs = new FileInfo(Path.Combine(dir, Name) + ".fsh");
 			if (!srcVs.Exists || !srcFs.Exists)
 				return;
 
 			// Copy VS
-			FileInfo dstVs = new FileInfo(outputFolder + @"\" + Name + ".vsh");
+			FileInfo dstVs = new FileInfo(Path.Combine(outputFolder, Name) + ".vsh");
 			if (!dstVs.Exists || srcVs.LastWriteTime > dstVs.LastWriteTime)
 			{
 				srcVs.CopyTo(dstVs.FullName, true);
@@ -52,7 +52,7 @@ namespace CppGen
 			}
 
 			// Copy FS
-			FileInfo dstFs = new FileInfo(outputFolder + @"\" + Name + ".fsh");
+			FileInfo dstFs = new FileInfo(Path.Combine(outputFolder, Name) + ".fsh");
 			if (!dstFs.Exists || srcFs.LastWriteTime > dstFs.LastWriteTime)
 			{
 				srcFs.CopyTo(dstFs.FullName, true);

@@ -17,7 +17,7 @@ namespace CppGen
 			DirectoryInfo dirInfo = new DirectoryInfo(dir);
 			Name = dirInfo.Name;
 
-			string json = File.ReadAllText(dir + @"\" + dirInfo.Name + ".yy");
+			string json = File.ReadAllText(Path.Combine(dir, dirInfo.Name) + ".yy");
 			dynamic root = JsonConvert.DeserializeObject(json);
 
 			OriginX = root["sequence"]["xorigin"];
@@ -26,8 +26,8 @@ namespace CppGen
 			foreach (dynamic frameObj in root["frames"])
 			{
 				string frameName = frameObj["name"];
-				FileInfo srcImg = new FileInfo(dir + @"\" + frameName + ".png");
-				FileInfo dstImg = new FileInfo(outputFolder + @"\" + Name + "_frame_" + NumFrames + ".png");
+				FileInfo srcImg = new FileInfo(Path.Combine(dir, frameName) + ".png");
+				FileInfo dstImg = new FileInfo(Path.Combine(outputFolder, Name) + "_frame_" + NumFrames + ".png");
 				if (!dstImg.Exists || srcImg.LastWriteTime > dstImg.LastWriteTime)
 				{
 					srcImg.CopyTo(dstImg.FullName, true);
